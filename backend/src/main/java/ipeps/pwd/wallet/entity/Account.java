@@ -20,9 +20,9 @@ public class Account{
     private String lastname;
 
 
-    @JsonIgnore // JsonIgnore permet de dire que l'on ne veut pas afficher cette propriété au retour
+    @JsonIgnore // empèche l'affichage de la propriété
     @OneToOne
-    @JoinColumn(name = "credential_id_fk", referencedColumnName = "credential_id")
+    @JoinColumn(name = "credential_id_fk", referencedColumnName = "credential_id") // renomme le champ de la propriété
     private Credential credential;
 
     public Account(String firstname, String lastname)

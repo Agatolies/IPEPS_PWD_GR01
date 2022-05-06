@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
 import javax.persistence.*;
 
 // Credential 1,1 --> || 1,1 <-- Account
@@ -13,7 +12,6 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-
 public class Credential{
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE)
@@ -23,9 +21,9 @@ public class Credential{
     private String email;
     private boolean actif;
 
-    @JsonIgnore // JsonIgnore permet de dire que l'on ne veut pas afficher cette propriété au retour
+    @JsonIgnore // empèche l'affichage de la propriété
     @OneToOne
-    @JoinColumn(name = "account_id_fk", referencedColumnName = "account_id")
+    @JoinColumn(name = "account_id_fk", referencedColumnName = "account_id") // renomme le champ de la propriété
     private Account account;
 
     public Credential(String username, String password, String email, boolean actif)
