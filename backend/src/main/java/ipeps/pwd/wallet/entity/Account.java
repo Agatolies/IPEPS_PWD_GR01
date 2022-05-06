@@ -25,9 +25,10 @@ public class Account{
     @JoinColumn(name = "credential_id_fk", referencedColumnName = "credential_id") // renomme le champ de la propriété
     private Credential credential;
 
-    public Account(String firstname, String lastname)
+    public Account(String firstname, String lastname, Credential credential)
     {
         this.firstname = firstname;
         this.lastname = lastname;
+        this.credential = credential;
     }
 }

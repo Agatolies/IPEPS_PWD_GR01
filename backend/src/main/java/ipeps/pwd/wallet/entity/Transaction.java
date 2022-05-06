@@ -3,11 +3,11 @@ package ipeps.pwd.wallet.entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.codehaus.jackson.annotate.JsonIgnore;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+
+// Transaction  0,1 || 0,1  Document
 
 @Data
 @AllArgsConstructor
@@ -20,10 +20,16 @@ public class Transaction {
     private String type;
     private float amount;
 
+    @JsonIgnore // empèche l'affichage de la propriété
+    @OneToOne
+    @JoinColumn(name = "document_id_fk", referencedColumnName = "document_id") // renomme le champ de la propriété
+    private Document document;
 
-    public Transaction(String type, float amount)
+
+    public Transaction(String type, float amount, Document document)
     {
         this.type = type;
         this.amount = amount;
+        this.document = document;
     }
 }

@@ -26,11 +26,12 @@ public class Credential{
     @JoinColumn(name = "account_id_fk", referencedColumnName = "account_id") // renomme le champ de la propriété
     private Account account;
 
-    public Credential(String username, String password, String email, boolean actif)
+    public Credential(String username, String password, String email, boolean actif, Account account)
     {
         this.username = username;
         this.password = password;
         this.email = email;
         this.actif = actif;
+        this.account = account;
     }
 }
