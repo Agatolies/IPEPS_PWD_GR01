@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.*;
+
 // Credential 1,1 --> || 1,1 <-- Account
 
 @Data
@@ -13,7 +15,7 @@ import lombok.NoArgsConstructor;
 @Entity
 
 public class Credential{
-    @ID
+    @Id
     @GeneratedValue(strategy = GenerationType.TABLE)
     private int credential_id;
     private String username;

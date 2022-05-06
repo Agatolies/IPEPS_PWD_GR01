@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import javax.persistence.*;
 
 // Account 1,1 --> || 1,1 <-- Credential
 
@@ -12,7 +13,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Entity
 public class Account{
-    @ID
+    @Id
     @GeneratedValue(strategy = GenerationType.TABLE)
     private int account_id;
     private String firstname;
