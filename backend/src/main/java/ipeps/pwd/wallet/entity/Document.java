@@ -17,7 +17,7 @@ import java.util.List;
 public class Document {
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE)
-    private int Document_id;
+    private int document_id;
     private String name;
     private String description;
     private String path;

@@ -15,7 +15,7 @@ import java.util.List;
 public class Salary {
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE)
-    private int Salary_id;
+    private int salary_id;
     private String type;
     private Date billing_date;
     private float amount;

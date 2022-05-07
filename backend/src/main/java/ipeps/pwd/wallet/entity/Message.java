@@ -22,9 +22,9 @@ public class Message {
 
     @OneToMany
     @JoinColumn(name = "message_id_fk", referencedColumnName = "message_id")
-    private List<Message_action> message_actions;
+    private List<MessageAction> message_actions;
 
-    public Message(boolean is_read, String message, Date date, List<Message_action> message_actions) {
+    public Message(boolean is_read, String message, Date date, List<MessageAction> message_actions) {
         this.is_read = is_read;
         this.message = message;
         this.message_actions = message_actions;

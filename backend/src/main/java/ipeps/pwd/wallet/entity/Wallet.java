@@ -27,6 +27,7 @@ public class Wallet {
     public Wallet(String name, String description, boolean actif, String type, List<Transaction> transactions) {
         this.name = name;
         this.description = description;
+        this.actif = actif;
         this.type = type;
         this.transactions = transactions;
     }

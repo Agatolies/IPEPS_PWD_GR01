@@ -27,16 +27,16 @@ public class Messenger {
             joinColumns = @JoinColumn(name = "messenger_id"),
             inverseJoinColumns = @JoinColumn(name = "employee_id")
     )
-    private List<Employee> employee;
+    private List<Employee> employees;
 
     @OneToMany
     @JoinColumn(name = "messenger_id_fk", referencedColumnName = "messenger_id")
     List<Message> messages;
 
-    public Messenger(String last_message, String people, List<Employee> employee, List<Message> messages) {
+    public Messenger(String last_message, String people, List<Employee> employees, List<Message> messages) {
         this.last_message = last_message;
         this.people = people;
-        this.employee = employee;
+        this.employees = employees;
         this.messages = messages;
     }
 }
