@@ -31,8 +31,7 @@ public class Account{
     @JoinColumn(name = "account_id_fk", referencedColumnName = "account_id")
     private List<Employee> employees;
 
-    public Account(String firstname, String lastname, Credential credential, List<Employee> employees)
-    {
+    public Account(String firstname, String lastname, Credential credential, List<Employee> employees) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.credential = credential;

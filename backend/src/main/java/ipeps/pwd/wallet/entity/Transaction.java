@@ -26,8 +26,7 @@ public class Transaction {
     @JoinColumn(name = "document_id_fk", referencedColumnName = "document_id") // renomme le champ de la propriété
     private Document document;
 
-    public Transaction(String type, float amount, Document document)
-    {
+    public Transaction(String type, float amount, Document document) {
         this.type = type;
         this.amount = amount;
         this.document = document;

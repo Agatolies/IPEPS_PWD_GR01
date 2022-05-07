@@ -24,8 +24,7 @@ public class Contact {
     @JoinColumn(name = "contact_id_fk", referencedColumnName = "contact_id")
     private List<Address> addresses;
 
-    public Contact(String firstname, String lastname, String email, String phone, List<Address> addresses)
-    {
+    public Contact(String firstname, String lastname, String email, String phone, List<Address> addresses) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.email = email;
