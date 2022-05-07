@@ -4,10 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -16,18 +14,22 @@ import javax.persistence.Id;
 public class Wallet {
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE)
-    private int Wallet_id;
+    private int wallet_id;
     private String name;
     private String description;
-    private String type;
     private boolean actif;
+    private String type;
 
+    @OneToMany
+    @JoinColumn(name = "wallet_id_fk", referencedColumnName = "wallet_id")
+    private List<Transaction> transactions;
 
-    public Wallet(String name, String description, String type, boolean actif)
-    {
+    public Wallet(String name, String description, boolean actif, String type, List<Transaction> transactions) {
         this.name = name;
         this.description = description;
         this.type = type;
-        this.actif = actif;
+        this.transactions = transactions;
     }
+
+
 }

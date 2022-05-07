@@ -3,6 +3,7 @@ package ipeps.pwd.wallet.entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.dao.DataAccessException;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -12,17 +13,15 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class Schedule {
+public class Message_action {
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE)
-    private int schedule_id;
+    private int message_action_id;
     private String type;
-    private Date date_schedule;
-    private String comment;
+    private Date action_date;
 
-    public Schedule(String type, Date date_schedule, String comment) {
+    public Message_action(String type, Date action_date) {
         this.type = type;
-        this.date_schedule = date_schedule;
-        this.comment = comment;
+        this.action_date = action_date;
     }
 }

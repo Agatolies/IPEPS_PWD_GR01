@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import org.codehaus.jackson.annotate.JsonIgnore;
 
 import javax.persistence.*;
+import java.util.List;
 
 // Transaction  0,1 || 0,1  Document
 
@@ -24,7 +25,6 @@ public class Transaction {
     @OneToOne
     @JoinColumn(name = "document_id_fk", referencedColumnName = "document_id") // renomme le champ de la propriété
     private Document document;
-
 
     public Transaction(String type, float amount, Document document)
     {

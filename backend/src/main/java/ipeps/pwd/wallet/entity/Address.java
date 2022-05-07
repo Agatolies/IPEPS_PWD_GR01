@@ -4,10 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -25,9 +23,9 @@ public class Address {
     private String town;
     private String country;
 
-
-
-    public Address(String type, String road, String number, String box, String cp, String town, String country)
+    public Address(
+            String type, String road, String number, String box, String cp,
+            String town, String country)
     {
         this.type = type;
         this.road = road;

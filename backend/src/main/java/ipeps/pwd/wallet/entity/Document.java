@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import org.codehaus.jackson.annotate.JsonIgnore;
 
 import javax.persistence.*;
+import java.util.List;
 
 // Document  0,1 || 0,1  Transaction
 
@@ -28,8 +29,8 @@ public class Document {
     @JoinColumn(name = "transaction_id_fk", referencedColumnName = "transaction_id") // renomme le champ de la propriété
     private Transaction transaction;
 
-    public Document(String name, String description, String path, String type, boolean free_access, Transaction transaction)
-    {
+    public Document(String name, String description, String path, String type,
+                    boolean free_access, Transaction transaction) {
         this.name = name;
         this.description = description;
         this.path = path;
