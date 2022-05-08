@@ -8,6 +8,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class MessengerCreatePayload {
-    private String last_message;
+    private String lastMessage;
     private String people;
 }

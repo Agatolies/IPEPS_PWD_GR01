@@ -12,6 +12,6 @@ import java.util.Date;
 public class ScheduleUpdatePayload {
     private int schedule_id;
     private String type;
-    private Date date_schedule;
+    private Date dateSchedule;
     private String comment;
 }

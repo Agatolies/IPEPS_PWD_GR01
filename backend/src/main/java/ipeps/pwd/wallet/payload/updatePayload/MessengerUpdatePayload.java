@@ -14,7 +14,7 @@ import java.util.List;
 @NoArgsConstructor
 public class MessengerUpdatePayload {
     private int messenger_id;
-    private String last_message;
+    private String lastMessage;
     private String people;
     private List<Employee> employees;
     private List<Message> messages;

@@ -14,12 +14,12 @@ import java.util.Date;
 public class MessageAction {
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE)
-    private int message_action_id;
+    private int messageAction_id;
     private String type;
-    private Date action_date;
+    private Date actionDate;
 
-    public MessageAction(String type, Date action_date) {
+    public MessageAction(String type, Date actionDate) {
         this.type = type;
-        this.action_date = action_date;
+        this.actionDate = actionDate;
     }
 }

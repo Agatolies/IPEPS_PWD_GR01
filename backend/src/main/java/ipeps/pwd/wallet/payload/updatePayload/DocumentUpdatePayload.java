@@ -14,6 +14,6 @@ public class DocumentUpdatePayload {
     private String description;
     private String path;
     private String type;
-    private boolean free_access;
+    private boolean freeAccess;
     private Transaction transaction;
 }

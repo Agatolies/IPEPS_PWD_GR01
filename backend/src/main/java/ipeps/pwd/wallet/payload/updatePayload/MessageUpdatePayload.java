@@ -13,8 +13,8 @@ import java.util.List;
 @NoArgsConstructor
 public class MessageUpdatePayload {
     private int message_id;
-    private boolean is_read;
+    private boolean isRead;
     private String message;
     private Date date;
-    private List<MessageAction> message_actions;
+    private List<MessageAction> messageActions;
 }

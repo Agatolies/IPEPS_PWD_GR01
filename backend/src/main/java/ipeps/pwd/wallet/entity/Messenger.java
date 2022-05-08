@@ -17,7 +17,7 @@ public class Messenger {
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE)
     private int messenger_id;
-    private String last_message;
+    private String lastMessage;
     private String people;
 
     @JsonIgnore
@@ -33,8 +33,8 @@ public class Messenger {
     @JoinColumn(name = "messenger_id_fk", referencedColumnName = "messenger_id")
     List<Message> messages;
 
-    public Messenger(String last_message, String people, List<Employee> employees, List<Message> messages) {
-        this.last_message = last_message;
+    public Messenger(String lastMessage, String people, List<Employee> employees, List<Message> messages) {
+        this.lastMessage = lastMessage;
         this.people = people;
         this.employees = employees;
         this.messages = messages;

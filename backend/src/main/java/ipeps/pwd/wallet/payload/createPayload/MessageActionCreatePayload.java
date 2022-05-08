@@ -11,5 +11,5 @@ import java.util.Date;
 @NoArgsConstructor
 public class MessageActionCreatePayload {
     private String type;
-    private Date action_date;
+    private Date actionDate;
 }

@@ -12,7 +12,7 @@ import java.util.Date;
 public class SalaryUpdatePayload {
     private int salary_id;
     private String type;
-    private Date billing_date;
+    private Date billingDate;
     private float amount;
     private int periodicity;
 }

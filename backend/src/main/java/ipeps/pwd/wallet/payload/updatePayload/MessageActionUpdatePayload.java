@@ -10,7 +10,7 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 public class MessageActionUpdatePayload {
-    private int message_action_id;
+    private int messageAction_id;
     private String type;
-    private Date action_date;
+    private Date actionDate;
 }

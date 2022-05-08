@@ -17,13 +17,13 @@ public class Salary {
     @GeneratedValue(strategy = GenerationType.TABLE)
     private int salary_id;
     private String type;
-    private Date billing_date;
+    private Date billingDate;
     private float amount;
     private int periodicity;
 
-    public Salary(String type, Date billing_date, float amount, int periodicity) {
+    public Salary(String type, Date billingDate, float amount, int periodicity) {
         this.type = type;
-        this.billing_date = billing_date;
+        this.billingDate = billingDate;
         this.amount = amount;
         this.periodicity = periodicity;
     }

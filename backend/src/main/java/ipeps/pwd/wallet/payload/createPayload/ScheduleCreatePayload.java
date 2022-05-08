@@ -11,6 +11,6 @@ import java.util.Date;
 @NoArgsConstructor
 public class ScheduleCreatePayload {
     private String type;
-    private Date date_schedule;
+    private Date dateSchedule;
     private String comment;
 }

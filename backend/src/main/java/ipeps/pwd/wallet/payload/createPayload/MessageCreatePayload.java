@@ -10,7 +10,7 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 public class MessageCreatePayload {
-    private boolean is_read;
+    private boolean isRead;
     private String message;
     private Date date;
 }

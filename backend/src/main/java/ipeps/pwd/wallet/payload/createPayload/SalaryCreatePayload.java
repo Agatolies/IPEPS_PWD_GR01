@@ -11,7 +11,7 @@ import java.util.Date;
 @NoArgsConstructor
 public class SalaryCreatePayload {
     private String type;
-    private Date billing_date;
+    private Date billingDate;
     private float amount;
     private int periodicity;
 }

@@ -16,12 +16,12 @@ public class Schedule {
     @GeneratedValue(strategy = GenerationType.TABLE)
     private int schedule_id;
     private String type;
-    private Date date_schedule;
+    private Date dateSchedule;
     private String comment;
 
-    public Schedule(String type, Date date_schedule, String comment) {
+    public Schedule(String type, Date dateSchedule, String comment) {
         this.type = type;
-        this.date_schedule = date_schedule;
+        this.dateSchedule = dateSchedule;
         this.comment = comment;
     }
 }

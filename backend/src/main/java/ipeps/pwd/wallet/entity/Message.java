@@ -16,17 +16,18 @@ public class Message {
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE)
     private int message_id;
-    private boolean is_read;
+    private boolean isRead;
     private String message;
     private Date date;
 
     @OneToMany
     @JoinColumn(name = "message_id_fk", referencedColumnName = "message_id")
-    private List<MessageAction> message_actions;
+    private List<MessageAction> messageActions;
 
-    public Message(boolean is_read, String message, Date date, List<MessageAction> message_actions) {
-        this.is_read = is_read;
+    public Message(boolean isRead, String message, Date date, List<MessageAction> messageActions) {
+        this.isRead = isRead;
         this.message = message;
-        this.message_actions = message_actions;
+        this.date = date;
+        this.messageActions = messageActions;
     }
 }

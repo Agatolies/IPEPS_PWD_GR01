@@ -22,7 +22,7 @@ public class Document {
     private String description;
     private String path;
     private String type;
-    private boolean free_access;
+    private boolean freeAccess;
 
     @JsonIgnore // empèche l'affichage de la propriété
     @OneToOne
@@ -30,12 +30,12 @@ public class Document {
     private Transaction transaction;
 
     public Document(String name, String description, String path, String type,
-                    boolean free_access, Transaction transaction) {
+                    boolean freeAccess, Transaction transaction) {
         this.name = name;
         this.description = description;
         this.path = path;
         this.type = type;
-        this.free_access = free_access;
+        this.freeAccess = freeAccess;
         this.transaction = transaction;
     }
 }
