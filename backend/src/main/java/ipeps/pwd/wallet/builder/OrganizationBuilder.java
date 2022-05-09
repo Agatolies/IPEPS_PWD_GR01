@@ -5,7 +5,7 @@ import ipeps.pwd.wallet.entity.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class OrganizationBuilder {
+public class    OrganizationBuilder {
 
     private String name = "";
     private String description = "";

@@ -22,7 +22,7 @@ public class AddressBuilder {
         return this;
     }
 
-    public AddressBuilder setNumer(String number) {
+    public AddressBuilder setNumber(String number) {
         this.number = number;
         return this;
     }
