@@ -28,8 +28,13 @@ public class SalaryBuilder {
         return this;
     }
 
-    public SalaryBuilder set(int periodicity) {
+    public SalaryBuilder setPeriodicity(int periodicity) {
         this.periodicity = periodicity;
+        return this;
+    }
+
+    public SalaryBuilder setEmployee(Employee employee){
+        this.employee = employee;
         return this;
     }
 

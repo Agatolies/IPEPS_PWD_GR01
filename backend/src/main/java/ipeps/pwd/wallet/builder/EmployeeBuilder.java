@@ -9,11 +9,14 @@ public class EmployeeBuilder {
 
     private String role = "";
     private boolean actif;
-    private List<Address> addresses = new ArrayList<>();
-    private List<Salary> salaries = new ArrayList<>();
-    private List<Document> documents = new ArrayList<>();
-    private List<Wallet> wallets = new ArrayList<>();
-    private List<Schedule> schedules = new ArrayList<>();
+    private Account account;
+    private List<Address> addresses = null;
+    /*
+    private List<Salary> salaries = null;
+    private List<Document> documents = null;
+    private List<Wallet> wallets = null;
+    private List<Schedule> schedules = null;
+    */
 
     public EmployeeBuilder setRole(String role) {
         this.role = role;
@@ -25,11 +28,16 @@ public class EmployeeBuilder {
         return this;
     }
 
+    public EmployeeBuilder setAccount(Account account){
+        this.account = account;
+        return this;
+    }
+
     public EmployeeBuilder setAddresses(List<Address> addresses) {
         this.addresses = addresses;
         return this;
     }
-
+/*
     public EmployeeBuilder setSalaries(List<Salary> salaries) {
         this.salaries = salaries;
         return this;
@@ -49,8 +57,8 @@ public class EmployeeBuilder {
         this.schedules = schedules;
         return this;
     }
-
+*/
     public Employee build() {
-        return new Employee(role, actif, addresses, salaries, documents, wallets, schedules);
+        return new Employee(role, actif, account, addresses/*, salaries, documents, wallets, schedules*/);
     }
 }
