@@ -10,6 +10,7 @@ import ipeps.pwd.wallet.payload.createPayload.EmployeeCreatePayload;
 import ipeps.pwd.wallet.payload.updatePayload.ContactUpdatePayload;
 import ipeps.pwd.wallet.payload.updatePayload.EmployeeUpdatePayload;
 import ipeps.pwd.wallet.repository.EmployeRepository;
+import ipeps.pwd.wallet.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,69 +18,30 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("employee")
 public class EmployeController {
     @Autowired
-    EmployeRepository employeRepository;
+    EmployeeService employeeService;
 
     @GetMapping("list")
     public ApiResponse list(){
-        try {
-            return new ApiResponse(true, employeRepository.findAll(), "api.employee.list.success");
-        }
-        catch (Exception e) {
-            return new ApiResponse(false, null, "api.employee.list.error");
-        }
+        return employeeService.list();
     }
 
     @GetMapping("detail/{id}")
     public ApiResponse detail(@PathVariable("id") int id) {
-        try {
-            Employee employee = employeRepository.findById(id).orElse(null);
-            if (employee != null) {
-                return new ApiResponse(true, employee, "api.employee.detail.success");
-            } else {
-                return new ApiResponse(true, null, "api.employee.detail.not-found");
-            }
-        } catch (Exception e){
-            return new ApiResponse(false, e.getMessage(), "api.employee.detail.error");
-        }
+        return employeeService.detail(id);
     }
 
     @PutMapping("update")
     public ApiResponse update(@RequestBody EmployeeUpdatePayload payload) {
-        try{
-            Employee employee = employeRepository.findById(payload.getEmployee_id()).orElse(null);
-            if(employee != null){
-                employeRepository.save(employee);
-                return new ApiResponse(true,null, "api.employee.update.success");
-            }else{
-                return new ApiResponse(true,null, "api.employee.update.detail-not-found");
-            }
-        }catch(Exception e){
-            return new ApiResponse(false, e.getMessage(), "api.employee.update.error");
-        }
+        return employeeService.update(payload);
     }
 
     @PostMapping("create")
     public ApiResponse create(@RequestBody EmployeeCreatePayload payload) {
-        try{
-            Employee employee = new EmployeeBuilder().setRole(payload.getRole()).build();
-            return new ApiResponse(true, employeRepository.save(employee), "api.employee.create.success");
-        }catch(Exception e){
-            return new ApiResponse(false, null, "api.employee.create.error");
-        }
+        return employeeService.create(payload);
     }
 
     @DeleteMapping("delete/{id}")
     public ApiResponse delete(@PathVariable("id") int id) {
-        try{
-            Employee employee = employeRepository.findById(id).orElse(null);
-            if(employee != null){
-                employeRepository.delete(employee);
-                return new ApiResponse(true,null, "api.employee.delete.success");
-            }else{
-                return new ApiResponse(true,null, "api.employee.delete.detail-not-found");
-            }
-        }catch(Exception e){
-            return new ApiResponse(false, e.getMessage(), "api.employee.delete.error");
-        }
+        return employeeService.delete(id);
     }
 }
