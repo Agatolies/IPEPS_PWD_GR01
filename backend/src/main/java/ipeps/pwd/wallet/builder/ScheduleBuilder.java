@@ -1,5 +1,6 @@
 package ipeps.pwd.wallet.builder;
 
+import ipeps.pwd.wallet.entity.Employee;
 import ipeps.pwd.wallet.entity.Schedule;
 
 import java.util.Date;
@@ -9,6 +10,7 @@ public class ScheduleBuilder {
     private String type = "";
     private Date dateSchedule = new Date();
     private String comment = "";
+    private Employee employee = null;
 
     public ScheduleBuilder setType(String type) {
         this.type = type;
@@ -26,6 +28,6 @@ public class ScheduleBuilder {
     }
 
     public Schedule build(){
-        return new Schedule(type, dateSchedule, comment);
+        return new Schedule(type, dateSchedule, comment,employee);
     }
 }

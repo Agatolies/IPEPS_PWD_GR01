@@ -29,13 +29,23 @@ public class Document {
     @JoinColumn(name = "transaction_id_fk", referencedColumnName = "transaction_id") // renomme le champ de la propriété
     private Transaction transaction;
 
+    @ManyToOne
+    @JoinColumn(name = "employee_id_fk", referencedColumnName = "employee_id")
+    private Employee employee;
+
+    @ManyToOne
+    @JoinColumn(name = "organization_id_fk", referencedColumnName = "organization_id")
+    private Organization organization;
+
     public Document(String name, String description, String path, String type,
-                    boolean freeAccess, Transaction transaction) {
+                    boolean freeAccess, Transaction transaction, Employee employee, Organization organization) {
         this.name = name;
         this.description = description;
         this.path = path;
         this.type = type;
         this.freeAccess = freeAccess;
         this.transaction = transaction;
+        this.employee = employee;
+        this.organization = organization;
     }
 }

@@ -21,10 +21,15 @@ public class Salary {
     private float amount;
     private int periodicity;
 
-    public Salary(String type, Date billingDate, float amount, int periodicity) {
+    @ManyToOne
+    @JoinColumn(name = "employee_id_fk", referencedColumnName = "employee_id")
+    private Employee employee;
+
+    public Salary(String type, Date billingDate, float amount, int periodicity, Employee employee) {
         this.type = type;
         this.billingDate = billingDate;
         this.amount = amount;
         this.periodicity = periodicity;
+        this.employee = employee;
     }
 }

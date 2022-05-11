@@ -19,9 +19,15 @@ public class Schedule {
     private Date dateSchedule;
     private String comment;
 
-    public Schedule(String type, Date dateSchedule, String comment) {
+
+    @ManyToOne
+    @JoinColumn(name = "employee_id_fk", referencedColumnName = "employee_id")
+    private Employee employee;
+
+    public Schedule(String type, Date dateSchedule, String comment, Employee employee) {
         this.type = type;
         this.dateSchedule = dateSchedule;
         this.comment = comment;
+        this.employee=employee;
     }
 }

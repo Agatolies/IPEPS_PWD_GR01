@@ -3,6 +3,7 @@ package ipeps.pwd.wallet.entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.codehaus.jackson.annotate.JsonIgnore;
 
 import javax.persistence.*;
 import java.util.List;
@@ -18,11 +19,7 @@ public class Employee {
     private String role;
     private boolean actif;
 
-    @OneToMany
-    @JoinColumn(name = "employee_id_fk", referencedColumnName = "employee_id")
-    private List<Address> addresses;
-
-    @OneToMany
+    /*@OneToMany
     @JoinColumn(name = "employee_id_fk", referencedColumnName = "employee_id")
     private List<Salary> salaries;
 
@@ -36,14 +33,26 @@ public class Employee {
 
     @OneToMany
     @JoinColumn(name = "employee_id_fk", referencedColumnName = "employee_id")
-    private List<Schedule> schedules;
+    private List<Schedule> schedules;*/
 
+    @JsonIgnore
+    @OneToMany
+    @JoinColumn(name = "address_id_fk", referencedColumnName = "address_id")
+    private List<Address> addresses;
 
-    public Employee(String role, boolean actif, List<Address> adresses, List<Salary> salaries,
-                    List<Document> documents, List<Wallet> wallets, List<Schedule> schedules) {
+    @JsonIgnore
+    @ManyToOne
+    @JoinColumn(name = "account_id_fk", referencedColumnName = "account_id")
+    private Account account;
+
+/*, List<Salary> salaries,
+                    List<Document> documents, List<Wallet> wallets, List<Schedule> schedules*/
+
+    public Employee(String role, boolean actif, Account account, List<Address> addresses ) {
         this.role = role;
         this.actif = actif;
-        this.addresses = adresses;
+        this.account=account;
+        this.addresses = addresses;
         this.salaries = salaries;
         this.documents = documents;
         this.wallets = wallets;

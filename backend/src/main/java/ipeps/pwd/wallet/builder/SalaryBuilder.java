@@ -1,5 +1,6 @@
 package ipeps.pwd.wallet.builder;
 
+import ipeps.pwd.wallet.entity.Employee;
 import ipeps.pwd.wallet.entity.Salary;
 
 import java.util.Date;
@@ -10,6 +11,7 @@ public class SalaryBuilder {
     private Date billingDate = new Date();
     private float amount;
     private int periodicity;
+    private Employee employee = null;
 
     public SalaryBuilder setType(String type) {
         this.type = type;
@@ -32,6 +34,6 @@ public class SalaryBuilder {
     }
 
     public Salary build(){
-        return new Salary(type, billingDate, amount, periodicity);
+        return new Salary(type, billingDate, amount, periodicity, employee);
     }
 }
