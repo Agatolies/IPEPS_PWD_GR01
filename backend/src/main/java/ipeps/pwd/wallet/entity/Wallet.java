@@ -21,7 +21,7 @@ public class Wallet {
     private String type;
 
     @OneToMany
-    @JoinColumn(name = "wallet_id_fk", referencedColumnName = "wallet_id")
+    @JoinColumn(name = "transaction_id_fk", referencedColumnName = "transaction_id")
     private List<Transaction> transactions;
 
     public Wallet(String name, String description, boolean actif, String type, List<Transaction> transactions) {

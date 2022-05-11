@@ -1,5 +1,7 @@
 package ipeps.pwd.wallet.payload.updatePayload;
 
+import ipeps.pwd.wallet.entity.Employee;
+import ipeps.pwd.wallet.entity.Organization;
 import ipeps.pwd.wallet.entity.Transaction;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -16,4 +18,6 @@ public class DocumentUpdatePayload {
     private String type;
     private boolean freeAccess;
     private Transaction transaction;
+    private Employee employee;
+    private Organization organization;
 }
