@@ -17,6 +17,4 @@ public class MessageActionUpdatePayload {
     private Date actionDate;
     private Message message;
     private Employee employee;
-
 }
-s

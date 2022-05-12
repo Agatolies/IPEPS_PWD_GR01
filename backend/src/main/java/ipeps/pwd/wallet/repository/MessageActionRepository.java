@@ -6,6 +6,4 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface MessageActionRepository extends JpaRepository<MessageAction, Integer> {
-    static void save(ipeps.pwd.wallet.service.MessageAction messageAction) {
-    }
 }
