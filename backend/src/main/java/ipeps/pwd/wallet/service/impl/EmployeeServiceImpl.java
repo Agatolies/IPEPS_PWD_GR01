@@ -5,7 +5,7 @@ import ipeps.pwd.wallet.common.entity.response.ApiResponse;
 import ipeps.pwd.wallet.entity.Employee;
 import ipeps.pwd.wallet.payload.createPayload.EmployeeCreatePayload;
 import ipeps.pwd.wallet.payload.updatePayload.EmployeeUpdatePayload;
-import ipeps.pwd.wallet.repository.EmployeRepository;
+import ipeps.pwd.wallet.repository.EmployeeRepository;
 import ipeps.pwd.wallet.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,7 +16,7 @@ import org.springframework.stereotype.Service;
 public class EmployeeServiceImpl implements EmployeeService {
 
     @Autowired
-    EmployeRepository employeRepository;
+    EmployeeRepository employeRepository;
 
     @Override
     public ApiResponse list() {
