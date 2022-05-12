@@ -12,7 +12,6 @@ public class MessengerBuilder {
     private String lastMessage = "";
     private String people = "";
     private List<Employee> employees = new ArrayList<>();
-    private List<Message> messages = new ArrayList<>();
 
     public MessengerBuilder setLastMessage(String lastMessage) {
         this.lastMessage = lastMessage;
@@ -29,12 +28,7 @@ public class MessengerBuilder {
         return this;
     }
 
-    public MessengerBuilder setMessages(List<Message> messages) {
-        this.messages = messages;
-        return this;
-    }
-
     public Messenger build() {
-        return new Messenger(lastMessage, people, employees, messages);
+        return new Messenger(lastMessage, people, employees);
     }
 }

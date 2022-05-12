@@ -29,14 +29,9 @@ public class Messenger {
     )
     private List<Employee> employees;
 
-    @OneToMany
-    @JoinColumn(name = "messenger_id_fk", referencedColumnName = "messenger_id")
-    List<Message> messages;
-
-    public Messenger(String lastMessage, String people, List<Employee> employees, List<Message> messages) {
+    public Messenger(String lastMessage, String people, List<Employee> employees) {
         this.lastMessage = lastMessage;
         this.people = people;
         this.employees = employees;
-        this.messages = messages;
     }
 }
