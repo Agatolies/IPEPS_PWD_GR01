@@ -20,16 +20,23 @@ public class Wallet {
     private boolean actif;
     private String type;
 
-    @OneToMany
-    @JoinColumn(name = "wallet_id_fk", referencedColumnName = "wallet_id")
-    private List<Transaction> transactions;
+    @ManyToOne
+    @JoinColumn(name = "organization_id_fk", referencedColumnName = "organization_id")
+    private Organization organization;
 
-    public Wallet(String name, String description, boolean actif, String type, List<Transaction> transactions) {
+    @ManyToOne
+    @JoinColumn(name = "employee_id_fk", referencedColumnName = "employee_id")
+    private Employee employee;
+
+    public Wallet(String name, String description, boolean actif, String type,
+                  Organization organization, Employee employee) {
         this.name = name;
         this.description = description;
         this.actif = actif;
         this.type = type;
-        this.transactions = transactions;
+        this.organization = organization;
+        this.employee = employee;
+
     }
 
 

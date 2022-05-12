@@ -20,14 +20,19 @@ public class Message {
     private String message;
     private Date date;
 
-    @OneToMany
-    @JoinColumn(name = "message_id_fk", referencedColumnName = "message_id")
-    private List<MessageAction> messageActions;
+    @ManyToOne
+    @JoinColumn(name = "employee_id_fk", referencedColumnName = "employee_id")
+    private Employee employee;
 
-    public Message(boolean isRead, String message, Date date, List<MessageAction> messageActions) {
+    @ManyToOne
+    @JoinColumn(name = "messenger_id_fk", referencedColumnName = "messenger_id")
+    private Messenger messenger;
+
+    public Message(boolean isRead, String message, Date date, Employee employee, Messenger messenger) {
         this.isRead = isRead;
         this.message = message;
         this.date = date;
-        this.messageActions = messageActions;
+        this.employee = employee;
+        this.messenger = messenger;
     }
 }

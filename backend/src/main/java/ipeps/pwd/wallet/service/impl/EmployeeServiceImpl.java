@@ -9,7 +9,8 @@ import ipeps.pwd.wallet.repository.EmployeRepository;
 import ipeps.pwd.wallet.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.*;
+
+// Liste des méthodes qui font appel aux données locales dans le backend
 
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
@@ -69,11 +70,13 @@ public class EmployeeServiceImpl implements EmployeeService {
         }
     }
 
+
     @Override
     public ApiResponse delete(int id) {
         try {
-            Employee employee = employeRepository.findById(id).orElse(null);
-            if (employee != null) {
+            ApiResponse response = this.detail(id);
+            if (response.result) {
+                Employee employee = (Employee) response.data;
                 employeRepository.delete(employee);
                 return new ApiResponse(true, null, "api.employee.delete.success");
             } else {
