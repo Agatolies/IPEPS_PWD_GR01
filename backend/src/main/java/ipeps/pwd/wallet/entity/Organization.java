@@ -20,7 +20,8 @@ public class Organization {
     private String description;
     private boolean actif;
 
-    /*@OneToMany
+    /*
+    @OneToMany
     @JoinColumn(name = "organization_id_fk", referencedColumnName = "organization_id")
     private List<Document> documents;
     @OneToMany
@@ -28,22 +29,28 @@ public class Organization {
     private List<Wallet> wallets;
     @OneToMany
     @JoinColumn(name = "organization_id_fk", referencedColumnName = "organization_id")
-    private List<Employee> employees;*/
+    private List<Employee> employees;
+    */
 
     @JsonIgnore
     @OneToMany
     @JoinColumn(name = "address_id_fk", referencedColumnName = "address_id")
     private List<Address> addresses;
 
-    /*List<Document> documents,
-                        List<Wallet> wallets, List<Employee> employees,*/
+    /*
+    List<Document> documents,
+    List<Wallet> wallets,
+    List<Employee> employees,
+    */
     public Organization(String name, String description, boolean actif, List<Address> addresses) {
         this.name = name;
         this.description = description;
         this.actif = actif;
+        /*
         this.documents = documents;
         this.wallets = wallets;
         this.employees = employees;
+        */
         this.addresses = addresses;
     }
 

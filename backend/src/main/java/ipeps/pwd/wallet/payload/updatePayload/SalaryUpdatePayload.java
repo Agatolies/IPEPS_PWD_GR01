@@ -1,5 +1,6 @@
 package ipeps.pwd.wallet.payload.updatePayload;
 
+import ipeps.pwd.wallet.entity.Employee;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -15,4 +16,5 @@ public class SalaryUpdatePayload {
     private Date billingDate;
     private float amount;
     private int periodicity;
+    private Employee employee;
 }

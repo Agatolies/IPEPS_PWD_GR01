@@ -10,9 +10,11 @@ public class    OrganizationBuilder {
     private String name = "";
     private String description = "";
     private boolean actif;
+    /*
     private List<Document> documents = new ArrayList<>();
     private List<Wallet> wallets = new ArrayList<>();
     private List<Employee> employees = new ArrayList<>();
+    */
     private List<Address> addresses = new ArrayList<>();
 
     public OrganizationBuilder setName(String name){
@@ -29,7 +31,7 @@ public class    OrganizationBuilder {
         this.actif = actif;
         return this;
     }
-
+/*
     public OrganizationBuilder setDocuments(List<Document> documents){
         this.documents = documents;
         return this;
@@ -44,13 +46,13 @@ public class    OrganizationBuilder {
         this.employees = employees;
         return this;
     }
-
+*/
     public OrganizationBuilder setAddresses(List<Address> addresses){
         this.addresses = addresses;
         return this;
     }
 
     public Organization build() {
-        return new Organization(name, description, actif, documents, wallets, employees, addresses);
+        return new Organization(name, description, actif, /*documents, wallets, employees, */addresses);
     }
 }

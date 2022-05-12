@@ -18,6 +18,7 @@ public class ApiResponse {
     public boolean isSuccess() {
         return this.result;
     }
+
     public static class Builder {
         public boolean result;
         public Object data;
@@ -42,6 +43,7 @@ public class ApiResponse {
             return new ApiResponse(result, data, code);
         }
     }
+
     public String toJson() {
         return new StringJoiner(", ", "{", "}")
                 .add("\"result\": \"" + result + "\"")

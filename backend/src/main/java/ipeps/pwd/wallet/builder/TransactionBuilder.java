@@ -2,14 +2,12 @@ package ipeps.pwd.wallet.builder;
 
 import ipeps.pwd.wallet.entity.Document;
 import ipeps.pwd.wallet.entity.Transaction;
-import ipeps.pwd.wallet.entity.Wallet;
 
 public class TransactionBuilder {
 
     private String type = "";
     private float amount;
-    private Document document = null;
-    private Wallet wallet = null;
+    private Document document = new Document();
 
     public TransactionBuilder setType(String type){
         this.type = type;
@@ -26,13 +24,7 @@ public class TransactionBuilder {
         return this;
     }
 
-    public TransactionBuilder setWallet (Wallet wallet){
-        this.wallet = wallet;
-        return this;
-    }
-
-
     public Transaction build(){
-        return new Transaction(type, amount, document, wallet);
+        return new Transaction(type, amount, document);
     }
 }

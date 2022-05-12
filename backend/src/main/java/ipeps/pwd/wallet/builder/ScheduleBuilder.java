@@ -27,7 +27,12 @@ public class ScheduleBuilder {
         return this;
     }
 
+    public ScheduleBuilder setEmployee(Employee employee){
+        this.employee = employee;
+        return this;
+    }
+
     public Schedule build(){
-        return new Schedule(type, dateSchedule, comment,employee);
+        return new Schedule(type, dateSchedule, comment, employee);
     }
 }

@@ -23,9 +23,8 @@ public class Address {
     private String town;
     private String country;
 
-    public Address(
-            String type, String road, String number, String box, String cp,
-            String town, String country) {
+    public Address( String type, String road, String number, String box, String cp,
+                    String town, String country) {
         this.type = type;
         this.road = road;
         this.number = number;

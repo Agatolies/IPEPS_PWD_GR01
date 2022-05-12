@@ -1,5 +1,6 @@
 package ipeps.pwd.wallet.payload.updatePayload;
 
+import ipeps.pwd.wallet.entity.Employee;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -14,4 +15,5 @@ public class ScheduleUpdatePayload {
     private String type;
     private Date dateSchedule;
     private String comment;
+    private Employee employee;
 }
