@@ -1,6 +1,8 @@
 # Best project ever
 
-## Comment bien demarrer notre projet
+## Comment demarrer le projet
+
+### Version de Pascal ;)
 
 * Etape 1
 * Etape 2
@@ -8,7 +10,7 @@
 
 ```
 {
-  "firstName": "Jane",
+  "firstName": "John",
   "lastName": "Smith",
   "age": 25
 }
