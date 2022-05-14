@@ -16,10 +16,4 @@ public class EmployeeUpdatePayload {
     private boolean actif;
     private List<Address> addresses;
     private Account account;
-    /*
-    private List<Salary> salaries;
-    private List<Document> documents;
-    private List<Wallet> wallets;
-    private List<Schedule> schedules;
-    */
 }

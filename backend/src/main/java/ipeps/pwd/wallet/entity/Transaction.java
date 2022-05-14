@@ -8,9 +8,6 @@ import org.codehaus.jackson.annotate.JsonIgnore;
 import javax.persistence.*;
 import java.util.List;
 
-// Transaction  0,1 || 0,1  Document
-// Transaction --> 0,1 || 0,n <-- Wallet
-
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

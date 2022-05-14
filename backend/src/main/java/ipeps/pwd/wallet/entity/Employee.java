@@ -19,25 +19,9 @@ public class Employee {
     private String role;
     private boolean actif;
 
-    /*@OneToMany
-    @JoinColumn(name = "salary_id_fk", referencedColumnName = "salary_id")
-    private List<Salary> salaries;
-
-    @OneToMany
-    @JoinColumn(name = "document_id_fk", referencedColumnName = "document_id")
-    private List<Document> documents;
-
-    @OneToMany
-    @JoinColumn(name = "wallet_id_fk", referencedColumnName = "wallet_id")
-    private List<Wallet> wallets;
-
-    @OneToMany
-    @JoinColumn(name = "schedule_id_fk", referencedColumnName = "schedule_id")
-    private List<Schedule> schedules;*/
-
     @JsonIgnore
     @OneToMany
-    @JoinColumn(name = "address_id_fk", referencedColumnName = "address_id")
+    @JoinColumn(name = "employee_id_fk", referencedColumnName = "employee_id")
     private List<Address> addresses;
 
     @JsonIgnore
@@ -45,23 +29,10 @@ public class Employee {
     @JoinColumn(name = "account_id_fk", referencedColumnName = "account_id")
     private Account account;
 
-/*
-List<Salary> salaries,
-List<Document> documents,
-List<Wallet> wallets,
-List<Schedule> schedules
-*/
-
     public Employee(String role, boolean actif, Account account, List<Address> addresses ) {
         this.role = role;
         this.actif = actif;
         this.account = account;
         this.addresses = addresses;
-        /*
-        this.salaries = salaries;
-        this.documents = documents;
-        this.wallets = wallets;
-        this.schedules = schedules;
-        */
     }
 }

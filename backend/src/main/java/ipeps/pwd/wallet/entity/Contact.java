@@ -21,7 +21,7 @@ public class Contact {
     private String phone;
 
     @OneToMany
-    @JoinColumn(name = "address_id_fk", referencedColumnName = "address_id")
+    @JoinColumn(name = "contact_id_fk", referencedColumnName = "contact_id")
     private List<Address> addresses;
 
     public Contact(String firstname, String lastname, String email, String phone, List<Address> addresses) {

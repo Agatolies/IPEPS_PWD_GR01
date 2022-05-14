@@ -27,7 +27,6 @@ public class EmployeeServiceImpl implements EmployeeService {
         }
     }
 
-
     @Override
     public ApiResponse detail(int id) {
         try {
@@ -42,10 +41,8 @@ public class EmployeeServiceImpl implements EmployeeService {
         }
     }
 
-
     @Override
     public ApiResponse update(EmployeeUpdatePayload payload) {
-
         try {
             ApiResponse response = this.detail(payload.getEmployee_id());
             if (response.result) {
@@ -63,13 +60,17 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     public ApiResponse create(EmployeeCreatePayload payload) {
         try {
-            Employee employee = new EmployeeBuilder().setRole(payload.getRole()).build();
+
+            Employee employee = new EmployeeBuilder()
+                    .setRole(payload.getRole())
+                    .setActif(payload.isActif())
+                    .build();
             return new ApiResponse(true, employeeRepository.save(employee), "api.employee.create.success");
+
         } catch (Exception e) {
             return new ApiResponse(false, null, "api.employee.create.error");
         }
     }
-
 
     @Override
     public ApiResponse delete(int id) {

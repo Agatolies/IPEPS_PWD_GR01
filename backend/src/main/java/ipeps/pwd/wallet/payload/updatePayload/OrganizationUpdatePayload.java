@@ -18,10 +18,5 @@ public class OrganizationUpdatePayload {
     private String name;
     private String description;
     private boolean actif;
-    /*
-    private List<Document> documents;
-    private List<Wallet> wallets;
-    private List<Employee> employees;
-    */
     private List<Address> addresses;
 }
