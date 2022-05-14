@@ -1,9 +1,7 @@
 package ipeps.pwd.wallet.service;
 
 import ipeps.pwd.wallet.common.entity.response.ApiResponse;
-import ipeps.pwd.wallet.payload.createPayload.EmployeeCreatePayload;
 import ipeps.pwd.wallet.payload.createPayload.MessageCreatePayload;
-import ipeps.pwd.wallet.payload.updatePayload.EmployeeUpdatePayload;
 import ipeps.pwd.wallet.payload.updatePayload.MessageUpdatePayload;
 
 public interface MessageService {
