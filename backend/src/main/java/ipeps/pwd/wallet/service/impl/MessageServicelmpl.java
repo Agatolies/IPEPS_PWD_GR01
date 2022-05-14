@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class MessageServicelmpl implements MessageService {
+
     @Autowired
     MessageRepository messageRepository;
 
@@ -60,8 +61,11 @@ public class MessageServicelmpl implements MessageService {
     @Override
     public ApiResponse create(MessageCreatePayload payload) {
         try {
-            Message Message = new MessageBuilder().setRole(payload.getRole()).build();
-            return new ApiResponse(true, messageRepository.save(Message), "api.Message.create.success");
+            Message message = new MessageBuilder().setIsRead(payload.isRead())
+                                                  .setMessage(payload.getMessage())
+                                                  .setDate(payload.getDate())
+                                                    .build();
+            return new ApiResponse(true, messageRepository.save(message), "api.Message.create.success");
         } catch (Exception e) {
             return new ApiResponse(false, null, "api.message.create.error");
         }
