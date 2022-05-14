@@ -11,12 +11,6 @@ public class EmployeeBuilder {
     private boolean actif;
     private Account account;
     private List<Address> addresses = null;
-    /*
-    private List<Salary> salaries = null;
-    private List<Document> documents = null;
-    private List<Wallet> wallets = null;
-    private List<Schedule> schedules = null;
-    */
 
     public EmployeeBuilder setRole(String role) {
         this.role = role;
