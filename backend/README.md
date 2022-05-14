@@ -1,6 +1,6 @@
 # Best project ever
 
-## Comment demarrer le projet
+## Comment bien demarrer notre projet
 
 * Etape 1
 * Etape 2
@@ -8,7 +8,7 @@
 
 ```
 {
-  "firstName": "John",
+  "firstName": "Jane",
   "lastName": "Smith",
   "age": 25
 }
