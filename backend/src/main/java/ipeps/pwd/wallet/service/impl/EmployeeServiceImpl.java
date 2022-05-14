@@ -16,12 +16,12 @@ import org.springframework.stereotype.Service;
 public class EmployeeServiceImpl implements EmployeeService {
 
     @Autowired
-    EmployeeRepository employeRepository;
+    EmployeeRepository employeeRepository;
 
     @Override
     public ApiResponse list() {
         try {
-            return new ApiResponse(true, employeRepository.findAll(), "api.employee.list.success");
+            return new ApiResponse(true, employeeRepository.findAll(), "api.employee.list.success");
         } catch (Exception e) {
             return new ApiResponse(false, null, "api.employee.list.error");
         }
@@ -31,7 +31,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     public ApiResponse detail(int id) {
         try {
-            Employee employee = employeRepository.findById(id).orElse(null);
+            Employee employee = employeeRepository.findById(id).orElse(null);
             if (employee != null) {
                 return new ApiResponse(true, employee, "api.employee.detail.success");
             } else {
@@ -50,7 +50,7 @@ public class EmployeeServiceImpl implements EmployeeService {
             ApiResponse response = this.detail(payload.getEmployee_id());
             if (response.result) {
                 Employee employee = (Employee) response.data;
-                employeRepository.save(employee);
+                employeeRepository.save(employee);
                 return new ApiResponse(true, null, "api.employee.update.success");
             } else {
                 return response;
@@ -64,7 +64,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     public ApiResponse create(EmployeeCreatePayload payload) {
         try {
             Employee employee = new EmployeeBuilder().setRole(payload.getRole()).build();
-            return new ApiResponse(true, employeRepository.save(employee), "api.employee.create.success");
+            return new ApiResponse(true, employeeRepository.save(employee), "api.employee.create.success");
         } catch (Exception e) {
             return new ApiResponse(false, null, "api.employee.create.error");
         }
@@ -77,7 +77,7 @@ public class EmployeeServiceImpl implements EmployeeService {
             ApiResponse response = this.detail(id);
             if (response.result) {
                 Employee employee = (Employee) response.data;
-                employeRepository.delete(employee);
+                employeeRepository.delete(employee);
                 return new ApiResponse(true, null, "api.employee.delete.success");
             } else {
                 return new ApiResponse(true, null, "api.employee.delete.detail-not-found");
