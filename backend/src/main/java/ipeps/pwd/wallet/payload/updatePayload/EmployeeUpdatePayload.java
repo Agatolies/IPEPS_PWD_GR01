@@ -15,5 +15,5 @@ public class EmployeeUpdatePayload {
     private String role;
     private boolean actif;
     private List<Address> addresses;
-    private Account account;s
+    private Account account;
 }

@@ -28,7 +28,7 @@ public class Account{
     private Credential credential;
 
     @OneToMany
-    @JoinColumn(name = "employee_id_fk", referencedColumnName = "employee_id")
+    @JoinColumn(name = "account_id_fk", referencedColumnName = "account_id")
     private List<Employee> employees;
 
     public Account(String firstname, String lastname, Credential credential, List<Employee> employees) {
