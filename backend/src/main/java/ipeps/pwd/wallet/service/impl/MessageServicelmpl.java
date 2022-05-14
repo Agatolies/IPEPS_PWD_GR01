@@ -6,10 +6,12 @@ import ipeps.pwd.wallet.entity.Message;
 import ipeps.pwd.wallet.payload.createPayload.MessageCreatePayload;
 import ipeps.pwd.wallet.payload.updatePayload.MessageUpdatePayload;
 import ipeps.pwd.wallet.repository.MessageRepository;
-import ipeps.pwd.wallet.repository.messageRepository;
+import ipeps.pwd.wallet.service.MessageService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-public class MessageServicelmpl {
+@Service
+public class MessageServicelmpl implements MessageService {
     @Autowired
     MessageRepository messageRepository;
 
