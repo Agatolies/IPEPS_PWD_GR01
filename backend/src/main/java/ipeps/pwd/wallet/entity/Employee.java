@@ -21,7 +21,7 @@ public class Employee {
 
     @JsonIgnore
     @OneToMany
-    @JoinColumn(name = "address_id_fk", referencedColumnName = "address_id")
+    @JoinColumn(name = "employee_id_fk", referencedColumnName = "employee_id")
     private List<Address> addresses;
 
     @JsonIgnore
