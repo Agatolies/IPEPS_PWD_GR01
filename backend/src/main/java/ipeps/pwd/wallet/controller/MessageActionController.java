@@ -1,9 +1,7 @@
 package ipeps.pwd.wallet.controller;
 
 import ipeps.pwd.wallet.common.entity.response.ApiResponse;
-import ipeps.pwd.wallet.payload.createPayload.DocumentCreatePayload;
 import ipeps.pwd.wallet.payload.createPayload.MessageActionCreatePayload;
-import ipeps.pwd.wallet.payload.updatePayload.DocumentUpdatePayload;
 import ipeps.pwd.wallet.payload.updatePayload.MessageActionUpdatePayload;
 import ipeps.pwd.wallet.service.MessageActionService;
 import org.springframework.beans.factory.annotation.Autowired;
