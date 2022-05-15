@@ -25,7 +25,6 @@ public class MessageServicelmpl implements MessageService {
         }
     }
 
-
     @Override
     public ApiResponse detail(int id) {
         try {
@@ -39,7 +38,6 @@ public class MessageServicelmpl implements MessageService {
             return new ApiResponse(false, e.getMessage(), "api.message.detail.error");
         }
     }
-
 
     @Override
     public ApiResponse update(MessageUpdatePayload payload) {
@@ -61,10 +59,12 @@ public class MessageServicelmpl implements MessageService {
     @Override
     public ApiResponse create(MessageCreatePayload payload) {
         try {
-            Message message = new MessageBuilder().setIsRead(payload.isRead())
-                                                  .setMessage(payload.getMessage())
-                                                  .setDate(payload.getDate())
-                                                    .build();
+            Message message = new MessageBuilder()
+                    .setIsRead(payload.isRead())
+                    .setMessage(payload.getMessage())
+                    .setDate(payload.getDate())
+                    .build();
+
             return new ApiResponse(true, messageRepository.save(message), "api.Message.create.success");
         } catch (Exception e) {
             return new ApiResponse(false, null, "api.message.create.error");
