@@ -58,7 +58,11 @@ public class TransactionServiceImpl implements TransactionService {
     @Override
     public ApiResponse create(TransactionCreatePayload payload){
         try {
-            Transaction transaction = new TransactionBuilder().setType(payload.getType()).setAmount(payload.getAmount()).build();
+            Transaction transaction = new TransactionBuilder()
+                    .setType(payload.getType())
+                    .setAmount(payload.getAmount())
+                    .build();
+
             return new ApiResponse(true, transactionRepository.save(transaction), "api.transaction.create.success");
         }catch(Exception e){
             return new ApiResponse(false, null, "api.transaction.create.error");

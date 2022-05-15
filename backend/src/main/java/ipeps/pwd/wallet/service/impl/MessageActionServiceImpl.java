@@ -60,7 +60,11 @@ public class MessageActionServiceImpl implements MessageActionService {
     @Override
     public ApiResponse create(MessageActionCreatePayload payload) {
         try {
-            MessageAction messageAction = new MessageActionBuilder().setType(payload.getType()).build();
+            MessageAction messageAction = new MessageActionBuilder()
+                    .setType(payload.getType())
+                    .setActionDate(payload.getActionDate())
+                    .build();
+
             return new ApiResponse(true, messageActionRepository.save(messageAction), "api.messageAction.create.success");
         } catch (Exception e) {
             return new ApiResponse(false, null, "api.messageAction.create.error");
