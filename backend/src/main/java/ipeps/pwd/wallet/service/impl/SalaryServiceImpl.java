@@ -59,7 +59,13 @@ public class SalaryServiceImpl implements SalaryService {
     @Override
     public ApiResponse create(SalaryCreatePayload payload) {
         try{
-            Salary salary = new SalaryBuilder().setType(payload.getType()).build();
+            Salary salary = new SalaryBuilder()
+                    .setType(payload.getType())
+                    .setBillingDate(payload.getBillingDate())
+                    .setAmount(payload.getAmount())
+                    .setPeriodicity(payload.getPeriodicity())
+                    .build();
+
             return new ApiResponse(true, salaryRepository.save(salary), "api.salary.create.success");
         }catch(Exception e){
             return new ApiResponse(false, null, "api.salary.create.error");
