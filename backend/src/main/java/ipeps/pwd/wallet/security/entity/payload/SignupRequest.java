@@ -23,16 +23,29 @@ public class SignupRequest{
     @Size(min = 6, max = 40)
     private String password;
 
-    public ApiResponse isValid(){
-        if(username == null ||username.isEmpty()){
-            if(password == null ||password.isEmpty()){
+    @NotBlank
+    @Size(min = 2, max = 50)
+    private String firstname;
+
+    @NotBlank
+    @Size(min = 2, max = 50)
+    private String lastname;
+
+
+    public ApiResponse isValid() {
+        if (username == null || username.isEmpty()) {
+            if (password == null || password.isEmpty()) {
                 return new ApiResponse(false, null, "api.signup.valid-error-full");
-            }else{
+            } else {
                 return new ApiResponse(false, null, "api.signup.valid-error-email");
             }
-        }else if(password == null ||password.isEmpty()){
+        } else if (password == null || password.isEmpty()) {
             return new ApiResponse(false, null, "api.signup.valid-error-password");
-        }else{
+        } else if (firstname == null || firstname.isEmpty()) {
+            return new ApiResponse(false, null, "api.signup.valid-error-firstname");
+        } else if (lastname == null || lastname.isEmpty()) {
+            return new ApiResponse(false, null, "api.signup.valid-error-lastname");
+        } else {
             return new ApiResponse(true, this, null);
         }
     }
