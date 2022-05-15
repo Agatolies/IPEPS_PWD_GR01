@@ -3,6 +3,7 @@ package ipeps.pwd.wallet.security.controller;
 import ipeps.pwd.wallet.common.entity.response.ApiResponse;
 import ipeps.pwd.wallet.security.entity.Credential;
 import ipeps.pwd.wallet.security.entity.payload.RefreshTokenRequest;
+import ipeps.pwd.wallet.security.entity.payload.SigninRequest;
 import ipeps.pwd.wallet.security.entity.payload.SignupRequest;
 import ipeps.pwd.wallet.security.repository.CredentialRepository;
 import ipeps.pwd.wallet.security.service.CredentialService;
@@ -35,14 +36,18 @@ public class AuthController {
     }
 
     @PostMapping("/signin")
-    public ApiResponse signin(@RequestBody SignupRequest request) {
+    public ApiResponse signin(@RequestBody SigninRequest request) {
         ApiResponse result = request.isValid();
+
         if (result.isSuccess()) {
             Credential credential = credentialRepository.findByUsername(request.getUsername());
+
             if (credential != null && encoder.matches(request.getPassword(), credential.getPassword())) {
                 HashMap<String, Object> hmap = new HashMap<String, Object>();
                 hmap.put("user", credential);
+                hmap.put("account", credential.getAccount());
                 hmap.put("token", this.tokenService.getToken(request.getUsername(), request.getPassword()));
+
                 return new ApiResponse(true, hmap, null);
             } else {
                 return new ApiResponse(false, null, "api.signin.bad-credentials");
