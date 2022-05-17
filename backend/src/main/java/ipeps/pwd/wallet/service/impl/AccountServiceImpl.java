@@ -56,7 +56,10 @@ public class AccountServiceImpl implements AccountService {
     @Override
     public ApiResponse create(AccountCreatePayload payload) {
         try{
-            Account account = new AccountBuilder().setFirstname(payload.getFirstname()).build();
+            Account account = new AccountBuilder()
+                    .setFirstname(payload.getFirstname())
+                    .setLastname(payload.getLastname())
+                    .build();
             return new ApiResponse(true, accountRepository.save(account), "api.account.create.success");
         } catch(Exception e){
             return new ApiResponse(false, null, "api.account.create.error");
