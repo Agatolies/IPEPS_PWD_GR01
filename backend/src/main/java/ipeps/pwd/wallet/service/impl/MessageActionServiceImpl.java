@@ -25,11 +25,10 @@ public class MessageActionServiceImpl implements MessageActionService {
         }
     }
 
-
     @Override
     public ApiResponse detail(int id) {
         try {
-            MessageAction messageAction = (MessageAction) messageActionRepository.findById(id).orElse(null);
+            MessageAction messageAction = messageActionRepository.findById(id).orElse(null);
             if (messageAction != null) {
                 return new ApiResponse(true, messageAction, "api.messageAction.detail.success");
             } else {
