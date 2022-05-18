@@ -1,82 +1,178 @@
 {
 	"info": {
-		"_postman_id": "1f5d47fa-fda3-433a-af59-e1c646069db1",
+		"_postman_id": "172b95c0-b027-47a5-9ca5-8da5595eca9f",
 		"name": "wallet",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "security",
+			"name": "address",
+			"item": []
+		},
+		{
+			"name": "contact",
 			"item": [
 				{
-					"name": "signin",
+					"name": "contact/detail",
 					"request": {
-						"method": "POST",
+						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"username\":\"captain\",\r\n    \"password\":\"P@ssword\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
 						"url": {
-							"raw": "http://localhost:2021/api/account/signin",
-							"protocol": "http",
+							"raw": "localhost:2021/api/contact/detail/1",
 							"host": [
 								"localhost"
 							],
 							"port": "2021",
 							"path": [
 								"api",
-								"account",
-								"signin"
+								"contact",
+								"detail",
+								"1"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "signup",
+					"name": "contact/create",
 					"request": {
 						"method": "POST",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"username\":\"captain\",\r\n    \"password\":\"P@ssword\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
 						"url": {
-							"raw": "http://localhost:2021/api/account/signup",
-							"protocol": "http",
+							"raw": "localhost:2021/api/contact/create",
 							"host": [
 								"localhost"
 							],
 							"port": "2021",
 							"path": [
 								"api",
-								"account",
-								"signup"
+								"contact",
+								"create"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "me",
+					"name": "contact/delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:2021/api/contact/delete/1",
+							"host": [
+								"localhost"
+							],
+							"port": "2021",
+							"path": [
+								"api",
+								"contact",
+								"delete",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "contact/list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:2021/api/contact/list",
+							"host": [
+								"localhost"
+							],
+							"port": "2021",
+							"path": [
+								"api",
+								"contact",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "contact/update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "localhost:2021/api/contact/update",
+							"host": [
+								"localhost"
+							],
+							"port": "2021",
+							"path": [
+								"api",
+								"contact",
+								"update"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "document",
+			"item": []
+		},
+		{
+			"name": "employee",
+			"item": []
+		},
+		{
+			"name": "message",
+			"item": []
+		},
+		{
+			"name": "messageAction",
+			"item": []
+		},
+		{
+			"name": "messenger",
+			"item": []
+		},
+		{
+			"name": "organization",
+			"item": []
+		},
+		{
+			"name": "salary",
+			"item": [
+				{
+					"name": "salary/list",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/salary/list",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"salary",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "salary/detail",
 					"request": {
 						"auth": {
 							"type": "bearer",
 							"bearer": [
 								{
 									"key": "token",
-									"value": "2ac49792-a42d-49cd-a686-fa482ca66aa6",
+									"value": "b66e1771-2212-44d5-806b-0c587b9f63ed",
 									"type": "string"
 								}
 							]
@@ -84,14 +180,550 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:2021/api/account/me",
-							"protocol": "http",
+							"raw": "{{BASE_URL}}/salary/detail/5",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"salary",
+								"detail",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "salary/create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "b66e1771-2212-44d5-806b-0c587b9f63ed",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"type\": \"mensuel\",\n    \"billing_date\": \"2022-05-01\",\n    \"amount\": 2300,\n    \"periodicity\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/salary/create",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"salary",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "salary/update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "b66e1771-2212-44d5-806b-0c587b9f63ed",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"salary_id\": 5,\n    \"type\": \"annuel\",\n    \"billing_date\": \"2022-05-01\",\n    \"amount\": 2300,\n    \"periodicity\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/salary/update",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"salary",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "salary/delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "b66e1771-2212-44d5-806b-0c587b9f63ed",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/salary/delete/5",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"salary",
+								"delete",
+								"5"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "schedule",
+			"item": [
+				{
+					"name": "schedule/list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "Localhost:2021/api/schelude/list",
+							"host": [
+								"Localhost"
+							],
+							"port": "2021",
+							"path": [
+								"api",
+								"schelude",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "schedule/detail",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/schedule/detail",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"schedule",
+								"detail"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "schedule/update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "localhost:2021/api/schelude/update/",
 							"host": [
 								"localhost"
 							],
 							"port": "2021",
 							"path": [
 								"api",
+								"schelude",
+								"update",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "schedule/create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:2021/api/create",
+							"host": [
+								"localhost"
+							],
+							"port": "2021",
+							"path": [
+								"api",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "schedule/delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/schedule/delete/1",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"schedule",
+								"delete",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "transaction",
+			"item": [
+				{
+					"name": "transaction/list",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "b66e1771-2212-44d5-806b-0c587b9f63ed",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/transaction/list",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"transaction",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "transaction/detail",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "b66e1771-2212-44d5-806b-0c587b9f63ed",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/transaction/detail/8",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"transaction",
+								"detail",
+								"8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "transaction/create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "b66e1771-2212-44d5-806b-0c587b9f63ed",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"type\": \"paiement salaire\",\n    \"amount\": 2000\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/transaction/create",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"transaction",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "transaction/update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "b66e1771-2212-44d5-806b-0c587b9f63ed",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"transaction_id\": 8,\n    \"type\": \"paiement congé payé\",\n    \"amount\": 2000\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/transaction/update",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"transaction",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "transaction/delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/transaction/delete/8",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"transaction",
+								"delete",
+								"8"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "wallet",
+			"item": [
+				{
+					"name": "wallet/list",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "b66e1771-2212-44d5-806b-0c587b9f63ed",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/wallet/list",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"wallet",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "wallet/detail",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/wallet/detail/9",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"wallet",
+								"detail",
+								"9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "wallet/create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "b66e1771-2212-44d5-806b-0c587b9f63ed",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"portefeuille1\",\n    \"description\": \"j'en sais rien\",\n    \"actif\": true,\n    \"type\": \"joli\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/wallet/create",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"wallet",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "wallet/update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "b66e1771-2212-44d5-806b-0c587b9f63ed",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"wallet_id\": 9,\n    \"name\": \"portefeuille2\",\n    \"description\": \"j'en sais rien\",\n    \"actif\": true,\n    \"type\": \"joli\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/wallet/update",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"wallet",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "wallet/delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/wallet/delete/9",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"wallet",
+								"delete",
+								"9"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "security",
+			"item": [
+				{
+					"name": "account/me",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "67f5442e-0399-4bdf-a661-a6a5c655922b",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/account/me",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
 								"account",
 								"me"
 							]
@@ -100,13 +732,13 @@
 					"response": []
 				},
 				{
-					"name": "refresh token",
+					"name": "account/signin",
 					"request": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\"refresh\":\"69be7430-ede0-42fb-a2bb-16133e2525dd\"}",
+							"raw": "{\n    \"username\":\"peach\",\n    \"password\":\"P@ssword\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -114,22 +746,100 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:2021/api/account/refresh",
-							"protocol": "http",
+							"raw": "{{BASE_URL}}/account/signin",
 							"host": [
-								"localhost"
+								"{{BASE_URL}}"
 							],
-							"port": "2021",
 							"path": [
-								"api",
+								"account",
+								"signin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "account/refresh",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"refresh\":\"67f5442e-0399-4bdf-a661-a6a5c655922b\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/account/refresh",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
 								"account",
 								"refresh"
 							]
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "account/signup",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\":\"bavette\",\n    \"password\":\"P@ssword\",\n    \"firstname\": \"Peach\",\n    \"lastname\": \"D'Este\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/account/signup",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"account",
+								"signup"
+							]
+						}
+					},
+					"response": []
 				}
 			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "BASE_URL",
+			"value": "http://localhost:2021/api",
+			"type": "string"
 		}
 	]
 }
