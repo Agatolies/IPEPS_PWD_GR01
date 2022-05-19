@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ContactBuilder {
-
     private String firstname = "";
     private String lastname = "";
     private String email = "";

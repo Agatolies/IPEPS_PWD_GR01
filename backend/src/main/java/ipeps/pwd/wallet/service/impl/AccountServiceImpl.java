@@ -10,6 +10,8 @@ import ipeps.pwd.wallet.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.UUID;
+
 @Service
 public class AccountServiceImpl implements AccountService {
     @Autowired
@@ -20,12 +22,12 @@ public class AccountServiceImpl implements AccountService {
         try {
             return new ApiResponse(true, accountRepository.findAll(), "api.account.list.success");
         } catch (Exception e) {
-            return new ApiResponse(false, null, "api.account.list.error");
+            return new ApiResponse(false, e.getMessage(), "api.account.list.error");
         }
     }
 
     @Override
-    public ApiResponse detail(int id) {
+    public ApiResponse detail(UUID id) {
         try{
             Account account = accountRepository.findById(id).orElse(null);
             if (account != null) {
@@ -62,12 +64,12 @@ public class AccountServiceImpl implements AccountService {
                     .build();
             return new ApiResponse(true, accountRepository.save(account), "api.account.create.success");
         } catch(Exception e){
-            return new ApiResponse(false, null, "api.account.create.error");
+            return new ApiResponse(false, e.getMessage(), "api.account.create.error");
         }
     }
 
     @Override
-    public ApiResponse delete(int id) {
+    public ApiResponse delete(UUID id) {
         try{
             ApiResponse response = this.detail(id);
             if(response.result){

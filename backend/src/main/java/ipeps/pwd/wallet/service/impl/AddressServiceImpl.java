@@ -10,6 +10,8 @@ import ipeps.pwd.wallet.service.AddressService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.UUID;
+
 @Service
 public class AddressServiceImpl implements AddressService {
 
@@ -22,12 +24,12 @@ public class AddressServiceImpl implements AddressService {
             return new ApiResponse(true, addressRepository.findAll(), "api.address.list.success");
         }
         catch (Exception e) {
-            return new ApiResponse(false, null, "api.address.list.error");
+            return new ApiResponse(false, e.getMessage(), "api.address.list.error");
         }
     }
 
     @Override
-    public ApiResponse detail(int id){
+    public ApiResponse detail(UUID id){
         try {
             Address address = addressRepository.findById(id).orElse(null);
             if(address != null){
@@ -70,12 +72,12 @@ public class AddressServiceImpl implements AddressService {
                     .build();
             return new ApiResponse(true, addressRepository.save(address), "api.address.create.success");
         }catch(Exception e){
-            return new ApiResponse(false, null, "api.address.create.error");
+            return new ApiResponse(false, e.getMessage(), "api.address.create.error");
         }
     }
 
     @Override
-    public ApiResponse delete(int id){
+    public ApiResponse delete(UUID id){
         try {
             ApiResponse response = this.detail(id);
             if (response.result){

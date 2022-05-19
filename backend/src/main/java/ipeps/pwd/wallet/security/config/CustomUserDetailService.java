@@ -1,7 +1,7 @@
 package ipeps.pwd.wallet.security.config;
 
-import ipeps.pwd.wallet.security.entity.Credential;
 import ipeps.pwd.wallet.security.service.CredentialService;
+import ipeps.pwd.wallet.security.entity.Credential;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

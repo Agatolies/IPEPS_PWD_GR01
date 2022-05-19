@@ -10,6 +10,8 @@ import ipeps.pwd.wallet.service.ContactService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.UUID;
+
 @Service
 public class ContactServiceImpl implements ContactService {
 
@@ -22,12 +24,12 @@ public class ContactServiceImpl implements ContactService {
             return new ApiResponse(true, contactRepository.findAll(), "api.contact.list.success");
         }
         catch (Exception e) {
-            return new ApiResponse(false, null, "api.contact.list.error");
+            return new ApiResponse(false, e.getMessage(), "api.contact.list.error");
         }
     }
 
     @Override
-    public ApiResponse detail(int id){
+    public ApiResponse detail(UUID id){
         try {
             Contact contact = contactRepository.findById(id).orElse(null);
             if (contact != null){
@@ -67,12 +69,12 @@ public class ContactServiceImpl implements ContactService {
                     .build();
             return new ApiResponse(true, contactRepository.save(contact), "api.contact.create.success");
         }catch(Exception e){
-            return new ApiResponse(false, null, "api.contact.create.error");
+            return new ApiResponse(false, e.getMessage(), "api.contact.create.error");
         }
     }
 
     @Override
-    public ApiResponse delete(int id){
+    public ApiResponse delete(UUID id){
         try {
             ApiResponse response = this.detail(id);
             if (response.result){

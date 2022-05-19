@@ -2,10 +2,10 @@ package ipeps.pwd.wallet.security.service;
 
 import ipeps.pwd.wallet.builder.AccountBuilder;
 import ipeps.pwd.wallet.common.entity.response.ApiResponse;
+import ipeps.pwd.wallet.security.entity.payload.SignupRequest;
 import ipeps.pwd.wallet.entity.Account;
 import ipeps.pwd.wallet.repository.AccountRepository;
 import ipeps.pwd.wallet.security.entity.Credential;
-import ipeps.pwd.wallet.security.entity.payload.SignupRequest;
 import ipeps.pwd.wallet.security.repository.CredentialRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -70,7 +70,7 @@ public class CredentialServiceImpl implements CredentialService {
                     return new ApiResponse(true, credential, null);
                 } catch (Exception e) {
                     e.printStackTrace();
-                    return new ApiResponse(false, null, "api.signup.database-insert-error");
+                    return new ApiResponse(false, e.getMessage(), "api.signup.database-insert-error");
                 }
             }
         } else {

@@ -7,6 +7,8 @@ import ipeps.pwd.wallet.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.UUID;
+
 @RestController
 @RequestMapping("account")
 public class AccountController {
@@ -19,7 +21,7 @@ public class AccountController {
     }
 
     @GetMapping("detail/{id}")
-    public ApiResponse detail(@PathVariable("id") int id) {
+    public ApiResponse detail(@PathVariable("id") UUID id) {
         return accountService.detail(id);
     }
 
@@ -34,5 +36,5 @@ public class AccountController {
     }
 
     @DeleteMapping("delete/{id}")
-    public ApiResponse delete(@PathVariable("id") int id) { return accountService.delete(id); }
+    public ApiResponse delete(@PathVariable("id") UUID id) { return accountService.delete(id); }
 }

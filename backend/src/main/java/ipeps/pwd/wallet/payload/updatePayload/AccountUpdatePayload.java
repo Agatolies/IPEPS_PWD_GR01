@@ -7,12 +7,13 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.List;
+import java.util.UUID;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class AccountUpdatePayload {
-    private int account_id;
+    private UUID account_id;
     private String firstname;
     private String lastname;
     private Credential credential;
