@@ -10,8 +10,12 @@ public class EmployeeBuilder {
     private String role = "";
     private boolean actif;
     private Account account;
-    private List<Address> addresses = null;
-
+    private List<Address> addresses;
+    private Organization organization;
+    public EmployeeBuilder setOrganization(Organization organization){
+        this.organization = organization;
+        return this;
+    }
     public EmployeeBuilder setRole(String role) {
         this.role = role;
         return this;
@@ -33,6 +37,6 @@ public class EmployeeBuilder {
     }
 
     public Employee build() {
-        return new Employee(role, actif, account, addresses);
+        return new Employee(role, actif, account, addresses, organization);
     }
 }

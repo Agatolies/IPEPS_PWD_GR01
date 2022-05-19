@@ -4,9 +4,11 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.codehaus.jackson.annotate.JsonIgnore;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.UUID;
 
 @Data
 @AllArgsConstructor
@@ -14,8 +16,10 @@ import java.util.List;
 @Entity
 public class Employee {
     @Id
-    @GeneratedValue(strategy = GenerationType.TABLE)
-    private int employee_id;
+    @GeneratedValue(generator="UUID")
+    @GenericGenerator(name="UUID",strategy="org.hibernate.id.UUIDGenerator")
+    @Column(name="employee_id", nullable=false, updatable = false)
+    private UUID employee_id;
     private String role;
     private boolean actif;
 
@@ -24,15 +28,18 @@ public class Employee {
     @JoinColumn(name = "employee_id_fk", referencedColumnName = "employee_id")
     private List<Address> addresses;
 
+    @ManyToOne
+    private Organization organization;
     @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "account_id_fk", referencedColumnName = "account_id")
     private Account account;
 
-    public Employee(String role, boolean actif, Account account, List<Address> addresses ) {
+    public Employee(String role, boolean actif, Account account, List<Address> addresses, Organization organization) {
         this.role = role;
         this.actif = actif;
         this.account = account;
         this.addresses = addresses;
+        this.organization = organization;
     }
 }

@@ -1,9 +1,9 @@
 package ipeps.pwd.wallet.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.codehaus.jackson.annotate.JsonIgnore;
 
 import javax.persistence.*;
 import java.util.List;
@@ -24,6 +24,11 @@ public class Organization {
     @OneToMany
     @JoinColumn(name = "organization_id_fk", referencedColumnName = "organization_id")
     private List<Address> addresses;
+
+    @JsonIgnore
+    @OneToMany
+    @JoinColumn(name="organization_id_fk", referencedColumnName = "organization_id")
+    private List<Employee> employees;
 
     public Organization(String name, String description, boolean actif, List<Address> addresses) {
         this.name = name;

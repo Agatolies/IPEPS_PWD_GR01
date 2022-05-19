@@ -6,14 +6,16 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.List;
+import java.util.UUID;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class EmployeeUpdatePayload {
-    private int employee_id;
+    private UUID employee_id;
     private String role;
     private boolean actif;
     private List<Address> addresses;
     private Account account;
+    private Organization organization;
 }

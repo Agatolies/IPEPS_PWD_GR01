@@ -10,6 +10,8 @@ import ipeps.pwd.wallet.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.UUID;
+
 // Liste des méthodes qui font appel aux données locales dans le backend
 
 @Service
@@ -28,7 +30,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public ApiResponse detail(int id) {
+    public ApiResponse detail(UUID id) {
         try {
             Employee employee = employeeRepository.findById(id).orElse(null);
             if (employee != null) {
@@ -37,6 +39,7 @@ public class EmployeeServiceImpl implements EmployeeService {
                 return new ApiResponse(true, null, "api.employee.detail.not-found");
             }
         } catch (Exception e) {
+            e.printStackTrace();//pour afficher le message d'erreur dans la console
             return new ApiResponse(false, e.getMessage(), "api.employee.detail.error");
         }
     }
@@ -47,6 +50,9 @@ public class EmployeeServiceImpl implements EmployeeService {
             ApiResponse response = this.detail(payload.getEmployee_id());
             if (response.result) {
                 Employee employee = (Employee) response.data;
+                employee.setRole(payload.getRole());
+                employee.setOrganization(payload.getOrganization());
+                employee.setActif(payload.isActif());
                 employeeRepository.save(employee);
                 return new ApiResponse(true, null, "api.employee.update.success");
             } else {
@@ -64,16 +70,17 @@ public class EmployeeServiceImpl implements EmployeeService {
             Employee employee = new EmployeeBuilder()
                     .setRole(payload.getRole())
                     .setActif(payload.isActif())
+                    .setOrganization(payload.getOrganization())
                     .build();
             return new ApiResponse(true, employeeRepository.save(employee), "api.employee.create.success");
 
         } catch (Exception e) {
-            return new ApiResponse(false, null, "api.employee.create.error");
+            return new ApiResponse(false, e.getMessage(), "api.employee.create.error");
         }
     }
 
     @Override
-    public ApiResponse delete(int id) {
+    public ApiResponse delete(UUID id) {
         try {
             ApiResponse response = this.detail(id);
             if (response.result) {
