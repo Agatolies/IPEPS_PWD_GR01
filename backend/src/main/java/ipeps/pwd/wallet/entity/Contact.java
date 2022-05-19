@@ -1,5 +1,6 @@
 package ipeps.pwd.wallet.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -7,6 +8,7 @@ import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.UUID;
 
 @Data
 @AllArgsConstructor
@@ -16,13 +18,14 @@ public class Contact {
     @Id
     @GeneratedValue(generator="UUID")
     @GenericGenerator(name="UUID",strategy="org.hibernate.id.UUIDGenerator")
-    @Column(name="employee_id", nullable=false, updatable = false)
-    private int contact_id;
+    @Column(name="contact_id", nullable=false, updatable = false)
+    private UUID contact_id;
     private String firstname;
     private String lastname;
     private String email;
     private String phone;
 
+    @JsonIgnore
     @OneToMany
     @JoinColumn(name = "contact_id_fk", referencedColumnName = "contact_id")
     private List<Address> addresses;

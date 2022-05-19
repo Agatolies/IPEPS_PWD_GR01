@@ -6,12 +6,13 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.List;
+import java.util.UUID;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class ContactUpdatePayload {
-    private int contact_id;
+    private UUID contact_id;
     private String firstname;
     private String lastname;
     private String email;

@@ -7,6 +7,8 @@ import ipeps.pwd.wallet.service.ContactService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.UUID;
+
 @RestController
 @RequestMapping("contact")
 public class ContactController {
@@ -17,7 +19,7 @@ public class ContactController {
     public ApiResponse list(){ return contactService.list(); }
 
     @GetMapping("detail/{id}")
-    public ApiResponse detail(@PathVariable("id") int id){ return contactService.detail(id); }
+    public ApiResponse detail(@PathVariable("id") UUID id){ return contactService.detail(id); }
 
     @PutMapping("update")
     public ApiResponse update(@RequestBody ContactUpdatePayload payload){ return contactService.update(payload); }
@@ -26,5 +28,5 @@ public class ContactController {
     public ApiResponse create(@RequestBody ContactCreatePayload payload){ return contactService.create(payload); }
 
     @DeleteMapping("delete/{id}")
-    public ApiResponse delete(@PathVariable("id") int id){ return contactService.delete(id); }
+    public ApiResponse delete(@PathVariable("id") UUID id){ return contactService.delete(id); }
 }

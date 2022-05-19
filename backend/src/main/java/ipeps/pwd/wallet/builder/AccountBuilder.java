@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AccountBuilder {
-
     private String firstname = "";
     private String lastname = "";
     private Credential credential = new Credential();

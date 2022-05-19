@@ -22,7 +22,7 @@ public class Account{
     @Id
     @GeneratedValue(generator="UUID")
     @GenericGenerator(name="UUID",strategy="org.hibernate.id.UUIDGenerator")
-    @Column(name="employee_id", nullable=false, updatable = false)
+    @Column(name="account_id", nullable=false, updatable = false)
     private UUID account_id;
     private String firstname;
     private String lastname;
@@ -33,6 +33,7 @@ public class Account{
     @JoinColumn(name = "credential_id_fk", referencedColumnName = "credential_id") // renomme le champ de la propriété
     private Credential credential;
 
+    @JsonIgnore
     @OneToMany
     @JoinColumn(name = "account_id_fk", referencedColumnName = "account_id")
     private List<Employee> employees;

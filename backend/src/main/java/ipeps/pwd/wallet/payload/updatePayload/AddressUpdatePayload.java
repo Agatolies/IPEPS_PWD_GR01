@@ -1,5 +1,8 @@
 package ipeps.pwd.wallet.payload.updatePayload;
 
+import ipeps.pwd.wallet.entity.Contact;
+import ipeps.pwd.wallet.entity.Employee;
+import ipeps.pwd.wallet.entity.Organization;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -18,4 +21,7 @@ public class AddressUpdatePayload {
     private String cp;
     private String town;
     private String country;
+    private Employee employee;
+    private Organization organization;
+    private Contact contact;
 }

@@ -17,7 +17,7 @@ public class Address {
     @Id
     @GeneratedValue(generator="UUID")
     @GenericGenerator(name="UUID",strategy="org.hibernate.id.UUIDGenerator")
-    @Column(name="employee_id", nullable=false, updatable = false)
+    @Column(name="address_id", nullable=false, updatable = false)
     private UUID address_id;
     private String type;
     private String road;
@@ -27,8 +27,20 @@ public class Address {
     private String town;
     private String country;
 
+    @ManyToOne
+    @JoinColumn(name = "employee_id_fk", referencedColumnName = "employee_id")
+    private Employee employee;
+
+    @ManyToOne
+    @JoinColumn(name = "organization_id_fk", referencedColumnName = "organization_id")
+    private Organization organization;
+
+    @ManyToOne
+    @JoinColumn(name = "contact_id_fk", referencedColumnName = "contact_id")
+    private Contact contact;
+
     public Address( String type, String road, String number, String box, String cp,
-                    String town, String country) {
+                    String town, String country, Employee employee, Organization organization, Contact contact) {
         this.type = type;
         this.road = road;
         this.number = number;
@@ -36,5 +48,8 @@ public class Address {
         this.cp = cp;
         this.town =town;
         this.country = country;
+        this.employee = employee;
+        this.organization = organization;
+        this.contact = contact;
     }
 }

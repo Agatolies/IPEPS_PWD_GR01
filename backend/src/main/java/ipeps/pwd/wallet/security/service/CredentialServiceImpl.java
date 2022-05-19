@@ -70,7 +70,7 @@ public class CredentialServiceImpl implements CredentialService {
                     return new ApiResponse(true, credential, null);
                 } catch (Exception e) {
                     e.printStackTrace();
-                    return new ApiResponse(false, null, "api.signup.database-insert-error");
+                    return new ApiResponse(false, e.getMessage(), "api.signup.database-insert-error");
                 }
             }
         } else {
