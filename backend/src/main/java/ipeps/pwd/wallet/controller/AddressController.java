@@ -7,6 +7,8 @@ import ipeps.pwd.wallet.service.AddressService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.UUID;
+
 @RestController
 @RequestMapping("address")
 public class AddressController {
@@ -17,7 +19,7 @@ public class AddressController {
     public ApiResponse list(){ return addressService.list(); }
 
     @GetMapping("detail/{id}")
-    public ApiResponse detail(@PathVariable("id") int id) { return addressService.detail(id); }
+    public ApiResponse detail(@PathVariable("id") UUID id) { return addressService.detail(id); }
 
     @PutMapping("update")
     public ApiResponse update(@RequestBody AddressUpdatePayload payload) { return addressService.update(payload); }
@@ -26,5 +28,5 @@ public class AddressController {
     public ApiResponse create(@RequestBody AddressCreatePayload payload) { return addressService.create(payload); }
 
     @DeleteMapping("delete/{id}")
-    public ApiResponse delete(@PathVariable("id") int id) { return addressService.delete(id); }
+    public ApiResponse delete(@PathVariable("id") UUID id) { return addressService.delete(id); }
 }

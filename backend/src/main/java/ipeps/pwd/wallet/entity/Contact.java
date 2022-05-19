@@ -3,6 +3,7 @@ package ipeps.pwd.wallet.entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.util.List;
@@ -13,7 +14,9 @@ import java.util.List;
 @Entity
 public class Contact {
     @Id
-    @GeneratedValue(strategy = GenerationType.TABLE)
+    @GeneratedValue(generator="UUID")
+    @GenericGenerator(name="UUID",strategy="org.hibernate.id.UUIDGenerator")
+    @Column(name="employee_id", nullable=false, updatable = false)
     private int contact_id;
     private String firstname;
     private String lastname;

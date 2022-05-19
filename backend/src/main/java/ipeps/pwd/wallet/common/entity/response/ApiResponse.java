@@ -1,7 +1,5 @@
 package ipeps.pwd.wallet.common.entity.response;
 
-import ipeps.pwd.wallet.security.entity.Credential;
-
 import java.util.StringJoiner;
 
 public class ApiResponse {
