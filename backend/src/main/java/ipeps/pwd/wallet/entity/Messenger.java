@@ -5,9 +5,11 @@ import lombok.Data;
 import lombok.Generated;
 import lombok.NoArgsConstructor;
 import org.codehaus.jackson.annotate.JsonIgnore;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.UUID;
 
 @Data
 @AllArgsConstructor
@@ -15,11 +17,14 @@ import java.util.List;
 @Entity
 public class Messenger {
     @Id
-    @GeneratedValue(strategy = GenerationType.TABLE)
-    private int messenger_id;
+    @GeneratedValue(generator="UUID")
+    @GenericGenerator(name="UUID",strategy="org.hibernate.id.UUIDGenerator")
+    @Column(name="messenger_id", nullable=false, updatable = false)
+    private UUID messenger_id;
     private String lastMessage;
     private String people;
 
+    //liaison avec l'entité employee
     @JsonIgnore
     @ManyToMany
     @JoinTable(

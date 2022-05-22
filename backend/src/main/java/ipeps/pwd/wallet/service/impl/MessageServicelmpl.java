@@ -10,6 +10,8 @@ import ipeps.pwd.wallet.service.MessageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.UUID;
+
 @Service
 public class MessageServicelmpl implements MessageService {
 
@@ -26,7 +28,7 @@ public class MessageServicelmpl implements MessageService {
     }
 
     @Override
-    public ApiResponse detail(int id) {
+    public ApiResponse detail(UUID id) {
         try {
             Message message = messageRepository.findById(id).orElse(null);
             if (message != null) {
@@ -45,8 +47,13 @@ public class MessageServicelmpl implements MessageService {
         try {
             ApiResponse response = this.detail(payload.getMessage_id());
             if (response.result) {
-                Message Message = (Message) response.data;
-                messageRepository.save(Message);
+                Message message = (Message) response.data;
+                //message.setIsRead(payload.getIsRead());
+                message.setMessage(payload.getMessage());
+                message.setMessenger(payload.getMessenger());
+                message.setDate(payload.getDate());
+                message.setEmployee(payload.getEmployee());
+                messageRepository.save(message);
                 return new ApiResponse(true, null, "api.message.update.success");
             } else {
                 return response;
@@ -63,6 +70,7 @@ public class MessageServicelmpl implements MessageService {
                     .setIsRead(payload.isRead())
                     .setMessage(payload.getMessage())
                     .setDate(payload.getDate())
+                    .setEmployee(payload.getEmployee())
                     .build();
 
             return new ApiResponse(true, messageRepository.save(message), "api.Message.create.success");
@@ -73,7 +81,7 @@ public class MessageServicelmpl implements MessageService {
 
 
     @Override
-    public ApiResponse delete(int id) {
+    public ApiResponse delete(UUID id) {
         try {
             ApiResponse response = this.detail(id);
             if (response.result) {

@@ -10,6 +10,8 @@ import ipeps.pwd.wallet.service.MessengerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.UUID;
+
 @Service
 public class MessengerServicelmpl implements MessengerService {
 
@@ -26,7 +28,7 @@ public class MessengerServicelmpl implements MessengerService {
     }
 
     @Override
-    public ApiResponse detail(int id) {
+    public ApiResponse detail(UUID id) {
         try {
             Messenger messenger = messengerRepository.findById(id).orElse(null);
             if (messenger != null) {
@@ -45,6 +47,9 @@ public class MessengerServicelmpl implements MessengerService {
             ApiResponse response = this.detail(payload.getMessenger_id());
             if (response.result) {
                 Messenger messenger = (Messenger) response.data;
+                messenger.setLastMessage(payload.getLastMessage());
+                messenger.setPeople(payload.getPeople());
+                messenger.setEmployees(payload.getEmployees());
                 messengerRepository.save(messenger);
                 return new ApiResponse(true, null, "api.messenger.update.success");
             } else {
@@ -71,7 +76,7 @@ public class MessengerServicelmpl implements MessengerService {
     }
 
     @Override
-    public ApiResponse delete(int id) {
+    public ApiResponse delete(UUID id) {
         try {
             ApiResponse response = this.detail(id);
             if (response.result) {

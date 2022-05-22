@@ -14,8 +14,8 @@ public class MessageBuilder {
     private boolean isRead;
     private String message = "";
     private Date date = new Date();
-    private Messenger messenger = null;
-    private Employee employee = null;
+    private Messenger messenger;
+    private Employee employee;
 
     public MessageBuilder setIsRead(boolean isRead) {
         this.isRead = isRead;
@@ -43,6 +43,7 @@ public class MessageBuilder {
     }
 
     public Message build() {
-        return new Message(isRead, message, date, employee, messenger);
+        return new Message(isRead, message, date,
+                employee, messenger);
     }
 }
