@@ -7,12 +7,13 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.Date;
+import java.util.UUID;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class MessageActionUpdatePayload {
-    private int messageAction_id;
+    private UUID messageAction_id;
     private String type;
     private Date actionDate;
     private Message message;

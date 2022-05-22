@@ -9,12 +9,13 @@ import lombok.NoArgsConstructor;
 
 import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class MessageUpdatePayload {
-    private int message_id;
+    private UUID message_id;
     private boolean isRead;
     private String message;
     private Date date;
