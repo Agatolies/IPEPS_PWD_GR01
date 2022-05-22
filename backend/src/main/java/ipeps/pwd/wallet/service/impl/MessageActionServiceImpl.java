@@ -10,6 +10,8 @@ import ipeps.pwd.wallet.service.MessageActionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.UUID;
+
 @Service
 public class MessageActionServiceImpl implements MessageActionService {
 
@@ -26,7 +28,7 @@ public class MessageActionServiceImpl implements MessageActionService {
     }
 
     @Override
-    public ApiResponse detail(int id) {
+    public ApiResponse detail(UUID id) {
         try {
             MessageAction messageAction = messageActionRepository.findById(id).orElse(null);
             if (messageAction != null) {
@@ -46,6 +48,10 @@ public class MessageActionServiceImpl implements MessageActionService {
             ApiResponse response = this.detail(payload.getMessageAction_id());
             if (response.result) {
                 MessageAction messageAction = (MessageAction) response.data;
+                messageAction.setType(payload.getType());
+                messageAction.setActionDate(payload.getActionDate());
+                messageAction.setMessage(payload.getMessage());
+                messageAction.setEmployee(payload.getEmployee());
                 messageActionRepository.save(messageAction);
                 return new ApiResponse(true, null, "api.employee.update.success");
             } else {
@@ -71,7 +77,7 @@ public class MessageActionServiceImpl implements MessageActionService {
     }
 
     @Override
-    public ApiResponse delete(int id) {
+    public ApiResponse delete(UUID id) {
         try {
             ApiResponse response = this.detail(id);
             if (response.result) {

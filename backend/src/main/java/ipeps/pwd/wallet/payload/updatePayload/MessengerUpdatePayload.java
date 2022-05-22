@@ -8,12 +8,13 @@ import lombok.NoArgsConstructor;
 import org.w3c.dom.stylesheets.LinkStyle;
 
 import java.util.List;
+import java.util.UUID;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class MessengerUpdatePayload {
-    private int messenger_id;
+    private UUID messenger_id;
     private String lastMessage;
     private String people;
     private List<Employee> employees;

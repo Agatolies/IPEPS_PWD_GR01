@@ -10,8 +10,8 @@ public class MessageActionBuilder {
 
     private String type = "";
     private Date actionDate = new Date();
-    private Message message = null;
-    private Employee employee = null;
+    private Message message;
+    private Employee employee;
 
     public MessageActionBuilder setType(String type) {
         this.type = type;

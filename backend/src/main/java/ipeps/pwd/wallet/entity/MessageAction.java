@@ -3,9 +3,11 @@ package ipeps.pwd.wallet.entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.UUID;
 
 @Data
 @AllArgsConstructor
@@ -13,11 +15,13 @@ import java.util.Date;
 @Entity
 public class MessageAction {
     @Id
-    @GeneratedValue(strategy = GenerationType.TABLE)
-    private int messageAction_id;
+    @GeneratedValue(generator="UUID")
+    @GenericGenerator(name="UUID",strategy="org.hibernate.id.UUIDGenerator")
+    @Column(name="messageAction_id", nullable=false, updatable = false)
+    private UUID messageAction_id;
     private String type;
     private Date actionDate;
-
+//liaison avec les entités employee et message
     @ManyToOne
     @JoinColumn(name = "employee_id_fk", referencedColumnName = "employee_id")
     private Employee employee;
@@ -25,6 +29,7 @@ public class MessageAction {
     @ManyToOne
     @JoinColumn(name = "message_id_fk", referencedColumnName = "message_id")
     private Message message;
+
 
     public MessageAction(String type, Date actionDate, Message message, Employee employee) {
         this.type = type;
