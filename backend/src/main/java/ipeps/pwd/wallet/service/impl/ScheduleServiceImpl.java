@@ -16,6 +16,7 @@ public class ScheduleServiceImpl implements ScheduleService {
     @Autowired
     ScheduleRepository scheduleRepository;
 
+    @Override
     public ApiResponse list(){
         try {
             return new ApiResponse(true, scheduleRepository.findAll(), "api.schedule.list.success");
@@ -24,6 +25,7 @@ public class ScheduleServiceImpl implements ScheduleService {
         }
     }
 
+    @Override
     public ApiResponse detail(int id) {
         try {
             Schedule schedule = scheduleRepository.findById(id).orElse(null);
@@ -37,6 +39,7 @@ public class ScheduleServiceImpl implements ScheduleService {
         }
     }
 
+    @Override
     public ApiResponse update(ScheduleUpdatePayload payload) {
         try{
             ApiResponse response = this.delete(payload.getSchedule_id());
@@ -52,6 +55,7 @@ public class ScheduleServiceImpl implements ScheduleService {
         }
     }
 
+    @Override
     public ApiResponse create(ScheduleCreatePayload payload) {
         try{
             Schedule schedule = new ScheduleBuilder()
@@ -65,6 +69,7 @@ public class ScheduleServiceImpl implements ScheduleService {
         }
     }
 
+    @Override
     public ApiResponse delete(int id) {
         try{
             ApiResponse response = this.delete(id);

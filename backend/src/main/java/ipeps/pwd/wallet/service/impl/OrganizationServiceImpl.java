@@ -16,6 +16,7 @@ public class OrganizationServiceImpl implements OrganizationService {
     @Autowired
     OrganizationRepository organizationRepository;
 
+    @Override
     public ApiResponse list(){
         try {
             return new ApiResponse(true, organizationRepository.findAll(), "api.organization.list.success");
@@ -25,6 +26,7 @@ public class OrganizationServiceImpl implements OrganizationService {
         }
     }
 
+    @Override
     public ApiResponse detail(int id) {
         try {
             Organization organization = organizationRepository.findById(id).orElse(null);
@@ -38,6 +40,7 @@ public class OrganizationServiceImpl implements OrganizationService {
         }
     }
 
+    @Override
     public ApiResponse update(OrganizationUpdatePayload payload) {
         try{
             ApiResponse response = this.detail(payload.getOrganization_id());
@@ -53,6 +56,7 @@ public class OrganizationServiceImpl implements OrganizationService {
         }
     }
 
+    @Override
     public ApiResponse create(OrganizationCreatePayload payload) {
         try{
             Organization organization = new OrganizationBuilder()
@@ -66,6 +70,7 @@ public class OrganizationServiceImpl implements OrganizationService {
         }
     }
 
+    @Override
     public ApiResponse delete(int id) {
         try{
             ApiResponse response = this.detail(id);
