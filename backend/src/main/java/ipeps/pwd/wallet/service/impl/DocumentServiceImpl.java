@@ -10,6 +10,8 @@ import ipeps.pwd.wallet.service.DocumentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.UUID;
+
 @Service
 public class DocumentServiceImpl implements DocumentService {
 
@@ -25,7 +27,8 @@ public class DocumentServiceImpl implements DocumentService {
         }
     }
 
-    public ApiResponse detail(int id) {
+    @Override
+    public ApiResponse detail(UUID  id) {
         try {
             Document document = documentRepository.findById(id).orElse(null);
             if (document != null) {
@@ -38,6 +41,7 @@ public class DocumentServiceImpl implements DocumentService {
         }
     }
 
+    @Override
     public ApiResponse update(DocumentUpdatePayload payload) {
         try{
             ApiResponse response = this.detail((payload.getDocument_id()));
@@ -53,6 +57,7 @@ public class DocumentServiceImpl implements DocumentService {
         }
     }
 
+    @Override
     public ApiResponse create(DocumentCreatePayload payload) {
         try{
             Document document = new DocumentBuilder()
@@ -68,7 +73,8 @@ public class DocumentServiceImpl implements DocumentService {
         }
     }
 
-    public ApiResponse delete(int id) {
+    @Override
+    public ApiResponse delete(UUID  id) {
         try{
             ApiResponse response = this.detail(id);
             if(response.result){

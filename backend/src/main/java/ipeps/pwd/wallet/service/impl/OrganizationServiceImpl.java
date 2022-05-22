@@ -10,6 +10,8 @@ import ipeps.pwd.wallet.service.OrganizationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.UUID;
+
 @Service
 public class OrganizationServiceImpl implements OrganizationService {
 
@@ -25,7 +27,8 @@ public class OrganizationServiceImpl implements OrganizationService {
         }
     }
 
-    public ApiResponse detail(int id) {
+    @Override
+    public ApiResponse detail(UUID id) {
         try {
             Organization organization = organizationRepository.findById(id).orElse(null);
             if (organization != null) {
@@ -38,6 +41,7 @@ public class OrganizationServiceImpl implements OrganizationService {
         }
     }
 
+    @Override
     public ApiResponse update(OrganizationUpdatePayload payload) {
         try{
             ApiResponse response = this.detail(payload.getOrganization_id());
@@ -53,6 +57,7 @@ public class OrganizationServiceImpl implements OrganizationService {
         }
     }
 
+    @Override
     public ApiResponse create(OrganizationCreatePayload payload) {
         try{
             Organization organization = new OrganizationBuilder()
@@ -66,7 +71,8 @@ public class OrganizationServiceImpl implements OrganizationService {
         }
     }
 
-    public ApiResponse delete(int id) {
+    @Override
+    public ApiResponse delete(UUID  id) {
         try{
             ApiResponse response = this.detail(id);
             if(response.result){

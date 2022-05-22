@@ -10,6 +10,8 @@ import ipeps.pwd.wallet.service.ScheduleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.UUID;
+
 @Service
 public class ScheduleServiceImpl implements ScheduleService {
 
@@ -24,7 +26,8 @@ public class ScheduleServiceImpl implements ScheduleService {
         }
     }
 
-    public ApiResponse detail(int id) {
+    @Override
+    public ApiResponse detail(UUID id) {
         try {
             Schedule schedule = scheduleRepository.findById(id).orElse(null);
             if (schedule != null) {
@@ -37,6 +40,7 @@ public class ScheduleServiceImpl implements ScheduleService {
         }
     }
 
+    @Override
     public ApiResponse update(ScheduleUpdatePayload payload) {
         try{
             ApiResponse response = this.delete(payload.getSchedule_id());
@@ -52,6 +56,7 @@ public class ScheduleServiceImpl implements ScheduleService {
         }
     }
 
+    @Override
     public ApiResponse create(ScheduleCreatePayload payload) {
         try{
             Schedule schedule = new ScheduleBuilder()
@@ -65,7 +70,8 @@ public class ScheduleServiceImpl implements ScheduleService {
         }
     }
 
-    public ApiResponse delete(int id) {
+    @Override
+    public ApiResponse delete(UUID id) {
         try{
             ApiResponse response = this.delete(id);
             if(response.result){

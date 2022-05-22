@@ -10,7 +10,7 @@ public class ScheduleBuilder {
     private String type = "";
     private Date dateSchedule = new Date();
     private String comment = "";
-    private Employee employee = null;
+    private Employee employee;
 
     public ScheduleBuilder setType(String type) {
         this.type = type;

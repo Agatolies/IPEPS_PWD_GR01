@@ -14,9 +14,9 @@ public class DocumentBuilder {
     private String path = "";
     private String type = "";
     private boolean freeAccess;
-    private Transaction transaction = null;
-    private Employee employee = null;
-    private Organization organization = null;
+    private Transaction transaction;
+    private Employee employee;
+    private Organization organization;
 
     public DocumentBuilder setName(String name) {
         this.name = name;

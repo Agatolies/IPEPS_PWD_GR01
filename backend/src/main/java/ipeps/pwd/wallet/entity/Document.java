@@ -7,6 +7,7 @@ import org.codehaus.jackson.annotate.JsonIgnore;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.UUID;
 
 // Document  0,1 || 0,1  Transaction
 
@@ -17,7 +18,7 @@ import java.util.List;
 public class Document {
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE)
-    private int document_id;
+    private UUID document_id;
     private String name;
     private String description;
     private String path;

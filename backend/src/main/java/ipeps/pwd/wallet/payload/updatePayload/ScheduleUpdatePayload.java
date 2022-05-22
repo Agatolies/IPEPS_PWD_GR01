@@ -6,12 +6,13 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.Date;
+import java.util.UUID;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class ScheduleUpdatePayload {
-    private int schedule_id;
+    private UUID schedule_id;
     private String type;
     private Date dateSchedule;
     private String comment;
