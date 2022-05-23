@@ -1,12 +1,8 @@
 package ipeps.pwd.wallet.controller;
 
-import ipeps.pwd.wallet.builder.WalletBuilder;
 import ipeps.pwd.wallet.common.entity.response.ApiResponse;
-import ipeps.pwd.wallet.entity.Wallet;
 import ipeps.pwd.wallet.payload.createPayload.WalletCreatePayload;
 import ipeps.pwd.wallet.payload.updatePayload.WalletUpdatePayload;
-import ipeps.pwd.wallet.repository.WalletRepository;
-import ipeps.pwd.wallet.service.TransactionService;
 import ipeps.pwd.wallet.service.WalletService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

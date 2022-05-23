@@ -47,6 +47,14 @@ public class DocumentServiceImpl implements DocumentService {
             ApiResponse response = this.detail((payload.getDocument_id()));
             if(response.result){
                 Document document = (Document) response.data;
+                document.setName(payload.getName());
+                document.setFreeAccess(payload.isFreeAccess());
+                document.setPath(payload.getPath());
+                document.setType(payload.getType());
+                document.setDescription(payload.getDescription());
+                document.setTransaction(payload.getTransaction());
+                document.setEmployee(payload.getEmployee());
+                document.setOrganization(payload.getOrganization());
                 documentRepository.save(document);
                 return new ApiResponse(true,null, "api.document.update.success");
             }else{
@@ -66,6 +74,9 @@ public class DocumentServiceImpl implements DocumentService {
                     .setFreeAccess(payload.isFreeAccess())
                     .setPath(payload.getPath())
                     .setType(payload.getType())
+                    .setEmployee(payload.getEmployee())
+                    .setOrganization(payload.getOrganization())
+                    .setTransaction(payload.getTransaction())
                     .build();
             return new ApiResponse(true, documentRepository.save(document), "api.document.create.success");
         }catch(Exception e){

@@ -47,6 +47,9 @@ public class OrganizationServiceImpl implements OrganizationService {
             ApiResponse response = this.detail(payload.getOrganization_id());
             if(response.result){
                 Organization organization = (Organization) response.data;
+                organization.setName(payload.getName());
+                organization.setDescription(payload.getDescription());
+                organization.setActif(payload.isActif());
                 organizationRepository.save(organization);
                 return new ApiResponse(true,null, "api.organization.update.success");
             }else{

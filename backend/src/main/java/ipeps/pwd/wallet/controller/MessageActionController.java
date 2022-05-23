@@ -19,7 +19,7 @@ public class MessageActionController {
     public ApiResponse list(){ return messageActionService.list(); }
 
     @GetMapping("detail/{id}")
-    public ApiResponse detail(@PathVariable("id") UUID id){ return messageActionService.detail(id); }
+    public ApiResponse detail(@PathVariable("id") int id){ return messageActionService.detail(id); }
 
     @PutMapping("update")
     public ApiResponse update(@RequestBody MessageActionUpdatePayload payload){ return messageActionService.update(payload); }
@@ -28,7 +28,7 @@ public class MessageActionController {
     public ApiResponse create(@RequestBody MessageActionCreatePayload payload){ return messageActionService.create(payload); }
 
     @DeleteMapping("delete/{id}")
-    public ApiResponse delete(@PathVariable("id") UUID id){ return messageActionService.delete(id); }
+    public ApiResponse delete(@PathVariable("id") int id){ return messageActionService.delete(id); }
 
 
 }

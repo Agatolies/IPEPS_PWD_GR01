@@ -46,6 +46,10 @@ public class ScheduleServiceImpl implements ScheduleService {
             ApiResponse response = this.delete(payload.getSchedule_id());
             if(response.result){
                 Schedule schedule = (Schedule) response.data;
+                schedule.setType(payload.getType());
+                schedule.setDateSchedule(payload.getDateSchedule());
+                schedule.setComment(payload.getComment());
+                schedule.setEmployee(payload.getEmployee());
                 scheduleRepository.save(schedule);
                 return new ApiResponse(true,null, "api.schedule.update.success");
             }else{
@@ -63,6 +67,7 @@ public class ScheduleServiceImpl implements ScheduleService {
                     .setType(payload.getType())
                     .setDateSchedule(payload.getDateSchedule())
                     .setComment(payload.getComment())
+                    .setEmployee(payload.getEmployee())
                     .build();
             return new ApiResponse(true, scheduleRepository.save(schedule), "api.schedule.create.success");
         } catch(Exception e){

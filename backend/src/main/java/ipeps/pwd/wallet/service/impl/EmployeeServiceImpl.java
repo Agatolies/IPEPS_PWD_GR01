@@ -74,7 +74,7 @@ public class EmployeeServiceImpl implements EmployeeService {
                     .build();
             return new ApiResponse(true, employeeRepository.save(employee), "api.employee.create.success");
 
-        } catch (Exception e) {
+        } catch (Exception e){
             return new ApiResponse(false, e.getMessage(), "api.employee.create.error");
         }
     }

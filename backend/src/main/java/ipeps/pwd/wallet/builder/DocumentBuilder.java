@@ -5,8 +5,6 @@ import ipeps.pwd.wallet.entity.Employee;
 import ipeps.pwd.wallet.entity.Organization;
 import ipeps.pwd.wallet.entity.Transaction;
 
-import javax.print.Doc;
-
 public class DocumentBuilder {
 
     private String name = "";
@@ -56,7 +54,6 @@ public class DocumentBuilder {
         this.organization = organization;
         return this;
     }
-
 
     public Document build() {
         return new Document(name, description, path, type, freeAccess, transaction,

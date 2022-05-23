@@ -25,7 +25,7 @@ public class MessageController {
     }
 
     @GetMapping("detail/{id}")
-    public ApiResponse detail(@PathVariable("id") UUID id) {
+    public ApiResponse detail(@PathVariable("id") int id) {
         return messageService.detail(id);
     }
 
@@ -40,7 +40,7 @@ public class MessageController {
     }
 
     @DeleteMapping("delete/{id}")
-    public ApiResponse delete(@PathVariable("id") UUID id) {
+    public ApiResponse delete(@PathVariable("id") int id) {
         return messageService.delete(id);
     }
 }

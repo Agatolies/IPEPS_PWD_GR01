@@ -1,7 +1,6 @@
 package ipeps.pwd.wallet.builder;
 
 import ipeps.pwd.wallet.entity.Employee;
-import ipeps.pwd.wallet.entity.Message;
 import ipeps.pwd.wallet.entity.Messenger;
 
 import java.util.ArrayList;
