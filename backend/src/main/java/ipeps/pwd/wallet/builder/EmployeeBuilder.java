@@ -2,7 +2,6 @@ package ipeps.pwd.wallet.builder;
 
 import ipeps.pwd.wallet.entity.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class EmployeeBuilder {
