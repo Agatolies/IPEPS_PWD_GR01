@@ -10,6 +10,8 @@ import ipeps.pwd.wallet.service.SalaryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.UUID;
+
 @Service
 public class SalaryServiceImpl implements SalaryService {
 
@@ -27,7 +29,7 @@ public class SalaryServiceImpl implements SalaryService {
     }
 
     @Override
-    public ApiResponse detail(int id) {
+    public ApiResponse detail(UUID id) {
         try {
             Salary salary = salaryRepository.findById(id).orElse(null);
             if (salary != null) {
@@ -36,6 +38,7 @@ public class SalaryServiceImpl implements SalaryService {
                 return new ApiResponse(true, null, "api.salary.detail.not-found");
             }
         } catch (Exception e){
+            e.printStackTrace();
             return new ApiResponse(false, e.getMessage(), "api.salary.detail.error");
         }
     }
@@ -46,7 +49,13 @@ public class SalaryServiceImpl implements SalaryService {
             ApiResponse response = this.detail((payload.getSalary_id()));
             if (response.result) {
                 Salary salary = (Salary) response.data;
+                salary.setType(salary.getType());
+                salary.setBillingDate(payload.getBillingDate());
+                salary.setAmount(payload.getAmount());
+                salary.setPeriodicity(payload.getPeriodicity());
+
                 salaryRepository.save(salary);
+
                 return new ApiResponse(true, null, "api.salary.update.success");
             } else {
                 return response;
@@ -73,7 +82,7 @@ public class SalaryServiceImpl implements SalaryService {
     }
 
     @Override
-    public ApiResponse delete(int id) {
+    public ApiResponse delete(UUID id) {
         try{
             ApiResponse response = this.detail(id);
             if(response.result){

@@ -10,6 +10,8 @@ import ipeps.pwd.wallet.service.TransactionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.UUID;
+
 @Service
 public class TransactionServiceImpl implements TransactionService {
 
@@ -26,7 +28,7 @@ public class TransactionServiceImpl implements TransactionService {
     }
 
     @Override
-    public ApiResponse detail(int id) {
+    public ApiResponse detail(UUID id) {
         try {
             Transaction transaction = transactionRepository.findById(id).orElse(null);
             if (transaction != null) {
@@ -35,6 +37,7 @@ public class TransactionServiceImpl implements TransactionService {
                 return new ApiResponse(true, null, "api.transaction.detail.not-found");
             }
         } catch (Exception e){
+            e.printStackTrace();
             return new ApiResponse(false, e.getMessage(), "api.transaction.detail.error");
         }
     }
@@ -45,6 +48,8 @@ public class TransactionServiceImpl implements TransactionService {
             ApiResponse response = this.detail(payload.getTransaction_id());
             if (response.result){
                 Transaction transaction = (Transaction) response.data;
+                transaction.setType(payload.getType());
+                transaction.setAmount(payload.getAmount());
                 transactionRepository.save(transaction);
                 return new ApiResponse(true, null, "api.transaction.update.success");
             } else {
@@ -70,7 +75,7 @@ public class TransactionServiceImpl implements TransactionService {
     }
 
     @Override
-    public ApiResponse delete(int id){
+    public ApiResponse delete(UUID id){
         try {
             ApiResponse response = this.detail(id);
             if (response.result){

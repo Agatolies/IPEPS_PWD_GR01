@@ -3,10 +3,12 @@ package ipeps.pwd.wallet.entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 
 @Data
 @AllArgsConstructor
@@ -14,8 +16,10 @@ import java.util.List;
 @Entity
 public class Salary {
     @Id
-    @GeneratedValue(strategy = GenerationType.TABLE)
-    private int salary_id;
+    @GeneratedValue(generator="UUID")
+    @GenericGenerator(name="UUID",strategy="org.hibernate.id.UUIDGenerator")
+    @Column(name="salary_id", nullable=false, updatable = false)
+    private UUID salary_id;
     private String type;
     private Date billingDate;
     private float amount;

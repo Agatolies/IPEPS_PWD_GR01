@@ -10,6 +10,8 @@ import ipeps.pwd.wallet.service.SalaryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.UUID;
+
 @RestController
 @RequestMapping("salary")
 public class SalaryController {
@@ -20,7 +22,7 @@ public class SalaryController {
     public ApiResponse list(){ return salaryService.list();}
 
     @GetMapping("detail/{id}")
-    public ApiResponse detail(@PathVariable("id") int id) { return salaryService.detail(id);}
+    public ApiResponse detail(@PathVariable("id") UUID id) { return salaryService.detail(id);}
 
     @PutMapping("update")
     public ApiResponse update(@RequestBody SalaryUpdatePayload payload) { return salaryService.update(payload);}
@@ -29,5 +31,5 @@ public class SalaryController {
     public ApiResponse create(@RequestBody SalaryCreatePayload payload) { return salaryService.create(payload);}
 
     @DeleteMapping("delete/{id}")
-    public ApiResponse delete(@PathVariable("id") int id) { return salaryService.delete(id);}
+    public ApiResponse delete(@PathVariable("id") UUID id) { return salaryService.delete(id);}
 }
