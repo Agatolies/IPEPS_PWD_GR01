@@ -5,8 +5,10 @@ import ipeps.pwd.wallet.entity.Account;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.util.UUID;
 
 @Data
 @NoArgsConstructor
@@ -14,8 +16,10 @@ import javax.persistence.*;
 @Entity
 public class Credential {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long credential_id;
+    @GeneratedValue(generator="UUID")
+    @GenericGenerator(name="UUID",strategy="org.hibernate.id.UUIDGenerator")
+    @Column(name="credential_id", nullable=false, updatable = false)
+    private UUID credential_id;
     @Column(unique = true)
     private String username;
     private String password;
