@@ -30,6 +30,7 @@ public class Employee {
 
     @ManyToOne
     private Organization organization;
+
     @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "account_id_fk", referencedColumnName = "account_id")
