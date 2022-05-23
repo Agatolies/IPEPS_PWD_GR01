@@ -10,6 +10,8 @@ import ipeps.pwd.wallet.service.MessengerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.UUID;
+
 @RestController
 @RequestMapping("messenger")
 public class MessengerController {
@@ -22,7 +24,7 @@ public class MessengerController {
     }
 
     @GetMapping("detail/{id}")
-    public ApiResponse detail(@PathVariable("id") int id) {
+    public ApiResponse detail(@PathVariable("id") UUID id) {
         return messengerService.detail(id);
     }
 
@@ -37,7 +39,7 @@ public class MessengerController {
     }
 
     @DeleteMapping("delete/{id}")
-    public ApiResponse delete(@PathVariable("id") int id) {
+    public ApiResponse delete(@PathVariable("id") UUID id) {
         return messengerService.delete(id);
     }
 }
