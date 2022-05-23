@@ -11,7 +11,7 @@ public class SalaryBuilder {
     private Date billingDate = new Date();
     private float amount;
     private int periodicity;
-    private Employee employee = null;
+    private Employee employee;
 
     public SalaryBuilder setType(String type) {
         this.type = type;

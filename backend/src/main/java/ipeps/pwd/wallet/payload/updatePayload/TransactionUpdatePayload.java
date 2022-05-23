@@ -6,11 +6,13 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.UUID;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class TransactionUpdatePayload {
-    private int transaction_id;
+    private UUID transaction_id;
     private String type;
     private float amount;
     private Document document;

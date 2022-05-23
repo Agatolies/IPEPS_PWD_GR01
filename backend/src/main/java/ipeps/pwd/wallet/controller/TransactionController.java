@@ -10,6 +10,8 @@ import ipeps.pwd.wallet.service.TransactionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.UUID;
+
 @RestController
 @RequestMapping("transaction")
 public class TransactionController {
@@ -20,7 +22,7 @@ public class TransactionController {
     public ApiResponse list(){ return transactionService.list(); }
 
     @GetMapping("detail/{id}")
-    public ApiResponse detail(@PathVariable("id") int id) { return transactionService.detail(id); }
+    public ApiResponse detail(@PathVariable("id") UUID id) { return transactionService.detail(id); }
 
     @PutMapping("update")
     public ApiResponse update(@RequestBody TransactionUpdatePayload payload) { return transactionService.update(payload); }
@@ -29,6 +31,6 @@ public class TransactionController {
     public ApiResponse create(@RequestBody TransactionCreatePayload payload) { return transactionService.create(payload); }
 
     @DeleteMapping("delete/{id}")
-    public ApiResponse delete(@PathVariable("id") int id) { return transactionService.delete(id);
+    public ApiResponse delete(@PathVariable("id") UUID id) { return transactionService.delete(id);
     }
 }

@@ -3,9 +3,11 @@ package ipeps.pwd.wallet.entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.UUID;
 
 @Data
 @AllArgsConstructor
@@ -13,8 +15,10 @@ import java.util.List;
 @Entity
 public class Wallet {
     @Id
-    @GeneratedValue(strategy = GenerationType.TABLE)
-    private int wallet_id;
+    @GeneratedValue(generator="UUID")
+    @GenericGenerator(name="UUID",strategy="org.hibernate.id.UUIDGenerator")
+    @Column(name="wallet_id", nullable = false, updatable = false)
+    private UUID wallet_id;
     private String name;
     private String description;
     private boolean actif;

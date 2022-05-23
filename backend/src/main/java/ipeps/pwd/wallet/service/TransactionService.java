@@ -4,10 +4,12 @@ import ipeps.pwd.wallet.common.entity.response.ApiResponse;
 import ipeps.pwd.wallet.payload.createPayload.TransactionCreatePayload;
 import ipeps.pwd.wallet.payload.updatePayload.TransactionUpdatePayload;
 
+import java.util.UUID;
+
 public interface TransactionService {
     ApiResponse list();
-    ApiResponse detail(int id);
+    ApiResponse detail(UUID id);
     ApiResponse update(TransactionUpdatePayload payload);
     ApiResponse create(TransactionCreatePayload payload);
-    ApiResponse delete(int id);
+    ApiResponse delete(UUID id);
 }

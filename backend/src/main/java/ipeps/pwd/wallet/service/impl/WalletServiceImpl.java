@@ -10,6 +10,8 @@ import ipeps.pwd.wallet.service.WalletService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.UUID;
+
 @Service
 public class WalletServiceImpl implements WalletService {
 
@@ -26,7 +28,7 @@ public class WalletServiceImpl implements WalletService {
     }
 
     @Override
-    public ApiResponse detail(int id){
+    public ApiResponse detail(UUID id){
         try{
             Wallet wallet = walletRepository.findById(id).orElse(null);
             if (wallet != null) {
@@ -45,6 +47,9 @@ public class WalletServiceImpl implements WalletService {
             ApiResponse response = this.detail(payload.getWallet_id());
             if (response.result){
                 Wallet wallet = (Wallet) response.data;
+                wallet.setName((payload.getName()));
+                wallet.setDescription(payload.getDescription());
+                wallet.setType(payload.getType());
                 walletRepository.save(wallet);
                 return new ApiResponse(true,null, "api.wallet.update.success");
             }else{
@@ -70,7 +75,7 @@ public class WalletServiceImpl implements WalletService {
     }
 
     @Override
-    public ApiResponse delete(int id){
+    public ApiResponse delete(UUID id){
         try {
             ApiResponse response = this.detail(id);
             if (response.result){

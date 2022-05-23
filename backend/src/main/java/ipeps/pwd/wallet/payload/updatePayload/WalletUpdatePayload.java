@@ -8,12 +8,13 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.List;
+import java.util.UUID;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class WalletUpdatePayload {
-    private int wallet_id;
+    private UUID wallet_id;
     private String name;
     private String description;
     private boolean actif;

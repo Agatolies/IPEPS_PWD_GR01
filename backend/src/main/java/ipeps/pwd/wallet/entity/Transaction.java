@@ -4,9 +4,11 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.codehaus.jackson.annotate.JsonIgnore;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.UUID;
 
 @Data
 @AllArgsConstructor
@@ -14,8 +16,10 @@ import java.util.List;
 @Entity
 public class Transaction {
     @Id
-    @GeneratedValue(strategy = GenerationType.TABLE)
-    private int transaction_id;
+    @GeneratedValue(generator="UUID")
+    @GenericGenerator(name="UUID",strategy="org.hibernate.id.UUIDGenerator")
+    @Column(name="transaction_id", nullable = false, updatable = false)
+    private UUID transaction_id;
     private String type;
     private float amount;
 

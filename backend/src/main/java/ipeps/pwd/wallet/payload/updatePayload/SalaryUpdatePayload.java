@@ -6,12 +6,13 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.Date;
+import java.util.UUID;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class SalaryUpdatePayload {
-    private int salary_id;
+    private UUID salary_id;
     private String type;
     private Date billingDate;
     private float amount;

@@ -4,10 +4,12 @@ import ipeps.pwd.wallet.common.entity.response.ApiResponse;
 import ipeps.pwd.wallet.payload.createPayload.SalaryCreatePayload;
 import ipeps.pwd.wallet.payload.updatePayload.SalaryUpdatePayload;
 
+import java.util.UUID;
+
 public interface SalaryService {
     ApiResponse list();
-    ApiResponse detail(int id);
+    ApiResponse detail(UUID id);
     ApiResponse update(SalaryUpdatePayload payload);
     ApiResponse create(SalaryCreatePayload payload);
-    ApiResponse delete(int id);
+    ApiResponse delete(UUID id);
 }
