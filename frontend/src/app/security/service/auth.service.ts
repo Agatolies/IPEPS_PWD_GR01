@@ -1,18 +1,19 @@
-import {Injectable} from '@angular/core';
-import {Observable, of} from 'rxjs';
-import {ApiResponse, ApiUriEnum} from '@shared/model';
-import {TokenService} from '@security/service/token.service';
-import {ApiService, HttpService, NavigationService} from '@shared/service';
-import {map} from 'rxjs/operators';
-import {RefreshPayload} from '@security/model/payload/refresh.payload';
-import {SigninPayload, TokenDto} from '@security/model';
-import {SigninResponse} from '@security/model/response/signin.response';
+import { Injectable } from '@angular/core';
+import { Observable, of } from 'rxjs';
+import { ApiResponse, ApiUriEnum } from '@shared/model';
+import { TokenService } from '@security/service/token.service';
+import { ApiService, HttpService, NavigationService } from '@shared/service';
+import { map } from 'rxjs/operators';
+import { RefreshPayload } from '@security/model/payload/refresh.payload';
+import { SigninPayload, TokenDto } from '@security/model';
+import { SigninResponse } from '@security/model/response/signin.response';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService extends ApiService {
   isAuthenticated = false;
+  profileRole = '';
 
   constructor(public tokenService: TokenService, public http: HttpService, public navigation: NavigationService) {
     super(http);

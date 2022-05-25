@@ -1,9 +1,29 @@
-<p>dashboard works!</p>
-<button (click)="logout()">logout</button>
-
-<button (click)="me()">get my info</button>
-
-
-<div *ngIf="credential">
-  {{ 'username : ' + credential.username}}
+<div id="dashboard">
+  <div class="side-menu " [class.menu-hide]="!showLongMenu" [class.menu-show]="showLongMenu">
+    <div class="menu-line" *ngFor="let item of menu" (click)="navigate(item)">
+      <span class="icon {{item.icon}}"></span>
+      <!-- voici comment traduire un élément -->
+      <span class="title">{{item.title | translate}}</span>
+    </div>
+  </div>
+  <header id="header" [class.header-menu-hide]="!showLongMenu" [class.header-menu-show]="showLongMenu">
+    <div id="toggle-menu">
+      <span class="icon fas" [class.fa-bars]="!showLongMenu" [class.fa-times]="showLongMenu"
+            (click)="showLongMenu=!showLongMenu"></span>
+    </div>
+    <div id="bread-crumb"></div>
+    <div id="menu-language"  (clickOutside)="onClickOutSideMenuLanguage()">
+      <div id="change-language" (click)="showLanguageMenu=!showLanguageMenu">
+        <span class="icon fas fa-globe"></span>
+      </div>
+      <div class="menu-language" [class.menu-language-hide]="!showLanguageMenu"
+           [class.menu-language-show]="showLanguageMenu" (click)="showLanguageMenu=!showLanguageMenu">
+        <div class="menu-language-action" (click)="setLanguage('fr')">{{'change-language.french' | translate}}</div>
+        <div class="menu-language-action" (click)="setLanguage('en')">{{'change-language.english' | translate}}</div>
+      </div>
+    </div>
+  </header>
+  <section id="main-content" [class.content-menu-hide]="!showLongMenu" [class.content-menu-show]="showLongMenu">
+    <router-outlet></router-outlet>
+  </section>
 </div>

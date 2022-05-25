@@ -1,0 +1,62 @@
+@import './variable';
+
+
+table {
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid $secondary-contrast-color;
+  padding: 6px;
+  background: $white;
+}
+
+.table {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border-top: 1px solid $secondary-contrast-color;
+  border-right: 1px solid $secondary-contrast-color;
+}
+
+.row-header {
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1px solid $secondary-contrast-color;
+  font-weight: bold;
+  font-size: large;
+  text-align: center;
+
+}
+.row {
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1px solid $secondary-contrast-color;
+}
+
+.cell {
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+  border-left: 1px solid $secondary-contrast-color;
+  flex:1;
+  background-color: $white;
+  input {
+    border: 1px solid transparent;
+  }
+}
+
+.invisiblecell{
+  visibility: collapse;
+}
+
+.invalid-row {
+  background: $warning;
+  transition: all ease .5s;
+  .cell{
+    background-color: $warning;
+    input{
+      background-color: $warning;
+    }
+  }
+}

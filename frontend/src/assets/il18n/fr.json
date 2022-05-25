@@ -1,0 +1,99 @@
+{
+  "address": {
+    "module": "Adresses",
+    "type": "Type",
+    "addresse": "Adresse",
+    "number": "Numero",
+    "box": "Boite",
+    "postal": "CP",
+    "town": "Ville",
+    "country": "Pay",
+    "supress": "Supression"
+  },
+  "app": {
+    "all": "Tous",
+    "active": "Actif",
+    "inactive": "Inactif",
+    "placeholder": {
+      "default": "Votre recherche ..."
+    },
+    "wallet": {
+      "no-employee": "/",
+      "no-organization": "/"
+    }
+  },
+
+  "boolean": {
+    "active": {
+      "both": "Afficher tout",
+      "true": "Actif",
+      "false": "Inactif"
+    }
+  },
+  "button": {
+    "add": "Ajouter",
+    "delete": "Supprimer",
+    "save": "Enregistrer",
+    "cancel": "Annuler",
+    "back": "Retour"
+  },
+  "change-language": {
+    "french": "Français",
+    "english": "English"
+  },
+  "contact": {
+    "module": "Contact",
+    "name": "Nom",
+    "surname": "Prénom",
+    "mail": "Email",
+    "phone": "Telephone",
+    "details-update": "Détails - Update",
+    "List-title": "Liste des contacts:",
+    "add": "Ajout Contact",
+    "delete": "Supprimer Contact"
+  },
+  "menu": {
+    "organization": "Organisations",
+    "employee": "Employés",
+    "document": "Documents",
+    "contact": "Contacts",
+    "wallet": "Wallet"
+  },
+  "table": {
+    "placeholder": {
+      "default": "Faite votre recherche"
+    },
+    "no-data": "Aucune donnée",
+    "employee": {
+        "fields": {
+         "employee_id": "#",
+          "role": "Rôle",
+          "actif": "Active"
+        }
+    },
+    "wallet": {
+      "fields":{
+        "wallet_id": "ID",
+        "name": "Nom",
+        "description": "Description",
+        "actif": "Actif",
+        "type": "Type",
+        "employee": "Employe",
+        "organization": "Organisation",
+        "parent": "Wallet Parent",
+        "nameEmployee": "Employé",
+        "nameOrganization": "Organisation",
+        "walletparent": "Wallet Parent"
+      }
+    }
+  },
+  "delete": {
+    "wallet": {
+      "name": "Nom",
+      "description": "Description",
+      "update": "Supprimer",
+      "header": "Suppression Wallet",
+      "wallet_id": "Wallet ID"
+    }
+  }
+}

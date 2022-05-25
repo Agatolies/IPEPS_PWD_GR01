@@ -1,0 +1,101 @@
+{
+  "address": {
+    "module": "Addresses",
+    "type": "Type",
+    "addresse": "Addresse",
+    "number": "Number",
+    "box": "Box",
+    "postal": "ZIP",
+    "town": "Town",
+    "country": "Country",
+    "supress": "Delete"
+  },
+  "app": {
+    "all": "All",
+    "active": "Active",
+    "inactive": "Inactive",
+    "placeholder": {
+      "default": "Your search ..."
+    },
+    "wallet": {
+      "no-employee": "/",
+      "no-organization": "/"
+    }
+  },
+  "boolean": {
+    "active": {
+      "both": "Display all",
+      "true": "Active",
+      "false": "Inactive"
+    }
+  },
+  "button": {
+    "add": "Add",
+    "delete": "Delete",
+    "save": "Save",
+    "cancel": "Cancel",
+    "back": "Back"
+  },
+  "change-language": {
+    "french": "Français",
+    "english": "English"
+  },
+  "contact": {
+    "module": "Contact",
+    "name": "Name",
+    "surname": "Surname",
+    "mail": "Mail",
+    "phone": "Phone",
+    "details-update": "Details - Update",
+    "List-title": "Contact List:",
+    "add": "Add Contact",
+    "delete": "Delete Contact"
+  },
+  "menu": {
+    "organization": "Organizations",
+    "employee": "Employees",
+    "document": "Documents",
+    "contact": "Contacts",
+    "wallet": "Wallets"
+  },
+  "table": {
+    "placeholder": {
+      "default": "Do you search"
+    },
+    "no-data": "No data",
+    "employee": {
+      "fields": {
+        "employee_id": "#",
+        "role": "Role",
+        "actif": "Active"
+      }
+    },
+    "wallet": {
+      "fields":{
+        "wallet_id": "ID",
+        "name": "Name",
+        "description": "Description",
+        "actif": "Active",
+        "type": "Type",
+        "employee": "Employee",
+        "organization": "Organization",
+        "parent": "Parent Wallet",
+        "nameEmployee": "Employee",
+        "nameOrganization": "Organization",
+        "walletparent": "Parent Wallet"
+      }
+    }
+  },
+  "delete": {
+    "wallet": {
+      "name": "Name",
+      "description": "Description",
+      "update": "Delete",
+      "header": "Delete Wallet",
+      "wallet_id": "Wallet ID"
+    }
+  }
+}
+
+
+

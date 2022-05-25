@@ -1,15 +1,26 @@
-import {RouterModule, Routes} from '@angular/router';
-import {NgModule} from '@angular/core';
-import {DashboardComponent} from './component';
+import { RouterModule, Routes } from '@angular/router';
+import { NgModule } from '@angular/core';
+import { DashboardComponent, DashboardHomeComponent, DashboardNotFoundComponent } from './component';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'home',
-    pathMatch: 'full',
-  }, {
-    path: 'home',
-    component: DashboardComponent
+    component: DashboardComponent, // Launch all children roads in the router outlet of this component (DashboardComponent)
+    children: [
+      {
+        path: '',
+        redirectTo: 'home',
+        pathMatch: 'full'
+      },
+      {
+        path: 'home',
+        component: DashboardHomeComponent
+      },
+      {
+        path: '**',
+        component: DashboardNotFoundComponent
+      }
+    ]
   }
 ];
 
@@ -18,4 +29,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class DashboardRoutingModule {
-}
+};
