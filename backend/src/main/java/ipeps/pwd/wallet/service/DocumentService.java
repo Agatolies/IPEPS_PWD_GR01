@@ -11,5 +11,5 @@ public interface DocumentService {
     ApiResponse detail(UUID id);
     ApiResponse update(DocumentUpdatePayload payload);
     ApiResponse create(DocumentCreatePayload payload);
-    ApiResponse delete(UUID  id);
+    ApiResponse delete(UUID id);
 }

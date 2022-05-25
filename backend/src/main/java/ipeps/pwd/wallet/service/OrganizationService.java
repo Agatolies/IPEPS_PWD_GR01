@@ -8,7 +8,7 @@ import java.util.UUID;
 
 public interface OrganizationService {
     ApiResponse list();
-    ApiResponse detail(UUID  id);
+    ApiResponse detail(UUID id);
     ApiResponse update(OrganizationUpdatePayload payload);
     ApiResponse create(OrganizationCreatePayload payload);
     ApiResponse delete(UUID id);
