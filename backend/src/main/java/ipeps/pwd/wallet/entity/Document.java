@@ -4,9 +4,11 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.codehaus.jackson.annotate.JsonIgnore;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.UUID;
 
 // Document  0,1 || 0,1  Transaction
 
@@ -16,8 +18,10 @@ import java.util.List;
 @Entity
 public class Document {
     @Id
-    @GeneratedValue(strategy = GenerationType.TABLE)
-    private int document_id;
+    @GeneratedValue(generator="UUID")
+    @GenericGenerator(name="UUID",strategy="org.hibernate.id.UUIDGenerator")
+    @Column(name="document_id", nullable=false, updatable = false)
+    private UUID document_id;
     private String name;
     private String description;
     private String path;

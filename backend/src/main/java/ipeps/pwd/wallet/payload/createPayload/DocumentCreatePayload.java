@@ -1,5 +1,8 @@
 package ipeps.pwd.wallet.payload.createPayload;
 
+import ipeps.pwd.wallet.entity.Employee;
+import ipeps.pwd.wallet.entity.Organization;
+import ipeps.pwd.wallet.entity.Transaction;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,4 +16,7 @@ public class DocumentCreatePayload {
     private String path;
     private String type;
     private boolean freeAccess;
+    private Transaction transaction;
+    private Employee employee;
+    private Organization organization;
 }

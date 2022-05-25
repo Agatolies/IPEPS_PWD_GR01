@@ -4,9 +4,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.UUID;
 
 @Data
 @AllArgsConstructor
@@ -14,20 +16,22 @@ import java.util.List;
 @Entity
 public class Organization {
     @Id
-    @GeneratedValue(strategy = GenerationType.TABLE)
-    private int organization_id ;
+    @GeneratedValue(generator="UUID")
+    @GenericGenerator(name="UUID",strategy="org.hibernate.id.UUIDGenerator")
+    @Column(name="organization_id", nullable=false, updatable = false)
+    private UUID organization_id ;
     private String name;
     private String description;
     private boolean actif;
 
     @JsonIgnore
     @OneToMany
-    @JoinColumn(name = "organization_id_fk", referencedColumnName = "organization_id")
+    @JoinColumn(name = "address_id_fk", referencedColumnName = "address_id")
     private List<Address> addresses;
 
     @JsonIgnore
     @OneToMany
-    @JoinColumn(name="organization_id_fk", referencedColumnName = "organization_id")
+    @JoinColumn(name="employee_id_fk", referencedColumnName = "employee_id")
     private List<Employee> employees;
 
     public Organization(String name, String description, boolean actif, List<Address> addresses) {

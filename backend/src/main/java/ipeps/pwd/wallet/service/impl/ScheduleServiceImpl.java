@@ -10,13 +10,14 @@ import ipeps.pwd.wallet.service.ScheduleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.UUID;
+
 @Service
 public class ScheduleServiceImpl implements ScheduleService {
 
     @Autowired
     ScheduleRepository scheduleRepository;
 
-    @Override
     public ApiResponse list(){
         try {
             return new ApiResponse(true, scheduleRepository.findAll(), "api.schedule.list.success");
@@ -26,7 +27,7 @@ public class ScheduleServiceImpl implements ScheduleService {
     }
 
     @Override
-    public ApiResponse detail(int id) {
+    public ApiResponse detail(UUID id) {
         try {
             Schedule schedule = scheduleRepository.findById(id).orElse(null);
             if (schedule != null) {
@@ -45,6 +46,10 @@ public class ScheduleServiceImpl implements ScheduleService {
             ApiResponse response = this.delete(payload.getSchedule_id());
             if(response.result){
                 Schedule schedule = (Schedule) response.data;
+                schedule.setType(payload.getType());
+                schedule.setDateSchedule(payload.getDateSchedule());
+                schedule.setComment(payload.getComment());
+                schedule.setEmployee(payload.getEmployee());
                 scheduleRepository.save(schedule);
                 return new ApiResponse(true,null, "api.schedule.update.success");
             }else{
@@ -62,6 +67,7 @@ public class ScheduleServiceImpl implements ScheduleService {
                     .setType(payload.getType())
                     .setDateSchedule(payload.getDateSchedule())
                     .setComment(payload.getComment())
+                    .setEmployee(payload.getEmployee())
                     .build();
             return new ApiResponse(true, scheduleRepository.save(schedule), "api.schedule.create.success");
         } catch(Exception e){
@@ -70,7 +76,7 @@ public class ScheduleServiceImpl implements ScheduleService {
     }
 
     @Override
-    public ApiResponse delete(int id) {
+    public ApiResponse delete(UUID id) {
         try{
             ApiResponse response = this.delete(id);
             if(response.result){

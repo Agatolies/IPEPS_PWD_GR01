@@ -11,6 +11,7 @@ public class EmployeeBuilder {
     private Account account;
     private List<Address> addresses;
     private Organization organization;
+
     public EmployeeBuilder setOrganization(Organization organization){
         this.organization = organization;
         return this;

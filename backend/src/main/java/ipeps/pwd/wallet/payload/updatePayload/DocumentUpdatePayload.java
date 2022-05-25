@@ -7,11 +7,13 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.UUID;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class DocumentUpdatePayload {
-    private int document_id;
+    private UUID document_id;
     private String name;
     private String description;
     private String path;
