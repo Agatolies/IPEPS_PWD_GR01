@@ -18,6 +18,7 @@ public class OrganizationServiceImpl implements OrganizationService {
     @Autowired
     OrganizationRepository organizationRepository;
 
+    @Override
     public ApiResponse list(){
         try {
             return new ApiResponse(true, organizationRepository.findAll(), "api.organization.list.success");

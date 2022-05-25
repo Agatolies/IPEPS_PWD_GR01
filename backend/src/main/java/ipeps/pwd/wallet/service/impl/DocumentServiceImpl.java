@@ -18,6 +18,7 @@ public class DocumentServiceImpl implements DocumentService {
     @Autowired
     DocumentRepository documentRepository;
 
+    @Override
     public ApiResponse list(){
         try {
             return new ApiResponse(true, documentRepository.findAll(), "api.document.list.success");
@@ -28,7 +29,7 @@ public class DocumentServiceImpl implements DocumentService {
     }
 
     @Override
-    public ApiResponse detail(UUID  id) {
+    public ApiResponse detail(UUID id) {
         try {
             Document document = documentRepository.findById(id).orElse(null);
             if (document != null) {
@@ -85,7 +86,7 @@ public class DocumentServiceImpl implements DocumentService {
     }
 
     @Override
-    public ApiResponse delete(UUID  id) {
+    public ApiResponse delete(UUID id) {
         try{
             ApiResponse response = this.detail(id);
             if(response.result){

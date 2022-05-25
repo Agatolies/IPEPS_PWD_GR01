@@ -18,6 +18,7 @@ public class ScheduleServiceImpl implements ScheduleService {
     @Autowired
     ScheduleRepository scheduleRepository;
 
+    @Override
     public ApiResponse list(){
         try {
             return new ApiResponse(true, scheduleRepository.findAll(), "api.schedule.list.success");
