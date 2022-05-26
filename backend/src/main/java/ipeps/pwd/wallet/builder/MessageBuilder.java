@@ -7,14 +7,13 @@ import ipeps.pwd.wallet.entity.Messenger;
 import java.util.Date;
 
 public class MessageBuilder {
-
     private boolean isRead;
     private String message = "";
     private Date date = new Date();
-    private Messenger messenger;
-    private Employee employee;
+    private Messenger messenger = null;
+    private Employee employee = null;
 
-    public MessageBuilder setIsRead(boolean isRead) {
+    public MessageBuilder setRead(boolean isRead) {
         this.isRead = isRead;
         return this;
     }

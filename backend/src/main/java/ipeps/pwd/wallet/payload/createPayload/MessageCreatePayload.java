@@ -14,5 +14,4 @@ public class MessageCreatePayload {
     private boolean isRead;
     private String message;
     private Date date;
-    private Employee employee;
 }

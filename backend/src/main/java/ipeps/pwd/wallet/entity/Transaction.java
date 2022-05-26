@@ -23,15 +23,14 @@ public class Transaction {
     private String type;
     private float amount;
 
-    @ManyToOne
-    @JoinColumn(name = "wallet_id_fk", referencedColumnName = "wallet_id")
-    private Wallet wallet;
-
-
     @JsonIgnore // empèche l'affichage de la propriété
     @OneToOne
     @JoinColumn(name = "document_id_fk", referencedColumnName = "document_id") // renomme le champ de la propriété
     private Document document;
+
+    @ManyToOne
+    @JoinColumn(name = "wallet_id_fk", referencedColumnName = "wallet_id")
+    private Wallet wallet;
 
     public Transaction(String type, float amount, Document document, Wallet wallet) {
         this.type = type;

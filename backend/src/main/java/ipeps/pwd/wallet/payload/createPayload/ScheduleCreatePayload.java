@@ -14,5 +14,4 @@ public class ScheduleCreatePayload {
     private String type;
     private Date dateSchedule;
     private String comment;
-    private Employee employee;
 }

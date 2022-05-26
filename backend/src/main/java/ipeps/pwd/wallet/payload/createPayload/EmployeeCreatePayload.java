@@ -1,5 +1,6 @@
 package ipeps.pwd.wallet.payload.createPayload;
 
+import ipeps.pwd.wallet.entity.Account;
 import ipeps.pwd.wallet.entity.Organization;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -12,4 +13,5 @@ public class EmployeeCreatePayload {
     private String role;
     private boolean actif;
     private Organization organization;
+    private Account account;
 }

@@ -24,7 +24,7 @@ public class DocumentServiceImpl implements DocumentService {
             return new ApiResponse(true, documentRepository.findAll(), "api.document.list.success");
         }
         catch (Exception e) {
-            return new ApiResponse(false, null, "api.document.list.error");
+            return new ApiResponse(false, e.getMessage(), "api.document.list.error");
         }
     }
 
@@ -49,10 +49,10 @@ public class DocumentServiceImpl implements DocumentService {
             if(response.result){
                 Document document = (Document) response.data;
                 document.setName(payload.getName());
-                document.setFreeAccess(payload.isFreeAccess());
+                document.setDescription(payload.getDescription());
                 document.setPath(payload.getPath());
                 document.setType(payload.getType());
-                document.setDescription(payload.getDescription());
+                document.setFreeAccess(payload.isFreeAccess());
                 document.setTransaction(payload.getTransaction());
                 document.setEmployee(payload.getEmployee());
                 document.setOrganization(payload.getOrganization());
@@ -72,16 +72,13 @@ public class DocumentServiceImpl implements DocumentService {
             Document document = new DocumentBuilder()
                     .setName(payload.getName())
                     .setDescription(payload.getDescription())
-                    .setFreeAccess(payload.isFreeAccess())
                     .setPath(payload.getPath())
                     .setType(payload.getType())
-                    .setEmployee(payload.getEmployee())
-                    .setOrganization(payload.getOrganization())
-                    .setTransaction(payload.getTransaction())
+                    .setFreeAccess(payload.isFreeAccess())
                     .build();
             return new ApiResponse(true, documentRepository.save(document), "api.document.create.success");
         }catch(Exception e){
-            return new ApiResponse(false, null, "api.document.create.error");
+            return new ApiResponse(false, e.getMessage(), "api.document.create.error");
         }
     }
 

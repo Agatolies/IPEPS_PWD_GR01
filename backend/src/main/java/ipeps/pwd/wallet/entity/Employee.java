@@ -23,12 +23,8 @@ public class Employee {
     private String role;
     private boolean actif;
 
-    @JsonIgnore
-    @OneToMany
-    @JoinColumn(name = "address_id_fk", referencedColumnName = "address_id")
-    private List<Address> addresses;
-
     @ManyToOne
+    @JoinColumn(name = "organization_id_fk", referencedColumnName = "organization_id")
     private Organization organization;
 
     @JsonIgnore
@@ -36,11 +32,50 @@ public class Employee {
     @JoinColumn(name = "account_id_fk", referencedColumnName = "account_id")
     private Account account;
 
-    public Employee(String role, boolean actif, Account account, List<Address> addresses, Organization organization) {
+    @JsonIgnore
+    @OneToMany
+    //@JoinColumn(name = "address_id_fk", referencedColumnName = "address_id")
+    private List<Address> addresses;
+
+    @JsonIgnore
+    @OneToMany
+    private List<Salary> salaries;
+
+    @JsonIgnore
+    @OneToMany
+    private List<Document> documents;
+
+    @JsonIgnore
+    @OneToMany
+    private List<Wallet> wallets;
+
+    @JsonIgnore
+    @OneToMany
+    private List<Schedule> schedules;
+
+    @JsonIgnore
+    @OneToMany
+    private List<MessageAction> messageActions;
+
+    @JsonIgnore
+    @OneToMany
+    private List<Message> messages;
+
+    public Employee(String role, boolean actif, Account account, Organization organization,
+                    List<Address> addresses, List<Salary> salaries,
+                    List<Document> documents, List<Wallet> wallets,
+                    List<Schedule> schedules, List<MessageAction> messageActions,
+                    List<Message> messages) {
         this.role = role;
         this.actif = actif;
         this.account = account;
-        this.addresses = addresses;
         this.organization = organization;
+        this.addresses = addresses;
+        this.salaries = salaries;
+        this.documents = documents;
+        this.wallets = wallets;
+        this.schedules = schedules;
+        this.messageActions = messageActions;
+        this.messages = messages;
     }
 }

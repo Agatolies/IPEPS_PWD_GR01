@@ -24,7 +24,7 @@ public class SalaryServiceImpl implements SalaryService {
             return new ApiResponse(true, salaryRepository.findAll(), "api.salary.list.success");
         }
         catch (Exception e) {
-            return new ApiResponse(false, null, "api.salary.list.error");
+            return new ApiResponse(false, e.getMessage(), "api.salary.list.error");
         }
     }
 
@@ -53,7 +53,7 @@ public class SalaryServiceImpl implements SalaryService {
                 salary.setBillingDate(payload.getBillingDate());
                 salary.setAmount(payload.getAmount());
                 salary.setPeriodicity(payload.getPeriodicity());
-
+                salary.setEmployee(payload.getEmployee());
                 salaryRepository.save(salary);
 
                 return new ApiResponse(true, null, "api.salary.update.success");
@@ -77,7 +77,7 @@ public class SalaryServiceImpl implements SalaryService {
 
             return new ApiResponse(true, salaryRepository.save(salary), "api.salary.create.success");
         }catch(Exception e){
-            return new ApiResponse(false, null, "api.salary.create.error");
+            return new ApiResponse(false, e.getMessage(), "api.salary.create.error");
         }
     }
 

@@ -23,7 +23,7 @@ public class MessageServicelmpl implements MessageService {
         try {
             return new ApiResponse(true, messageRepository.findAll(), "api.Message.list.success");
         } catch (Exception e) {
-            return new ApiResponse(false, null, "api.Message.list.error");
+            return new ApiResponse(false, e.getMessage(), "api.Message.list.error");
         }
     }
 
@@ -48,7 +48,7 @@ public class MessageServicelmpl implements MessageService {
             ApiResponse response = this.detail(payload.getMessage_id());
             if (response.result) {
                 Message message = (Message) response.data;
-                //message.setIsRead(payload.getIsRead());
+                message.setRead(payload.isRead());
                 message.setMessage(payload.getMessage());
                 message.setMessenger(payload.getMessenger());
                 message.setDate(payload.getDate());
@@ -67,15 +67,14 @@ public class MessageServicelmpl implements MessageService {
     public ApiResponse create(MessageCreatePayload payload) {
         try {
             Message message = new MessageBuilder()
-                    .setIsRead(payload.isRead())
+                    .setRead(payload.isRead())
                     .setMessage(payload.getMessage())
                     .setDate(payload.getDate())
-                    .setEmployee(payload.getEmployee())
                     .build();
 
             return new ApiResponse(true, messageRepository.save(message), "api.Message.create.success");
         } catch (Exception e) {
-            return new ApiResponse(false, null, "api.message.create.error");
+            return new ApiResponse(false, e.getMessage(), "api.message.create.error");
         }
     }
 

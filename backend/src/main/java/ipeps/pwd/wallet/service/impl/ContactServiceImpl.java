@@ -48,6 +48,11 @@ public class ContactServiceImpl implements ContactService {
             ApiResponse response = this.detail(payload.getContact_id());
             if (response.result){
                 Contact contact = (Contact) response.data;
+                contact.setFirstname(payload.getFirstname());
+                contact.setLastname(payload.getLastname());
+                contact.setEmail(payload.getEmail());
+                contact.setPhone(payload.getPhone());
+                contact.setAddresses(payload.getAddresses());
                 contactRepository.save(contact);
                 return new ApiResponse(true,null, "api.contact.update.success");
             }else{

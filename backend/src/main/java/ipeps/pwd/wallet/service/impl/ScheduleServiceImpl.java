@@ -23,7 +23,7 @@ public class ScheduleServiceImpl implements ScheduleService {
         try {
             return new ApiResponse(true, scheduleRepository.findAll(), "api.schedule.list.success");
         } catch (Exception e) {
-            return new ApiResponse(false, null, "api.schedule.list.error");
+            return new ApiResponse(false, e.getMessage(), "api.schedule.list.error");
         }
     }
 
@@ -68,11 +68,10 @@ public class ScheduleServiceImpl implements ScheduleService {
                     .setType(payload.getType())
                     .setDateSchedule(payload.getDateSchedule())
                     .setComment(payload.getComment())
-                    .setEmployee(payload.getEmployee())
                     .build();
             return new ApiResponse(true, scheduleRepository.save(schedule), "api.schedule.create.success");
         } catch(Exception e){
-            return new ApiResponse(false, null, "api.schedule.create.error");
+            return new ApiResponse(false, e.getMessage(), "api.schedule.create.error");
         }
     }
 

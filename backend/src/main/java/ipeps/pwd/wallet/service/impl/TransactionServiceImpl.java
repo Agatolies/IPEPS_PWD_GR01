@@ -23,7 +23,7 @@ public class TransactionServiceImpl implements TransactionService {
         try {
             return new ApiResponse(true, transactionRepository.findAll(), "api_transaction.list.success");
         } catch (Exception e) {
-            return new ApiResponse(false, null, "api_transaction.list.error");
+            return new ApiResponse(false, e.getMessage(), "api_transaction.list.error");
         }
     }
 
@@ -50,6 +50,8 @@ public class TransactionServiceImpl implements TransactionService {
                 Transaction transaction = (Transaction) response.data;
                 transaction.setType(payload.getType());
                 transaction.setAmount(payload.getAmount());
+                transaction.setDocument(payload.getDocument());
+                transaction.setWallet(payload.getWallet());
                 transactionRepository.save(transaction);
                 return new ApiResponse(true, null, "api.transaction.update.success");
             } else {
@@ -70,7 +72,7 @@ public class TransactionServiceImpl implements TransactionService {
 
             return new ApiResponse(true, transactionRepository.save(transaction), "api.transaction.create.success");
         }catch(Exception e){
-            return new ApiResponse(false, null, "api.transaction.create.error");
+            return new ApiResponse(false, e.getMessage(), "api.transaction.create.error");
         }
     }
 

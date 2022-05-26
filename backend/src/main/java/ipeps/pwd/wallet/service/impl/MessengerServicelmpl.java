@@ -23,7 +23,7 @@ public class MessengerServicelmpl implements MessengerService {
         try {
             return new ApiResponse(true, messengerRepository.findAll(), "api.messenger.list.success");
         } catch (Exception e) {
-            return new ApiResponse(false, null, "api.messenger.list.error");
+            return new ApiResponse(false, e.getMessage(), "api.messenger.list.error");
         }
     }
 
@@ -50,6 +50,7 @@ public class MessengerServicelmpl implements MessengerService {
                 messenger.setLastMessage(payload.getLastMessage());
                 messenger.setPeople(payload.getPeople());
                 messenger.setEmployees(payload.getEmployees());
+                messenger.setMessages(payload.getMessages());
                 messengerRepository.save(messenger);
                 return new ApiResponse(true, null, "api.messenger.update.success");
             } else {
@@ -71,7 +72,7 @@ public class MessengerServicelmpl implements MessengerService {
             return new ApiResponse(true, messengerRepository.save(messenger), "api.messenger.create.success");
 
         } catch (Exception e) {
-            return new ApiResponse(false, null, "api.messenger.create.error");
+            return new ApiResponse(false, e.getMessage(), "api.messenger.create.error");
         }
     }
 

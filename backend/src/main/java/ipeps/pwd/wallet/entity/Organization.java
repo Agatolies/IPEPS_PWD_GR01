@@ -26,19 +26,30 @@ public class Organization {
 
     @JsonIgnore
     @OneToMany
-    @JoinColumn(name = "address_id_fk", referencedColumnName = "address_id")
     private List<Address> addresses;
 
     @JsonIgnore
     @OneToMany
-    @JoinColumn(name="employee_id_fk", referencedColumnName = "employee_id")
     private List<Employee> employees;
 
-    public Organization(String name, String description, boolean actif, List<Address> addresses) {
+    @JsonIgnore
+    @OneToMany
+    private List<Wallet> wallets;
+
+    @JsonIgnore
+    @OneToMany
+    private List<Document> documents;
+
+    public Organization(String name, String description, boolean actif,
+                        List<Address> addresses, List<Employee> employees,
+                        List<Wallet> wallets, List<Document> documents) {
         this.name = name;
         this.description = description;
         this.actif = actif;
         this.addresses = addresses;
+        this.employees = employees;
+        this.wallets = wallets;
+        this.documents = documents;
     }
 
 }

@@ -30,7 +30,6 @@ public class MessageAction {
     @JoinColumn(name = "message_id_fk", referencedColumnName = "message_id")
     private Message message;
 
-
     public MessageAction(String type, Date actionDate, Message message, Employee employee) {
         this.type = type;
         this.actionDate = actionDate;

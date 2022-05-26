@@ -2,7 +2,11 @@ package ipeps.pwd.wallet.builder;
 
 import ipeps.pwd.wallet.entity.Employee;
 import ipeps.pwd.wallet.entity.Organization;
+import ipeps.pwd.wallet.entity.Transaction;
 import ipeps.pwd.wallet.entity.Wallet;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class WalletBuilder {
 
@@ -12,6 +16,7 @@ public class WalletBuilder {
     private String type = "";
     private Organization organization = null;
     private Employee employee = null;
+    private List<Transaction> transactions = new ArrayList<>();
 
     public WalletBuilder setName(String name) {
         this.name = name;
@@ -43,7 +48,12 @@ public class WalletBuilder {
         return this;
     }
 
+    public WalletBuilder setTransactions(List<Transaction> transactions){
+        this.transactions = transactions;
+        return this;
+    }
+
     public Wallet build(){
-        return new Wallet(name, description, actif, type, organization, employee);
+        return new Wallet(name, description, actif, type, organization, employee, transactions);
     }
 }

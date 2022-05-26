@@ -1,5 +1,6 @@
 package ipeps.pwd.wallet.builder;
 
+import com.fasterxml.jackson.annotation.JsonAlias;
 import ipeps.pwd.wallet.entity.*;
 
 import java.util.List;
@@ -9,8 +10,14 @@ public class EmployeeBuilder {
     private String role = "";
     private boolean actif;
     private Account account;
-    private List<Address> addresses;
     private Organization organization;
+    private List<Address> addresses;
+    private List<Salary> salaries;
+    private List<Document> documents;
+    private List<Wallet> wallets;
+    private List<Schedule> schedules;
+    private List<MessageAction> messageActions;
+    private List<Message> messages;
 
     public EmployeeBuilder setOrganization(Organization organization){
         this.organization = organization;
@@ -36,7 +43,37 @@ public class EmployeeBuilder {
         return this;
     }
 
+    public EmployeeBuilder setSalaries(List<Salary> salaries){
+        this.salaries = salaries;
+        return this;
+    }
+
+    public EmployeeBuilder setDocuments(List<Document> documents){
+        this.documents = documents;
+        return this;
+    }
+
+    public EmployeeBuilder setWallets(List<Wallet> wallets){
+        this.wallets = wallets;
+        return this;
+    }
+
+    public EmployeeBuilder setSchedules(List<Schedule> schedules){
+        this.schedules = schedules;
+        return this;
+    }
+
+    public EmployeeBuilder setMessageActions(List<MessageAction> messageActions){
+        this.messageActions = messageActions;
+        return this;
+    }
+
+    public EmployeeBuilder setMessages(List<Message> messages){
+        this.messages = messages;
+        return this;
+    }
+
     public Employee build() {
-        return new Employee(role, actif, account, addresses, organization);
+        return new Employee(role, actif, account, organization, addresses, salaries, documents, wallets, schedules, messageActions, messages);
     }
 }

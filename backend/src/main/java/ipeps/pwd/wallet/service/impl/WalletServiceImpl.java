@@ -49,7 +49,11 @@ public class WalletServiceImpl implements WalletService {
                 Wallet wallet = (Wallet) response.data;
                 wallet.setName((payload.getName()));
                 wallet.setDescription(payload.getDescription());
+                wallet.setActif(payload.isActif());
                 wallet.setType(payload.getType());
+                wallet.setOrganization(payload.getOrganization());
+                wallet.setEmployee(payload.getEmployee());
+                wallet.setTransactions(payload.getTransactions());
                 walletRepository.save(wallet);
                 return new ApiResponse(true,null, "api.wallet.update.success");
             }else{
@@ -66,6 +70,7 @@ public class WalletServiceImpl implements WalletService {
             Wallet wallet = new WalletBuilder()
                     .setName(payload.getName())
                     .setDescription(payload.getDescription())
+                    .setActif(payload.isActif())
                     .setType(payload.getType())
                     .build();
             return new ApiResponse(true, walletRepository.save(wallet), "api.wallet.create.success");

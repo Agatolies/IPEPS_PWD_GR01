@@ -34,9 +34,15 @@ public class Messenger {
     )
     private List<Employee> employees;
 
-    public Messenger(String lastMessage, String people, List<Employee> employees) {
+    @JsonIgnore
+    @OneToMany
+    private List<Message> messages;
+
+    public Messenger(String lastMessage, String people,
+                     List<Employee> employees, List<Message> messages) {
         this.lastMessage = lastMessage;
         this.people = people;
         this.employees = employees;
+        this.messages = messages;
     }
 }

@@ -48,6 +48,16 @@ public class AddressServiceImpl implements AddressService {
             ApiResponse response = this.detail(payload.getAddress_id());
             if (response.result){
                 Address address = (Address) response.data;
+                address.setType(payload.getType());
+                address.setRoad(payload.getRoad());
+                address.setNumber(payload.getNumber());
+                address.setBox(payload.getBox());
+                address.setCp(payload.getCp());
+                address.setTown(payload.getTown());
+                address.setCountry(payload.getCountry());
+                address.setEmployee(payload.getEmployee());
+                address.setOrganization(payload.getOrganization());
+                address.setContact(payload.getContact());
                 addressRepository.save(address);
                 return new ApiResponse(true,null, "api.address.update.success");
             }else{

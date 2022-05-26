@@ -56,8 +56,8 @@ public class DocumentBuilder {
     }
 
     public Document build() {
-        return new Document(name, description, path, type, freeAccess, transaction,
-                            employee, organization);
+        return new Document(name, description, path, type, freeAccess,
+                            transaction, employee, organization);
 
     }
 }

@@ -9,7 +9,6 @@ public class TransactionBuilder {
     private String type = "";
     private float amount;
     private Document document = null;
-
     private Wallet wallet = null;
 
     public TransactionBuilder setType(String type){

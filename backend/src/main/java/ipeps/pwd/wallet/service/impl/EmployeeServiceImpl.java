@@ -53,6 +53,14 @@ public class EmployeeServiceImpl implements EmployeeService {
                 employee.setRole(payload.getRole());
                 employee.setOrganization(payload.getOrganization());
                 employee.setActif(payload.isActif());
+                employee.setAccount(payload.getAccount());
+                employee.setAddresses(payload.getAddresses());
+                employee.setSalaries(payload.getSalaries());
+                employee.setDocuments(payload.getDocuments());
+                employee.setWallets(payload.getWallets());
+                employee.setSchedules(payload.getSchedules());
+                employee.setMessageActions(payload.getMessageActions());
+                employee.setMessages(payload.getMessages());
                 employeeRepository.save(employee);
                 return new ApiResponse(true, null, "api.employee.update.success");
             } else {
@@ -71,6 +79,7 @@ public class EmployeeServiceImpl implements EmployeeService {
                     .setRole(payload.getRole())
                     .setActif(payload.isActif())
                     .setOrganization(payload.getOrganization())
+                    .setAccount(payload.getAccount())
                     .build();
             return new ApiResponse(true, employeeRepository.save(employee), "api.employee.create.success");
 

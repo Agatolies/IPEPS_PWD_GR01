@@ -45,7 +45,12 @@ public class AccountServiceImpl implements AccountService {
         try{
             ApiResponse response = this.detail(payload.getAccount_id());
             if(response.result){
-                accountRepository.save((Account) response.data);
+                Account account = (Account) response.data;
+                account.setFirstname(payload.getFirstname());
+                account.setLastname(payload.getLastname());
+                account.setCredential(payload.getCredential());
+                account.setEmployees(payload.getEmployees());
+                accountRepository.save(account);
                 return new ApiResponse(true,null, "api.account.update.success");
             }else{
                 return response;

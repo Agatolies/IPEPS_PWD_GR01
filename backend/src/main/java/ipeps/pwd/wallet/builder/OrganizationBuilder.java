@@ -1,6 +1,7 @@
 package ipeps.pwd.wallet.builder;
 
 import ipeps.pwd.wallet.entity.*;
+import org.aspectj.weaver.ast.Or;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,6 +12,9 @@ public class    OrganizationBuilder {
     private String description = "";
     private boolean actif;
     private List<Address> addresses = new ArrayList<>();
+    private List<Employee> employees = new ArrayList<>();
+    private List<Wallet> wallets = new ArrayList<>();
+    private List<Document> documents = new ArrayList<>();
 
     public OrganizationBuilder setName(String name){
         this.name = name;
@@ -32,7 +36,22 @@ public class    OrganizationBuilder {
         return this;
     }
 
+    public OrganizationBuilder setEmployees(List<Employee> employees){
+        this.employees = employees;
+        return this;
+    }
+
+    public OrganizationBuilder setWallets(List<Wallet> wallets){
+        this.wallets = wallets;
+        return this;
+    }
+
+    public OrganizationBuilder setDocuments(List<Document> documents){
+        this.documents = documents;
+        return this;
+    }
+
     public Organization build() {
-        return new Organization(name, description, actif, addresses);
+        return new Organization(name, description, actif, addresses, employees, wallets, documents);
     }
 }

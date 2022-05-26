@@ -51,6 +51,10 @@ public class OrganizationServiceImpl implements OrganizationService {
                 organization.setName(payload.getName());
                 organization.setDescription(payload.getDescription());
                 organization.setActif(payload.isActif());
+                organization.setAddresses(payload.getAddresses());
+                organization.setEmployees(payload.getEmployees());
+                organization.setWallets(payload.getWallets());
+                organization.setDocuments(payload.getDocuments());
                 organizationRepository.save(organization);
                 return new ApiResponse(true,null, "api.organization.update.success");
             }else{

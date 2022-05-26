@@ -20,4 +20,7 @@ public class OrganizationUpdatePayload {
     private String description;
     private boolean actif;
     private List<Address> addresses;
+    private List<Employee> employees;
+    private List<Wallet> wallets;
+    private List<Document> documents;
 }

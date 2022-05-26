@@ -15,7 +15,13 @@ public class EmployeeUpdatePayload {
     private UUID employee_id;
     private String role;
     private boolean actif;
-    private List<Address> addresses;
     private Account account;
     private Organization organization;
+    private List<Address> addresses;
+    private List<Salary> salaries;
+    private List<Document> documents;
+    private List<Wallet> wallets;
+    private List<Schedule> schedules;
+    private List<MessageAction> messageActions;
+    private List<Message> messages;
 }

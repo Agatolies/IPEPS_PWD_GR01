@@ -35,7 +35,6 @@ public class Account{
 
     @JsonIgnore
     @OneToMany
-    @JoinColumn(name = "employee_id_fk", referencedColumnName = "employee_id")
     private List<Employee> employees;
 
     public Account(String firstname, String lastname, Credential credential, List<Employee> employees) {

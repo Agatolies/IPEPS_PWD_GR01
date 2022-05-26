@@ -23,7 +23,7 @@ public class MessageActionServiceImpl implements MessageActionService {
         try {
             return new ApiResponse(true, messageActionRepository.findAll(), "api.messageAction.list.success");
         } catch (Exception e) {
-            return new ApiResponse(false, null, "api.employee.list.error");
+            return new ApiResponse(false, e.getMessage(), "api.employee.list.error");
         }
     }
 
@@ -72,7 +72,7 @@ public class MessageActionServiceImpl implements MessageActionService {
 
             return new ApiResponse(true, messageActionRepository.save(messageAction), "api.messageAction.create.success");
         } catch (Exception e) {
-            return new ApiResponse(false, null, "api.messageAction.create.error");
+            return new ApiResponse(false, e.getMessage(), "api.messageAction.create.error");
         }
     }
 

@@ -21,4 +21,5 @@ public class WalletUpdatePayload {
     private String type;
     private Organization organization;
     private Employee employee;
+    private List<Transaction> transactions;
 }
