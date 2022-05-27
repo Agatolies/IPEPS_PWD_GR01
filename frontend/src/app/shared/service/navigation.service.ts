@@ -18,6 +18,6 @@ export class NavigationService {
   }
 
   navigateToSecure(): void {
-    this.navigate('');
+    this.navigate('/dashboard');
   }
 }

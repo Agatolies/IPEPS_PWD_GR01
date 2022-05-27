@@ -1,10 +1,14 @@
-import {NgModule} from '@angular/core';
-import {RouterModule, Routes} from '@angular/router';
-import {PublicGuard, SecurityGuard} from '@security/guard';
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { PublicGuard, SecurityGuard } from '@security/guard';
 
 const routes: Routes = [
   {
     path: '',
+    redirectTo: 'account', pathMatch: 'full'
+  },
+  {
+    path: 'dashboard',
     canActivate: [SecurityGuard],
     loadChildren: () => import('./modules/dashboard/dashboard.module').then(m => m.DashboardModule)
   },
