@@ -26,12 +26,11 @@ public class Organization {
 
     @JsonIgnore
     @OneToMany
-    @JoinColumn(name = "address_id_fk", referencedColumnName = "address_id")
+    @JoinColumn(name="organization_id_fk", referencedColumnName = "organization_id")
     private List<Address> addresses;
 
     @JsonIgnore
     @OneToMany
-    @JoinColumn(name="employee_id_fk", referencedColumnName = "employee_id")
     private List<Employee> employees;
 
     public Organization(String name, String description, boolean actif, List<Address> addresses) {

@@ -25,10 +25,10 @@ public class Employee {
 
     @JsonIgnore
     @OneToMany
-    @JoinColumn(name = "address_id_fk", referencedColumnName = "address_id")
     private List<Address> addresses;
 
     @ManyToOne
+    @JoinColumn(name="organization_id_fk", referencedColumnName = "organization_id")
     private Organization organization;
 
     @JsonIgnore
