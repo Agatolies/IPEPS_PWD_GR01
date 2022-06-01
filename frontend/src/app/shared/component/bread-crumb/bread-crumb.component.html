@@ -1,0 +1,8 @@
+<div class="bread-crumb" *ngIf="navigation.breadCrumb$| async as breads">
+  <div class="bread-part" *ngFor="let bread of breads; let last= last"  [class.clickable]="!last"  (click)="navigate(bread)">
+    <i *ngIf="bread.icon" class="{{bread.icon}}"></i>
+    <span class="label"> {{bread.label | translate}}</span>
+    <span *ngIf="!last">/</span>
+  </div>
+
+</div>

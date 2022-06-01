@@ -1,0 +1,15 @@
+<ng-container *ngIf="!tooltip;else tooltipp">
+  <ul>
+    <li *ngFor="let item of list" (click)="onClick(item)">
+      <span>{{item[label]}}</span>
+    </li>
+  </ul>
+</ng-container>
+
+<ng-template #tooltipp>
+  <ul>
+    <li *ngFor="let item of list" (click)="onClick(item)">
+      <span matTooltip="{{item[tooltip!]}}" matTooltipPosition="right">{{item[label]}}</span>
+    </li>
+  </ul>
+</ng-template>

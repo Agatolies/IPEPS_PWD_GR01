@@ -1,3 +1,4 @@
 export interface DtoInterface {
-  id?:string | number;
+  id?: string | number;
+  content?:any[];
 }

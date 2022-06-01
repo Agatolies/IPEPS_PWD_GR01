@@ -1,0 +1,14 @@
+<div class="form-input">
+  <label>{{label| translate}} <span *ngIf="control?.invalid">*</span></label>
+    <input  [matDatepicker]="picker"
+           [type]="type"
+           [name]="name"
+           (blur)="onTouched()"
+           [(ngModel)]="value"
+           [required]="required"
+           [pattern]="pattern"
+           [id]="name"
+           [placeholder]="placeholder | translate" />
+    <mat-datepicker-toggle matSuffix [for]="picker" ></mat-datepicker-toggle>
+    <mat-datepicker touchUi #picker></mat-datepicker>
+</div>

@@ -1,0 +1,30 @@
+@import '~assets/css/common';
+
+.title-bar {
+}
+
+.bread-crumb {
+  display: flex;
+  flex-direction: row;
+  gap: 6px;
+  padding: 0.5rem;
+
+  .bread-part {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    text-transform: uppercase;
+  }
+
+  .clickable {
+    @extend .hover;
+
+    &:hover {
+      i, .label {
+        color: $info-clear
+      }
+    }
+  }
+}

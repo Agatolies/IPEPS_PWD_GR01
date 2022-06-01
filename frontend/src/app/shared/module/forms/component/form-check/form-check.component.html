@@ -1,0 +1,9 @@
+<div class="form-input">
+  <label>{{label| translate}} <span *ngIf="control?.invalid">*</span></label>
+  <mat-checkbox [name]="name" (blur)="onTouched()"
+                [required]="required"
+                [value]="value"
+                [(ngModel)]="value"
+                [id]="name" color="primary"
+  ></mat-checkbox>
+</div>

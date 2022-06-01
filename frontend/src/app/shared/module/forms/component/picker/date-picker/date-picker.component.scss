@@ -1,0 +1,9 @@
+.form-input {
+  position: relative;
+
+  mat-datepicker-toggle {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+  }
+}

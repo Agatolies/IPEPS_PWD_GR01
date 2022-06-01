@@ -1,0 +1,53 @@
+@import 'src/assets/css/common';
+
+.form-input {
+  position: relative;
+}
+
+.sub-menu {
+  position: absolute;
+  border: 1px solid $f8f9fa;
+  top: 60px;
+  z-index:15;
+  right: 0;
+  left: 0;
+  background: $white;
+  @extend .transition-all-ease-3s;
+  overflow: hidden;
+  box-shadow: rgba(152, 166, 177, 0.3) 0 1px 4px;
+
+  .item {
+    height: 30px;
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    text-transform: capitalize;
+    @extend .hover;
+
+    &:hover {
+      color: $info-clear;
+    }
+  }
+
+  .selected {
+    background-color: $info-clear;
+    color: $white;
+
+    &:hover {
+      color: $info-dark;
+    }
+  }
+
+}
+
+.selector {
+  cursor: pointer;
+  display: flex;flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.hide {
+  height: 0;
+  opacity: 0;
+}

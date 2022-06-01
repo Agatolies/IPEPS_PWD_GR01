@@ -1,0 +1,93 @@
+@import 'src/assets/css/variable';
+
+.toast {
+  animation: move .3s both;
+  font-family: 'Fira Sans Condensed', sans-serif;
+  padding: 10px 10px 10px 0;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  cursor:pointer;
+}
+
+@keyframes move {
+  from {
+    bottom: 30px;
+    right: -110%;
+    opacity: 0;
+  }
+  to {
+    bottom: 30px;
+    right: 30px;
+    opacity: 1;
+  }
+}
+
+.icon {
+  font-size:16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.text {
+  font-size: 14px;
+  flex: 2;
+}
+
+.toast-success {
+  background: $success-dark;
+  color: $white;
+  transition:all .3s ease;
+  &:hover{
+    background:$success-middle;
+  }
+
+}
+
+.toast-error {
+  background: $error-dark;
+  color: $white;
+  transition:all .3s ease;
+  &:hover{
+    background:$error-middle;
+  }
+}
+
+.toast-info {
+  background: $info-dark;
+  color: $white;
+  transition:all .3s ease;
+  &:hover{
+    background:$info-middle;
+  }
+}
+
+.toast-warning{
+  background: $warning-dark;
+  color: $white;
+  transition:all .3s ease;
+  &:hover{
+    background:$warning-middle;
+  }
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.icon {
+  cursor: pointer;
+  padding-left: 1rem;
+}

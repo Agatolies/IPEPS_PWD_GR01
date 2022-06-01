@@ -1,0 +1,93 @@
+@import 'src/assets/css/common';
+
+table {
+  width: 100%;
+  border-spacing: 0;
+
+  tr {
+    height: 50px;
+
+    td {
+      padding: 10px;
+      color: #8C9BA5;
+      border-bottom: 1px solid #EDF0F2;
+    }
+  }
+}
+
+.wrapping {
+  padding: 0.5rem;
+}
+
+.table-row {
+  cursor: pointer;
+  @extend .hover;
+
+  &:hover {
+    td {
+      color: $info-clear;
+    }
+  }
+}
+
+.head {
+  background: $f8f9fa;
+  font-size: 12px;
+
+  td {
+    border-bottom: 1px solid #EDF0F2;
+  }
+
+  color: $grey-1;
+  text-transform: uppercase;
+}
+
+.actions {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.action {
+  width: 40px;
+  height: 40px;
+  margin-left: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  @extend .hover-clear;
+
+}
+
+.deleted {
+  @extend .hover;
+
+  &:hover {
+    background: $error-clear;
+    color: $white;
+  }
+}
+
+.ta-right {
+  text-align: right;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: flex-end;
+
+  span {
+    @extend .hover;
+    padding: 12px;
+    color: $primary-contrast-darker-color;
+
+    &:hover {
+      color: $info-clear;
+    }
+  }
+}
+
+.sortable {
+  @extend .hover;
+}

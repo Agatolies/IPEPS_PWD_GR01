@@ -1,0 +1,28 @@
+@import 'src/assets/css/common';
+.wrapper{
+  display: flex;
+  flex-direction: column;
+  gap:15px;
+  height:100%;
+  padding:15px
+}
+.title{
+  text-transform: uppercase;
+  color:$primary-contrast-color;
+  padding-left:10px;
+}
+.form-area{
+  flex:2;
+}
+.btn-area {
+  margin-top:0;
+  height:60px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: flex-end;
+  gap: 15px;
+  button{
+    width:170px;
+  }
+}

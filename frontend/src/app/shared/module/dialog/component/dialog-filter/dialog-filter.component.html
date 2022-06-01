@@ -1,0 +1,14 @@
+<app-dialog [config]="getConfig(dialogConfig)">
+  <div class="wrapper">
+
+    <span class="title">{{title | translate}}</span>
+    <div class="form-area">
+      <ng-content></ng-content>
+    </div>
+    <div class="btn-area">
+      <button class="save-btn" (click)="filter(true)">{{'common.filter.filter-and-close' | translate}}</button>
+      <button (click)="filter(false)">{{'common.filter.filter' | translate}}</button>
+      <button (click)="close()" class="cancel-btn">{{'common.filter.close' | translate}}</button>
+    </div>
+  </div>
+</app-dialog>
