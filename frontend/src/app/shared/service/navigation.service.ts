@@ -5,6 +5,8 @@ import { BehaviorSubject, Subject } from 'rxjs';
 import { filter, map, takeUntil } from 'rxjs/operators';
 import { BreadcrumbHelper } from '@shared/helper';
 
+
+
 @Injectable({
   providedIn: 'root'
 })
@@ -16,7 +18,7 @@ export class NavigationService {
   constructor(public router: Router) {
     router.events.pipe(
       takeUntil(this.destroyer$),
-      filter((event: any) => event instanceof NavigationEnd),
+      filter(event => event instanceof NavigationEnd),
       map(event => event as NavigationEnd))
       .subscribe((event: NavigationEnd) => {
         const found = MENU_ACTION.ALL.find((menuAction: MenuAction) => menuAction.link === event.url);

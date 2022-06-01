@@ -1,0 +1,11 @@
+<ng-container *ngIf="error">
+
+  <div class="error">
+    <i class="fa-regular fa-bug-slash"></i>
+    <span class="txt">{{'page.employee.form.error.not-found' | translate}}</span>
+  </div>
+</ng-container>
+
+<ng-container *ngIf="payload">
+  <app-employee-form [type]="formAction" [payload]="payload"></app-employee-form>
+</ng-container>

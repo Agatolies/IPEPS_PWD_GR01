@@ -27,6 +27,7 @@
           <span
             *ngIf="(field.param!='employee') && (field.type!='DATETIME'); else elseBlock">{{item[field.param]}}</span>
           <ng-template #elseBlock>
+            <span *ngIf="(field.param=='employee')">{{item[field.param]|firstLastName}}</span>
             <span *ngIf="(field.type=='DATETIME')">{{item[field.param]|dateTinyExtra}}</span>
           </ng-template>
         </td>
