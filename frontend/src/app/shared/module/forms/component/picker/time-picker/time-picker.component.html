@@ -1,0 +1,12 @@
+<div class="24hr-example form-input">
+  <label>{{label| translate}} <span *ngIf="control?.invalid">*</span></label>
+  <input [ngxTimepicker]="fullTime" [format]="24"
+         [type]="type" [name]="name" (blur)="onTouched()"
+         [required]="required"
+         [value]="value"
+         [(ngModel)]="value"
+         [pattern]="pattern"
+         [id]="name"
+         [placeholder]="placeholder | translate"  readonly>
+  <ngx-material-timepicker #fullTime></ngx-material-timepicker>
+</div>

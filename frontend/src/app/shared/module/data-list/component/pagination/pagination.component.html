@@ -1,0 +1,20 @@
+<div class="pagination">
+  <div class="full-left">
+    <div class="number-page" >
+      <div class="number-selector" appClickOutside (onClickOutSide)="showNumberSelector=false">
+        <span class="write" (click)="showNumberSelector = true">
+        {{'common.element' | translate: {count:pageFilter.pageSize} }}</span>
+        <div class="selector" [class.selector-hide]="!showNumberSelector">
+          <span *ngFor="let el of defaultNumber" (click)="setFilter(el)" [class.selected]="el === pageFilter.pageSize">{{el}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="affichage">
+    {{'common.page-show'| translate:pageObject }}
+  </div>
+  <div class="page-chooser">
+    <div class="page" *ngFor="let page of pages" [class.selected]="page.selected"
+         (click)="setPage(page)">{{page.label}}</div>
+  </div>
+</div>

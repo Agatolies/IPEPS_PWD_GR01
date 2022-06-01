@@ -1,0 +1,29 @@
+@import 'src/assets/css/common';
+
+.chip {
+  @extend .hover;
+  cursor: pointer;
+  border: 1px solid $background-panel-color;
+  display: inline-block;
+  padding: 5px 10px;
+  background: $f8f9fa;
+  font-size: 10px;
+  border-radius: 10px;
+  color: $grey-1;
+
+  .label {
+    text-transform: uppercase;
+  }
+
+  .flex {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+  }
+
+  &:hover {
+    background: $info-clear;
+    color: $white;
+    border: 1px solid $info-clear;
+  }
+}

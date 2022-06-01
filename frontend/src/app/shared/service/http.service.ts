@@ -1,8 +1,9 @@
 import {Injectable} from '@angular/core';
-import {BehaviorSubject, Observable, throwError} from 'rxjs';
-import {HttpClient} from '@angular/common/http';
+import {BehaviorSubject, Observable, of, tap} from 'rxjs';
+import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import {catchError, finalize} from 'rxjs/operators';
-import {ApiResponse, PayloadInterface} from '@shared/model';
+import {ApiResponse, PayloadInterface, ToastType} from '@shared/model';
+import {ToasterService} from '@shared/service/toaster.service';
 
 @Injectable({
   providedIn: 'root'
@@ -10,14 +11,15 @@ import {ApiResponse, PayloadInterface} from '@shared/model';
 export class HttpService {
   loadingEmitter: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, public toaster: ToasterService) {
   }
 
   public errorHandler(error: { error: { message: any; }; status: any; message: any; }): Observable<ApiResponse> {
+
     if (error.error instanceof ErrorEvent) {
-      return throwError(error.error.message);
+      return of({result: false, data: null, code: 'api.fatal-error'});
     } else {
-      return throwError(`Error Code: ${error.status}\nMessage: ${error.message}`);
+      return of({result: false, data: null, code: 'api.fatal-error'});
     }
   }
 
@@ -32,10 +34,18 @@ export class HttpService {
     );
   }
 
-  public post(url: string, data: PayloadInterface): Observable<any> {
+  public post(url: string, data: PayloadInterface, showToaster = true): Observable<any> {
     this.loadingEmitter.next(true);
     return this.http.post(url, data).pipe(
+      tap((data: any) => {
+        if (showToaster) {
+          this.toaster.showFromApiResponse(data as ApiResponse);
+        }
+      }),
       catchError((error: { error: { message: any; }; status: any; message: any; }) => {
+        if (showToaster) {
+          this.toaster.show(ToastType.ERROR, 'api.error-404');
+        }
         return this.errorHandler(error);
       }),
       finalize(() => {
@@ -44,10 +54,18 @@ export class HttpService {
     );
   }
 
-  public put(url: string, data: PayloadInterface): Observable<any> {
+  public put(url: string, data: PayloadInterface, showToaster = true): Observable<any> {
     this.loadingEmitter.next(true);
     return this.http.put(url, data).pipe(
+      tap((data: any) => {
+        if (showToaster) {
+          this.toaster.showFromApiResponse(data as ApiResponse);
+        }
+      }),
       catchError((error: { error: { message: any; }; status: any; message: any; }) => {
+        if (showToaster) {
+          this.toaster.show(ToastType.ERROR, 'api.error-404');
+        }
         return this.errorHandler(error);
       }),
       finalize(() => {
@@ -56,14 +74,28 @@ export class HttpService {
     );
   }
 
-  public delete(url: string): Observable<any> {
+  public delete(url: string, showToaster = true): Observable<any> {
     return this.http.delete(url).pipe(
+      tap((data: any) => {
+        if (showToaster) {
+          this.toaster.showFromApiResponse(data as ApiResponse);
+        }
+      }),
       catchError((error: { error: { message: any; }; status: any; message: any; }) => {
+        if (showToaster) {
+          this.toaster.show(ToastType.ERROR, 'api.error-404');
+        }
         return this.errorHandler(error);
       }),
       finalize(() => {
         this.loadingEmitter.next(false);
       })
     );
+  }
+
+  handleRedirectError(err: HttpErrorResponse) {
+    if (err.status === 0) {
+      // this.navigation.navigateToUnsecure();
+    }
   }
 }

@@ -1,0 +1,108 @@
+@import 'src/assets/css/common';
+
+.pagination {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 1rem;
+
+  .full-left {
+    flex: 2
+  }
+
+  input {
+    width: 40px;
+    text-align: right;
+  }
+}
+
+.page-chooser {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+
+  .page {
+    @extend .hover;
+
+    border: 1px solid $eee;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: $grey-82878;
+
+    &:hover {
+      background: $info-clear;
+      color: $white;
+      border: 1px solid $info-clear;
+    }
+  }
+  .selected{
+    background: $info-clear;
+    color: $white;
+    border: 1px solid $info-clear;
+  }
+}
+
+.affichage {
+  font-size: 12px;
+}
+
+.number-selector {
+  width:250px;
+  position: relative;
+  height: 30px;
+  span{cursor:pointer;}
+  .selector {
+    width:300px;
+    position: absolute;
+    bottom: 0;
+    background: $white;
+    border: 1px solid $eee;
+    box-shadow: rgba(152, 166, 177, 0.3) 0px 1px 4px;
+    padding: 1rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 5px;
+    overflow: hidden;
+
+    span {
+      @extend .hover;
+
+      &:hover {
+        background: $info-clear;
+        color: $white;
+      }
+
+      width: 40px;
+      height: 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  .selector-hide {
+    width: 0;
+    height: 0;
+    display: none;
+  }
+}
+.write{
+  color:$grey-82878
+}
+
+.selected {
+  background: $info-clear;
+  color: $white;
+  border: 1px solid $info-clear;
+}

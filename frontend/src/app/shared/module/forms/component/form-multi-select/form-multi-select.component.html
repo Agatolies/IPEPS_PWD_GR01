@@ -1,0 +1,10 @@
+<div class="form-input" appClickOutside (onClickOutSide)="show=false">
+  <label>{{label| translate}}</label>
+  <div class="selector" (click)="show=true">
+    <span *ngFor="let select of selected">{{select.name}} / </span>
+    <ng-container *ngIf="selected.length === 0">{{placeholder|translate}}</ng-container>
+  </div>
+  <div class="sub-menu" [class.hide]="!show">
+    <div class="item" *ngFor="let item of options" (click)="selectValue(item)">{{item.label}}</div>
+  </div>
+</div>

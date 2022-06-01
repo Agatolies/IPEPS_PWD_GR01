@@ -1,0 +1,12 @@
+
+<div class="form-input">
+  <label>{{label| translate}} <span *ngIf="control?.invalid">*</span></label>
+  <input [type]="type" [name]="name" (blur)="onTouched()"
+         [(ngModel)]="value" [required]="required"
+         [pattern]="pattern"
+         [id]="name"
+         [placeholder]="placeholder | translate" />
+  <div class="errors" *ngIf="control.errors && control.touched">
+    <span *ngFor="let error of getError(control.errors)">{{ 'common.form.error.' + error | translate }}</span>
+  </div>
+</div>

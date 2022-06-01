@@ -1,0 +1,19 @@
+@import '../../../../assets/css/variable';
+#error{
+  width:100%;
+  min-height:100vh;
+  display: flex;
+  justify-content: center;align-items: center;
+  flex-direction: column;
+  background:$error-middle;
+  color:$white;
+  .icon{
+    margin-top:-5rem;
+    font-size:5rem;
+    margin-bottom:1rem;
+    color:$error-dark
+  }
+  .not-found{
+    font-size:1.5rem;
+  }
+}

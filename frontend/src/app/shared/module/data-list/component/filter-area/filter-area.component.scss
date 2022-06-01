@@ -1,0 +1,43 @@
+@import 'src/assets/css/common';
+
+.chips {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 5px;
+  margin-bottom:5px;
+
+  .filter-by {
+    color: $logo-text-color;
+    font-size: 10px;
+    text-transform: uppercase;
+  }
+}
+
+.search {
+  width: 100%;
+  border: 1px solid $eee;
+  margin-top: 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  input {
+    border: 1px solid $white;
+    padding: 12px;
+    flex: 2
+  }
+
+  i {
+    @extend .hover;
+    padding: 12px;
+    color: $primary-contrast-color;
+
+    &:hover {
+      color: $info-clear;
+    }
+  }
+
+}
