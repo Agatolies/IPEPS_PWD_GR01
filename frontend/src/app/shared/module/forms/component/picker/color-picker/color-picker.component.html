@@ -1,0 +1,17 @@
+<div class="form-input">
+  <label>{{label| translate}} <span *ngIf="control?.invalid">*</span></label>
+  <input [style.background]="value"
+         [cpAlphaChannel]="'disabled'"
+         [cpOutputFormat]="'hex'"
+         [cpPresetColors]="[red,green,blue]"
+         [cpAddColorButton]="true"
+         [(colorPicker)]="value"
+         [type]="type" [name]="name" (blur)="onTouched()"
+         [(ngModel)]="value" [required]="required"
+         [pattern]="pattern"
+         [id]="name"
+         [placeholder]="placeholder | translate"
+         [readOnly]="readonly"/>
+</div>
+
+

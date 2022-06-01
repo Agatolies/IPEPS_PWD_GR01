@@ -1,0 +1,28 @@
+@import "src/assets/css/variable";
+@import "src/assets/css/animation";
+
+#dialog {
+  position: fixed;
+  background: $white;
+  border: 1px solid $eee;
+  z-index: 100;
+}
+
+#close {
+  @extend .transition-all-ease-3s;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  color: $logo-text-color;
+
+  &:hover {
+    background: $f8f9fa
+  }
+}

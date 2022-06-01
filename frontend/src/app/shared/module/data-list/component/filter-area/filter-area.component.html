@@ -1,0 +1,17 @@
+
+<div class="chips" *ngIf="chips.length>0">
+  <span class="filter-by">{{'common.filter.form.by'| translate}}</span>
+  <app-chip *ngFor="let chip of chips" [chip]="chip" (removeIt)="removeChip($event)"></app-chip>
+</div>
+<div class="chips" *ngIf="sortChip">
+  <span class="filter-by">{{'common.sort.by'| translate}}</span>
+  <app-chip  [chip]="sortChip" (removeIt)="removeSort.emit()"></app-chip>
+
+</div>
+<div class="search">
+  <input type="text" [placeholder]="searchPlaceholder | translate" [(ngModel)]="globalSearch"
+         (ngModelChange)="globalFilter()"/>
+  <i class="fa fa-search"></i>
+  <i class="fa  fa-filter" (click)="onShowFilter.emit()"></i>
+  <i class="fa fa-trash-alt" (click)="onShowDeleted.emit()"></i>
+</div>

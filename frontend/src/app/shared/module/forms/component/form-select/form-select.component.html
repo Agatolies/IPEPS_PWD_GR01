@@ -1,0 +1,9 @@
+<div class="form-input" appClickOutside (onClickOutSide)="show=false">
+  <label>{{label|translate}}</label>
+  <div class="selector" (click)="show=true">
+    {{ ((selected || (type=== 'boolean' && !selected)) ? (selected?.label ? translateKey + selected.label : (selected?.employee_id ? (selected|firstLastName) : translateKey + selected)) : placeholder)|translate }}
+  </div>
+  <div class="sub-menu" [class.hide]="!show">
+    <div class="item" *ngFor="let item of options" (click)="selectValue(item)">{{translateKey + item.label|translate}}</div>
+  </div>
+</div>

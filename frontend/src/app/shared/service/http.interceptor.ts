@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest} from '@angular/common/http';
-import {Observable, throwError} from 'rxjs';
+import {Observable, of} from 'rxjs';
 import {catchError, switchMap} from 'rxjs/operators';
 import {AuthService} from '@security/service/auth.service';
 import {isNil} from 'lodash';
@@ -26,7 +26,11 @@ export class HttpInterceptorService implements HttpInterceptor {
   }
 
   private addToken(req: HttpRequest<any>): HttpRequest<any> {
-    if (!req.url.includes(ApiUriEnum.SIGNIN) && !req.url.includes(ApiUriEnum.SIGNUP) && !req.url.includes(ApiUriEnum.REFRESH_TOKEN)) {
+    if (
+      !req.url.includes(ApiUriEnum.SIGNIN) &&
+      !req.url.includes(ApiUriEnum.SIGNUP) &&
+      !req.url.includes(ApiUriEnum.REFRESH_TOKEN) &&
+      !req.url.includes(ApiUriEnum.HELLO_WORLD)) {
       req = req.clone({
         setHeaders: {
           Authorization: `Bearer ${this.auth.tokenService.getToken()}`
@@ -40,20 +44,20 @@ export class HttpInterceptorService implements HttpInterceptor {
     if (this.attemps > 1) {
       this.attemps = 0;
       this.auth.navigation.navigateToUnsecure();
-      return throwError(err);
+      return of({result: false, data: null, code: 'api.fatal-error'});
     }
     this.attemps++;
     if (err.error.error === 'unauthorized' || err.status === 401) {
       if (isNil(this.auth.tokenService.getRefreshToken())) {
         this.auth.navigation.navigateToUnsecure();
-        return throwError(err);
+        return of({result: false, data: null, code: 'api.fatal-error'});
       } else {
         const refreshPayload: RefreshPayload = {
           refresh: this.auth.tokenService.getRefreshToken()!
         }
         return this.auth.refreshToken(refreshPayload).pipe(switchMap((response: ApiResponse) => {
           if (!response.result) {
-            return throwError(err);
+            return of({result: false, data: null, code: 'api.fatal-error'});
           }
           const cloneReq = this.addToken(req);
           return next.handle(cloneReq).pipe(
@@ -64,6 +68,7 @@ export class HttpInterceptorService implements HttpInterceptor {
         }));
       }
     }
-    return throwError(err);
+    this.auth.http.handleRedirectError(err);
+    return of({result: false, data: null, code: 'api.fatal-error'});
   }
 }

@@ -1,0 +1,9 @@
+
+<div class="chip" (click)="remove()">
+  <div class="flex">
+    <span class="label">{{ (chip.translateKey+'form.label.'+chip.label)| translate}}: </span>
+    <ng-container *ngIf="chip.valueType !== type.BOOLEAN;else boolean"><span class="value">{{chip.value | translate}}</span></ng-container>
+    <ng-template #boolean><span class="value">{{ (chip.translateKey+'label'+chip.value)| translate}}</span></ng-template>
+    <span><i class="fas fa-times"></i></span>
+  </div>
+</div>

@@ -1,0 +1,40 @@
+@import 'src/assets/css/common';
+
+.context-menu {
+  position: fixed;
+  z-index: 1;
+  background: $white;
+  border: 1px solid $eee;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+}
+
+.menu-link {
+  padding: 5px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  height:$context-menu-item-height;
+  @extend  .transition-all-ease-3s;
+  .label{
+    display: flex;
+    flex-direction: row;
+    flex:2;
+    text-transform: capitalize;
+    justify-content: flex-start;align-items: center;
+    color:$logo-text-color;
+  }
+  .shortcut{
+    text-transform: uppercase;
+    font-size:10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;align-items: flex-end;
+    color:$background-section-color
+  }
+  &:hover{
+    background:$f8f9fa;
+    .label{
+      color:$primary-contrast-color;
+    }
+  }
+}

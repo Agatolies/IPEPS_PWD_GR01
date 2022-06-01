@@ -1,0 +1,17 @@
+
+<ng-container *ngIf="show">
+  <div class="full">
+    <div class="dialog-confirm" cdkDrag cdkDragBoundary=".drag-limit" [style.top]="top" [style.left]="left">
+      <div class="title">{{(titleMessage? titleMessage.label : 'common.confirm.title')| translate}}</div>
+      <div class="content">
+
+        {{(confirmMessage? confirmMessage.label : 'common.confirm.content') | translate}}
+      </div>
+      <div class="btn-area">
+        <button class="cancel-btn" (click)="close()">{{'common.confirm.btn.no' | translate}}</button>
+        <button class="save-btn" (click)="confirmAction()">{{'common.confirm.btn.yes' | translate}}</button>
+      </div>
+    </div>
+  </div>
+</ng-container>
+<ng-content></ng-content>
