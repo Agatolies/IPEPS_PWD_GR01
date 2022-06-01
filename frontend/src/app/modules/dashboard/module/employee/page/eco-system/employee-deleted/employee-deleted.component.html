@@ -1,0 +1,3 @@
+<ng-container *ngIf="employeeService.list$ | async as list">
+  <app-data-list [list]="list" [config]="listConfig" (onClickAction)="actionHandle($event)"></app-data-list>
+</ng-container>

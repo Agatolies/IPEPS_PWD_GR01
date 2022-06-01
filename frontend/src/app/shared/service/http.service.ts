@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {BehaviorSubject, Observable, of} from 'rxjs';
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
-import { catchError, finalize, tap } from 'rxjs/operators';
+import {catchError, finalize, tap} from 'rxjs/operators';
 import {ApiResponse, PayloadInterface, ToastType} from '@shared/model';
 import {ToasterService} from '@shared/service/toaster.service';
 

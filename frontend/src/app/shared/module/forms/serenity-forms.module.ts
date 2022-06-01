@@ -22,7 +22,6 @@ import { MAT_DATE_LOCALE, MatNativeDateModule } from '@angular/material/core';
 import { MatIconModule } from '@angular/material/icon';
 import { ColorPickerModule } from 'ngx-color-picker';
 import { SwitchComponent } from './component/switch/switch.component';
-import { SerenityDirectiveModule } from '@directive';
 
 
 @NgModule({
@@ -39,21 +38,20 @@ import { SerenityDirectiveModule } from '@directive';
     TimePickerComponent,
     SwitchComponent
   ],
-    imports: [
-        CommonModule,
-        TranslateModule,
-        FormsModule,
-        SerenityPipeModule,
-        MatCheckboxModule,
-        NgxMaterialTimepickerModule,
-        MatDatepickerModule,
-        MatInputModule,
-        MatNativeDateModule,
-        MatIconModule,
-        ColorPickerModule,
-        MatCheckboxModule,
-        SerenityDirectiveModule,
-    ],
+  imports: [
+    CommonModule,
+    TranslateModule,
+    FormsModule,
+    SerenityPipeModule,
+    MatCheckboxModule,
+    NgxMaterialTimepickerModule,
+    MatDatepickerModule,
+    MatInputModule,
+    MatNativeDateModule,
+    MatIconModule,
+    ColorPickerModule,
+    MatCheckboxModule,
+  ],
   providers: [
     {provide: MAT_DATE_LOCALE, useValue: 'be'},
   ],

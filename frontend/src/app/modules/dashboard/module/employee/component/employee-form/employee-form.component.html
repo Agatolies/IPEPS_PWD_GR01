@@ -1,0 +1,90 @@
+<form [formGroup]="formGroup"  novalidate>
+  <div class="table-form">
+    <div class="row">
+      <div class="cell">
+        <app-form-input [type]="'text'"
+                        formControlName="firstname"
+                        [name]="'firstname'"
+                        [label]="'page.employee.form.label.firstname'"
+                        [placeholder]="'page.employee.form.placeholder.firstname'"
+
+                        [readonly]="false"></app-form-input>
+      </div>
+
+      <div class="cell">
+        <app-form-input [type]="'text'"
+                        formControlName="lastname"
+                        [name]="'lastname'"
+                        [label]="'page.employee.form.label.lastname'"
+                        [placeholder]="'page.employee.form.placeholder.lastname'"
+
+                        [readonly]="false"></app-form-input>
+      </div>
+      <div class="cell">
+        <app-form-select formControlName="gender" [label]="'page.employee.form.label.gender'"
+                         [placeholder]="'page.employee.form.placeholder.gender'"
+                         [options]="genderSelectOption"></app-form-select>
+      </div>
+    </div>
+    <!-- line2 -->
+
+    <div class="row">
+      <div class="cell">
+        <app-form-select formControlName="modality" [label]="'page.employee.form.label.modality'"
+                         [placeholder]="'page.employee.form.placeholder.modality'"
+                         [options]="modalitySelectOption"></app-form-select>
+      </div>
+      <div class="cell" *ngIf="type===formAction.SEARCH">
+        <app-form-input [type]="'text'"
+                        formControlName="matricule"
+                        [name]="'matricule'"
+                        [label]="'page.employee.form.label.matricule'"
+                        [placeholder]="'page.employee.form.placeholder.matricule'"
+                        [readonly]="false"></app-form-input>
+      </div>
+      <div class="cell" *ngIf="type!==formAction.SEARCH">
+        <app-form-select formControlName="term" [label]="'page.employee.form.label.term'"
+                         [placeholder]="'page.employee.form.placeholder.term'"
+                         [options]="termSelectOption"></app-form-select>
+      </div>
+    </div>
+    <!-- line 3 -->
+    <div class="row">
+      <div class="cell">
+        <app-form-select formControlName="category" [label]="'page.employee.form.label.category'"
+                         [placeholder]="'page.employee.form.placeholder.category'"
+                         [options]="categorySelectOption"></app-form-select>
+      </div>
+      <div class="cell">
+        <app-form-select formControlName="subdivision" [label]="'page.employee.form.label.subdivision'"
+                         [placeholder]="'page.employee.form.placeholder.subdivision'"
+                         [options]="subdivisionSelectOption"></app-form-select>
+      </div>
+    </div>
+    <!-- line 4 -->
+    <div class="row">
+      <div class="cell" *ngIf="type!== formAction.SEARCH">
+        <app-form-input [type]="'text'"
+                        formControlName="matricule"
+                        [name]="'matricule'"
+                        [label]="'page.employee.form.label.matricule'"
+                        [placeholder]="'page.employee.form.placeholder.matricule'"
+                        [readonly]="false"></app-form-input>
+      </div>
+      <div class="cell" *ngIf="type!== formAction.SEARCH">
+        <app-form-select formControlName="rank"
+                         [label]="'page.employee.form.label.rank'"
+                         [placeholder]="'page.employee.form.placeholder.rank'"
+                         [translateKey]="'enum.rank-type.'"
+                         [options]="rankOptions"
+                         [required]="false"></app-form-select>
+      </div>
+    </div>
+  </div>
+  <div class="btn-area" *ngIf="type !== formAction.SEARCH">
+    <app-form-btn [css]="'save-btn'" [icon]="'fa-regular fa-save'" [label]="label" (onClick)="save()"></app-form-btn>
+    <app-form-btn [css]="'cancel-btn'" [icon]="'fa-regular fa-times'" [label]="'common.form.btn.cancel'"
+                  (onClick)="cancel()" ></app-form-btn>
+
+  </div>
+</form>
