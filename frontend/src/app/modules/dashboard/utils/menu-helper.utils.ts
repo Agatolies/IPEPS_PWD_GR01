@@ -1,5 +1,6 @@
 import {MenuAction} from '@dashboard/model/interface';
-import { AppUriEnum } from '@shared/model';
+import { AppUriEnum } from '@shared/model/enum/app-uri.enum';
+
 
 export class MenuHelperUtils {
   public static generateMenu(employeeRole: string): MenuAction[] {

@@ -1,0 +1,176 @@
+@import 'variable';
+@import 'animation.scss';
+
+textarea {
+  // other stuff
+  -moz-appearance: none;
+  outline: 0 none transparent;
+}
+
+textarea:focus, input:focus {
+  outline: 0;
+}
+
+*:focus {
+  outline: 0;
+}
+
+* {
+  list-style: none;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.full-height {
+  height: 100%;
+}
+
+.minimal-full-screen {
+  width: 100%;
+  min-height: 100vh;
+}
+
+.minimal-full-screen-colored {
+  @extend .minimal-full-screen;
+  background: $f8f9fa;
+  display: flex;
+  flex-direction: column;
+}
+
+.max-width-1024 {
+  max-width: 1024px;
+}
+
+.max-width-600 {
+  max-width: 600px;
+}
+
+.blue-background {
+  background: $grey-clear;
+}
+
+.mt-15 {
+  margin-top: 15px;
+}
+
+.wrapper-full-height {
+  flex: 1;
+  min-height: $min-height;
+}
+
+.p-5 {
+  padding: 5px;
+}
+
+.p-10 {
+  padding: 10px;
+}
+
+.pt-15 {
+  padding: 15px;
+}
+
+.p-5rm {
+  padding: 5rem;
+}
+
+.p-medium {
+  padding: 8px;
+}
+
+.p-large {
+  padding: 12px;
+}
+
+.pt-large {
+  padding-top: 12px;
+}
+
+.pb-small {
+  padding-bottom: 4px;
+}
+
+.pl-small {
+  padding-left: 4px;
+}
+
+.pr-small {
+  padding-right: 4px;
+}
+
+.p-xlarge {
+  padding: 1rem;
+}
+
+.square-box {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.square-box:before {
+  content: "";
+  display: block;
+  padding-top: 100%;
+}
+
+.square-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  color: $primary-contrast-color;
+  text-align: center;
+  display: flex;
+}
+
+.margin-auto {
+  margin: auto;
+}
+
+.margin-large {
+  margin-top: 12px;
+}
+
+.hover {
+  @extend .transition-all-ease-3s;
+  cursor: pointer;
+}
+
+.hover-clear {
+  @extend .hover;
+
+  &:hover {
+    @extend .selected-clear;
+  }
+}
+
+.selected-clear {
+  background: #f6f6f6;
+  color: $primary-contrast-color;
+}
+
+.actions {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+
+  .icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: .3s all ease;
+    color: $primary-contrast-color;
+
+    &:hover {
+      color: $primary-contrast-color;
+      background: $f8f8f8;
+    }
+  }
+}
