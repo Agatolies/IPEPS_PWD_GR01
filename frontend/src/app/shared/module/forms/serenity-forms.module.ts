@@ -12,7 +12,6 @@ import {
 } from '@shared/module/forms/component';
 import { TranslateModule } from '@ngx-translate/core';
 import { FormsModule } from '@angular/forms';
-import { SerenityPipeModule } from '@pipe';
 import { FormCheckComponent } from '@shared/module/forms/component/form-check/form-check.component';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
@@ -42,7 +41,6 @@ import { SwitchComponent } from './component/switch/switch.component';
     CommonModule,
     TranslateModule,
     FormsModule,
-    SerenityPipeModule,
     MatCheckboxModule,
     NgxMaterialTimepickerModule,
     MatDatepickerModule,

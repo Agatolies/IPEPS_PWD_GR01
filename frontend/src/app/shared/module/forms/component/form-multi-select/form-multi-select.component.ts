@@ -1,7 +1,6 @@
 import { Component, forwardRef, Input, OnChanges, Provider, SimpleChanges } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { isNil } from 'lodash';
-import { PrestationTypeHelper } from '@prestationType/helper';
 import { MultiSelectOption } from '@shared/module/forms/component';
 
 const SELECT_CONTROL_VALUE_ACCESSOR: Provider = {
@@ -42,8 +41,6 @@ export class FormMultiSelectComponent implements ControlValueAccessor, OnChanges
   selectValue(option: MultiSelectOption) {
     if (this.selected.filter((item: any) => item.prestation_type_id === option.value.id).length > 0) {
       this.selected = this.selected.filter((item: any) => item.prestation_type_id !== option.value.id);
-    } else {
-      this.selected.push(PrestationTypeHelper.toDto(option.value));
     }
     this.onChanged(this.selected); // <-- call function to let know of a change
   }

@@ -12,7 +12,6 @@ import { BreadCrumbComponent } from '@shared/component/bread-crumb/bread-crumb.c
 
 import { CardModule } from '@card';
 import { SerenityFormsModule } from '@form';
-import { SerenityPipeModule } from '@pipe';
 import { ToastModule } from '@toast';
 import { DataListModule } from '@dataList';
 import { SerenityDirectiveModule } from '@directive';
@@ -33,7 +32,6 @@ import { MenuModule } from '@menu';
     FormsModule,
     CardModule,
     SerenityFormsModule,
-    SerenityPipeModule,
     ToastModule,
     DataListModule,
     SerenityDirectiveModule,
@@ -46,7 +44,6 @@ import { MenuModule } from '@menu';
     BreadCrumbComponent,
     CardModule,
     SerenityFormsModule,
-    SerenityPipeModule,
     ToastModule,
     DataListModule,
     SerenityDirectiveModule,
