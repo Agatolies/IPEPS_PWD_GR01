@@ -8,7 +8,6 @@ import {
 } from '@shared/module/data-list/component';
 import { TranslateModule } from '@ngx-translate/core';
 import { FormsModule } from '@angular/forms';
-import { SerenityPipeModule } from '@pipe';
 import { SerenityDirectiveModule } from '@shared/module/serenity-directive/serenity-directive.module';
 
 
@@ -23,7 +22,6 @@ import { SerenityDirectiveModule } from '@shared/module/serenity-directive/seren
     CommonModule,
     TranslateModule,
     FormsModule,
-    SerenityPipeModule,
     SerenityDirectiveModule
   ],
   exports: [
