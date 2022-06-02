@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { BreadCrumbItem, Entity, MENU_ACTION, MenuAction, MenuActionType } from '@shared/model';
-import { BehaviorSubject, filter, Subject, takeUntil } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { BehaviorSubject, Subject } from 'rxjs';
+import { filter, map, takeUntil } from 'rxjs/operators';
 import { BreadcrumbHelper } from '@shared/helper';
 
 @Injectable({
@@ -16,7 +16,7 @@ export class NavigationService {
   constructor(public router: Router) {
     router.events.pipe(
       takeUntil(this.destroyer$),
-      filter(event => event instanceof NavigationEnd),
+      filter((event: any) => event instanceof NavigationEnd),
       map(event => event as NavigationEnd))
       .subscribe((event: NavigationEnd) => {
         const found = MENU_ACTION.ALL.find((menuAction: MenuAction) => menuAction.link === event.url);
