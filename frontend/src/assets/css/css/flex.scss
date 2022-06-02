@@ -1,0 +1,24 @@
+.flex-center-center{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.flex-center{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+.flex-full-size{
+  display: flex;
+  flex-wrap: wrap;
+}
+.fb-50{
+  display: flex;
+  flex-basis: 50%;
+}
+.fb-100{
+  display: flex;
+  flex-basis: 100%;
+}

@@ -1,0 +1,140 @@
+@import './variable';
+@import './common';
+
+.input-form {
+  background: $white;
+  width: 100%;
+
+  input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid $white;
+  }
+}
+
+.first-input-form {
+  border-radius: 3px 3px 0 0;
+  overflow: hidden;
+}
+
+.last-input-form {
+  border-radius: 0 0 3px 3px;
+  overflow: hidden;
+}
+
+.border-bottom-grey {
+  border-bottom: 1px solid $grey-clear
+}
+
+.form-input {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+
+  label {
+    text-transform: capitalize;
+    color: #5A6972;
+  }
+
+  input,.selector {
+    background: $f8f9fa;
+    border: 1px solid $f8f9fa;
+    color: $grey-1;
+    height: 40px;
+    padding: 10px;
+    font-size:14px;
+    &::placeholder{
+      color:$grey;
+      font-size:14px;
+    }
+  }
+  .errors {
+    font-size: 14px;
+    color: #F76D82;
+    padding: 0 10px 5px;
+  }
+}
+
+.table-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.row-border-top{
+  margin: 0.5rem 0.5rem 0;
+  justify-content: center;align-items: center;
+  border-top: 1px solid $eee;
+  app-bread-crumb{flex:2}
+}
+.row,.row-border-top {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+
+  .cell {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.btn-area {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: flex-end;
+  gap: 15px;
+
+  button {
+    width: 100px;
+    @extend .hover;
+    border: 0 solid #ffffff;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    padding: 10px;
+    @extend .transition-all-ease-3s;
+
+    i {
+      display: none;
+    }
+
+    .text {
+      overflow: hidden;
+
+    }
+
+    &:hover {
+      i {
+        display: flex;
+        font-size: 20px;
+      }
+
+      .text {
+        display: none;
+      }
+    }
+  }
+
+  .save-btn {
+    background: $info-dark;
+    color: $white;
+
+    &:hover {
+      background: $info-clear;
+    }
+  }
+
+  .cancel-btn {
+    background: $error-dark;
+    color: $white;
+
+    &:hover {
+      background: $error-clear;
+    }
+  }
+}
