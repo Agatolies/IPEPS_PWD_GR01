@@ -1,5 +1,3 @@
-import { Employee } from '@dashboard/module/employee/model/business/employee';
-
 export interface Day {
   name: string;
   day: number;
