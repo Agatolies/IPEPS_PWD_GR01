@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {AccountFormComponent, AccountRouterComponent} from "@account/component";
+import {AccountDeleteComponent, AccountFormComponent, AccountRouterComponent} from "@account/component";
 import {AccountMenuComponent} from "@account/component/account-menu/account-menu.component";
 import {DashboardNotFoundComponent} from "@dashboard/component";
 
@@ -23,6 +23,10 @@ const routes: Routes = [  {
     {
       path:'create',
       component: AccountFormComponent
+    },
+    {
+      path:'delete',
+      component: AccountDeleteComponent
     },
     {
       path:'**',

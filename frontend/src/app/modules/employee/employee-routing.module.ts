@@ -1,6 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {EmployeeFormComponent, EmployeeMenuComponent, EmployeeRouterComponent} from "@employee/component";
+import {
+  EmployeeDeleteComponent,
+  EmployeeFormComponent,
+  EmployeeMenuComponent,
+  EmployeeRouterComponent
+} from "@employee/component";
 import {DashboardNotFoundComponent} from "@dashboard/component";
 
 
@@ -20,6 +25,10 @@ const routes: Routes = [  {
     {
       path:'create',
       component: EmployeeFormComponent
+    },
+    {
+      path: 'delete',
+      component: EmployeeDeleteComponent
     },
     {
       path:'**',

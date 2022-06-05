@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import {DashboardNotFoundComponent} from "@dashboard/component";
 import {
+  OrganizationDeleteComponent,
   OrganizationFormComponent,
   OrganizationMenuComponent,
   OrganizationRouterComponent
@@ -23,6 +24,10 @@ const routes: Routes = [{
     {
       path:'create',
       component: OrganizationFormComponent
+    },
+    {
+      path:'delete',
+      component: OrganizationDeleteComponent
     },
     {
       path:'**',
