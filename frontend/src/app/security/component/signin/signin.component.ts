@@ -20,6 +20,6 @@ export class SigninComponent implements OnInit {
       username: 'captain',
       password: 'P@ssword'
     };
-    this.auth.signin(payload).subscribe()
+    this.auth.signin(payload).subscribe();
   }
 }
