@@ -1,8 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {AccountRouterComponent} from "./component/account-router/account-router.component";
-import {AccountMenuComponent} from "./component/account-menu/account-menu.component";
-import {AccountFormComponent} from "./component/account-form/account-form.component";
+import {AccountFormComponent, AccountRouterComponent} from "@account/component";
+import {AccountMenuComponent} from "@account/component/account-menu/account-menu.component";
+import {DashboardNotFoundComponent} from "@dashboard/component";
+
+
+
 
 const routes: Routes = [  {
   path:'',
@@ -18,8 +21,12 @@ const routes: Routes = [  {
       component: AccountMenuComponent
     },
     {
-      path:'form',
+      path:'create',
       component: AccountFormComponent
+    },
+    {
+      path:'**',
+      component: DashboardNotFoundComponent
     }
   ]
 }];

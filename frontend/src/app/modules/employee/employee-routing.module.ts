@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {EmployeeRouterComponent} from "./component/employee-router/employee-router.component";
-import {EmployeeMenuComponent} from "./component/employee-menu/employee-menu.component";
-import {EmployeeFormComponent} from "./component/employee-form/employee-form.component";
+import {EmployeeFormComponent, EmployeeMenuComponent, EmployeeRouterComponent} from "@employee/component";
+import {DashboardNotFoundComponent} from "@dashboard/component";
+
 
 const routes: Routes = [  {
   path:'',
@@ -18,8 +18,12 @@ const routes: Routes = [  {
       component: EmployeeMenuComponent
     },
     {
-      path:'form',
+      path:'create',
       component: EmployeeFormComponent
+    },
+    {
+      path:'**',
+      component: DashboardNotFoundComponent
     }
   ]
 }];
