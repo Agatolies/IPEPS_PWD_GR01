@@ -23,7 +23,7 @@ public class CredentialServiceImpl implements CredentialService {
     @Autowired
     AccountRepository accountRepository;
 
-    @Autowired
+    @Autow ired
     PasswordEncoder encoder;
 
     @Override
