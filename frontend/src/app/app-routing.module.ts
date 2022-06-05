@@ -16,6 +16,11 @@ const routes: Routes = [
     path: 'account',
     canActivate: [PublicGuard],
     loadChildren: () => import('./security/security.module').then(m => m.SecurityModule)
+  },
+  {
+    path: 'document',
+    canActivate: [SecurityGuard],
+    loadChildren: ()=> import('./modules/document/document.module').then(m =>m.DocumentModule)
   }
 ];
 
