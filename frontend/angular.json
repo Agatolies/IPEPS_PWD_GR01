@@ -109,5 +109,8 @@
       }
     }
   },
-  "defaultProject": "Wallet"
+  "defaultProject": "Wallet",
+  "cli": {
+    "analytics": "46fec480-b610-4278-9d5a-ed938d62dab1"
+  }
 }
