@@ -16,7 +16,7 @@ export class EmployeeService extends ApiService{
 
   public getList(): Observable<Employee[]> {
     return this.get('person/list').pipe(map((response: ApiResponse) => {
-      return (response.result) ?
+      return (response.result) ? [] :
         (response.data as EmployeeDto[]).map((transforme: EmployeeDto) => {
           return {
             id: transforme.employee_id,
@@ -24,7 +24,7 @@ export class EmployeeService extends ApiService{
             actif: transforme.actif,
             organization: transforme.organization
           };
-        }) :[]
+        })
     }));
   }
 

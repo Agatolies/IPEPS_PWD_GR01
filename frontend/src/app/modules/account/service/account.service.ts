@@ -16,14 +16,14 @@ export class AccountService extends ApiService{
 
   public getList(): Observable<Account[]> {
     return this.get('person/list').pipe(map((response: ApiResponse) => {
-      return (response.result) ?
+      return (response.result) ? [] :
         (response.data as AccountDto[]).map((transforme: AccountDto) => {
           return {
             id: transforme.account_id,
             firstname: transforme.firstname,
             lastname: transforme.lastname
           };
-        }) :[]
+        })
     }));
   }
 

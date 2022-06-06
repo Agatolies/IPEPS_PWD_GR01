@@ -16,7 +16,7 @@ export class OrganizationService extends ApiService{
 
   public getList(): Observable<Organization[]> {
     return this.get('person/list').pipe(map((response: ApiResponse) => {
-      return (response.result) ?
+      return (response.result) ?  [] :
         (response.data as OrganizationDto[]).map((transforme: OrganizationDto) => {
           return {
             id: transforme.organization_id,
@@ -24,7 +24,7 @@ export class OrganizationService extends ApiService{
             description: transforme.description,
             actif: transforme.actif
           };
-        }) :[]
+        })
     }));
   }
 
