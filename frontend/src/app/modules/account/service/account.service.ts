@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import {ApiService, HttpService} from "@shared/service";
 import {Observable} from "rxjs";
 import {ApiResponse, PayloadInterface} from "@shared/model";
-import {AccountCreatePayload, AccountUpdatePayload} from "@account/model";
+import {AccountCreatePayload, AccountDto, AccountUpdatePayload, Account} from "@account/model";
+import {map} from "rxjs/operators";
 
 @Injectable({
   providedIn: 'root'
@@ -13,23 +14,34 @@ export class AccountService extends ApiService{
     super(http);
   }
 
-  getList():Observable<ApiResponse>{
-    return this.get('account/list')
+  public getList(): Observable<Account[]> {
+    return this.get('person/list').pipe(map((response: ApiResponse) => {
+      return (response.result) ?
+        (response.data as AccountDto[]).map((transforme: AccountDto) => {
+          return {
+            id: transforme.account_id,
+            firstname: transforme.firstname,
+            lastname: transforme.lastname
+          };
+        }) :[]
+    }));
   }
 
-  getDetail(payload: PayloadInterface): Observable<ApiResponse>{
+  public getDetail(payload: PayloadInterface): Observable<AccountDto>{
     return this.get('account/detail/'+payload.id)
+      .pipe(map((response: ApiResponse) => response.data as AccountDto));
   }
 
-  update(payload: AccountUpdatePayload): Observable<ApiResponse>{
+  public update(payload: AccountUpdatePayload): Observable<ApiResponse>{
     return this.put('account/update', payload)
   }
 
-  create(payload: AccountCreatePayload): Observable<ApiResponse>{
+  public create(payload: AccountCreatePayload): Observable<ApiResponse>{
     return this.post('account/create', payload)
   }
-/*
-  delete(payload: PayloadInterface): Observable<ApiResponse> {
-    return this.delete('account/delete/'+payload.id);
-  }*/
+
+  public deleted(payload: PayloadInterface): Observable<AccountDto> {
+    return this.delete('account/delete/'+payload.id)
+      .pipe(map((response: ApiResponse) => response.data as AccountDto));
+  }
 }
