@@ -4,6 +4,7 @@ import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import {catchError, finalize, tap} from 'rxjs/operators';
 import {ApiResponse, PayloadInterface, ToastType} from '@shared/model';
 import {ToasterService} from '@shared/service/toaster.service';
+import {DocumentUpdatePayload} from "../../modules/document/Model";
 
 @Injectable({
   providedIn: 'root'
@@ -54,7 +55,7 @@ export class HttpService {
     );
   }
 
-  public put(url: string, data: PayloadInterface, showToaster = true): Observable<any> {
+  public put(url: string, data: DocumentUpdatePayload, showToaster = true): Observable<any> {
     this.loadingEmitter.next(true);
     return this.http.put(url, data).pipe(
       tap((data: any) => {

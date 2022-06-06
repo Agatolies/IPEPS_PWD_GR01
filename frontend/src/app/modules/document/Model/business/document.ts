@@ -1,4 +1,4 @@
-import {IsEmpty} from "@shared/model/enum/is-empty";
+import {IsEmpty} from "@shared/model/is-empty";
 
 export interface Document extends IsEmpty {
   document_id: string;

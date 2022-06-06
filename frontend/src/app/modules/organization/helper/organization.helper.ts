@@ -1,9 +1,9 @@
-import {Organization, OrganizationCreatePayload, OrganizationDto, OrganizationUpdatePayload} from "@Organization/model";
+import {Organization, OrganizationCreatePayload, OrganizationDto, OrganizationUpdatePayload} from "@organization/model";
 
 export class OrganizationHelper {
   public static fromDto(dto: OrganizationDto): Organization {
     return {
-      id: dto.Organization_id,
+      id: dto.organization_id,
       name: dto.name,
       description: dto.description,
       actif: dto.actif
@@ -24,7 +24,7 @@ export class OrganizationHelper {
       id: '',
       name: '',
       description: '',
-      actif: ''
+      actif: true
     }
   }
 
@@ -32,7 +32,7 @@ export class OrganizationHelper {
     return {
       name: '',
       description: '',
-      actif: ''
+      actif: true
     }
   }
 
