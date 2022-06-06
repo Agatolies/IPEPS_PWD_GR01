@@ -1,8 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {OrganizationRouterComponent} from "./component/organization-router/organization-router.component";
-import {OrganizationHomeComponent} from "./component/organization-home/organization-home.component";
 import {DashboardNotFoundComponent} from "@dashboard/component";
+import {
+  OrganizationDeleteComponent,
+  OrganizationFormComponent,
+  OrganizationMenuComponent,
+  OrganizationRouterComponent
+} from "@organization/component";
 
 const routes: Routes = [{
   path:'',
@@ -15,7 +19,15 @@ const routes: Routes = [{
     },
     {
       path:'home',
-      component: OrganizationHomeComponent
+      component: OrganizationMenuComponent
+    },
+    {
+      path:'create',
+      component: OrganizationFormComponent
+    },
+    {
+      path:'delete',
+      component: OrganizationDeleteComponent
     },
     {
       path:'**',
