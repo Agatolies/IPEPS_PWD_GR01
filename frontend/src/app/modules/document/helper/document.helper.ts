@@ -2,14 +2,14 @@ import {DocumentCreatePayload, Documentdto, DocumentUpdatePayload} from "../Mode
 import {Document} from "../Model";
 
 export class DocumentHelper {
-  public static fromDTO(dto:Documentdto ): Document {
+  public static fromDTO(dto: Documentdto): Document {
     return {
       document_id: dto.document_id,
       name: dto.name,
-      description : dto.description,
+      description: dto.description,
       path: dto.path,
       type: dto.type,
-      freeAccess : dto.freeAccess,
+      freeAccess: dto.freeAccess,
       deleted: dto.deleted,
       isEmpty: false
     }
@@ -28,10 +28,10 @@ export class DocumentHelper {
   }
 
   public static getEmpty(): Document {
-    return{
+    return {
       document_id: '',
       name: '',
-      description : '',
+      description: '',
       path: '',
       type: '',
       freeAccess : false,
@@ -40,10 +40,10 @@ export class DocumentHelper {
     }
   }
 
-  static getCreatePayload():DocumentCreatePayload {
+  static getCreatePayload(): DocumentCreatePayload {
     return {
       name: '',
-      description : '',
+      description: '',
       path: '',
       type: '',
       freeAccess : false,
@@ -52,10 +52,14 @@ export class DocumentHelper {
   }
 
   static fromDtoUpdatePayload(dto: Documentdto): DocumentUpdatePayload {
-    return {...dto}
+    return {
+      ...dto,
+      deleted: false
+    }
   }
 
 }
+
 
 
 
