@@ -86,6 +86,14 @@
           "options": {
             "browserTarget": "Wallet:build"
           }
+        },
+        "test": {
+          "builder": "@angular-builders/jest:run",
+          "options": {
+            "main": ["setup-jest.ts"],
+            "tsConfig": "src/tsconfig.spec.json",
+            "no-cache": true
+          }
         }
       }
     }

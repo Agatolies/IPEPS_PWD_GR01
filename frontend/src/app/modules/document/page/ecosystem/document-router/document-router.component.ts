@@ -6,8 +6,6 @@ import {DocumentService} from "../../../service/document.service";
 import {NavigationService} from "@shared/service";
 import {MenuHelperUtils} from "@shared/helper";
 import {AppRouteEnum, MenuActionType} from "@shared/model";
-import {DestroyableComponent} from "@shared/Compoment/destroyable/destroyable.component";
-import {AppUriEnum} from "@shared/model/enum/app-uri.enum";
 
 @Component({
   selector: 'app-document-router',
