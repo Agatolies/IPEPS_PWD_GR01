@@ -21,7 +21,7 @@ export class DocumentFormComponent implements OnInit {
   }
 
   ngOnInit(): void {
-        this.label = (this.type === FormAction.ADD) ? 'common.form.btn.create' : 'common.form.btn.update';
+    this.label = (this.type === FormAction.ADD) ? 'common.form.btn.create' : 'common.form.btn.update';
     this.formGroup = new FormGroup({
       name: new FormControl(this.payload.name),
       description: new FormControl(this.payload.description),

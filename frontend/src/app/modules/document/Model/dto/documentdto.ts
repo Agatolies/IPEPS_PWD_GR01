@@ -7,4 +7,5 @@ export interface Documentdto {
   path: string;
   type: string;
   freeAccess : boolean;
+  deleted: boolean;
 }

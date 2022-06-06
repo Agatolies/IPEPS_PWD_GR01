@@ -1,9 +1,12 @@
-import { Component, OnInit } from '@angular/core';
-import {DestroyableComponent} from "@shared/Compoment";
+import {Component, OnInit} from '@angular/core';
 import {BehaviorSubject} from "rxjs";
 import {MenuAction} from "@dashboard/model/interface";
 import {DocumentService} from "../../../service/document.service";
 import {NavigationService} from "@shared/service";
+import {MenuHelperUtils} from "@shared/helper";
+import {AppRouteEnum, MenuActionType} from "@shared/model";
+import {DestroyableComponent} from "@shared/Compoment/destroyable/destroyable.component";
+import {AppUriEnum} from "@shared/model/enum/app-uri.enum";
 
 @Component({
   selector: 'app-document-router',
@@ -18,6 +21,31 @@ export class DocumentRouterComponent extends DestroyableComponent implements OnI
   }
 
   ngOnInit(): void {
+  }
+
+  setAction(currentAction: MenuActionType): void {
+    let actions:MenuAction[] = [];
+    switch (currentAction) {
+      case MenuActionType.LIST:
+        actions = [{
+          icon: MenuHelperUtils.ADD_ICON,
+          title: 'screen.document.create.btn',
+          link: AppRouteEnum.DOCUMENT_CREATE
+        }]
+        break;
+      case MenuActionType.DELETE:
+        actions = [{
+          icon: MenuHelperUtils.BACK_ICON,
+          title: 'screen.document.home.btn',
+          link: AppRouteEnum.DOCUMENT_DELETE
+        }]
+        break ;
+    }
+    this.actions$.next(actions);
+  }
+
+  onActionClick(action :MenuAction): void {
+    this.navigationService.setMenuAction(action);
   }
 
 }
