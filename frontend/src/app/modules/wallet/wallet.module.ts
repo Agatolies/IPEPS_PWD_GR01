@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { WalletRoutingModule } from './wallet-routing.module';
 import { WalletFormComponent } from './component/wallet-form/wallet-form.component';
-import { WalletMenuComponent } from './compobent/wallet-menu/wallet-menu.component';
+import { WalletMenuComponent } from './component/wallet-menu/wallet-menu.component';
 
 
 @NgModule({

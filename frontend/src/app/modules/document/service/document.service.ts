@@ -4,7 +4,7 @@ import {BehaviorSubject, Observable} from "rxjs";
 import { Page} from "@shared/module/data-list/model";
 import {CommonHelperUtils} from "@shared/helper/common-helper.utils";
 import {DocumentCreatePayload, DocumentUpdatePayload} from "../Model";
-import {ApiResponse, ApiUriEnum, AppUriEnum} from "@shared/model";
+import {ApiResponse, AppUriEnum} from "@shared/model";
 
 @Injectable({
   providedIn: 'root'
