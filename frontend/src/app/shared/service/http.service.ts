@@ -55,7 +55,7 @@ export class HttpService {
     );
   }
 
-  public put(url: string, data: DocumentUpdatePayload, showToaster = true): Observable<any> {
+  public put(url: string, data: PayloadInterface, showToaster = true): Observable<any> {
     this.loadingEmitter.next(true);
     return this.http.put(url, data).pipe(
       tap((data: any) => {

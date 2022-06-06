@@ -11,22 +11,22 @@ const routes: Routes = [
     path: 'dashboard',
     canActivate: [SecurityGuard],
     loadChildren: () => import('./modules/dashboard/dashboard.module').then(m => m.DashboardModule)
-  },
+  },/*
   {
     path:'employee',
-    canActivate: [SecurityGuard],
+    //canActivate: [SecurityGuard],
     loadChildren: ()=> import('./modules/employee/employee.module').then(m => m.EmployeeModule)
   },
   {
     path:'organization',
-    canActivate: [SecurityGuard],
+    //canActivate: [SecurityGuard],
     loadChildren: ()=> import('./modules/organization/organization.module').then((m => m.OrganizationModule))
   },
   {
     path: 'my-account',
-    canActivate: [SecurityGuard],
+    //canActivate: [SecurityGuard],
     loadChildren: () => import('./modules/account/account.module').then((m => m.AccountModule))
-  },
+  },*/
   {
     path: 'account',
     canActivate: [PublicGuard],

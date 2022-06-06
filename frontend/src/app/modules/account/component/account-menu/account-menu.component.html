@@ -1,1 +1,12 @@
-<p>account-menu works!</p>
+<div *ngIf="list$ | async as list">
+  <ng-container *ngIf="list.length > 0; else noData">
+    <div>{{'id                  firstname         lastname'}}</div>
+    <div *ngFor="let item in list; let last = last">
+    {{item.id + '    ' + item.firstname + '   ' + item.lastname}}
+    </div>
+   <p>account-menu works!</p>
+  </ng-container>
+  <ng-template #noData>
+    <div>Aucunes Données</div>
+  </ng-template>
+</div>
