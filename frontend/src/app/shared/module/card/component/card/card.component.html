@@ -1,0 +1,4 @@
+<div class="card {{config?.css}}" >
+  <app-card-header *ngIf="config && config.headerConfig" [config]="config.headerConfig" (onActionClick)="onActionClick.emit($event)"></app-card-header>
+  <ng-content></ng-content>
+</div>

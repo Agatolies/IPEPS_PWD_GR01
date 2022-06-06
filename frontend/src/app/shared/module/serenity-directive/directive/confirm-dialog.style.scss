@@ -1,0 +1,32 @@
+@import 'src/assets/css/common';
+
+.full {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  cursor: default;
+}
+
+.dialog-confirm {
+  position: fixed;
+  background: $white;
+  border: 1px solid $eee;
+  color: $grey-1;
+  cursor: default;
+  z-index: 100;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  gap: 15px;
+
+  &:hover {
+    color: $grey-1;
+  }
+
+  .title {
+    color: $primary-contrast-darker-color;
+  }
+}

@@ -1,0 +1,7 @@
+<div class="context-menu" appClickOutside (onClickOutSide)="config.show = false" *ngIf="config.show" [style.top]="config.top" [style.left]="config.left" [style.width]="config.width">
+
+  <div class="menu-link" *ngFor="let menuItem of config.items; index as i" (click)="onContextMenuClick($event, menuItem)">
+    <span class="label">{{ menuItem.title.label | translate:menuItem.title.params }}</span>
+    <span class="shortcut" *ngIf="menuItem.shortcut">{{menuItem.shortcut}}</span>
+  </div>
+</div>

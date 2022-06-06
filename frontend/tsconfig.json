@@ -6,7 +6,17 @@
     "paths": {
       "@shared/*": ["app/shared/*"],
       "@security/*": ["app/security/*"],
-      "@dashboard/*": ["app/modules/dashboard/*"]
+      "@dashboard/*": ["app/modules/dashboard/*"],
+      "@employee/*": ["app/modules/employee/*"],
+      "@account/*": ["app/modules/account/*"],
+      "@organization/*": ["app/modules/organization/*"],
+      "@form": ["app/shared/module/forms/serenity-forms.module.ts"],
+      "@card": ["app/shared/module/card/card.module.ts"],
+      "@toast": ["app/shared/module/toast/toast.module.ts"],
+      "@dialog": ["app/shared/module/dialog/dialog.module.ts"],
+      "@dataList": ["app/shared/module/data-list/data-list.module.ts"],
+      "@directive": ["app/shared/module/serenity-directive/serenity-directive.module.ts"],
+      "@menu": ["app/shared/module/menu/menu.module.ts"]
     },
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,

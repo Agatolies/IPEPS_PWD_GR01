@@ -1,0 +1,47 @@
+<!-- Maybe Extract it to component -->
+<div class="wrapping" *ngIf="showFilter">
+  <app-filter-area [translateKey]="translateKey" [searchPlaceholder]="searchPlaceholder"
+                   (filterChange)="filterChange.emit($event)" [searchFilter]="searchFilter" [sort]="sort"
+                   (removeSort)="sortChange.emit(null)"
+                   (onShowFilter)="onShowFilter.emit()" (onShowDeleted)="onShowDeleted.emit()"></app-filter-area>
+</div>
+<ng-container *ngIf="list.length === 0;else listing">
+  {{'page.home.is-empty' | translate}}
+</ng-container>
+<ng-template #listing>
+  <div class="wrapping">
+    <table>
+      <tr class="head">
+        <td *ngFor="let field of config.fields" (click)="sortIt(field)" [class.sortable]="sortable">
+          {{config.translateKey + field.param | translate}}
+          <span *ngIf="sort && sort.field === field.param">
+            <i class="fas" [class.fa-sort-up]="sort.sort === sortEnum.ASC" [class.fa-sort-down]="sort.sort === sortEnum.DESC"></i>
+          </span>
+        </td>
+        <td *ngIf="config.actions">
+        </td>
+      </tr>
+      <tr class="table-row" *ngFor="let item of list" cdkDrag (drop)="onDrop($event)">
+        <td *ngFor="let field of config.fields" (click)="onClick(menuActionType.DETAIL,item)"
+            keyBooleanTranslate="{{item[field.param]}}" typeBooleanTranslate="{{field.type}}">
+          <span
+            *ngIf="(field.param!='employee') && (field.type!='DATETIME'); else elseBlock">{{item[field.param]}}</span>
+          <ng-template #elseBlock>
+          </ng-template>
+        </td>
+        <td *ngIf="config.actions" class="actions">
+          <ng-container *ngFor="let action of config.actions">
+            <ng-container *ngIf="(action.type === menuActionType.DELETE) || (action.type === menuActionType.SOFTDELETE)|| (action.type === menuActionType.ERASE);else normalBtn">
+                            <span class="action deleted" (confirm)="onClick(action.type!, item)"
+                                  [confirmMessage]="action.confirmMessage" [titleMessage]="action.titleMessage"><i
+                              class="{{action.icon}}"></i></span>
+            </ng-container>
+            <ng-template #normalBtn>
+              <span class="action" (click)="onClick(action.type!, item)"><i class="{{action.icon}}"></i></span>
+            </ng-template>
+          </ng-container>
+        </td>
+      </tr>
+    </table>
+  </div>
+</ng-template>

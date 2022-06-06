@@ -1,0 +1,22 @@
+@import '~assets/css/common';
+
+ul {
+  padding: 1rem;
+  color: $grey-1;
+
+  li {
+    @extend .hover-clear;
+    display: flex;
+    height: 30px;
+    flex-direction: row;
+    padding: 10px;
+
+   span {
+      flex: 2;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+    }
+  }
+}

@@ -1,0 +1,11 @@
+<ng-container *ngIf="config && config.show">
+  <div id="dialog" cdkDrag cdkDragBoundary=".drag-limit" [style.top]="config.top" [style.left]="config.left"
+       [style.width]="config.width" [style.height]="config.height" [style.zIndex]="config.zIndex"
+       (mousedown)="onClick()">
+    <div id="close" (click)="onClose()">
+      <i class="fas fa-times"></i>
+      </div>
+    <header *ngIf="config.title">{{config.title | translate}}</header>
+    <ng-content></ng-content>
+  </div>
+</ng-container>

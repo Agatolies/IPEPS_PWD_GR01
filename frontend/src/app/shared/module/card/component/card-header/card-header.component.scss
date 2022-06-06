@@ -1,0 +1,53 @@
+@import 'src/assets/css/common';
+
+.row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  .big-title {
+    flex: 2;
+    display: flex;
+    gap: 10px;
+    padding: 0.5rem 0.5rem 0.5rem 0;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .actions {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+
+    .icon {
+      width: 40px;
+      height: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      transition: .3s all ease;
+      color: $primary-contrast-color;
+
+      &:hover {
+        color: $primary-contrast-color;
+        background: $f8f8f8;
+      }
+    }
+  }
+}
+
+.clickable {
+
+  span {
+    @extend .hover;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    justify-content: center;align-items: center;
+
+    &:hover {
+      color: $info-clear
+    }
+  }
+}

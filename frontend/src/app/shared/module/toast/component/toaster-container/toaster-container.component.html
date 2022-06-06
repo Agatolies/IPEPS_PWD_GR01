@@ -1,0 +1,5 @@
+<div id="toaster-container" *ngIf="toasts.length >0">
+  <app-toast *ngFor="let toast of toasts; let i=index"
+             [toast]="toast" [index]="i"
+             (remove)="remove($event)"></app-toast>
+</div>
