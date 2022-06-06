@@ -11,6 +11,7 @@ import { DocumentHomeComponent } from './page/ecosystem/document-home/document-h
 import { DocumentRouterComponent } from './page/ecosystem/document-router/document-router.component';
 import { DocumentUpdateComponent } from './page/ecosystem/document-update/document-update.component';
 import {SerenityFormsModule} from "@form";
+import {ReactiveFormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import {SerenityFormsModule} from "@form";
     imports: [
         CommonModule,
         DocumentRoutingModule,
-        SerenityFormsModule
+        SerenityFormsModule,
+        ReactiveFormsModule
     ]
 })
 export class DocumentModule { }
