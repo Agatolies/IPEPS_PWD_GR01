@@ -32,7 +32,7 @@ export class DocumentUpdateComponent implements OnInit {
       if (response.result){
         this.payload = DocumentHelper.fromDtoUpdatePayload(response.data as Documentdto)
       }
-      esle {
+      else {
         this.error = response;      }
     });
   }

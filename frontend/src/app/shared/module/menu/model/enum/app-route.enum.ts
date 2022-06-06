@@ -7,6 +7,12 @@ export enum AppRouteEnum {
   SECURE_ROOT = '/dashboard',
   ECOSYSTEM_HOME = '/dashboard/ecosystem',
 
+  ORGANIZATION_SHOW_HOME_PAGE = 'organization/home',
+  EMPLOYEE_SHOW_HOME_PAGE = 'employee/home',
+  CONTACT_SHOW_HOME_PAGE = 'contact/home',
+  ACCOUNT_SHOW_HOME_PAGE = 'my-account/home',
+  WALLET_SHOW_HOME_PAGE = 'wallet/home',
+
   //Planning
   ECO_SYSTEM_PLANNING_HOME = 'dashboard/ecosystem/planning/home',
   ECO_SYSTEM_PLANNING_DASHBOARD = 'dashboard/ecosystem/planning/dashboard',
@@ -14,6 +20,15 @@ export enum AppRouteEnum {
   ECO_SYSTEM_PLANNING_UPDATE = 'dashboard/ecosystem/planning/update',
   ECO_SYSTEM_PLANNING_DETAIL = 'dashboard/ecosystem/planning/detail',
   ECO_SYSTEM_PLANNING_DELETED = 'dashboard/ecosystem/planning/deleted',
+
+  //document
+  DOCUMENT_SHOW_HOME_PAGE = 'document/home',
+  DOCUMENT_CREATE = 'document/page/ecosystem/document-create',
+  DOCUMENT_UPDATE = 'document/page/ecosystem/document-update',
+  DOCUMENT_DETAIL = 'document/page/ecosystem/document-detail',
+  DOCUMENT_DELETE = 'document/page/ecosystem/document-delete',
+  DOCUMENT_ROUTER = 'document/page/ecosystem/document-router',
+  DOCUMENT_HOME = 'document/page/ecosystem/document-home',
 
   //Prestation type
   PRESTATION_TYPE_HOME = 'dashboard/prestation-type',

@@ -23,7 +23,7 @@ const routes: Routes = [
     loadChildren: ()=> import('./modules/organization/organization.module').then((m => m.OrganizationModule))
   },
   {
-    path: 'account',
+    path: 'accountaccount',
     canActivate: [SecurityGuard],
     loadChildren: () => import('./modules/account/account.module').then((m => m.AccountModule))
   },

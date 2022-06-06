@@ -1,5 +1,6 @@
+import {PayloadInterface} from "@shared/model";
 
-export interface DocumentUpdatePayload  {
+export interface DocumentUpdatePayload  extends PayloadInterface{
   name: string;
   description: string;
   path: string;
