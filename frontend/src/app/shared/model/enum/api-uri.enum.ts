@@ -27,5 +27,15 @@ export enum ApiUriEnum {
   ADDRESS_ROLLBACK = 'address/rollbackdelete/',
   ADDRESS_ERASE = 'address/erase/',
 
+  //Contact
+  CONTACT_LIST = 'contact/list',
+  CONTACT_DETAIL = 'contact/detail/',
+  CONTACT_CREATE = 'contact/create',
+  CONTACT_UPDATE = 'contact/update',
+  CONTACT_DELETE = 'contact/delete/',
+  CONTACT_DELETED_LIST = 'contact/deleted',
+  CONTACT_SOFTDELETE = 'contact/softdelete/',
+  CONTACT_ROLLBACK = 'contact/rollbackdelete/',
+  CONTACT_ERASE = 'contact/erase/',
 
 }
