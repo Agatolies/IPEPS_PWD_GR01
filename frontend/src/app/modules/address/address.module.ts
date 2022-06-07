@@ -10,6 +10,7 @@ import { AddressDetailComponent } from './page/eco-system/address-detail/address
 import { AddressHomeComponent } from './page/eco-system/address-home/address-home.component';
 import { AddressRouterComponent } from './page/eco-system/address-router/address-router.component';
 import { AddressUpdateComponent } from './page/eco-system/address-update/address-update.component';
+import { PayloadsComponent } from './model/payloads/payloads.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { AddressUpdateComponent } from './page/eco-system/address-update/address
     AddressDetailComponent,
     AddressHomeComponent,
     AddressRouterComponent,
-    AddressUpdateComponent
+    AddressUpdateComponent,
+    PayloadsComponent
   ],
   imports: [
     CommonModule,
