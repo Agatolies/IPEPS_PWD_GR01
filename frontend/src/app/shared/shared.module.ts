@@ -2,9 +2,10 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
 import {
-  DestroyableComponent,
-  PageNotFoundComponent,
-  UnderConstructionComponent
+    DestroyableComponent,
+    ErrorComponent,
+    PageNotFoundComponent,
+    UnderConstructionComponent
 } from '@shared/component';
 import { FormsModule } from '@angular/forms';
 import { BreadCrumbComponent } from '@shared/component/bread-crumb/bread-crumb.component';
@@ -19,12 +20,14 @@ import { DialogModule } from '@dialog';
 import { MenuModule } from '@menu';
 
 
+
 @NgModule({
   declarations: [
     PageNotFoundComponent,
     DestroyableComponent,
     UnderConstructionComponent,
-    BreadCrumbComponent
+    BreadCrumbComponent,
+    ErrorComponent
   ],
   imports: [
     CommonModule,
@@ -38,18 +41,19 @@ import { MenuModule } from '@menu';
     MenuModule
   ],
   providers: [],
-  exports: [
-    PageNotFoundComponent,
-    UnderConstructionComponent,
-    BreadCrumbComponent,
-    CardModule,
-    SerenityFormsModule,
-    ToastModule,
-    DataListModule,
-    SerenityDirectiveModule,
-    DialogModule,
-    MenuModule
-  ]
+    exports: [
+        PageNotFoundComponent,
+        UnderConstructionComponent,
+        BreadCrumbComponent,
+        CardModule,
+        SerenityFormsModule,
+        ToastModule,
+        DataListModule,
+        SerenityDirectiveModule,
+        DialogModule,
+        MenuModule,
+        ErrorComponent
+    ]
 })
 export class SharedModule {
 }
