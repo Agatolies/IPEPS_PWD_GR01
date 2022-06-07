@@ -1,1 +1,20 @@
-<p>account-form works!</p>
+<!--
+<form [accountFormGroup]="payloadFormGroup">
+  <label for="firstname">Firstname</label>
+  <input type="text" id="firstname" name="firstname" formControlName="firstname"/><br/>
+-->
+  <!-- récupérer un control spécifique : payloadFormGroup.get('firstname') -->
+<!--
+  <div *ngIf="payloadFormGroup.get('firstname')!.errors">
+    <app-error [errors]="payloadFormGroup.get('firstname')!.errors!"></app-error>
+  </div>
+  <label for="lastname">Lastname</label>
+  <input type="text" id="lastname" name="lastname" formControlName="lastname"/><br/>
+
+  <p>account-form works!</p>
+  <button (click)="save($event)">save()</button>
+</form>
+<ng-container *ngIf="response">
+  {{response |json}}
+</ng-container>
+-->
