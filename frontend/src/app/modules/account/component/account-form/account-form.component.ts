@@ -43,22 +43,20 @@ export class AccountFormComponent implements OnInit {
           this.response = response;
         })
     } else {
-      alert('Champs rempli de façon incorrecte.');
+      alert('Champs remplis de façon incorrecte.');
     }
   }
 
   save(e: any): void {
     e.preventDefault();
     if (!this.payloadFormGroup.invalid) {
-
       this.payloadCreate = {...this.payloadCreate, ...this.payloadFormGroup.value};
-
       this.accountService.create(this.payloadCreate)
         .subscribe((response: ApiResponse) => {
           this.response = response;
         })
     } else {
-      alert('Champs rempli de façon incorrecte.');
+      alert('Champs remplis de façon incorrecte.');
     }
   }
 
