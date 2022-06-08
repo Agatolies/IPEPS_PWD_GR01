@@ -1,9 +1,36 @@
-<form [formGroup]="formGroup"  novalidate>
+<form [formGroup]="formGroupDoc"  novalidate>
   <div class="table-form">
     <div class="row">
       <div class="cell">
+        <label for="name">Nom du document</label>
+        <input type="text" class="form-control" id="name" formControlName = "name">
+      </div>
+      <div class="cell">
+        <label for="type">Type de document</label>
+        <input type="text" class="form-control" id="type" formControlName = "type">
       </div>
     </div>
+
+    <div class="row">
+      <div class="cell">
+        <app-form-input [type]="'text'"
+                        formControlName="description"
+                        [name]="'description'"
+                        [label]="'app.document.form.label.description'"
+                        [placeholder]="'app.document.form.placeholder.description'"
+
+                        [readonly]="false"></app-form-input>
+
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="cell">
+        <label for="path">Complément d'information</label>
+        <input type="text" class="form-control" id="path" formControlName = "path">
+      </div>
+    </div>
+
   </div>
 </form>
 
