@@ -1,4 +1,5 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import {DestroyableComponent} from "@shared/component";
 import {BehaviorSubject} from "rxjs";
 import {MenuAction} from "@dashboard/model/interface";
 import {DocumentService} from "../../../service/document.service";

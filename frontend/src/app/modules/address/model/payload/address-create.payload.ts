@@ -8,8 +8,4 @@ export interface AddressCreatePayload extends PayloadInterface {
   cp: string;
   town: string;
   country: string;
-
-  deleted: boolean;
-  deletedAt: Date;
-  deletedBy: string;
 }

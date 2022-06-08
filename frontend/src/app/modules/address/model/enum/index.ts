@@ -1,1 +1,1 @@
-//export * from './rank-type.enum';
+export * from './rank-type.enum';
