@@ -32,7 +32,7 @@ const routes: Routes = [
         component: EmployeeRouterComponent
       },
       {
-        path:'account',
+        path:'my-account',
         component: AccountRouterComponent
       }
     ]

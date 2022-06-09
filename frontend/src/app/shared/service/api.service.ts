@@ -31,7 +31,7 @@ export class ApiService {
       .pipe(map((response: any) => response as ApiResponse))
   }
 
-  put(partUrl: string, payload: DocumentUpdatePayload, showToaster = true): Observable<ApiResponse> {
+  put(partUrl: string, payload: PayloadInterface, showToaster = true): Observable<ApiResponse> {
     return this.http
       .put(`${this.baseUrl}${partUrl}`, payload, showToaster)
       .pipe(map((response: any) => response as ApiResponse))
