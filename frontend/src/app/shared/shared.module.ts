@@ -18,6 +18,7 @@ import { DataListModule } from '@dataList';
 import { SerenityDirectiveModule } from '@directive';
 import { DialogModule } from '@dialog';
 import { MenuModule } from '@menu';
+import { LogoutComponent } from './component/logout/logout.component';
 
 
 
@@ -27,7 +28,8 @@ import { MenuModule } from '@menu';
     DestroyableComponent,
     UnderConstructionComponent,
     BreadCrumbComponent,
-    ErrorComponent
+    ErrorComponent,
+    LogoutComponent
   ],
   imports: [
     CommonModule,
