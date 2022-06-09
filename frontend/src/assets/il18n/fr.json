@@ -20,9 +20,18 @@
     "wallet": {
       "no-employee": "/",
       "no-organization": "/"
+    },
+    "document": {
+      "form": {
+        "label": {
+          "description": "Description du document"
+        },
+        "placeholder": {
+          "description": "Description du document"
+        }
+      }
     }
   },
-
   "boolean": {
     "active": {
       "both": "Afficher tout",
@@ -65,14 +74,14 @@
     },
     "no-data": "Aucune donnée",
     "employee": {
-        "fields": {
-         "employee_id": "#",
-          "role": "Rôle",
-          "actif": "Active"
-        }
+      "fields": {
+        "employee_id": "#",
+        "role": "Rôle",
+        "actif": "Active"
+      }
     },
     "wallet": {
-      "fields":{
+      "fields": {
         "wallet_id": "ID",
         "name": "Nom",
         "description": "Description",
