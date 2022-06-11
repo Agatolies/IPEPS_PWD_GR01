@@ -1,0 +1,172 @@
+@import '~assets/css/variable';
+
+
+#dashboard {
+  min-height: 100vh; //set the min height of screen
+  background: $eee;
+}
+
+// Menu language -------------------------------------------------------------------------------------------------------
+#menu-language {
+  position: fixed;
+  top: 0;
+  right: 0;
+}
+
+.menu-language {
+  position: fixed;
+  top: $header-height;
+  right: 0;
+  background-color: $white;
+  transition: .5s;
+  overflow: hidden;
+  z-index: 1;
+  border-left: 1px solid $eee;
+  border-bottom: 1px solid $eee;
+
+  .menu-language-action {
+    cursor: pointer;
+    transition: .5s;
+    padding: 8px 1rem;
+    text-align: center;
+
+    &:hover {
+      background: $eee;
+    }
+  }
+}
+
+.menu-language-hide {
+  width: 0px
+}
+
+.menu-language-show {
+  width: 125px;
+  padding: 5px;
+}
+
+// Menu ----------------------------------------------------------------------------------------------------------------
+.side-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  background-color: $primary-contrast-color;
+  transition: .5s;
+  overflow: hidden;
+
+  .menu-line {
+    display: flex;
+    flex-direction: row;
+    color: $secondary-contrast-color;
+
+    .icon {
+      min-width: $nav-min-width;
+      height: $header-height;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .title {
+      height: $header-height;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+  }
+}
+
+.menu-hide {
+  width: $nav-min-width
+}
+
+.menu-show {
+  width: $nav-max-width
+}
+
+// header --------------------------------------------------------------------------------------------------------------
+#header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: $header-height;
+  background: $white;
+  border-bottom: 1px solid $eee;
+  transition: .5s;
+  display: flex;
+  flex-direction: row;
+  color: $primary-contrast-color;
+
+  #bread-crumb {
+    flex: 3;
+  }
+}
+
+.header-menu-show {
+  left: $nav-max-width
+}
+
+.header-menu-hide {
+  left: $nav-min-width
+}
+
+#toggle-menu, #change-language {
+  min-width: $nav-min-width;
+  height: $header-height;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: $primary-contrast-color;
+}
+
+:host ::ng-deep .module_banner {
+  font-size: larger;
+}
+
+
+// content -------------------------------------------------------------------------------------------------------------
+
+
+.content-menu-show {
+  margin-left: $nav-max-width
+}
+
+.content-menu-hide {
+  margin-left: $nav-min-width
+}
+
+#main-content {
+  padding: .5rem;
+  padding-top: $header-height;
+  transition: .5s;
+}
+
+
+// Table..........................................................................................
+:host ::ng-deep .table-std{
+  margin-top:10px;
+  margin-left: 10px;
+  width: 100%;
+  border:1px solid black;
+}
+
+:host ::ng-deep .table-std th{
+  border:1px solid black;
+  font-weight: bold;
+  padding: 5px;
+}
+:host ::ng-deep .table-std td{
+  border:1px solid black;
+  text-align: center;
+  padding: 5px;
+}
+
+//button.................................................................
+:host ::ng-deep .button_std{
+  padding: 2px 2px;
+  margin-right: 5px;
+  margin-top: 3px;
+}
