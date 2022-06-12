@@ -17,6 +17,7 @@ export class DocumentService extends ApiService {
 
 
   public create(payload: DocumentCreatePayload): Observable<ApiResponse> {
+    // TODO: remplace AppUriEnum par ApiUriEnum
     return this.post(AppUriEnum.DOCUMENT_CREATE, payload);
   }
 

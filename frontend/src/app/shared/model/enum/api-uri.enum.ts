@@ -38,4 +38,10 @@ export enum ApiUriEnum {
   CONTACT_ROLLBACK = 'contact/rollbackdelete/',
   CONTACT_ERASE = 'contact/erase/',
 
+  // Wallet
+  WALLET_LIST = 'wallet/list',
+  WALLET_DETAIL = 'wallet/detail',
+  WALLET_CREATE = 'wallet/create',
+  WALLET_UPDATE = 'wallet/update',
+  WALLET_DELETE = 'wallet/delete',
 }
