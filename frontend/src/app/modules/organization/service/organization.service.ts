@@ -28,8 +28,8 @@ export class OrganizationService extends ApiService{
     }));
   }
 
-  public getDetail(payload: PayloadInterface): Observable<OrganizationDto>{
-    return this.get('Organization/detail/'+payload.id)
+  public getDetail(id : string): Observable<OrganizationDto>{
+    return this.get('Organization/detail/'+id)
       .pipe(map((response: ApiResponse) => response.data as OrganizationDto));
   }
 
@@ -41,8 +41,8 @@ export class OrganizationService extends ApiService{
     return this.post('Organization/create', payload)
   }
 
-  public deleted(payload: PayloadInterface): Observable<OrganizationDto> {
-    return this.delete('Organization/delete/'+payload.id)
+  public deleted(id : string): Observable<OrganizationDto> {
+    return this.delete('Organization/delete/'+id)
       .pipe(map((response: ApiResponse) => response.data as OrganizationDto));
   }
 }

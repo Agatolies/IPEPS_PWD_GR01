@@ -27,8 +27,8 @@ export class AccountService extends ApiService{
     }));
   }
 
-  public getDetail(payload: PayloadInterface): Observable<AccountDto>{
-    return this.get('account/detail/'+payload.id)
+  public getDetail(id : string): Observable<AccountDto>{
+    return this.get('account/detail/'+id)
       .pipe(map((response: ApiResponse) => response.data as AccountDto));
   }
 
@@ -40,8 +40,8 @@ export class AccountService extends ApiService{
     return this.post('account/create', payload)
   }
 
-  public deleted(payload: PayloadInterface): Observable<AccountDto> {
-    return this.delete('account/delete/'+payload.id)
+  public deleted(id : string): Observable<AccountDto> {
+    return this.delete('account/delete/'+id)
       .pipe(map((response: ApiResponse) => response.data as AccountDto));
   }
 }

@@ -28,8 +28,8 @@ export class EmployeeService extends ApiService{
     }));
   }
 
-  public getDetail(payload: PayloadInterface): Observable<EmployeeDto>{
-    return this.get('Employee/detail/'+payload.id)
+  public getDetail(id : string): Observable<EmployeeDto>{
+    return this.get('Employee/detail/'+id)
       .pipe(map((response: ApiResponse) => response.data as EmployeeDto));
   }
 
@@ -41,8 +41,8 @@ export class EmployeeService extends ApiService{
     return this.post('Employee/create', payload)
   }
 
-  public deleted(payload: PayloadInterface): Observable<EmployeeDto> {
-    return this.delete('Employee/delete/'+payload.id)
+  public deleted(id : string): Observable<EmployeeDto> {
+    return this.delete('Employee/delete/'+id)
       .pipe(map((response: ApiResponse) => response.data as EmployeeDto));
   }
 }
