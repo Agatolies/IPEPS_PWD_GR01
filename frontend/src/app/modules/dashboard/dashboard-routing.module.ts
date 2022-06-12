@@ -35,10 +35,13 @@ const routes: Routes = [
         loadChildren: ()=> import('../document/document.module').then(m =>m.DocumentModule)
       },
       {
-        path: '**',
+        path: 'wallet',
+        loadChildren: ()=> import('../wallet/wallet.module').then(m =>m.WalletModule)
+      },
+      {
+        path: "**",
         component: DashboardNotFoundComponent
       }
-
     ]
   }
 ];

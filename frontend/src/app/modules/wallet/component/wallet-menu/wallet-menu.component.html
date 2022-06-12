@@ -1,1 +1,33 @@
-<p>wallet-menu works!</p>
+<div class="pt-large">
+  <h1 class="big-title">Papa's Travel : Portefeuilles</h1>
+</div>
+
+<div class="container">
+  <h1 class="mat-h1">Mes portefeuilles</h1>
+
+  <mat-grid-list cols="3" rowHeight="200px">
+    <mat-grid-tile *ngFor="let wallet of myWallets">
+      <app-wallet-card [wallet]="wallet"></app-wallet-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+
+  <pre>{{ myWallets | json }}</pre>
+
+  <ul>
+    <li router routerLinkActive="active">
+      <h2><a routerLink="../create">Créer un portefeuille</a></h2>
+    </li>
+    <li router routerLinkActive="active">
+      <h2><a routerLink="../detail/:id">Afficher un portefeuille</a></h2>
+    </li>
+    <li router routerLinkActive="active">
+      <h2><a routerLink="../update/:action/:id">Modifier un portefeuille</a></h2>
+    </li>
+    <li router routerLinkActive="active">
+      <h2><a routerLink="">Afficher tous les portefeuilles</a></h2>
+    </li>
+    <li router routerLinkActive="active">
+      <h2><a routerLink="../delete">Supprimer un portefeuille</a></h2>
+    </li>
+  </ul>
+</div>
