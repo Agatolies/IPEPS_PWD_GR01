@@ -49,7 +49,6 @@ import { MenuModule } from '@menu';
     SerenityDirectiveModule,
     DialogModule,
     MenuModule,
-    FormInputComponent
   ]
 })
 export class SharedModule {
