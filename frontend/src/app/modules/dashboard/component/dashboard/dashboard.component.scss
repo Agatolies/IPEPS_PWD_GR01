@@ -58,7 +58,8 @@
   .menu-line {
     display: flex;
     flex-direction: row;
-    color: $secondary-contrast-color;
+    color: white;
+    //color: $secondary-contrast-color;
 
     .icon {
       min-width: $nav-min-width;
