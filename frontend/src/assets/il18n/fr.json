@@ -68,11 +68,12 @@
     "delete": "Supprimer Contact"
   },
   "menu": {
+    "account": "Comptes utilisateurs",
     "organization": "Organisations",
     "employee": "Employés",
     "document": "Documents",
     "contact": "Contacts",
-    "wallet": "Wallet"
+    "wallet": "Portefeuilles"
   },
   "table": {
     "placeholder": {

@@ -16,6 +16,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import {DashboardModule} from "@dashboard/dashboard.module";
 
 @NgModule({
   declarations: [
@@ -33,19 +34,19 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
     MatSidenavModule,
     MatIconModule,
     TranslateModule.forRoot({
-      defaultLanguage:'fr',
-      loader:{
+      defaultLanguage: 'fr',
+      loader: {
         provide: TranslateLoader,
-        deps:[HttpClient],
+        deps: [HttpClient],
         useFactory: HttpLoaderFactory
       }
     }),
-    MatListModule
+    MatListModule,
+    DashboardModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true
-  },
-    AuthService],
+  }, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
