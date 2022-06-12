@@ -4,10 +4,13 @@ import { CommonModule } from '@angular/common';
 import { AccountRoutingModule } from './account-routing.module';
 import { AccountMenuComponent } from './component/account-menu/account-menu.component';
 import { AccountFormComponent } from './component/account-form/account-form.component';
-import { AccountRouterComponent } from './component/account-router/account-router.component';
-import { AccountDeleteComponent } from './component/account-delete/account-delete.component';
 import {SharedModule} from "@shared/shared.module";
 import {ReactiveFormsModule} from "@angular/forms";
+import { AccountCreateComponent } from './page/ecosystem/account-create/account-create.component';
+import { AccountDetailComponent } from './page/ecosystem/account-detail/account-detail.component';
+import { AccountHomeComponent } from './page/ecosystem/account-home/account-home.component';
+import { AccountUpdateComponent } from './page/ecosystem/account-update/account-update.component';
+import {AccountDeleteComponent, AccountRouterComponent} from "@account/page";
 
 
 @NgModule({
@@ -15,7 +18,11 @@ import {ReactiveFormsModule} from "@angular/forms";
     AccountMenuComponent,
     AccountFormComponent,
     AccountRouterComponent,
-    AccountDeleteComponent
+    AccountDeleteComponent,
+    AccountCreateComponent,
+    AccountDetailComponent,
+    AccountHomeComponent,
+    AccountUpdateComponent
   ],
   imports: [
     CommonModule,

@@ -1,9 +1,6 @@
 import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { DashboardComponent, DashboardHomeComponent, DashboardNotFoundComponent } from './component';
-import {OrganizationRouterComponent} from "../organization/component/organization-router/organization-router.component";
-import {EmployeeRouterComponent} from "../employee/component/employee-router/employee-router.component";
-import {AccountRouterComponent} from "../account/component/account-router/account-router.component";
 import {DocumentRouterComponent} from "../document/page/index";
 import {SecurityGuard} from "@security/guard";
 
@@ -23,15 +20,15 @@ const routes: Routes = [
       },
       {
         path:'organization',
-        component: OrganizationRouterComponent
+        loadChildren: ()=> import('@organization/organization.module').then(m=>m.OrganizationModule)
       },
       {
         path:'employee',
-        component: EmployeeRouterComponent
+        loadChildren: ()=> import('@employee/employee.module').then(m=>m.EmployeeModule)
       },
       {
         path:'my-account',
-        component: AccountRouterComponent
+        loadChildren: ()=> import('@account/account.module').then(m=>m.AccountModule)
       },
       {
         path: 'document',
@@ -54,4 +51,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class DashboardRoutingModule {
-};
+}
