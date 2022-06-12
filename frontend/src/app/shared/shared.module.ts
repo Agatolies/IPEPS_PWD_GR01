@@ -17,7 +17,6 @@ import { DataListModule } from '@dataList';
 import { SerenityDirectiveModule } from '@directive';
 import { DialogModule } from '@dialog';
 import { MenuModule } from '@menu';
-import { FormInputComponent } from './component/form-input/form-input.component';
 
 
 @NgModule({
@@ -26,7 +25,6 @@ import { FormInputComponent } from './component/form-input/form-input.component'
     DestroyableComponent,
     UnderConstructionComponent,
     BreadCrumbComponent,
-    FormInputComponent
   ],
   imports: [
     CommonModule,
