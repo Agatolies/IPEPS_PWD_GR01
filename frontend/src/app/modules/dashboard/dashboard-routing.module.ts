@@ -5,6 +5,7 @@ import {OrganizationRouterComponent} from "../organization/component/organizatio
 import {EmployeeRouterComponent} from "../employee/component/employee-router/employee-router.component";
 import {AccountRouterComponent} from "../account/component/account-router/account-router.component";
 import {DocumentRouterComponent} from "../document/page/index";
+import {SecurityGuard} from "@security/guard";
 
 const routes: Routes = [
   {
@@ -21,10 +22,6 @@ const routes: Routes = [
         component: DashboardHomeComponent
       },
       {
-        path: '**',
-        component: DashboardNotFoundComponent
-      },
-      {
         path:'organization',
         component: OrganizationRouterComponent
       },
@@ -35,7 +32,16 @@ const routes: Routes = [
       {
         path:'my-account',
         component: AccountRouterComponent
+      },
+      {
+        path: 'document',
+        loadChildren: ()=> import('../document/document.module').then(m =>m.DocumentModule)
+      },
+      {
+        path: '**',
+        component: DashboardNotFoundComponent
       }
+
     ]
   }
 ];

@@ -1,6 +1,20 @@
-<app-dashboard></app-dashboard>
-<li>Créer un document</li>
-<li>afficher un document existant</li>
-<li>Modifier un document existant</li>
-<li>Afficher la liste des documents</li>
-<li>Supprimer un document</li>
+
+<div class="container">
+<ul>
+<li router routerLinkActive="active">
+  <h2><a routerLink='../create'>Créer un document</a></h2>
+</li>
+<li router routerLinkActive="active">
+  <h2><a routerLink='../detail/:id'>Afficher un document existant</a></h2>
+</li>
+<li router routerLinkActive="active">
+  <h2><a routerLink='../update/:action/:id'>Modifier un document existant</a></h2>
+</li>
+<li router routerLinkActive="active">
+  <h2><a routerLink=''>Afficher la liste des documents</a></h2>
+</li>
+<li router routerLinkActive="active">
+  <h2><a routerLink='../delete'>Supprimer un document</a></h2>
+</li>
+</ul>
+</div>

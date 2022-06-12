@@ -27,7 +27,7 @@ export enum AppRouteEnum {
   DOCUMENT_UPDATE = 'document/page/ecosystem/document-update',
   DOCUMENT_DETAIL = 'document/page/ecosystem/document-detail',
   DOCUMENT_DELETE = 'document/page/ecosystem/document-delete',
-  DOCUMENT_ROUTER = 'document/page/ecosystem/document-router',
+  DOCUMENT_ROUTER = 'dashboard/document',
   DOCUMENT_HOME = 'document/page/ecosystem/document-home',
 
   //Prestation type

@@ -50,7 +50,8 @@ import { FormInputComponent } from './component/form-input/form-input.component'
     DataListModule,
     SerenityDirectiveModule,
     DialogModule,
-    MenuModule
+    MenuModule,
+    FormInputComponent
   ]
 })
 export class SharedModule {
