@@ -16,6 +16,7 @@ export class DocumentUpdateComponent implements OnInit {
   payload?: DocumentUpdatePayload;
   error?: ApiResponse;
   formAction:FormAction = FormAction.UPDATE;
+  lastUpdate = new Date();
 
   constructor(public documentService: DocumentService, public activatedRouter: ActivatedRoute) {
   }

@@ -24,9 +24,15 @@
     "document": {
       "form": {
         "label": {
+          "path": "Contenu du document",
+          "name": "Titre document",
+          "type": "Type de document",
           "description": "Description du document"
         },
         "placeholder": {
+          "path": "Contenu du document",
+          "name": "Titre document",
+          "type": "Type de document",
           "description": "Description du document"
         }
       }

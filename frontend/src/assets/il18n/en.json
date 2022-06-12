@@ -10,6 +10,23 @@
     "country": "Country",
     "supress": "Delete"
   },
+  "document": {
+    "form": {
+      "label": {
+        "path": "Content of the document",
+        "name": "Document title",
+        "type": "Document type",
+        "description": "Document description"
+      },
+      "placeholder": {
+        "path": "Content of the document",
+        "name": "Document title",
+        "type": "Document type",
+        "description": "Document description"
+      }
+    }
+  },
+
   "app": {
     "all": "All",
     "active": "Active",
