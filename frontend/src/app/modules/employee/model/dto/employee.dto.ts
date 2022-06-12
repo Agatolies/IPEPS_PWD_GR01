@@ -5,6 +5,6 @@ export interface EmployeeDto {
   employee_id: string;
   role: string;
   actif: boolean;
-  organization: OrganizationDto;
-  account: AccountDto;
+  organization: string;
+  account: string;
 }
