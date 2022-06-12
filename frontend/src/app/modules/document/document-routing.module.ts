@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {DocumentRouterComponent} from "./page/ecosystem/document-router/document-router.component";
-import {DocumentHomeComponent} from "./page/ecosystem/document-home/document-home.component";
 import {
   DocumentCreateComponent,
   DocumentDeleteComponent,
   DocumentDetailComponent,
+  DocumentHomeComponent,
+  DocumentRouterComponent,
   DocumentUpdateComponent
 } from "./page";
 

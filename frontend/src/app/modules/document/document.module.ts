@@ -12,6 +12,7 @@ import { DocumentRouterComponent } from './page/ecosystem/document-router/docume
 import { DocumentUpdateComponent } from './page/ecosystem/document-update/document-update.component';
 import {SerenityFormsModule} from "@form";
 import {ReactiveFormsModule} from "@angular/forms";
+import {DashboardModule} from "@dashboard/dashboard.module";
 
 
 @NgModule({
@@ -25,11 +26,12 @@ import {ReactiveFormsModule} from "@angular/forms";
     DocumentRouterComponent,
     DocumentUpdateComponent
   ],
-    imports: [
-        CommonModule,
-        DocumentRoutingModule,
-        SerenityFormsModule,
-        ReactiveFormsModule
-    ]
+  imports: [
+    CommonModule,
+    DocumentRoutingModule,
+    SerenityFormsModule,
+    ReactiveFormsModule,
+    DashboardModule
+  ]
 })
 export class DocumentModule { }

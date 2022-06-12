@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {DestroyableComponent} from "@shared/component";
 import {BehaviorSubject} from "rxjs";
 import {MenuAction} from "@dashboard/model/interface";
@@ -25,11 +25,25 @@ export class DocumentRouterComponent extends DestroyableComponent implements OnI
   setAction(currentAction: MenuActionType): void {
     let actions:MenuAction[] = [];
     switch (currentAction) {
-      case MenuActionType.LIST:
+      case MenuActionType.ADD:
         actions = [{
           icon: MenuHelperUtils.ADD_ICON,
           title: 'screen.document.create.btn',
           link: AppRouteEnum.DOCUMENT_CREATE
+        }]
+        break;
+      case MenuActionType.UPDATE:
+        actions = [{
+          icon: MenuHelperUtils.EDIT_ICON,
+          title: 'screen.document.update.btn',
+          link: AppRouteEnum.DOCUMENT_DELETE
+        }]
+        break;
+      case MenuActionType.DETAIL:
+        actions = [{
+          icon: MenuHelperUtils.HISTORY_ICON,
+          title: 'screen.document.detail.btn',
+          link: AppRouteEnum.DOCUMENT_DETAIL
         }]
         break;
       case MenuActionType.DELETE:

@@ -4,6 +4,7 @@ import { DashboardComponent, DashboardHomeComponent, DashboardNotFoundComponent 
 import {OrganizationRouterComponent} from "../organization/component/organization-router/organization-router.component";
 import {EmployeeRouterComponent} from "../employee/component/employee-router/employee-router.component";
 import {AccountRouterComponent} from "../account/component/account-router/account-router.component";
+import {DocumentRouterComponent} from "../document/page/index";
 
 const routes: Routes = [
   {

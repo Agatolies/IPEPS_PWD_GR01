@@ -7,18 +7,21 @@ import { ClickOutsideModule } from 'ng-click-outside';
 import { DashboardNotFoundComponent } from './component';
 
 @NgModule({
-  declarations: [
-    DashboardComponent,
-    DashboardHomeComponent,
-    DashboardNotFoundComponent
-  ],
-  imports: [
-    ClickOutsideModule,
-    DashboardRoutingModule,
-    CommonModule,
-    TranslateModule
-  ],
-  providers: []
+    declarations: [
+        DashboardComponent,
+        DashboardHomeComponent,
+        DashboardNotFoundComponent
+    ],
+    imports: [
+        ClickOutsideModule,
+        DashboardRoutingModule,
+        CommonModule,
+        TranslateModule
+    ],
+    exports: [
+        DashboardComponent
+    ],
+    providers: []
 })
 export class DashboardModule {
 };
