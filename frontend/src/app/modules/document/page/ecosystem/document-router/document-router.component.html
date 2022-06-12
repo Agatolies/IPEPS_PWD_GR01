@@ -1,13 +1,13 @@
+
 <div class="'pt-large">
-  <div class="row-border-top">
-    <p>ici normalement les miettes de pain</p>
+    <h1 class="big-title" style="text-align: center">Papa's Travel : Document</h1>
     <div class="actions" *ngIf="actions$ | async as actions">
       <span *ngFor="let action of actions" class="icon {{action.icon!}}"
         (click)="onActionClick(action)"></span>
     </div>
-  </div>
   <router-outlet></router-outlet>
 </div>
+
 
 
 

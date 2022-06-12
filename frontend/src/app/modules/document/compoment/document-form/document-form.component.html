@@ -2,12 +2,20 @@
   <div class="table-form">
     <div class="row">
       <div class="cell">
-        <label for="name">Nom du document</label>
-        <input type="text" class="form-control" id="name" formControlName = "name">
+        <app-form-input [type]="'text'"
+                        formControlName="name"
+                        [name]="'name'"
+                        [label]="'app.document.form.label.name'"
+                        [placeholder]="'app.document.form.placeholder.name'"
+                        [readonly]="false"></app-form-input>
       </div>
       <div class="cell">
-        <label for="type">Type de document</label>
-        <input type="text" class="form-control" id="type" formControlName = "type">
+        <app-form-input [type]="'text'"
+                        formControlName="type"
+                        [name]="'type'"
+                        [label]="'app.document.form.label.type'"
+                        [placeholder]="'app.document.form.placeholder.type'"
+                        [readonly]="false"></app-form-input>
       </div>
     </div>
 
@@ -24,13 +32,19 @@
 
     <div class="row">
       <div class="cell">
-        <label for="path">Complément d'information</label>
-        <input type="text" class="form-control" id="path" formControlName = "path">
+        <app-form-input [type]="'text'"
+                        formControlName="path"
+                        [name]="'path'"
+                        [label]="'app.document.form.label.path'"
+                        [placeholder]="'app.document.form.placeholder.path'"
+                        [readonly]="false"></app-form-input>
       </div>
     </div>
 
   </div>
 </form>
+
+
 
 
 

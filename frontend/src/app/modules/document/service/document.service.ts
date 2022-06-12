@@ -4,7 +4,7 @@ import {BehaviorSubject, Observable} from "rxjs";
 import { Page} from "@shared/module/data-list/model";
 import {CommonHelperUtils} from "@shared/helper/common-helper.utils";
 import {DocumentCreatePayload, DocumentUpdatePayload} from "../Model";
-import {ApiResponse, AppUriEnum} from "@shared/model";
+import {ApiResponse, AppUriEnum, MenuActionType} from "@shared/model";
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +13,8 @@ import {ApiResponse, AppUriEnum} from "@shared/model";
 export class DocumentService extends ApiService {
   list$: BehaviorSubject<Document[]> = new BehaviorSubject<Document[]>([]);
   pagination$: BehaviorSubject<Page> = new BehaviorSubject<Page>(CommonHelperUtils.defaultPagination())
+  currentAction$: BehaviorSubject<MenuActionType> = new BehaviorSubject<MenuActionType>(MenuActionType.ADD);
+
 
   public create(payload: DocumentCreatePayload): Observable<ApiResponse> {
     return this.post(AppUriEnum.DOCUMENT_CREATE, payload);

@@ -15,6 +15,9 @@ export class MenuHelperUtils {
     return [
       {icon: MenuHelperUtils.PRESTATION_TYPE_ICON, title: 'menu.prestation-type', link: AppRouteEnum.PRESTATION_TYPE_HOME},
       {icon: MenuHelperUtils.ECO_SYSTEM_ICON, title: 'menu.eco-system', link: AppRouteEnum.ECOSYSTEM_HOME},
+      {icon: MenuHelperUtils.DOCUMENT_HOME_ICON, title: 'menu.document', link: AppRouteEnum.DOCUMENT_ROUTER},
+      {icon: MenuHelperUtils.ADDRESS_ICON, title: 'menu.address', link: AppRouteEnum.ECO_SYSTEM_ADDRESS_HOME},
+      {icon: MenuHelperUtils.EDIT_ICON, title: 'document.update', link: AppRouteEnum.DOCUMENT_UPDATE},
     /*  {icon: MenuHelperUtils.PLANNING_ICON, title: 'menu.planning', link:AppRouteEnum.ECO_SYSTEM_PLANNING_HOME},
       {icon: MenuHelperUtils.TEMPLATE_ICON, title: 'menu.template', link: AppRouteEnum.TEMPLATE_HOME},
       {icon: MenuHelperUtils.CONTROL_ICON, title: 'menu.control', link: AppRouteEnum.CONTROL_HOME},
@@ -25,7 +28,7 @@ export class MenuHelperUtils {
       {icon: MenuHelperUtils.REMEMBER_ICON, title: 'menu.remember', link: AppRouteEnum.REMEMBER_HOME},
       {icon: MenuHelperUtils.PARAMETER_ICON, title: 'menu.parameter', link: AppRouteEnum.PARAMETER_HOME},
       {icon: MenuHelperUtils.HISTORY_ICON, title: 'menu.history', link: AppRouteEnum.HISTORY_HOME},
-      {icon: MenuHelperUtils.ADDRESS_ICON, title: 'menu.address', link: AppRouteEnum.ADDRESS_HOME},
+
       {icon: MenuHelperUtils.PERMISSION_ICON, title: 'menu.permission', link: AppRouteEnum.ECO_SYSTEM_PERMISSION_HOME}*/];
   }
 
@@ -57,4 +60,6 @@ export class MenuHelperUtils {
   public static DUPLICATE_ICON:string = 'fa-regular fa-clone';
   public static HELP_ICON:string = 'fa-regular fa-question';
   public static PERMISSION_ICON:string = 'fa-regular fa-lock-a';
+  public static DOCUMENT_HOME_ICON:string = 'fa-regular fa-chart-tree-map';
+
 }
