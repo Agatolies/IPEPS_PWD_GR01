@@ -1,6 +1,5 @@
 <form [formGroup]="formGroupAcc"  novalidate>
   <div class="table-form">
-    <div class="row">
       <div class="cell">
         <app-form-input [type]="'text'"
                         formControlName="firstname"
@@ -17,6 +16,8 @@
                         [placeholder]="'app.account.form.placeholder.lastname'"
                         [readonly]="false"></app-form-input>
       </div>
-    </div>
+      <div class="cell">
+        <button [textContent]="label"></button>
+      </div>
   </div>
 </form>

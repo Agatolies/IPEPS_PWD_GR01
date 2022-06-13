@@ -1,38 +1,36 @@
-
+<form [formGroup]="formGroupOrg"  novalidate>
   <div class="table-form">
     <div class="row">
       <div class="cell">
-        <span>Test Organisation</span>
-        <!--
         <app-form-input [type]="'text'"
                         formControlName="name"
                         [name]="'name'"
                         [label]="'app.organization.form.label.name'"
                         [placeholder]="'app.organization.form.placeholder.name'"
-                        [readonly]="false"></app-form-input>-->
+                        [readonly]="false"></app-form-input>
       </div>
       <div class="cell">
-        <span>Test Organisation</span>
-        <!--
         <app-form-input [type]="'text'"
                         formControlName="description"
                         [name]="'description'"
                         [label]="'app.organization.form.label.description'"
                         [placeholder]="'app.organization.form.placeholder.description'"
-                        [readonly]="false"></app-form-input>-->
+                        [readonly]="false"></app-form-input>
       </div>
       <div class="cell">
-        <span>Test Organisation</span>
-        <!--
         <app-form-input [type]="'boolean'"
                         formControlName="actif"
                         [name]="'actif'"
                         [label]="'app.organization.form.label.actif'"
                         [placeholder]="'app.organization.form.placeholder.actif'"
-                        [readonly]="false"></app-form-input>-->
+                        [readonly]="false"></app-form-input>
+      </div>
+      <div class="cell">
+        <button [textContent]="label"></button>
       </div>
     </div>
   </div>
+</form>
   <!--
-  <form [formGroup]="formGroupOrg"  novalidate>
-</form>-->
+
+-->

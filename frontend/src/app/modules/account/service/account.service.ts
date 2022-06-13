@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {ApiService, HttpService} from "@shared/service";
 import {Observable} from "rxjs";
-import {ApiResponse, PayloadInterface} from "@shared/model";
+import {ApiResponse, ApiUriEnum} from "@shared/model";
 import {AccountCreatePayload, AccountDto, AccountUpdatePayload, Account} from "@account/model";
 import {map} from "rxjs/operators";
 
@@ -28,20 +28,20 @@ export class AccountService extends ApiService{
   }
 
   public getDetail(id : string): Observable<AccountDto>{
-    return this.get('account/detail/'+id)
+    return this.get(`${ApiUriEnum.ACCOUNT_DETAIL}${id}`)
       .pipe(map((response: ApiResponse) => response.data as AccountDto));
   }
 
   public update(payload: AccountUpdatePayload): Observable<ApiResponse>{
-    return this.put('account/update', payload)
+    return this.put(ApiUriEnum.ACCOUNT_UPDATE, payload)
   }
 
   public create(payload: AccountCreatePayload): Observable<ApiResponse>{
-    return this.post('account/create', payload)
+    return this.post(ApiUriEnum.ACCOUNT_CREATE, payload)
   }
 
   public deleted(id : string): Observable<AccountDto> {
-    return this.delete('account/delete/'+id)
+    return this.delete(`${ApiUriEnum.ACCOUNT_DELETE}${id}`)
       .pipe(map((response: ApiResponse) => response.data as AccountDto));
   }
 }

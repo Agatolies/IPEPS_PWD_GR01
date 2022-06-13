@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {ApiService, HttpService} from "@shared/service";
 import {Observable} from "rxjs";
 import {map} from "rxjs/operators";
-import {ApiResponse, PayloadInterface} from "@shared/model";
+import {ApiResponse, ApiUriEnum} from "@shared/model";
 import {EmployeeCreatePayload, EmployeeDto, EmployeeUpdatePayload, Employee} from "@employee/model";
 
 @Injectable({
@@ -41,20 +41,20 @@ export class EmployeeService extends ApiService{
   }
 
   public getDetail(id : string): Observable<EmployeeDto>{
-    return this.get('Employee/detail/'+id)
+    return this.get(`${ApiUriEnum.EMPLOYEE_DETAIL}${id}`)
       .pipe(map((response: ApiResponse) => response.data as EmployeeDto));
   }
 
   public update(payload: EmployeeUpdatePayload): Observable<ApiResponse>{
-    return this.put('Employee/update', payload)
+    return this.put(ApiUriEnum.EMPLOYEE_UPDATE, payload)
   }
 
   public create(payload: EmployeeCreatePayload): Observable<ApiResponse>{
-    return this.post('Employee/create', payload)
+    return this.post(ApiUriEnum.EMPLOYEE_CREATE, payload)
   }
 
   public deleted(id : string): Observable<EmployeeDto> {
-    return this.delete('Employee/delete/'+id)
+    return this.delete(`${ApiUriEnum.EMPLOYEE_DELETE}${id}`)
       .pipe(map((response: ApiResponse) => response.data as EmployeeDto));
   }
 }
