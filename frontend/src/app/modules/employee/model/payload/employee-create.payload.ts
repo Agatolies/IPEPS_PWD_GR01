@@ -1,8 +1,10 @@
 import { PayloadInterface } from '@shared/model';
+import {Organization} from "@organization/model";
+import {Account} from "@account/model";
 
 export interface EmployeeCreatePayload extends PayloadInterface {
   role: string;
   actif: boolean;
-  organization: string;
-  account: string;
+  organization: Organization;
+  account: Account;
 }

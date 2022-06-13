@@ -22,8 +22,19 @@ export class EmployeeService extends ApiService{
             id: transforme.employee_id,
             role: transforme.role,
             actif: transforme.actif,
-            organization: transforme.organization,
-            account: transforme.account
+            organization:
+              {
+                id:transforme.organization.organization_id,
+                name: transforme.organization.name,
+                description: transforme.organization.description,
+                actif: transforme.organization.actif
+              },
+            account:
+              {
+                id: transforme.account.account_id,
+                firstname: transforme.account.firstname,
+                lastname: transforme.account.lastname
+              }
           };
         })
     }));

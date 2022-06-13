@@ -31,7 +31,6 @@ public class Employee {
     @JoinColumn(name="organization_id_fk", referencedColumnName = "organization_id")
     private Organization organization;
 
-    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "account_id_fk", referencedColumnName = "account_id")
     private Account account;
