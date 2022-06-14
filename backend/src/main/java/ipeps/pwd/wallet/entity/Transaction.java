@@ -1,5 +1,6 @@
 package ipeps.pwd.wallet.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -20,18 +21,20 @@ public class Transaction {
     @GenericGenerator(name="UUID",strategy="org.hibernate.id.UUIDGenerator")
     @Column(name="transaction_id", nullable = false, updatable = false)
     private UUID transaction_id;
+
     private String type;
+
     private float amount;
 
-    @ManyToOne
-    @JoinColumn(name = "wallet_id_fk", referencedColumnName = "wallet_id")
-    private Wallet wallet;
-
-
-    @JsonIgnore // empèche l'affichage de la propriété
+    @JsonBackReference
     @OneToOne
     @JoinColumn(name = "document_id_fk", referencedColumnName = "document_id") // renomme le champ de la propriété
     private Document document;
+
+    @JsonBackReference
+    @ManyToOne
+    @JoinColumn(name = "wallet_id_fk", referencedColumnName = "wallet_id")
+    private Wallet wallet;
 
     public Transaction(String type, float amount, Document document, Wallet wallet) {
         this.type = type;

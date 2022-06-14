@@ -27,6 +27,15 @@ public class WalletServiceImpl implements WalletService {
         }
     }
 
+//    @Override
+//    public ApiResponse listByEmployeeId(UUID employeeId) {
+//        try {
+//            return new ApiResponse(true, walletRepository.findByEmployeeId(employeeId), "api.wallet.list.success");
+//        } catch (Exception e) {
+//            return new ApiResponse(false, null, "api.wallet.list.error");
+//        }
+//    }
+
     @Override
     public ApiResponse detail(UUID id){
         try{
