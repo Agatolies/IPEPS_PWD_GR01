@@ -2,16 +2,21 @@ package ipeps.pwd.wallet.builder;
 
 import ipeps.pwd.wallet.entity.Account;
 import ipeps.pwd.wallet.entity.Employee;
-import ipeps.pwd.wallet.security.entity.Credential;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 public class AccountBuilder {
+    private UUID account_id = null;
     private String firstname = "";
     private String lastname = "";
-    private Credential credential = new Credential();
     private List<Employee> employees = new ArrayList<>();
+
+    public AccountBuilder setId(UUID credential_id) {
+        this.account_id = credential_id;
+        return this;
+    }
 
     public AccountBuilder setFirstname(String firstname) {
         this.firstname = firstname;
@@ -23,17 +28,13 @@ public class AccountBuilder {
         return this;
     }
 
-    public AccountBuilder setCredential(Credential credential) {
-        this.credential = credential;
-        return this;
-    }
-
     public AccountBuilder setEmployees(List<Employee> employees){
         this.employees = employees;
         return this;
     }
 
     public Account build() {
-        return new Account(firstname, lastname, credential, employees);
+        return new Account(account_id, firstname, lastname, employees);
     }
+
 }

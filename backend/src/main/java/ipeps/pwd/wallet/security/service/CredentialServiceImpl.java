@@ -1,7 +1,9 @@
 package ipeps.pwd.wallet.security.service;
 
 import ipeps.pwd.wallet.builder.AccountBuilder;
+import ipeps.pwd.wallet.builder.EmployeeBuilder;
 import ipeps.pwd.wallet.common.entity.response.ApiResponse;
+import ipeps.pwd.wallet.entity.Employee;
 import ipeps.pwd.wallet.security.entity.payload.SignupRequest;
 import ipeps.pwd.wallet.entity.Account;
 import ipeps.pwd.wallet.repository.AccountRepository;
@@ -48,23 +50,24 @@ public class CredentialServiceImpl implements CredentialService {
                 return new ApiResponse(false, null, "api.signup.email-exist");
             } else {
                 try {
+                    Credential credential = new Credential.Builder()
+                            .setUsername(request.getUsername())
+                            .setPassword(encoder.encode(request.getPassword()))
+                            .setActif(true)
+                            .build();
+
+                    credential = this.saveCredential(credential);
+
                     Account account = new AccountBuilder()
+                            .setId(credential.getCredential_id())
                             .setFirstname(request.getFirstname())
                             .setLastname(request.getLastname())
                             .build();
 
                     account = this.saveAccount(account);
 
-                    Credential credential = new Credential.Builder()
-                            .setUsername(request.getUsername())
-                            .setPassword(encoder.encode(request.getPassword()))
-                            .setActif(true)
-                            .setAccount(account)
-                            .build();
+                    // Peut etre créer un employé et un portefeuille a la création du compte
 
-                    credential = this.saveCredential(credential);
-
-                    account.setCredential(credential);
                     this.saveAccount(account);
 
                     return new ApiResponse(true, credential, null);
