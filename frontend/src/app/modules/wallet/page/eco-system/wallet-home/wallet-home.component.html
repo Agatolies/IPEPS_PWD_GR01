@@ -1,1 +1,16 @@
+<!-- Titre de la page -->
+<app-page-title
+  [title]="'Mes portefeuilles'"
+  [subtitle]="'Papa\'s Travel'"></app-page-title>
+
+<!-- Liste de WalletCards -->
+<mat-grid-list cols="3" rowHeight="200px">
+  <mat-grid-tile *ngFor="let wallet of myWallets">
+    <app-wallet-card [wallet]="wallet" style=""></app-wallet-card>
+  </mat-grid-tile>
+</mat-grid-list>
+
+<pre *ngIf="isDebug === true">{{ myWallets | json }}</pre>
+
+
 <app-wallet-menu></app-wallet-menu>
