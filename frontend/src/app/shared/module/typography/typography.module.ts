@@ -1,12 +1,18 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import { TranslateModule } from "@ngx-translate/core";
+import { PageTitleComponent } from '@shared/module/typography/component';
 
 @NgModule({
-  declarations: [],
-  imports: [
-    CommonModule
+  declarations: [
+    PageTitleComponent
   ],
-  exports: []
+  imports: [
+    CommonModule,
+    TranslateModule
+  ],
+  exports: [
+    PageTitleComponent
+  ]
 })
 export class TypographyModule { }

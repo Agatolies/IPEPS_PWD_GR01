@@ -13,6 +13,7 @@
       "@form": ["app/shared/module/forms/serenity-forms.module.ts"],
       "@card": ["app/shared/module/card/card.module.ts"],
       "@toast": ["app/shared/module/toast/toast.module.ts"],
+      "@typography": ["app/shared/module/typography/typography.module.ts"],
       "@dialog": ["app/shared/module/dialog/dialog.module.ts"],
       "@dataList": ["app/shared/module/data-list/data-list.module.ts"],
       "@directive": ["app/shared/module/serenity-directive/serenity-directive.module.ts"],
