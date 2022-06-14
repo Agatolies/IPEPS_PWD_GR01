@@ -14,31 +14,32 @@ export class EmployeeService extends ApiService{
     super(http);
   }
 
-  public getList(): Observable<Employee[]> {
-    return this.get('person/list').pipe(map((response: ApiResponse) => {
-      return (response.result) ? [] :
-        (response.data as EmployeeDto[]).map((transforme: EmployeeDto) => {
-          return {
-            id: transforme.employee_id,
-            role: transforme.role,
-            actif: transforme.actif,
-            organization:
-              {
-                id:transforme.organization.organization_id,
-                name: transforme.organization.name,
-                description: transforme.organization.description,
-                actif: transforme.organization.actif
-              },
-            account:
-              {
-                id: transforme.account.account_id,
-                firstname: transforme.account.firstname,
-                lastname: transforme.account.lastname
-              }
-          };
-        })
-    }));
-  }
+  // public getList(): Observable<Employee[]> {
+  //   return this.get('person/list').pipe(map((response: ApiResponse) => {
+  //     return (response.result) ? [] :
+  //       (response.data as EmployeeDto[]).map((transforme: EmployeeDto) => {
+  //         return {
+  //           id: transforme.employee_id,
+  //           role: transforme.role,
+  //           actif: transforme.actif,
+  //           organization:
+  //           {
+  //             id:transforme.organization.organization_id,
+  //             name: transforme.organization.name,
+  //             description: transforme.organization.description,
+  //             actif: transforme.organization.actif
+  //           },
+  //           account:
+  //           {
+  //             id: transforme.account.account_id,
+  //             firstname: transforme.account.firstname,
+  //             lastname: transforme.account.lastname,
+  //             employees: transforme.account.employees
+  //           },
+  //         };
+  //       })
+  //   }));
+  // }
 
   public getDetail(id : string): Observable<EmployeeDto>{
     return this.get(`${ApiUriEnum.EMPLOYEE_DETAIL}${id}`)

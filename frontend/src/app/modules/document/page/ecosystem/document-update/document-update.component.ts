@@ -27,7 +27,12 @@ export class DocumentUpdateComponent implements OnInit {
         if (param['id']){
           return this.documentService.getDetail(param['id'])
         }
-        return of({result: false, data: null, code:'page.document.form.error.not-found'});
+        return of({
+          result: false,
+          data: null,
+          code:'page.document.form.error.not-found',
+          success: false
+        });
       })
     ).subscribe((response: ApiResponse) => {
       if (response.result){
