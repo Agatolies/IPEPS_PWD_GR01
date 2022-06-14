@@ -31,7 +31,7 @@ export enum AppRouteEnum {
   EMPLOYEE_HOME = 'employee/page/ecosystem/employee-home',
 
   //Account
-  ACCOUNT_SHOW_HOME_PAGE = 'account/home',
+  ACCOUNT_SHOW_HOME_PAGE = 'my-account/home',
   ACCOUNT_CREATE = 'account/page/ecosystem/account-create',
   ACCOUNT_UPDATE = 'account/page/ecosystem/account-update',
   ACCOUNT_DETAIL = 'account/page/ecosystem/account-detail',

@@ -27,7 +27,7 @@ const routes: Routes = [
         loadChildren: ()=> import('@employee/employee.module').then(m=>m.EmployeeModule)
       },
       {
-        path:'my-account',
+        path:'account',
         loadChildren: ()=> import('@account/account.module').then(m=>m.AccountModule)
       },
       {

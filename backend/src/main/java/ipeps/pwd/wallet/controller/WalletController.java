@@ -21,6 +21,11 @@ public class WalletController {
     @GetMapping("detail/{id}")
     public ApiResponse detail(@PathVariable("id") UUID id) { return walletService.detail(id); }
 
+//    @GetMapping("list/employeeId")
+//    public ApiResponse listByEmployeeId(@RequestParam("employeeId") UUID employeeId) {
+//        return walletService.listByEmployeeId(employeeId);
+//    }
+
     @PutMapping("update")
     public ApiResponse update(@RequestBody WalletUpdatePayload payload) { return walletService.update(payload); }
 

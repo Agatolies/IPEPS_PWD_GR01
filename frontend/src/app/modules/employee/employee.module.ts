@@ -11,6 +11,8 @@ import { EmployeeCreateComponent } from './page/ecosystem/employee-create/employ
 import {EmployeeDeleteComponent} from "@employee/page/ecosystem/employee-delete/employee-delete.component";
 import {EmployeeRouterComponent} from "@employee/page";
 import {ReactiveFormsModule} from "@angular/forms";
+import {TranslateModule} from "@ngx-translate/core";
+import {SerenityFormsModule} from "@form";
 
 
 @NgModule({
@@ -24,10 +26,12 @@ import {ReactiveFormsModule} from "@angular/forms";
     EmployeeDetailComponent,
     EmployeeCreateComponent
   ],
-    imports: [
-        CommonModule,
-        EmployeeRoutingModule,
-        ReactiveFormsModule
-    ]
+  imports: [
+    CommonModule,
+    EmployeeRoutingModule,
+    ReactiveFormsModule,
+    TranslateModule,
+    SerenityFormsModule
+  ]
 })
 export class EmployeeModule { }

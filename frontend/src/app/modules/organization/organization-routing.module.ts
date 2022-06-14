@@ -16,7 +16,9 @@ import {
 import {
   OrganizationRouterComponent
 } from "@organization/page/ecosystem/organization-router/organization-router.component";
-import {OrganizationMenuComponent} from "@organization/component";
+import {OrganizationFormComponent, OrganizationMenuComponent} from "@organization/component";
+import {ReactiveFormsModule} from "@angular/forms";
+import {SerenityFormsModule} from "@form";
 
 
 const routes: Routes = [
@@ -54,10 +56,11 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
-  declarations: [
-    OrganizationMenuComponent
-  ],
-  exports: [RouterModule, OrganizationMenuComponent]
+  imports: [RouterModule.forChild(routes), ReactiveFormsModule, SerenityFormsModule],
+    declarations: [
+        OrganizationMenuComponent,
+        OrganizationFormComponent
+    ],
+    exports: [RouterModule, OrganizationMenuComponent, OrganizationFormComponent]
 })
 export class OrganizationRoutingModule { }
