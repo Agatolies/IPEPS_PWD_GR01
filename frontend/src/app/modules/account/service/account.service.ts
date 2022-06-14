@@ -14,19 +14,6 @@ export class AccountService extends ApiService{
     super(http);
   }
 
-  public getList(): Observable<Account[]> {
-    return this.get('person/list').pipe(map((response: ApiResponse) => {
-      return (response.result) ? [] :
-        (response.data as AccountDto[]).map((transforme: AccountDto) => {
-          return {
-            id: transforme.account_id,
-            firstname: transforme.firstname,
-            lastname: transforme.lastname
-          };
-        })
-    }));
-  }
-
   public getDetail(id : string): Observable<AccountDto>{
     return this.get(`${ApiUriEnum.ACCOUNT_DETAIL}${id}`)
       .pipe(map((response: ApiResponse) => response.data as AccountDto));

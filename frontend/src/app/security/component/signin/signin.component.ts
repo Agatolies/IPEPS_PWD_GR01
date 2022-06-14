@@ -15,11 +15,21 @@ export class SigninComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  signin() {
+  signInPascal() {
     const payload: SigninPayload = {
       username: 'captain',
       password: 'P@ssword'
     };
+
+    this.auth.signin(payload).subscribe();
+  }
+
+  signInLaure() {
+    const payload: SigninPayload = {
+      username: 'laure',
+      password: 'T0psecret!'
+    };
+
     this.auth.signin(payload).subscribe();
   }
 }

@@ -45,7 +45,6 @@ public class AuthController {
             if (credential != null && encoder.matches(request.getPassword(), credential.getPassword())) {
                 HashMap<String, Object> hmap = new HashMap<String, Object>();
                 hmap.put("user", credential);
-                hmap.put("account", credential.getAccount());
                 hmap.put("token", this.tokenService.getToken(request.getUsername(), request.getPassword()));
 
                 return new ApiResponse(true, hmap, null);

@@ -26,17 +26,11 @@ public class Credential {
     private String email;
     private Boolean actif;
 
-    @JsonIgnore // empèche l'affichage de la propriété
-    @OneToOne
-    @JoinColumn(name = "account_id_fk", referencedColumnName = "account_id") // renomme le champ de la propriété
-    private Account account;
-
-    public Credential(String username, String password, String email, Boolean actif, Account account) {
+    public Credential(String username, String password, String email, Boolean actif) {
         this.username = username;
         this.password = password;
         this.email = email;
         this.actif = actif;
-        this.account = account;
     }
 
     public static class Builder {
@@ -45,7 +39,6 @@ public class Credential {
         private String password;
         private String email;
         private Boolean actif;
-        private Account account;
 
         public Builder setUsername(String username) {
             this.username = username;
@@ -67,13 +60,8 @@ public class Credential {
             return this;
         }
 
-        public Builder setAccount(Account account) {
-            this.account = account;
-            return this;
-        }
-
         public Credential build() {
-            return new Credential(username, password, email, actif, account);
+            return new Credential(username, password, email, actif);
         }
     }
 }

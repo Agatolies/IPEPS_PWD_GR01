@@ -25,8 +25,12 @@ export enum AppUriEnum {
 
   //Wallet
   WALLET_SHOW_HOME_PAGE = 'wallet/home',
-  WALLET_EDIT_FORM = 'wallet/edit',
-  WALLET_DELETE = 'wallet/delete/',
+  WALLET_CREATE = 'wallet/page/eco-system/wallet-create',
+  WALLET_UPDATE = 'wallet/page/eco-system/wallet-update',
+  WALLET_DETAIL = 'wallet/page/eco-system/wallet-detail',
+  WALLET_DELETE = 'wallet/page/eco-system/wallet-delete',
+  WALLET_ROUTER = 'wallet/page/eco-system/wallet-router',
+  WALLET_HOME = 'wallet/page/eco-system/wallet-home',
 
   //Contact
   CONTACT_SHOW_HOME_PAGE = 'contact/home',

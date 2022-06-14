@@ -18,9 +18,9 @@ export class HttpService {
   public errorHandler(error: { error: { message: any; }; status: any; message: any; }): Observable<ApiResponse> {
 
     if (error.error instanceof ErrorEvent) {
-      return of({result: false, data: null, code: 'api.fatal-error'});
+      return of({result: false, data: null, code: 'api.fatal-error', success: false});
     } else {
-      return of({result: false, data: null, code: 'api.fatal-error'});
+      return of({result: false, data: null, code: 'api.fatal-error', success: false});
     }
   }
 

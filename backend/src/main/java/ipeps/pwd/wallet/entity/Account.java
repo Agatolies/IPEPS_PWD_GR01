@@ -1,11 +1,9 @@
 package ipeps.pwd.wallet.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import ipeps.pwd.wallet.security.entity.Credential;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.Generated;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -27,20 +25,13 @@ public class Account{
     private String firstname;
     private String lastname;
 
-
-    @JsonIgnore // empèche l'affichage de la propriété
-    @OneToOne
-    @JoinColumn(name = "credential_id_fk", referencedColumnName = "credential_id") // renomme le champ de la propriété
-    private Credential credential;
-
-    @JsonIgnore
+    @JsonManagedReference
     @OneToMany
     private List<Employee> employees;
 
-    public Account(String firstname, String lastname, Credential credential, List<Employee> employees) {
+    public Account(String firstname, String lastname, List<Employee> employees) {
         this.firstname = firstname;
         this.lastname = lastname;
-        this.credential = credential;
         this.employees = employees;
     }
 }

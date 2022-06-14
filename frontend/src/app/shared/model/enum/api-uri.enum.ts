@@ -46,4 +46,9 @@ export enum ApiUriEnum {
   WALLET_CREATE = 'wallet/create',
   WALLET_UPDATE = 'wallet/update',
   WALLET_DELETE = 'wallet/delete',
+  WALLET_DELETE_LIST = 'wallet/deleted',
+  WALLET_SOFTDELETE = 'wallet/softdelete/',
+  WALLET_ROLLBACK = 'wallet/rollbackdelete/',
+  WALLET_ERASE = 'wallet/erase/',
+
 }
