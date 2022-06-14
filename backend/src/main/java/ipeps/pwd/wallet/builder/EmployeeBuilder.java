@@ -10,6 +10,8 @@ public class EmployeeBuilder {
     private boolean actif;
     private Account account;
     private List<Address> addresses;
+    private List<Wallet> wallets;
+    private List<Salary> salaries;
     private Organization organization;
 
     public EmployeeBuilder setOrganization(Organization organization){
@@ -26,6 +28,16 @@ public class EmployeeBuilder {
         return this;
     }
 
+    public EmployeeBuilder setSalaries(List<Salary> salaries) {
+        this.salaries = salaries;
+        return this;
+    }
+
+    public EmployeeBuilder setWallets(List<Wallet> wallets) {
+        this.wallets = wallets;
+        return this;
+    }
+
     public EmployeeBuilder setAccount(Account account){
         this.account = account;
         return this;
@@ -37,6 +49,6 @@ public class EmployeeBuilder {
     }
 
     public Employee build() {
-        return new Employee(role, actif, account, addresses, organization);
+        return new Employee(role, actif, account, addresses, wallets, salaries, organization);
     }
 }

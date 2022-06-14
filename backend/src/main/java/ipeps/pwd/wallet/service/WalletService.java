@@ -8,6 +8,7 @@ import java.util.UUID;
 
 public interface WalletService {
     ApiResponse list();
+//    ApiResponse listByEmployeeId(UUID employeeId);
     ApiResponse detail(UUID id);
     ApiResponse update(WalletUpdatePayload payload);
     ApiResponse create(WalletCreatePayload payload);
