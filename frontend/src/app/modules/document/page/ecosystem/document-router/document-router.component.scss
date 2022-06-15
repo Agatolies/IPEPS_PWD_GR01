@@ -1,3 +1,14 @@
 @import '~assets/css/variable';
 @import '~assets/css/title';
 @import '~assets/css/main-common';
+
+.title-form-all-center {
+  height : 230px;
+  display : flex;
+  align-items : center;
+  justify-content : center;
+}
+.size-text-title-form{
+  font-size: 35px;
+  color:$secondary-contrast-color;
+}
