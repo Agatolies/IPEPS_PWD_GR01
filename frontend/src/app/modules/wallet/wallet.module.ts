@@ -14,6 +14,8 @@ import {SharedModule} from "@shared/shared.module";
 import { WalletCardComponent } from './component/wallet-card/wallet-card.component';
 import {MatCardModule} from "@angular/material/card";
 import {MatGridListModule} from "@angular/material/grid-list";
+import {MatTableModule} from "@angular/material/table";
+import {MatPaginatorModule} from "@angular/material/paginator";
 
 
 @NgModule({
@@ -26,14 +28,16 @@ import {MatGridListModule} from "@angular/material/grid-list";
     WalletHomeComponent,
     WalletRouterComponent,
     WalletUpdateComponent,
-    WalletCardComponent
+    WalletCardComponent,
   ],
-  imports: [
-    CommonModule,
-    WalletRoutingModule,
-    SharedModule,
-    MatCardModule,
-    MatGridListModule
-  ]
+    imports: [
+        CommonModule,
+        WalletRoutingModule,
+        SharedModule,
+        MatCardModule,
+        MatGridListModule,
+        MatTableModule,
+        MatPaginatorModule
+    ]
 })
 export class WalletModule { }

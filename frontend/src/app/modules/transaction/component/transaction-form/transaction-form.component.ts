@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {TransactionDto} from "../../model";
 
 @Component({
   selector: 'app-transaction-form',
@@ -6,10 +7,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./transaction-form.component.scss']
 })
 export class TransactionFormComponent implements OnInit {
+  @Input() transaction: TransactionDto | undefined;
+  myTransactions: TransactionDto[] = [];
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  private loadTransactionsByWalletId() {
+
   }
 
 }
