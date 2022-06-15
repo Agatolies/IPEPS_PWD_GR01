@@ -65,6 +65,13 @@ export enum AppRouteEnum {
   ECO_SYSTEM_ADDRESS_DETAIL = 'dashboard/ecosystem/address/detail',
   ECO_SYSTEM_ADDRESS_DELETED= 'dashboard/ecosystem/address/deleted',
 
+  // Contact
+  ECO_SYSTEM_CONTACT_HOME = 'dashboard/ecosystem/contact/home',
+  ECO_SYSTEM_CONTACT_CREATE = 'dashboard/ecosystem/contact/create',
+  ECO_SYSTEM_CONTACT_UPDATE = 'dashboard/ecosystem/contact/update',
+  ECO_SYSTEM_CONTACT_DETAIL = 'dashboard/ecosystem/contact/detail',
+  ECO_SYSTEM_CONTACT_DELETED= 'dashboard/ecosystem/contact/deleted',
+
   //Remember
   ECO_SYSTEM_REMEMBER_HOME = 'dashboard/ecosystem/remember/home',
   ECO_SYSTEM_REMEMBER_CREATE = 'dashboard/ecosystem/remember/create',
@@ -109,6 +116,7 @@ export enum AppRouteEnum {
   HELP_TEAM = 'dashboard/help/team',
   HELP_ROLE = 'dashboard/help/role',
   HELP_ADDRESS = 'dashboard/help/address',
+  HELP_CONTACT= 'dashboard/help/contact',
   HELP_REMEMBER = 'dashboard/help/remember',
   HELP_PARAMETER = 'dashboard/help/parameter',
   HELP_CONTROL = 'dashboard/help/control',
