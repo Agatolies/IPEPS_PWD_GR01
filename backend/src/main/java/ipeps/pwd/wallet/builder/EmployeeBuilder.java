@@ -8,6 +8,8 @@ public class EmployeeBuilder {
 
     private String role = "";
     private boolean actif;
+    private List<Wallet> wallets;
+    private List<Salary> salaries;
     private Account account;
     private List<Address> addresses;
     private Organization organization;
@@ -31,12 +33,22 @@ public class EmployeeBuilder {
         return this;
     }
 
+    public EmployeeBuilder setWallets(List<Wallet> wallets) {
+        this.wallets = wallets;
+        return this;
+    }
+
+    public EmployeeBuilder setSalaries(List<Salary> salaries) {
+        this.salaries = salaries;
+        return this;
+    }
+
     public EmployeeBuilder setAddresses(List<Address> addresses) {
         this.addresses = addresses;
         return this;
     }
 
     public Employee build() {
-        return new Employee(role, actif, account, addresses, organization);
+        return new Employee(role, actif, account, addresses, wallets, salaries, organization);
     }
 }

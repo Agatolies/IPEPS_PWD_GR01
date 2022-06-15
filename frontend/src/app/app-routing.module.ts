@@ -5,7 +5,8 @@ import { PublicGuard, SecurityGuard } from '@security/guard';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'account', pathMatch: 'full'
+    redirectTo: 'account',
+    pathMatch: 'full'
   },
   {
     path: 'dashboard',
@@ -20,17 +21,22 @@ const routes: Routes = [
   {
     path:'organization',
     canActivate: [SecurityGuard],
-    loadChildren: ()=> import('./modules/organization/organization.module').then((m => m.OrganizationModule))
+    loadChildren: ()=> import('./modules/organization/organization.module').then(m => m.OrganizationModule)
   },
   {
     path: 'my-account',
     canActivate: [SecurityGuard],
-    loadChildren: () => import('./modules/account/account.module').then((m => m.AccountModule))
+    loadChildren: () => import('./modules/account/account.module').then(m => m.AccountModule)
   },
   {
     path: 'account',
     canActivate: [PublicGuard],
     loadChildren: () => import('./security/security.module').then(m => m.SecurityModule)
+  },
+  {
+    path: 'wallet',
+    canActivate: [SecurityGuard],
+    loadChildren: () => import('./modules/wallet/wallet.module').then(m => m.WalletModule)
   }
 ];
 

@@ -1,19 +1,25 @@
-<!--
-<form [formGroup]="payloadFormGroup">
-  <label for="firstname">Firstname</label><br/>
-  <input type="text" id="firstname" name="firstname" formControlName="firstname"/><br/>
-  <div *ngIf="payloadFormGroup.get('firstname')!.errors">
-    <app-error [error]="payloadFormGroup.get('firstname')!.errors!"></app-error>
-  </div><br/>
-  <label for="lastname">Lastname</label><br/>
-  <input type="text" id="lastname" name="lastname" formControlName="lastname"/><br/>
-  <div *ngIf="payloadFormGroup.get('lastname')!.errors">
-    <app-error [error]="payloadFormGroup.get('lastname')!.errors!"></app-error>
-  </div><br/>
-  <button (click)="save($event)">Save</button><br/>
-  <button (click)="update($event)">Update</button><br/>
+<form [formGroup]="formGroupAcc"  novalidate>
+  <div class="table-form">
+    <div class="row">
+      <div class="cell">
+        <app-form-input [type]="'text'"
+                        formControlName="firstname"
+                        [name]="'firstname'"
+                        [label]="'app.account.form.label.firstname'"
+                        [placeholder]="'app.account.form.placeholder.firstname'"
+                        [readonly]="false"></app-form-input>
+      </div>
+      <div class="cell">
+        <app-form-input [type]="'text'"
+                        formControlName="lastname"
+                        [name]="'lastname'"
+                        [label]="'app.account.form.label.lastname'"
+                        [placeholder]="'app.account.form.placeholder.lastname'"
+                        [readonly]="false"></app-form-input>
+      </div>
+    </div>
+      <div class="cell">
+        <button [textContent]="label"></button>
+      </div>
+  </div>
 </form>
-<ng-container *ngIf="response">
-  {{response|json}}
-</ng-container>
--->

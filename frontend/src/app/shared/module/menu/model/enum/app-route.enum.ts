@@ -7,11 +7,37 @@ export enum AppRouteEnum {
   SECURE_ROOT = '/dashboard',
   ECOSYSTEM_HOME = '/dashboard/ecosystem',
 
-  ORGANIZATION_SHOW_HOME_PAGE = 'organization/home',
-  EMPLOYEE_SHOW_HOME_PAGE = 'employee/home',
+
+
   CONTACT_SHOW_HOME_PAGE = 'contact/home',
-  ACCOUNT_SHOW_HOME_PAGE = 'my-account/home',
   WALLET_SHOW_HOME_PAGE = 'wallet/home',
+
+  //Organization
+  ORGANIZATION_SHOW_HOME_PAGE = 'organization/home',
+  ORGANIZATION_CREATE = 'organization/page/ecosystem/organization-create',
+  ORGANIZATION_UPDATE = 'organization/page/ecosystem/organization-update',
+  ORGANIZATION_DETAIL = 'organization/page/ecosystem/organization-detail',
+  ORGANIZATION_DELETE = 'organization/page/ecosystem/organization-delete',
+  ORGANIZATION_ROUTER = 'dashboard/organization',
+  ORGANIZATION_HOME = 'organization/page/ecosystem/organization-home',
+
+  //Employee
+  EMPLOYEE_SHOW_HOME_PAGE = 'employee/home',
+  EMPLOYEE_CREATE = 'employee/page/ecosystem/employee-create',
+  EMPLOYEE_UPDATE = 'employee/page/ecosystem/employee-update',
+  EMPLOYEE_DETAIL = 'employee/page/ecosystem/employee-detail',
+  EMPLOYEE_DELETE = 'employee/page/ecosystem/employee-delete',
+  EMPLOYEE_ROUTER = 'dashboard/employee',
+  EMPLOYEE_HOME = 'employee/page/ecosystem/employee-home',
+
+  //Account
+  ACCOUNT_SHOW_HOME_PAGE = 'my-account/home',
+  ACCOUNT_CREATE = 'account/page/ecosystem/account-create',
+  ACCOUNT_UPDATE = 'account/page/ecosystem/account-update',
+  ACCOUNT_DETAIL = 'account/page/ecosystem/account-detail',
+  ACCOUNT_DELETE = 'account/page/ecosystem/account-delete',
+  ACCOUNT_ROUTER = 'dashboard/account',
+  ACCOUNT_HOME = 'account/page/ecosystem/account-home',
 
   //Planning
   ECO_SYSTEM_PLANNING_HOME = 'dashboard/ecosystem/planning/home',
@@ -79,6 +105,15 @@ export enum AppRouteEnum {
   ECO_SYSTEM_ADDRESS_UPDATE = 'dashboard/ecosystem/address/update',
   ECO_SYSTEM_ADDRESS_DETAIL = 'dashboard/ecosystem/address/detail',
   ECO_SYSTEM_ADDRESS_DELETED= 'dashboard/ecosystem/address/deleted',
+
+  //Wallet
+  WALLET_HOME = 'dashboard/ecosystem/wallet/home',
+  WALLET_CREATE = 'dashboard/ecosystem/wallet/create',
+  WALLET_UPDATE = 'dashboard/ecosystem/wallet/update',
+  WALLET_DETAIL= 'dashboard/ecosystem/wallet/detail',
+  WALLET_DELETE = 'dashboard/ecosystem/wallet/delete',
+  WALLET_ROUTER = 'dashboard/wallet',
+
 
   //Remember
   ECO_SYSTEM_REMEMBER_HOME = 'dashboard/ecosystem/remember/home',

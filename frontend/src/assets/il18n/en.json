@@ -1,4 +1,12 @@
 {
+  "common": {
+    "form": {
+      "btn": {
+        "update": "Update",
+        "create": "Create"
+      }
+    }
+  },
   "address": {
     "module": "Addresses",
     "type": "Type",
@@ -28,6 +36,46 @@
   },
 
   "app": {
+    "account": {
+      "form": {
+        "placeholder": {
+          "firstname": "Firstname",
+          "lastname": "Lastname"
+        },
+      "label": {
+        "firstname": "Firstname : ",
+        "lastname": "Lastname : "
+        }
+      }
+    },
+    "organization": {
+      "form": {
+        "placeholder": {
+          "description": "Description",
+          "name": "Name",
+          "actif": "True or False"
+        },
+        "label": {
+          "description": "Description of the organization : ",
+          "name": "Name of the organization : ",
+          "actif": "Organisation active : "
+        }
+      }
+    },
+    "employee": {
+      "form": {
+        "placeholder": {
+          "role": "Role",
+          "actif": "True or False",
+          "organization": "Name of the organization"
+        },
+        "label": {
+          "role": "Role of the employee : ",
+          "actif": "Active employee : ",
+          "organization": "Name of the organization : "
+        }
+      }
+    },
     "all": "All",
     "active": "Active",
     "inactive": "Inactive",
@@ -69,6 +117,7 @@
     "delete": "Delete Contact"
   },
   "menu": {
+    "account": "User's accounts",
     "organization": "Organizations",
     "employee": "Employees",
     "document": "Documents",

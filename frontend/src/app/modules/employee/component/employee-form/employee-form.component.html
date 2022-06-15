@@ -1,1 +1,33 @@
-<p>employee-form works!</p>
+<form [formGroup]="formGroupEmp"  novalidate>
+  <div class="table-form">
+    <div class="row">
+      <div class="cell">
+        <app-form-input [type]="'text'"
+                        formControlName="role"
+                        [name]="'role'"
+                        [label]="'app.employee.form.label.role'"
+                        [placeholder]="'app.employee.form.placeholder.role'"
+                        [readonly]="false"></app-form-input>
+      </div>
+      <div class="cell">
+        <app-form-input [type]="'boolean'"
+                        formControlName="actif"
+                        [name]="'actif'"
+                        [label]="'app.employee.form.label.actif'"
+                        [placeholder]="'app.employee.form.placeholder.actif'"
+                        [readonly]="false"></app-form-input>
+      </div>
+      <div class="cell">
+        <app-form-input [type]="'text'"
+                        formControlName="organization"
+                        [name]="'organization'"
+                        [label]="'app.employee.form.label.organization'"
+                        [placeholder]="'app.employee.form.placeholder.organization'"
+                        [readonly]="false"></app-form-input>
+      </div>
+      <div class="cell">
+        <button [textContent]="label"></button>
+      </div>
+    </div>
+  </div>
+</form>

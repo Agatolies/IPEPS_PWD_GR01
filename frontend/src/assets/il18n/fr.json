@@ -1,4 +1,12 @@
 {
+  "common": {
+    "form": {
+      "btn": {
+        "update": "Mise à jour",
+        "create": "Création"
+      }
+    }
+  },
   "address": {
     "module": "Adresses",
     "type": "Type",
@@ -11,6 +19,46 @@
     "supress": "Supression"
   },
   "app": {
+    "account": {
+      "form": {
+        "placeholder": {
+          "firstname": "Prénom",
+          "lastname": "Nom"
+        },
+        "label": {
+          "firstname": "Prénom : ",
+          "lastname": "Nom : "
+        }
+      }
+    },
+    "organization": {
+      "form": {
+        "placeholder": {
+          "description": "Description",
+          "name": "Nom",
+          "actif": "True ou False"
+        },
+        "label": {
+          "description": "Description de l'organisation : ",
+          "name": "Nom de l'organisation : ",
+          "actif": "Organisation active : "
+        }
+      }
+    },
+    "employee": {
+      "form": {
+        "placeholder": {
+          "role": "Rôle",
+          "actif": "True ou False",
+          "organization": "Nom de l'organisation"
+        },
+        "label": {
+          "role": "Rôle de l'employé : ",
+          "actif": "Employé actif : ",
+          "organization": "Nom de l'organisation : "
+        }
+      }
+    },
     "all": "Tous",
     "active": "Actif",
     "inactive": "Inactif",
@@ -68,11 +116,12 @@
     "delete": "Supprimer Contact"
   },
   "menu": {
+    "account": "Comptes utilisateurs",
     "organization": "Organisations",
     "employee": "Employés",
     "document": "Documents",
     "contact": "Contacts",
-    "wallet": "Wallet"
+    "wallet": "Portefeuilles"
   },
   "table": {
     "placeholder": {

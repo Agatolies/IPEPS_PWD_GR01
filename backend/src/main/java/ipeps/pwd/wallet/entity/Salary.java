@@ -1,5 +1,6 @@
 package ipeps.pwd.wallet.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -25,6 +26,7 @@ public class Salary {
     private float amount;
     private int periodicity;
 
+    @JsonBackReference
     @ManyToOne
     @JoinColumn(name = "employee_id_fk", referencedColumnName = "employee_id")
     private Employee employee;

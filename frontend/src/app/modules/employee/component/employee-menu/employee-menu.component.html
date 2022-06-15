@@ -1,1 +1,19 @@
-<p>employee-menu works!</p>
+<div class="container">
+  <ul>
+    <li router routerLinkActive="active">
+      <h2><a routerLink='../create'>Créer un employe</a></h2>
+    </li>
+    <li router routerLinkActive="active">
+      <h2><a routerLink='../detail/:id'>Afficher un employe existant</a></h2>
+    </li>
+    <li router routerLinkActive="active">
+      <h2><a routerLink='../update'>Modifier un employe existant</a></h2>
+    </li>
+    <li router routerLinkActive="active">
+      <h2><a routerLink=''>Afficher la liste des employes</a></h2>
+    </li>
+    <li router routerLinkActive="active">
+      <h2><a routerLink='../delete/:id'>Supprimer un employe</a></h2>
+    </li>
+  </ul>
+</div>

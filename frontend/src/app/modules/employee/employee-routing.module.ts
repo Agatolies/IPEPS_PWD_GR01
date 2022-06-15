@@ -1,41 +1,48 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import {
+  EmployeeCreateComponent,
   EmployeeDeleteComponent,
-  EmployeeFormComponent,
-  EmployeeMenuComponent,
-  EmployeeRouterComponent
-} from "@employee/component";
-import {DashboardNotFoundComponent} from "@dashboard/component";
+  EmployeeDetailComponent,
+  EmployeeHomeComponent,
+  EmployeeRouterComponent,
+  EmployeeUpdateComponent
+} from "./page";
+import {EmployeeMenuComponent} from "@employee/component";
 
-
-const routes: Routes = [  {
-  path:'',
-  component: EmployeeRouterComponent,
-  children:[
-    {
-      path:'',
-      redirectTo: 'home',
-      pathMatch:'full'
-    },
-    {
-      path:'home',
-      component: EmployeeMenuComponent
-    },
-    {
-      path:'create',
-      component: EmployeeFormComponent
-    },
-    {
-      path: 'delete',
-      component: EmployeeDeleteComponent
-    },
-    {
-      path:'**',
-      component: DashboardNotFoundComponent
-    }
-  ]
-}];
+const routes: Routes = [
+  {
+    path: '',
+    component: EmployeeRouterComponent,
+    children: [
+      {
+        path: '',
+        redirectTo: 'home',
+        pathMatch: 'full'
+      },
+      {
+        path: 'home',
+        component: EmployeeHomeComponent
+      },
+      {
+        path: 'detail/:id',
+        component: EmployeeDetailComponent
+      },
+      {
+        path: 'create',
+        component: EmployeeCreateComponent
+      },
+      {
+        path:'update',
+        component: EmployeeUpdateComponent
+      },
+      {
+        path: 'delete/:id',
+        component: EmployeeDeleteComponent
+      }
+    ]
+  }
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

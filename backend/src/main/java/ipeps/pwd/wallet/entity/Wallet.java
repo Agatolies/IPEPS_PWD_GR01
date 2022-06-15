@@ -1,5 +1,7 @@
 package ipeps.pwd.wallet.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -28,18 +30,24 @@ public class Wallet {
     @JoinColumn(name = "organization_id_fk", referencedColumnName = "organization_id")
     private Organization organization;
 
+    @JsonBackReference
     @ManyToOne
     @JoinColumn(name = "employee_id_fk", referencedColumnName = "employee_id")
     private Employee employee;
 
+    @JsonManagedReference
+    @OneToMany
+    private List<Transaction> transactions;
+
     public Wallet(String name, String description, boolean actif, String type,
-                  Organization organization, Employee employee) {
+                  Organization organization, Employee employee, List<Transaction> transactions) {
         this.name = name;
         this.description = description;
         this.actif = actif;
         this.type = type;
         this.organization = organization;
         this.employee = employee;
+        this.transactions = transactions;
 
     }
 

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {MenuAction} from "@shared/model";
+import {MenuHelperUtils} from "@shared/helper";
+import {NavigationService} from "@shared/service";
 
 @Component({
   selector: 'app-employee-menu',
@@ -6,10 +9,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./employee-menu.component.scss']
 })
 export class EmployeeMenuComponent implements OnInit {
+  showMenu = false;
+  menu: MenuAction[] = MenuHelperUtils.generateMenu('');
 
-  constructor() { }
+  constructor(public navigationService: NavigationService) {
+
+  }
 
   ngOnInit(): void {
   }
-
 }
