@@ -1,9 +1,4 @@
-import {Component, OnInit} from '@angular/core';
-import {ContactCreatePayload} from "../../../model";
-import {ContactHelper} from "../../../helper/contact.helper";
-import {ContactService} from "../../../service/contact.service";
-import {FormAction, MenuActionType} from "@shared/model";
-
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-contact-create',
@@ -11,12 +6,10 @@ import {FormAction, MenuActionType} from "@shared/model";
   styleUrls: ['./contact-create.component.scss']
 })
 export class ContactCreateComponent implements OnInit {
-  payload: ContactCreatePayload = ContactHelper.getCreatePayload();
-  formAction=FormAction
-  constructor(public contactService: ContactService) { }
+
+  constructor() { }
 
   ngOnInit(): void {
-    this.contactService.currentAction$.next(MenuActionType.ADD);
   }
 
 }

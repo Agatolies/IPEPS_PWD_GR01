@@ -7,10 +7,6 @@ export interface Contact extends IsEmpty {
   firstname: string;
   email: string;
   phone: string;
-
-  deleted:boolean,
-  deletedAt:Date,
-  deletedBy:string,
 }
 
 export interface ContactCell {

@@ -36,18 +36,6 @@ const routes: Routes = [
   {
     path: 'wallet',
     canActivate: [SecurityGuard],
-    loadChildren: ()=> import('./modules/document/document.module').then(m =>m.DocumentModule)
-  },
-  {
-    path: 'contact',
-    canActivate: [PublicGuard],
-    loadChildren: ()=> import('./modules/contact/contact.module').then(m =>m.ContactModule)
-  },
-  {
-    path: 'address',
-    canActivate: [PublicGuard],
-    loadChildren: ()=> import('./modules/address/address.module').then(m =>m.AddressModule)
-  },
     loadChildren: () => import('./modules/wallet/wallet.module').then(m => m.WalletModule)
   }
 ];
