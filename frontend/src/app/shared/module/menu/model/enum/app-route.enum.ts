@@ -114,7 +114,6 @@ export enum AppRouteEnum {
   WALLET_DELETE = 'dashboard/ecosystem/wallet/delete',
   WALLET_ROUTER = 'dashboard/wallet',
 
-
   //Remember
   ECO_SYSTEM_REMEMBER_HOME = 'dashboard/ecosystem/remember/home',
   ECO_SYSTEM_REMEMBER_CREATE = 'dashboard/ecosystem/remember/create',
