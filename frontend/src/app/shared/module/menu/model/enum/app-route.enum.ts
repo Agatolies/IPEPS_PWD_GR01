@@ -8,6 +8,7 @@ export enum AppRouteEnum {
   ECOSYSTEM_HOME = '/dashboard/ecosystem',
 
 
+
   CONTACT_SHOW_HOME_PAGE = 'contact/home',
   WALLET_SHOW_HOME_PAGE = 'wallet/home',
 
@@ -45,6 +46,15 @@ export enum AppRouteEnum {
   ECO_SYSTEM_PLANNING_UPDATE = 'dashboard/ecosystem/planning/update',
   ECO_SYSTEM_PLANNING_DETAIL = 'dashboard/ecosystem/planning/detail',
   ECO_SYSTEM_PLANNING_DELETED = 'dashboard/ecosystem/planning/deleted',
+
+  //document
+  DOCUMENT_SHOW_HOME_PAGE = 'document/home',
+  DOCUMENT_CREATE = 'document/page/ecosystem/document-create',
+  DOCUMENT_UPDATE = 'document/page/ecosystem/document-update',
+  DOCUMENT_DETAIL = 'document/page/ecosystem/document-detail',
+  DOCUMENT_DELETE = 'document/page/ecosystem/document-delete',
+  DOCUMENT_ROUTER = 'dashboard/document',
+  DOCUMENT_HOME = 'document/page/ecosystem/document-home',
 
   //Prestation type
   PRESTATION_TYPE_HOME = 'dashboard/prestation-type',
@@ -104,14 +114,6 @@ export enum AppRouteEnum {
   WALLET_DELETE = 'dashboard/ecosystem/wallet/delete',
   WALLET_ROUTER = 'dashboard/wallet',
 
-
-  // Contact
-  ECO_SYSTEM_CONTACT_HOME = 'dashboard/ecosystem/contact/home',
-  ECO_SYSTEM_CONTACT_CREATE = 'dashboard/ecosystem/contact/create',
-  ECO_SYSTEM_CONTACT_UPDATE = 'dashboard/ecosystem/contact/update',
-  ECO_SYSTEM_CONTACT_DETAIL = 'dashboard/ecosystem/contact/detail',
-  ECO_SYSTEM_CONTACT_DELETED= 'dashboard/ecosystem/contact/deleted',
-
   //Remember
   ECO_SYSTEM_REMEMBER_HOME = 'dashboard/ecosystem/remember/home',
   ECO_SYSTEM_REMEMBER_CREATE = 'dashboard/ecosystem/remember/create',
@@ -156,7 +158,6 @@ export enum AppRouteEnum {
   HELP_TEAM = 'dashboard/help/team',
   HELP_ROLE = 'dashboard/help/role',
   HELP_ADDRESS = 'dashboard/help/address',
-  HELP_CONTACT= 'dashboard/help/contact',
   HELP_REMEMBER = 'dashboard/help/remember',
   HELP_PARAMETER = 'dashboard/help/parameter',
   HELP_CONTROL = 'dashboard/help/control',
