@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
-import {ApiResponse, ApiUriEnum} from "@shared/model";
-import {map, tap} from "rxjs/operators";
-import {WalletDto} from "../model";
+import {ApiResponse, ApiResponseGeneric, ApiUriEnum} from "@shared/model";
+import {filter, map, tap} from "rxjs/operators";
+import {WalletCreatePayload, WalletDto} from "../model";
 import {Observable, of} from "rxjs";
 import {SalaryDto} from "../../salary/model";
 import {TransactionDto} from "../../transaction/model";
@@ -38,20 +38,6 @@ export class WalletManagementService {
       )
   }
 
-  // public getSalariesByUserId(userId: String): Observable<SalaryDto[]> {
-  //   return this.http
-  //     .get<ApiResponse>(`${this.baseUrl}${ApiUriEnum.SALARY_LIST}`)
-  //     .pipe(
-  //       map(response => {
-  //         console.log(response);
-  //
-  //         return response.result
-  //           ? response.data as SalaryDto[]
-  //           : [];
-  //       })
-  //     )
-  // }
-
   public getTransactionsByUserId(userId: String): Observable<TransactionDto[]> {
     return this.http
       .get<ApiResponse>(`${this.baseUrl}${ApiUriEnum.TRANSACTION_LIST}`)
@@ -65,4 +51,17 @@ export class WalletManagementService {
         })
       )
   }
+
+  public createWallet(walletCreatePayload: WalletCreatePayload): Observable<WalletDto> {
+    return this.http
+      .post<ApiResponseGeneric<WalletDto>>(`${this.baseUrl}${ApiUriEnum.WALLET_CREATE}`, walletCreatePayload)
+      .pipe(
+        filter((response): response is ApiResponseGeneric<WalletDto> => !!response),
+        map(response => {
+          console.log(response);
+          return response.data!;
+        })
+      );
+  }
+
 }

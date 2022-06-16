@@ -35,11 +35,11 @@ public class Employee {
     private List<Address> addresses;
 
     @JsonManagedReference
-    @OneToMany
+    @OneToMany(mappedBy ="employee",cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Wallet> wallets;
 
     @JsonManagedReference
-    @OneToMany
+    @OneToMany(mappedBy ="employee", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Salary> salaries;
 
     @ManyToOne

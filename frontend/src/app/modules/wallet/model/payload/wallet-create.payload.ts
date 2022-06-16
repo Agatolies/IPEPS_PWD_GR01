@@ -2,7 +2,9 @@ import {PayloadInterface} from "@shared/model";
 
 export interface WalletCreatePayload extends PayloadInterface {
   name: string;
+  type: string;
   description: string;
   actif: boolean;
-  type: string;
+  employeeId: string;
+  organizationId: string;
 }

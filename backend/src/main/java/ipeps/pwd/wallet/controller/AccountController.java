@@ -22,6 +22,7 @@ public class AccountController {
 
     @GetMapping("detail/{id}")
     public ApiResponse detail(@PathVariable("id") UUID id) {
+
         return accountService.detail(id);
     }
 

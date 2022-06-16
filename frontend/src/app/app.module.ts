@@ -20,11 +20,20 @@ import {DashboardModule} from "@dashboard/dashboard.module";
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {CreateDialogComponent} from "@shared/module/dialog/component/create-dialog/create-dialog.component";
+import {MatSelectModule} from "@angular/material/select";
+import {MatRadioModule} from "@angular/material/radio";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+
 
 @NgModule({
   declarations: [
     AppComponent,
     NavComponent,
+    CreateDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -36,6 +45,9 @@ import { MatSortModule } from '@angular/material/sort';
     MatButtonModule,
     MatSidenavModule,
     MatIconModule,
+    MatDialogModule,
+    MatInputModule,
+    MatFormFieldModule,
     TranslateModule.forRoot({
       defaultLanguage: 'fr',
       loader: {
@@ -48,7 +60,11 @@ import { MatSortModule } from '@angular/material/sort';
     DashboardModule,
     MatTableModule,
     MatPaginatorModule,
-    MatSortModule
+    MatSortModule,
+    MatSelectModule,
+    MatRadioModule,
+    ReactiveFormsModule,
+    FormsModule,
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true

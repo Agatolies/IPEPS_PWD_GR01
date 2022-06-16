@@ -1,7 +1,15 @@
 <!-- Titre de la page -->
 <app-page-title
   [title]="'Mes portefeuilles'"
-  [subtitle]="'Papa\'s Travel'"></app-page-title>
+  [subtitle]="'Papa\'s Travel'">
+</app-page-title>
+
+<!-- Barre d'outils -->
+<mat-card class="mt-2">
+  <button mat-raised-button class="mr-1" (click)="openCreateWalletDialog()">
+    Créer un portefeuille
+  </button>
+</mat-card>
 
 <!-- Liste de WalletCards -->
 <mat-grid-list cols="3" rowHeight="200px">
@@ -12,13 +20,6 @@
       (click)="selectTransactionForWallet(i)"></app-wallet-card>
   </mat-grid-tile>
 </mat-grid-list>
-
-<!-- Barre d'outils -->
-<mat-card class="mt-2">
-  <button mat-raised-button color="primary" class="mr-1">
-    Créer un portefeuille
-  </button>
-</mat-card>
 
 <!-- Tableau de transactions -->
 <table mat-table [dataSource]="myTransactions" class="mat-elevation-z8 mt-2">
