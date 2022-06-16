@@ -4,6 +4,7 @@ export enum Entity {
   PRESTATION = 'PRESTATION',
   EMPLOYEE = 'EMPLOYEE',
   ADDRESS = 'ADDRESS',
+  CONTACT = 'CONTACT',
   REMEMBER = 'REMEMBER',
   PARAMETER = 'PARAMETER',
   HISTORY = 'HISTORY',
@@ -14,9 +15,11 @@ export enum Entity {
   GENERATOR = 'GENERATOR'
 }
 
-export const ALL_ENTITY = [Entity.EMPLOYEE,
+export const ALL_ENTITY = [
+  Entity.EMPLOYEE,
   Entity.TEMPLATE,
   Entity.ADDRESS,
+  Entity.CONTACT,
   Entity.CONTROL,
   Entity.EMPLOYEE,
   Entity.GENERATOR,

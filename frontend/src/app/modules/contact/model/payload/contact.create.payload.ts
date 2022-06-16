@@ -5,4 +5,8 @@ export interface ContactCreatePayload extends PayloadInterface{
   firstname: string;
   email: string;
   phone: string;
+
+  deleted:boolean,
+  deletedAt:Date,
+  deletedBy:string,
 }

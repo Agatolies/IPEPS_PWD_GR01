@@ -41,5 +41,13 @@ export enum AppUriEnum {
   CONTACT_ROUTER = 'contact/page/ecosystem/contact-router',
   CONTACT_HOME = 'contact/page/ecosystem/contact-home',
 
+ //Address
+  // ADDRESS_SHOW_HOME_PAGE = 'address/home',
+  // ADDRESS_CREATE = 'address/page/ecosystem/address-create',//
+  // ADDRESS_UPDATE = 'address/page/ecosystem/address-update',//
+  // ADDRESS_DETAIL = 'address/page/ecosystem/address-detail',//
+  // ADDRESS_DELETE = 'address/page/ecosystem/address-delete',//
+  // ADDRESS_ROUTER = 'address/page/ecosystem/address-router',//
+  // ADDRESS_HOME = 'address/page/ecosystem/address-home',//
 
 }
