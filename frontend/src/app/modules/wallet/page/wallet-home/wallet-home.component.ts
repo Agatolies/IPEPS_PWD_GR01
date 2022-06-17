@@ -81,7 +81,7 @@ export class WalletHomeComponent implements OnInit, OnDestroy {
         } else {
           const employee = accountDto.employees[0];
 
-          this.myWallets = employee.wallets;
+          this.myWallets = employee.wallets.filter(wallet => wallet.actif);
           this.myTransactions = employee.wallets[walletIndex].transactions;
           this.employeeId = employee.employee_id;
           this.organizationId = employee.organization.organization_id;
