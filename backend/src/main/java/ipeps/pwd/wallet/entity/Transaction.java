@@ -26,12 +26,12 @@ public class Transaction {
 
     private float amount;
 
-    @JsonBackReference
+   @JsonIgnore
     @OneToOne
     @JoinColumn(name = "document_id_fk")
     private Document document;
 
-    @JsonBackReference
+   @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "wallet_id_fk")
     private Wallet wallet;

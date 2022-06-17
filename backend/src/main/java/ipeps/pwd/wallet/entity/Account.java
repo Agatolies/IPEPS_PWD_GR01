@@ -1,6 +1,6 @@
 package ipeps.pwd.wallet.entity;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -25,7 +25,7 @@ public class Account {
     private String firstname;
     private String lastname;
 
-    @JsonManagedReference
+    @JsonIgnore
     @OneToMany(mappedBy = "account")
     private List<Employee> employees;
 

@@ -1,6 +1,7 @@
 package ipeps.pwd.wallet.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -28,19 +29,19 @@ public class Address {
     private String town;
     private String country;
 
-    @JsonBackReference
+   @JsonIgnore
     @ManyToOne
-    @JoinColumn(name = "employee_id_fk")
+    @JoinColumn(name = "employee_id_fk", referencedColumnName = "employee_id")
     private Employee employee;
 
-    @JsonBackReference
+   @JsonIgnore
     @ManyToOne
-    @JoinColumn(name = "organization_id_fk")
+    @JoinColumn(name = "organization_id_fk", referencedColumnName = "organization_id")
     private Organization organization;
 
-    @JsonBackReference
+   @JsonIgnore
     @ManyToOne
-    @JoinColumn(name = "contact_id_fk")
+    @JoinColumn(name = "contact_id_fk", referencedColumnName = "contact_id")
     private Contact contact;
 
     public Address(String type, String road, String number, String box, String cp,

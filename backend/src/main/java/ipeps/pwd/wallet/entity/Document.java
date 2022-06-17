@@ -34,12 +34,12 @@ public class Document {
     @JoinColumn(name = "transaction_id_fk")
     private Transaction transaction;
 
-    @JsonBackReference
+   @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "employee_id_fk")
     private Employee employee;
 
-    @JsonBackReference
+   @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "organization_id_fk")
     private Organization organization;
