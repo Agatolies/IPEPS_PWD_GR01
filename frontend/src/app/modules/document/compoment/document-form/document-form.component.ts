@@ -1,10 +1,9 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {DocumentCreatePayload, DocumentUpdatePayload} from "../../Model";
-import {FormAction} from "@shared/model";
+import {ApiResponse, FormAction} from "@shared/model";
 import {FormBuilder, FormControl, FormGroup} from "@angular/forms";
 import {DocumentService} from "../../service/document.service";
 import {NavigationService} from "@shared/service";
-
 
 @Component({
   selector: 'app-document-form',
@@ -15,11 +14,13 @@ export class DocumentFormComponent implements OnInit {
   @Input() payload!: DocumentCreatePayload |DocumentUpdatePayload;
   @Input() type!: FormAction;
 
+
   formGroup!: FormGroup;
   formGroupDoc!: FormGroup;
   label!: string;
 
-  constructor(public documentService: DocumentService, public navigationService: NavigationService,
+  constructor(public documentService: DocumentService,
+              public navigationService: NavigationService,
               private formBuilder: FormBuilder) {
   }
 
@@ -30,7 +31,8 @@ export class DocumentFormComponent implements OnInit {
       name: new FormControl(this.payload.name),
       description: new FormControl(this.payload.description),
       path: new FormControl(this.payload.path),
-      type: new FormControl(this.payload.type)
+      type: new FormControl(this.payload.type),
+      employee: new FormControl(this.payload.employee)
     });
   }
 initFormDoc(){
@@ -38,7 +40,25 @@ initFormDoc(){
       name: '',
       description: '',
       path: '',
-      type:''
+      type:'',
+      employee: '',
     });
 }
+
+  save():void {
+    console.log(this.formGroupDoc.value);
+    if(this.type === FormAction.ADD){
+      console.log('mon deuxième payload', this.payload);
+      // create(this.foormGroup.value)
+      this.documentService.create(this.formGroupDoc.value).subscribe((data:ApiResponse)=>{
+
+      })
+    }else{
+      const p:DocumentUpdatePayload = {...this.formGroupDoc.value,document_id:this.payload.id}
+      //update
+      this.documentService.update(p).subscribe((data:ApiResponse)=>{
+
+      })
+    }
+  }
 }

@@ -16,7 +16,7 @@ public class DocumentCreatePayload {
     private String path;
     private String type;
     private boolean freeAccess;
-    private Transaction transaction;
-    private Employee employee;
+    private Transaction transaction; //string transaction_id
+    private Employee employee;//string employee_id
     private Organization organization;
 }
