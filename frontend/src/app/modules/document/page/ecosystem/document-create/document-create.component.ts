@@ -21,6 +21,7 @@ export class DocumentCreateComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log('mon premier payload' ,this.payload);
     this.documentService.currentAction$.next(MenuActionType.ADD);
 
   }

@@ -1,5 +1,6 @@
 <form [formGroup]="formGroupDoc"  novalidate>
   <div class="table-form">
+
     <div class="row">
       <div class="cell">
         <app-form-input [type]="'text'"
@@ -9,6 +10,7 @@
                         [placeholder]="'app.document.form.placeholder.name'"
                         [readonly]="false"></app-form-input>
       </div>
+
       <div class="cell">
         <app-form-input [type]="'text'"
                         formControlName="type"
@@ -17,7 +19,11 @@
                         [placeholder]="'app.document.form.placeholder.type'"
                         [readonly]="false"></app-form-input>
       </div>
+
+
+
     </div>
+
     <div class="row">
       <div class="cell">
         <app-form-input [type]="'text'"
@@ -41,6 +47,12 @@
     </div>
   </div>
 
+
+  <mat-card class="mt-2">
+    <app-form-btn (onClick)="save()" [css]="'save-btn'"  [label]="label" >
+      Créer un document
+    </app-form-btn>
+  </mat-card>
 </form>
 
 

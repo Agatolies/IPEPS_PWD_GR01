@@ -21,12 +21,14 @@
   "document": {
     "form": {
       "label": {
+        "employee": "Employee",
         "path": "Content of the document",
         "name": "Document title",
         "type": "Document type",
         "description": "Document description"
       },
       "placeholder": {
+        "employee": "Employee",
         "path": "Content of the document",
         "name": "Document title",
         "type": "Document type",

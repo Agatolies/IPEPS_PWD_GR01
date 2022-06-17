@@ -7,5 +7,6 @@ export interface Document extends IsEmpty {
   path: string;
   type: string;
   freeAccess: boolean;
+  employee:string;
   deleted: boolean;
 }

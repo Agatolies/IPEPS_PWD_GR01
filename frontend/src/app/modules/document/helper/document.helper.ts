@@ -10,6 +10,7 @@ export class DocumentHelper {
       path: dto.path,
       type: dto.type,
       freeAccess: dto.freeAccess,
+      employee:dto.employee,
       deleted: dto.deleted,
       isEmpty: false
     }
@@ -23,6 +24,7 @@ export class DocumentHelper {
       path: business.path,
       type: business.type,
       freeAccess: business.freeAccess,
+      employee:business.employee,
       deleted: business.deleted
     }
   }
@@ -35,6 +37,7 @@ export class DocumentHelper {
       path: '',
       type: '',
       freeAccess : false,
+      employee: '',
       deleted: false,
       isEmpty: true
     }
@@ -47,6 +50,7 @@ export class DocumentHelper {
       path: '',
       type: '',
       freeAccess : false,
+      employee:'',
       deleted : false
     }
   }

@@ -50,7 +50,8 @@ export class FormInputComponent implements OnInit, AfterViewInit, ControlValueAc
   }
 
   set value(v: any) {
-    console.log(v)
+    console.log(v);
+    console.log(this._value);
     if (v !== this._value) {
       this._value = v;
       this.onChange(v);
