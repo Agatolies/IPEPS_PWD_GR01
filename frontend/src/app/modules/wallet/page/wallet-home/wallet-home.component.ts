@@ -6,11 +6,11 @@ import {EmployeeService} from "@employee/service/employee.service";
 import {AuthService} from "@security/service/auth.service";
 import {AccountService} from "@account/service/account.service";
 import {mergeMap} from "rxjs/operators";
-import {TransactionDto} from "../../../transaction/model";
 import {AccountDto} from "@account/model";
 import {MatDialog, MatDialogRef} from "@angular/material/dialog";
 import {CreateWalletDialogComponent} from "../../component/create-wallet-dialog/create-wallet-dialog.component";
 import {MatSnackBar} from "@angular/material/snack-bar";
+import {TransactionDto} from "../../model/dto/transaction.dto";
 
 @Component({
   selector: 'app-wallet-home',

@@ -1,4 +1,4 @@
-import {TransactionDto} from "../../../transaction/model";
+import {TransactionDto} from "./transaction.dto";
 
 export interface WalletDto {
 
