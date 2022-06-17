@@ -41,8 +41,9 @@ public class Employee {
     // orphanRemoval = true : l'item orphelin d'une entité sera supprimée lorsque l'item de l'entité sera retiré de la commande.
     private List<Document> documents;
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL, orphanRemoval = true)
+//    @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "employee")
+//    @JoinColumn(name="employee_id_fk", referencedColumnName = "employee_id")
     private List<Wallet> wallets;
 
     @JsonIgnore

@@ -18,14 +18,11 @@ import java.util.UUID;
 @Entity
 public class Account {
     @Id
-    @GeneratedValue(generator = "UUID")
-    @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
     @Column(name = "account_id", nullable = false, updatable = false)
     private UUID account_id;
     private String firstname;
     private String lastname;
 
-    @JsonIgnore
     @OneToMany(mappedBy = "account")
     private List<Employee> employees;
 
