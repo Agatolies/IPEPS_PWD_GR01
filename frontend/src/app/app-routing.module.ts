@@ -37,6 +37,11 @@ const routes: Routes = [
     path: 'wallet',
     canActivate: [SecurityGuard],
     loadChildren: () => import('./modules/wallet/wallet.module').then(m => m.WalletModule)
+  },
+  {
+    path: 'document',
+    canActivate: [SecurityGuard],
+    loadChildren: ()=> import('./modules/document/document.module').then(m =>m.DocumentModule)
   }
 ];
 

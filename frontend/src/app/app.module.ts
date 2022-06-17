@@ -17,11 +17,14 @@ import { MatListModule } from '@angular/material/list';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import {DashboardModule} from "@dashboard/dashboard.module";
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavComponent
+    NavComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,7 +45,10 @@ import {DashboardModule} from "@dashboard/dashboard.module";
       }
     }),
     MatListModule,
-    DashboardModule
+    DashboardModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true
