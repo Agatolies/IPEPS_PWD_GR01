@@ -9,14 +9,12 @@ export enum AppUriEnum {
   EMPLOYEE_EDIT_FORM = 'employee/create/',
   EMPLOYEE_DELETE = 'employee/delete/',
 
-  //Document adress backend
+  //Document address
   DOCUMENT_SHOW_HOME_PAGE = 'document/home',
   DOCUMENT_CREATE = 'document/create',
-  DOCUMENT_UPDATE = 'document/page/ecosystem/document-update',
-  DOCUMENT_DETAIL = 'document/page/ecosystem/document-detail',
-  DOCUMENT_DELETE = 'document/page/ecosystem/document-delete',
-  DOCUMENT_ROUTER = 'document/page/ecosystem/document-router',
-  DOCUMENT_HOME = 'document/page/ecosystem/document-home',
+  DOCUMENT_UPDATE = 'document/update',
+  DOCUMENT_DETAIL = 'document/detail',
+  DOCUMENT_DELETE = 'document/delete',
 
   //Account
   ACCOUNT_SHOW_HOME_PAGE = 'my-account/home',
