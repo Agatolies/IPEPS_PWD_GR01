@@ -31,17 +31,17 @@ public class Document {
 
     @JsonIgnore // empèche l'affichage de la propriété
     @OneToOne
-    @JoinColumn(name = "transaction_id_fk")
+    @JoinColumn(name = "transaction_id_fk", referencedColumnName = "transaction_id")
     private Transaction transaction;
 
    @JsonIgnore
     @ManyToOne
-    @JoinColumn(name = "employee_id_fk")
+    @JoinColumn(name = "employee_id_fk", referencedColumnName = "employee_id")
     private Employee employee;
 
    @JsonIgnore
     @ManyToOne
-    @JoinColumn(name = "organization_id_fk")
+    @JoinColumn(name = "organization_id_fk", referencedColumnName = "organisation_id")
     private Organization organization;
 
     public Document(String name, String description, String path, String type,

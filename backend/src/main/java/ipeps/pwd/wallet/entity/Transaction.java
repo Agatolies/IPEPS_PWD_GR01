@@ -28,7 +28,6 @@ public class Transaction {
 
    @JsonIgnore
     @OneToOne
-    @JoinColumn(name = "document_id_fk")
     private Document document;
 
    @JsonIgnore
