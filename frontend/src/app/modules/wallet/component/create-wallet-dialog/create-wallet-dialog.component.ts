@@ -1,7 +1,7 @@
-import {Component, Inject, Input, OnInit} from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
 import {FormGroup, FormBuilder, Validators} from "@angular/forms";
-import {WalletManagementService} from "../../../../../modules/wallet/service/wallet-management.service";
-import {WalletCreatePayload} from "../../../../../modules/wallet/model";
+import {WalletManagementService} from "../../service/wallet-management.service";
+import {WalletCreatePayload} from "../../model";
 import {MAT_DIALOG_DATA} from "@angular/material/dialog";
 
 interface IData {
@@ -11,16 +11,17 @@ interface IData {
 
 @Component({
   selector: 'app-create-dialog',
-  templateUrl: './create-dialog.component.html',
-  styleUrls: ['./create-dialog.component.scss']
+  templateUrl: './create-wallet-dialog.component.html',
+  styleUrls: ['./create-wallet-dialog.component.scss']
 })
-export class CreateDialogComponent implements OnInit {
+export class CreateWalletDialogComponent implements OnInit {
 
   walletForm !: FormGroup;
 
   constructor(
     private formBuilder: FormBuilder,
     private walletManagementService: WalletManagementService,
+    // public dialogRef: MatDialogRef<CreateWalletDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: IData
   ) { }
 
@@ -49,5 +50,11 @@ export class CreateDialogComponent implements OnInit {
     this.walletManagementService
       .createWallet(payload)
       .subscribe();
+  //
+  //     (() => this.closeDialog());
+  // }
+  //
+  // closeDialog() {
+  //   this.dialogRef.close();
   }
 }

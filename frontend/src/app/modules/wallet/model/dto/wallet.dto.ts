@@ -1,5 +1,3 @@
-import {OrganizationDto} from "@organization/model";
-import {EmployeeDto} from "@employee/model";
 import {TransactionDto} from "../../../transaction/model";
 
 export interface WalletDto {
@@ -9,7 +7,5 @@ export interface WalletDto {
   description: string;
   actif: boolean;
   type: string;
-  organization: OrganizationDto;
-  employee: EmployeeDto;
   transactions: TransactionDto[];
 }
