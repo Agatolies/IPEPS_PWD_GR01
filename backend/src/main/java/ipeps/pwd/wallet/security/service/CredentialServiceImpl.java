@@ -2,8 +2,13 @@ package ipeps.pwd.wallet.security.service;
 
 import ipeps.pwd.wallet.builder.AccountBuilder;
 import ipeps.pwd.wallet.builder.EmployeeBuilder;
+import ipeps.pwd.wallet.builder.OrganizationBuilder;
+import ipeps.pwd.wallet.builder.WalletBuilder;
 import ipeps.pwd.wallet.common.entity.response.ApiResponse;
 import ipeps.pwd.wallet.entity.Employee;
+import ipeps.pwd.wallet.entity.Organization;
+import ipeps.pwd.wallet.repository.EmployeeRepository;
+import ipeps.pwd.wallet.repository.OrganizationRepository;
 import ipeps.pwd.wallet.security.entity.payload.SignupRequest;
 import ipeps.pwd.wallet.entity.Account;
 import ipeps.pwd.wallet.repository.AccountRepository;
@@ -24,6 +29,12 @@ public class CredentialServiceImpl implements CredentialService {
 
     @Autowired
     AccountRepository accountRepository;
+
+    @Autowired
+    OrganizationRepository organizationRepository;
+
+    @Autowired
+    EmployeeRepository employeeRepository;
 
     @Autowired
     PasswordEncoder encoder;
@@ -50,6 +61,18 @@ public class CredentialServiceImpl implements CredentialService {
                 return new ApiResponse(false, null, "api.signup.email-exist");
             } else {
                 try {
+                    // Organisation par defaut
+                    String organizationName = "Papa's Travel Liège";
+                    String organizationDescription = "Siège social";
+
+//                    this.organizationRepository.getById();
+
+                    Organization organization = new OrganizationBuilder()
+                            .setName(organizationName)
+                            .setDescription(organizationDescription)
+                            .setActif(true)
+                            .build();
+
                     Credential credential = new Credential.Builder()
                             .setUsername(request.getUsername())
                             .setPassword(encoder.encode(request.getPassword()))
@@ -66,9 +89,13 @@ public class CredentialServiceImpl implements CredentialService {
 
                     account = this.saveAccount(account);
 
-                    // Peut etre créer un employé et un portefeuille a la création du compte
+                    Employee employee = new EmployeeBuilder()
+                            .setActif(true)
+                            .setAccount(account)
+                            .setRole("EMPLOYE")
+                            .build();
 
-                    this.saveAccount(account);
+                    employee = this.employeeRepository.save(employee);
 
                     return new ApiResponse(true, credential, null);
                 } catch (Exception e) {
