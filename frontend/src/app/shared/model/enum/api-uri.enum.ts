@@ -33,6 +33,12 @@ export enum ApiUriEnum {
   ADDRESS_UPDATE = 'address/update',
   ADDRESS_DELETE = 'address/delete/',
 
+  //Document
+  DOCUMENT_CREATE = 'document/create',
+  DOCUMENT_UPDATE = 'document/update',
+  DOCUMENT_DETAIL = 'document/detail',
+  DOCUMENT_DELETE = 'document/delete',
+
   //Contact
   CONTACT_LIST = 'contact/list',
   CONTACT_DETAIL = 'contact/detail/',

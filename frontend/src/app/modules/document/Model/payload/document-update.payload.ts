@@ -8,5 +8,4 @@ export interface DocumentUpdatePayload  extends PayloadInterface{
   type: string;
   freeAccess: boolean;
   employee: string;
-  deleted: boolean;
 }

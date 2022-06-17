@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import {BehaviorSubject} from "rxjs";
+import {DocumentService} from "../../../service/document.service";
+import {ApiResponse} from "@shared/model";
+import {Document, Documentdto} from "../../../Model";
+import {DocumentHelper} from "../../../helper/document.helper";
 
 @Component({
   selector: 'app-document-list',
@@ -7,9 +12,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DocumentListComponent implements OnInit {
 
-  constructor() { }
+  public list$ : BehaviorSubject<Document[]> = new BehaviorSubject<Document[]>([]);
+
+  constructor(public documentService : DocumentService) { }
 
   ngOnInit(): void {
+    this.documentService.getList()
+      .subscribe((response: ApiResponse) => {
+        if (response.result) {
+          const documentDto = response.data! as Documentdto[];
+          this.list$.next(documentDto.map((v: Documentdto) => DocumentHelper.fromDTO(v)));
+        }
+      })
   }
-
 }
