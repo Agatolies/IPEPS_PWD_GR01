@@ -4,7 +4,7 @@ import {
   DocumentCreateComponent,
   DocumentDeleteComponent,
   DocumentDetailComponent,
-  DocumentHomeComponent,
+  DocumentHomeComponent, DocumentListComponent,
   DocumentRouterComponent,
   DocumentUpdateComponent
 } from "./page";
@@ -38,6 +38,10 @@ const routes: Routes = [
       {
         path: 'delete',
         component: DocumentDeleteComponent
+      },
+      {
+        path: 'list',
+        component: DocumentListComponent
       }
     ]
   }

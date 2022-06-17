@@ -41,7 +41,6 @@ public class Document {
 
    @JsonIgnore
     @ManyToOne
-    @JoinColumn(name = "organization_id_fk", referencedColumnName = "organisation_id")
     private Organization organization;
 
     public Document(String name, String description, String path, String type,

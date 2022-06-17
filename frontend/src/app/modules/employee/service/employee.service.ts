@@ -14,7 +14,7 @@ export class EmployeeService extends ApiService{
     super(http);
   }
 
-  public getList(): Observable<Employee[]> {
+ /*public getList(): Observable<Employee[]> {
 
   return this.get('person/list')
        .pipe(
@@ -31,7 +31,7 @@ export class EmployeeService extends ApiService{
                      id: transforme.wallets.wa,
                      name: transforme.wallets.name,
                    }
-                   organization: {
+                   //organization: {
                      id:transforme.organization.organization_id,
                      name: transforme.organization.name,
                      description: transforme.organization.description,
@@ -46,7 +46,7 @@ export class EmployeeService extends ApiService{
                  };
                })
          }));
-  }
+  }*/
 
   public getDetail(id : string): Observable<EmployeeDto>{
     return this.get(`${ApiUriEnum.EMPLOYEE_DETAIL}${id}`)
