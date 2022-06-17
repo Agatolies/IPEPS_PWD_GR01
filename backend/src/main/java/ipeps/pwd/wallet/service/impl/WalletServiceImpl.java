@@ -91,6 +91,7 @@ public class WalletServiceImpl implements WalletService {
 
             Wallet wallet = new WalletBuilder()
                     .setName(payload.getName())
+                    .setActif(payload.isActif())
                     .setDescription(payload.getDescription())
                     .setType(payload.getType())
                     .setEmployee(employee)

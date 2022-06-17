@@ -1,15 +1,16 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {WalletDto} from "../../../model";
+import {WalletDto} from "../../model";
 import {BehaviorSubject, combineLatest, Observable, Subscription} from "rxjs";
-import {WalletManagementService} from "../../../service/wallet-management.service";
+import {WalletManagementService} from "../../service/wallet-management.service";
 import {EmployeeService} from "@employee/service/employee.service";
 import {AuthService} from "@security/service/auth.service";
 import {AccountService} from "@account/service/account.service";
 import {mergeMap} from "rxjs/operators";
-import {TransactionDto} from "../../../../transaction/model";
 import {AccountDto} from "@account/model";
-import {CreateDialogComponent} from "@shared/module/dialog/component/create-dialog/create-dialog.component";
-import {MatDialog} from "@angular/material/dialog";
+import {MatDialog, MatDialogRef} from "@angular/material/dialog";
+import {CreateWalletDialogComponent} from "../../component/create-wallet-dialog/create-wallet-dialog.component";
+import {MatSnackBar} from "@angular/material/snack-bar";
+import {TransactionDto} from "../../model/dto/transaction.dto";
 
 @Component({
   selector: 'app-wallet-home',
@@ -29,13 +30,15 @@ export class WalletHomeComponent implements OnInit, OnDestroy {
   myTransactions: TransactionDto[] = [];
   private employeeId?: string;
   private organizationId?: string;
+  private dialogRef?: MatDialogRef<CreateWalletDialogComponent, any>;
 
   constructor(
     private auth: AuthService,
     private walletManagement: WalletManagementService,
     private employeeService: EmployeeService,
     private accountService: AccountService,
-    private dialog : MatDialog)
+    private dialog : MatDialog,
+    private snackBar: MatSnackBar)
   {
   }
 
@@ -78,7 +81,7 @@ export class WalletHomeComponent implements OnInit, OnDestroy {
         } else {
           const employee = accountDto.employees[0];
 
-          this.myWallets = employee.wallets;
+          this.myWallets = employee.wallets.filter(wallet => wallet.actif);
           this.myTransactions = employee.wallets[walletIndex].transactions;
           this.employeeId = employee.employee_id;
           this.organizationId = employee.organization.organization_id;
@@ -93,12 +96,36 @@ export class WalletHomeComponent implements OnInit, OnDestroy {
   }
 
   openCreateWalletDialog() {
-    this.dialog.open(CreateDialogComponent, {
+    // dialogRef = pointeur/ficelle qui permet de manipuler le composant
+    this.dialogRef = this.dialog.open(
+      CreateWalletDialogComponent,
+      {
       width: '30%',
       data: {
         employeeId: this.employeeId,
         organizationId: this.organizationId
       }
     });
+
+    this.dialogRef
+      .afterClosed()
+      .subscribe(isSuccess => {
+        if (isSuccess) {
+          this.loadWallets();
+          this.snackBar.open('Le portefeuille a été créé')
+        } else {
+          this.snackBar.open('Une erreur a été rencontrée')
+        }
+      })
+  }
+
+  deleteWallet($walletId: string) {
+    this.walletManagement
+      .deleteWallet($walletId)
+      .subscribe(() => {
+        this.loadWallets();
+        this.snackBar.open('Le portefeuille a été supprimé');
+      });
+
   }
 }

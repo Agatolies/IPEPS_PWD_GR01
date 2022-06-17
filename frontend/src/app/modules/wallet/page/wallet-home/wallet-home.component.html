@@ -1,7 +1,9 @@
 <!-- Titre de la page -->
 <app-page-title
   [title]="'Mes portefeuilles'"
-  [subtitle]="'Papa\'s Travel'">
+  [subtitle]="'Papa\'s Travel'"
+  [badgeContent]="myWallets?.length"
+>
 </app-page-title>
 
 <!-- Barre d'outils -->
@@ -12,12 +14,13 @@
 </mat-card>
 
 <!-- Liste de WalletCards -->
-<mat-grid-list cols="3" rowHeight="200px">
+<mat-grid-list cols="3" gutterSize="10px">
   <mat-grid-tile *ngFor="let wallet of myWallets; let i = index" [attr.data-index]="i">
     <app-wallet-card
+      (deleteWalletEvent)="deleteWallet($event)"
       [wallet]="wallet"
-      style=""
-      (click)="selectTransactionForWallet(i)"></app-wallet-card>
+      (click)="selectTransactionForWallet(i)"
+      style="width: 100%;"></app-wallet-card>
   </mat-grid-tile>
 </mat-grid-list>
 

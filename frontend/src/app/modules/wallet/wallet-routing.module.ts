@@ -1,8 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import {
-  WalletCreateComponent,
-  WalletDeleteComponent,
   WalletDetailComponent,
   WalletHomeComponent,
   WalletUpdateComponent
@@ -28,17 +26,9 @@ const routes: Routes = [
         component: WalletDetailComponent
       },
       {
-        path: 'create',
-        component: WalletCreateComponent
-      },
-      {
         path: 'update/:action/:id',
         component: WalletUpdateComponent
       },
-      {
-        path: 'delete',
-        component: WalletDeleteComponent
-      }
     ]
   }
 ];

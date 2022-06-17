@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {WalletDto} from "../../model";
 
 @Component({
@@ -8,6 +8,7 @@ import {WalletDto} from "../../model";
 })
 export class WalletCardComponent implements OnInit {
   @Input() wallet: WalletDto | undefined;
+  @Output() deleteWalletEvent = new EventEmitter<string>();
 
   constructor() { }
 
@@ -27,4 +28,11 @@ export class WalletCardComponent implements OnInit {
     }
   }
 
+  deleteWallet() {
+    // = si la variable est définie = différente de null
+    if(!!this.wallet) {
+      const walletId = this.wallet.wallet_id;
+      this.deleteWalletEvent.emit(walletId);
+    }
+  }
 }

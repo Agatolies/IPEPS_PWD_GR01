@@ -50,7 +50,6 @@ public class Employee {
     @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Salary> salaries;
 
-   @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "organization_id_fk")
     private Organization organization;
