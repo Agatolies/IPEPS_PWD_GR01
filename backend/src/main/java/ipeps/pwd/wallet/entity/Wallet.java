@@ -18,28 +18,27 @@ import java.util.UUID;
 @Entity
 public class Wallet {
     @Id
-    @GeneratedValue(generator="UUID")
-    @GenericGenerator(name="UUID",strategy="org.hibernate.id.UUIDGenerator")
-    @Column(name="wallet_id", nullable = false, updatable = false)
+    @GeneratedValue(generator = "UUID")
+    @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
+    @Column(name = "wallet_id", nullable = false, updatable = false)
     private UUID wallet_id;
     private String name;
     private String description;
     private boolean actif;
     private String type;
 
-   @JsonIgnore
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "organization_id_fk", referencedColumnName = "organization_id")
     private Organization organization;
 
-   @JsonIgnore
-   @ManyToOne
-   @JoinColumn(name = "employee_id_fk", referencedColumnName = "employee_id")
-   private Employee employee;
-
     @JsonIgnore
+    @ManyToOne
+    @JoinColumn(name = "employee_id_fk", referencedColumnName = "employee_id")
+    private Employee employee;
+
     @OneToMany
-    @JoinColumn(name="wallet_id_fk", referencedColumnName = "wallet_id")
+    @JoinColumn(name = "wallet_id_fk", referencedColumnName = "wallet_id")
     private List<Transaction> transactions;
 
     public Wallet(String name, String description, boolean actif, String type,
@@ -53,6 +52,4 @@ public class Wallet {
         this.transactions = transactions;
 
     }
-
-
 }

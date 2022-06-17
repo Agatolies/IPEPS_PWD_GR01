@@ -41,7 +41,7 @@ public class CredentialServiceImpl implements CredentialService {
 
     @Override
     public Credential saveCredential(Credential credential) {
-        return credentialRepository.save(credential);
+        return credentialRepository.saveAndFlush(credential);
     }
 
     public Account saveAccount(Account account) {
