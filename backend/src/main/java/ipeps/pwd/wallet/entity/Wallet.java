@@ -33,8 +33,9 @@ public class Wallet {
     private Organization organization;
 
    @JsonIgnore
-    @ManyToOne
-    private Employee employee;
+   @ManyToOne
+   @JoinColumn(name = "employee_id_fk", referencedColumnName = "employee_id")
+   private Employee employee;
 
     @JsonIgnore
     @OneToMany

@@ -40,7 +40,9 @@ public class Employee {
     private List<Document> documents;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL, orphanRemoval = true)
+//    @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "employee")
+//    @JoinColumn(name="employee_id_fk", referencedColumnName = "employee_id")
     private List<Wallet> wallets;
 
     @JsonIgnore
