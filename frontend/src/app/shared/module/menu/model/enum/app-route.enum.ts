@@ -49,6 +49,7 @@ export enum AppRouteEnum {
 
   //document
   DOCUMENT_SHOW_HOME_PAGE = 'document/home',
+  DOCUMENT_LIST = 'document/page/ecosystem/document-list',
   DOCUMENT_CREATE = 'document/page/ecosystem/document-create',
   DOCUMENT_UPDATE = 'document/page/ecosystem/document-update',
   DOCUMENT_DETAIL = 'document/page/ecosystem/document-detail',

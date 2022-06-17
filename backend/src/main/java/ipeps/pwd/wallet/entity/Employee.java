@@ -36,7 +36,9 @@ public class Employee {
     private List<Address> addresses;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "employee")
+    @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL, orphanRemoval = true)
+    // mappedBy indique le nom de l’attribut dans l’autre entité, cascadeType.ALL = pour toutes les opérations
+    // orphanRemoval = true : l'item orphelin d'une entité sera supprimée lorsque l'item de l'entité sera retiré de la commande.
     private List<Document> documents;
 
 //    @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL, orphanRemoval = true)
@@ -62,13 +64,14 @@ public class Employee {
     private List<MessageAction> messageActions;
 
     public Employee(String role, boolean actif, Account account, List<Address> addresses,
-                    List<Wallet> wallets, List<Salary> salaries, Organization organization) {
+                    List<Wallet> wallets, List<Salary> salaries, List<Document> documents, Organization organization) {
         this.role = role;
         this.actif = actif;
         this.account = account;
         this.addresses = addresses;
         this.wallets = wallets;
         this.salaries = salaries;
+        this.documents = documents;
         this.organization = organization;
     }
 }

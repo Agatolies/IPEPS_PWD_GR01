@@ -14,6 +14,7 @@ export class EmployeeService extends ApiService{
     super(http);
   }
 
+
   // public getList(): Observable<Employee[]> {
 
   //   return this.get('person/list')
@@ -47,6 +48,7 @@ export class EmployeeService extends ApiService{
   //            })));
   // }));
   // }
+
 
   public getDetail(id : string): Observable<EmployeeDto>{
     return this.get(`${ApiUriEnum.EMPLOYEE_DETAIL}${id}`)
