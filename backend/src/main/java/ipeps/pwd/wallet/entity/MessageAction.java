@@ -1,6 +1,7 @@
 package ipeps.pwd.wallet.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -24,12 +25,12 @@ public class MessageAction {
     private Date actionDate;
 
     // liaison avec les entités employee et message
-    @JsonBackReference
+   @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "employee_id_fk")
     private Employee employee;
 
-    @JsonBackReference
+   @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "message_id_fk")
     private Message message;

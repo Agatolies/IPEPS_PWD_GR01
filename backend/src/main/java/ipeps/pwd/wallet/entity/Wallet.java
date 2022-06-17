@@ -1,6 +1,7 @@
 package ipeps.pwd.wallet.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -17,27 +18,27 @@ import java.util.UUID;
 @Entity
 public class Wallet {
     @Id
-    @GeneratedValue(generator="UUID")
-    @GenericGenerator(name="UUID",strategy="org.hibernate.id.UUIDGenerator")
-    @Column(name="wallet_id", nullable = false, updatable = false)
+    @GeneratedValue(generator = "UUID")
+    @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
+    @Column(name = "wallet_id", nullable = false, updatable = false)
     private UUID wallet_id;
     private String name;
     private String description;
     private boolean actif;
     private String type;
 
-    @JsonBackReference
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "organization_id_fk", referencedColumnName = "organization_id")
     private Organization organization;
 
-    @JsonBackReference
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "employee_id_fk", referencedColumnName = "employee_id")
     private Employee employee;
 
-    @JsonManagedReference
-    @OneToMany(mappedBy = "wallet")
+    @OneToMany
+    @JoinColumn(name = "wallet_id_fk", referencedColumnName = "wallet_id")
     private List<Transaction> transactions;
 
     public Wallet(String name, String description, boolean actif, String type,
@@ -51,6 +52,4 @@ public class Wallet {
         this.transactions = transactions;
 
     }
-
-
 }

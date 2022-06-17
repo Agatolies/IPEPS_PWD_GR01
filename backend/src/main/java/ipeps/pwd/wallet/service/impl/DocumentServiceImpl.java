@@ -3,6 +3,7 @@ package ipeps.pwd.wallet.service.impl;
 import ipeps.pwd.wallet.builder.DocumentBuilder;
 import ipeps.pwd.wallet.common.entity.response.ApiResponse;
 import ipeps.pwd.wallet.entity.Document;
+import ipeps.pwd.wallet.entity.Employee;
 import ipeps.pwd.wallet.payload.createPayload.DocumentCreatePayload;
 import ipeps.pwd.wallet.payload.updatePayload.DocumentUpdatePayload;
 import ipeps.pwd.wallet.repository.DocumentRepository;
@@ -45,23 +46,18 @@ public class DocumentServiceImpl implements DocumentService {
     @Override
     public ApiResponse update(DocumentUpdatePayload payload) {
         try{
-            ApiResponse response = this.detail((payload.getDocument_id()));
-            if(response.result){
-                Document document = (Document) response.data;
-                document.setName(payload.getName());
-                document.setFreeAccess(payload.isFreeAccess());
-                document.setPath(payload.getPath());
-                document.setType(payload.getType());
-                document.setDescription(payload.getDescription());
-                document.setTransaction(payload.getTransaction());
-                document.setEmployee(payload.getEmployee());
-                document.setOrganization(payload.getOrganization());
-                documentRepository.save(document);
-                return new ApiResponse(true,null, "api.document.update.success");
-            }else{
-                return response;
-            }
-        }catch(Exception e){
+
+            Document document = new DocumentBuilder()
+                    .setName(payload.getName())
+                    .setDescription(payload.getDescription())
+                    .setFreeAccess(payload.isFreeAccess())
+                    .setPath(payload.getPath())
+                    .setType(payload.getType())
+                    .build();
+
+            return new ApiResponse(true, documentRepository.save(document), "api.document.create.success" );
+
+            } catch(Exception e){
             return new ApiResponse(false, e.getMessage(), "api.document.update.error");
         }
     }

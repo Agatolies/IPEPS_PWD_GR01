@@ -83,7 +83,6 @@ public class WalletServiceImpl implements WalletService {
     @Override
     public ApiResponse create(WalletCreatePayload payload){
         try {
-
             UUID employeeId = UUID.fromString(payload.getEmployeeId());
             UUID organizationId = UUID.fromString(payload.getOrganizationId());
 

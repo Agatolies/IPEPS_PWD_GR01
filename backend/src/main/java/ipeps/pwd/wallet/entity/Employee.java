@@ -1,6 +1,7 @@
 package ipeps.pwd.wallet.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -24,37 +25,39 @@ public class Employee {
     private String role;
     private boolean actif;
 
-    @JsonBackReference
+   @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "account_id_fk")
     private Account account;
 
-    @JsonManagedReference
-    @OneToMany(mappedBy = "employee")
+    @JsonIgnore
+    @OneToMany
+    @JoinColumn(name = "employee_id_fk", referencedColumnName = "employee_id")
     private List<Address> addresses;
 
-    @JsonManagedReference
+    @JsonIgnore
     @OneToMany(mappedBy = "employee")
     private List<Document> documents;
 
-    @JsonManagedReference
-    @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL, orphanRemoval = true)
+//    @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "employee")
+//    @JoinColumn(name="employee_id_fk", referencedColumnName = "employee_id")
     private List<Wallet> wallets;
 
-    @JsonManagedReference
+    @JsonIgnore
     @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Salary> salaries;
 
-    @JsonBackReference
+   @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "organization_id_fk")
     private Organization organization;
 
-    @JsonManagedReference
+    @JsonIgnore
     @OneToMany(mappedBy = "employee")
     private List<Schedule> schedule;
 
-    @JsonManagedReference
+    @JsonIgnore
     @OneToMany(mappedBy = "employee")
     private List<MessageAction> messageActions;
 

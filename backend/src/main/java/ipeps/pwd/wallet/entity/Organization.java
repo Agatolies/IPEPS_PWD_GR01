@@ -25,19 +25,20 @@ public class Organization {
     private String description;
     private boolean actif;
 
-    @JsonManagedReference
-    @OneToMany(mappedBy = "organization")
+    @JsonIgnore
+    @OneToMany
+    @JoinColumn(name = "organization_id_fk", referencedColumnName = "organization_id")
     private List<Address> addresses;
 
-    @JsonManagedReference
+    @JsonIgnore
     @OneToMany(mappedBy = "organization")
     private List<Employee> employees;
 
-    @JsonManagedReference
+    @JsonIgnore
     @OneToMany(mappedBy = "organization")
     private List<Document> documents;
 
-    @JsonManagedReference
+    @JsonIgnore
     @OneToMany(mappedBy = "organization")
     private List<Wallet> wallets;
 

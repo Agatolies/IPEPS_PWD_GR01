@@ -27,8 +27,8 @@ public class Contact {
     private String phone;
 
     @JsonIgnore
-    @JsonManagedReference
-    @OneToMany(mappedBy = "contact")
+    @OneToMany
+    @JoinColumn(name = "contact_id_fk", referencedColumnName = "contact_id")
     private List<Address> addresses;
 
     public Contact(String firstname, String lastname, String email, String phone, List<Address> addresses) {
