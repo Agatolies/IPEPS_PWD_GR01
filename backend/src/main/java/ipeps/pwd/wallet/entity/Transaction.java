@@ -28,12 +28,12 @@ public class Transaction {
 
     @JsonBackReference
     @OneToOne
-    @JoinColumn(name = "document_id_fk", referencedColumnName = "document_id") // renomme le champ de la propriété
+    @JoinColumn(name = "document_id_fk")
     private Document document;
 
     @JsonBackReference
     @ManyToOne
-    @JoinColumn(name = "wallet_id_fk", referencedColumnName = "wallet_id")
+    @JoinColumn(name = "wallet_id_fk")
     private Wallet wallet;
 
     public Transaction(String type, float amount, Document document, Wallet wallet) {

@@ -1,5 +1,6 @@
 package ipeps.pwd.wallet.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -30,15 +31,17 @@ public class Document {
 
     @JsonIgnore // empèche l'affichage de la propriété
     @OneToOne
-    @JoinColumn(name = "transaction_id_fk", referencedColumnName = "transaction_id") // renomme le champ de la propriété
+    @JoinColumn(name = "transaction_id_fk")
     private Transaction transaction;
 
+    @JsonBackReference
     @ManyToOne
-    @JoinColumn(name = "employee_id_fk", referencedColumnName = "employee_id")
+    @JoinColumn(name = "employee_id_fk")
     private Employee employee;
 
+    @JsonBackReference
     @ManyToOne
-    @JoinColumn(name = "organization_id_fk", referencedColumnName = "organization_id")
+    @JoinColumn(name = "organization_id_fk")
     private Organization organization;
 
     public Document(String name, String description, String path, String type,

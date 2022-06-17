@@ -16,17 +16,17 @@ import java.util.UUID;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class Account{
+public class Account {
     @Id
-    @GeneratedValue(generator="UUID")
-    @GenericGenerator(name="UUID",strategy="org.hibernate.id.UUIDGenerator")
-    @Column(name="account_id", nullable=false, updatable = false)
+    @GeneratedValue(generator = "UUID")
+    @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
+    @Column(name = "account_id", nullable = false, updatable = false)
     private UUID account_id;
     private String firstname;
     private String lastname;
 
     @JsonManagedReference
-    @OneToMany
+    @OneToMany(mappedBy = "account")
     private List<Employee> employees;
 
     public Account(String firstname, String lastname, List<Employee> employees) {
