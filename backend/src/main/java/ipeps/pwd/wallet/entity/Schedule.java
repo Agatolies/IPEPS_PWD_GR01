@@ -1,5 +1,6 @@
 package ipeps.pwd.wallet.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -24,8 +25,9 @@ public class Schedule {
     private String comment;
 
 
+    @JsonBackReference
     @ManyToOne
-    @JoinColumn(name = "employee_id_fk", referencedColumnName = "employee_id")
+    @JoinColumn(name = "employee_id_fk")
     private Employee employee;
 
     public Schedule(String type, Date dateSchedule, String comment, Employee employee) {

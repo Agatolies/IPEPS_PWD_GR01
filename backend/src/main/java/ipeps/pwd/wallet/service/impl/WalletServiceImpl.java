@@ -2,14 +2,19 @@ package ipeps.pwd.wallet.service.impl;
 
 import ipeps.pwd.wallet.builder.WalletBuilder;
 import ipeps.pwd.wallet.common.entity.response.ApiResponse;
+import ipeps.pwd.wallet.entity.Employee;
+import ipeps.pwd.wallet.entity.Organization;
 import ipeps.pwd.wallet.entity.Wallet;
 import ipeps.pwd.wallet.payload.createPayload.WalletCreatePayload;
 import ipeps.pwd.wallet.payload.updatePayload.WalletUpdatePayload;
+import ipeps.pwd.wallet.repository.EmployeeRepository;
+import ipeps.pwd.wallet.repository.OrganizationRepository;
 import ipeps.pwd.wallet.repository.WalletRepository;
 import ipeps.pwd.wallet.service.WalletService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.UUID;
 
 @Service
@@ -17,6 +22,12 @@ public class WalletServiceImpl implements WalletService {
 
     @Autowired
     WalletRepository walletRepository;
+
+    @Autowired
+    EmployeeRepository employeeRepository;
+
+    @Autowired
+    OrganizationRepository organizationRepository;
 
     @Override
     public ApiResponse list(){
@@ -72,11 +83,24 @@ public class WalletServiceImpl implements WalletService {
     @Override
     public ApiResponse create(WalletCreatePayload payload){
         try {
+
+            UUID employeeId = UUID.fromString(payload.getEmployeeId());
+            UUID organizationId = UUID.fromString(payload.getOrganizationId());
+
+            Employee employee = employeeRepository.findById(employeeId).orElse(null);
+            Organization organization = organizationRepository.findById(organizationId).orElse(null);
+
             Wallet wallet = new WalletBuilder()
                     .setName(payload.getName())
                     .setDescription(payload.getDescription())
                     .setType(payload.getType())
+                    .setEmployee(employee)
+                    .setOrganization(organization)
                     .build();
+
+            employee.getWallets().add(wallet);
+            employeeRepository.save(employee);
+
             return new ApiResponse(true, walletRepository.save(wallet), "api.wallet.create.success");
         }catch(Exception e){
             return new ApiResponse(false, null, "api.wallet.create.error");

@@ -1,5 +1,6 @@
 package ipeps.pwd.wallet.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -15,21 +16,23 @@ import java.util.UUID;
 @Entity
 public class MessageAction {
     @Id
-    @GeneratedValue(generator="UUID")
-    @GenericGenerator(name="UUID",strategy="org.hibernate.id.UUIDGenerator")
-    @Column(name="messageAction_id", nullable=false, updatable = false)
+    @GeneratedValue(generator = "UUID")
+    @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
+    @Column(name = "messageAction_id", nullable = false, updatable = false)
     private UUID messageAction_id;
     private String type;
     private Date actionDate;
-//liaison avec les entités employee et message
+
+    // liaison avec les entités employee et message
+    @JsonBackReference
     @ManyToOne
-    @JoinColumn(name = "employee_id_fk", referencedColumnName = "employee_id")
+    @JoinColumn(name = "employee_id_fk")
     private Employee employee;
 
+    @JsonBackReference
     @ManyToOne
-    @JoinColumn(name = "message_id_fk", referencedColumnName = "message_id")
+    @JoinColumn(name = "message_id_fk")
     private Message message;
-
 
     public MessageAction(String type, Date actionDate, Message message, Employee employee) {
         this.type = type;

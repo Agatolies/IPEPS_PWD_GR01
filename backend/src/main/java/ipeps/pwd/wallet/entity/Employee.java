@@ -5,7 +5,6 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.codehaus.jackson.annotate.JsonIgnore;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -18,37 +17,49 @@ import java.util.UUID;
 @Entity
 public class Employee {
     @Id
-    @GeneratedValue(generator="UUID")
-    @GenericGenerator(name="UUID",strategy="org.hibernate.id.UUIDGenerator")
-    @Column(name="employee_id", nullable=false, updatable = false)
+    @GeneratedValue(generator = "UUID")
+    @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
+    @Column(name = "employee_id", nullable = false, updatable = false)
     private UUID employee_id;
     private String role;
     private boolean actif;
 
     @JsonBackReference
     @ManyToOne
-    @JoinColumn(name = "account_id_fk", referencedColumnName = "account_id")
+    @JoinColumn(name = "account_id_fk")
     private Account account;
 
     @JsonManagedReference
-    @OneToMany
+    @OneToMany(mappedBy = "employee")
     private List<Address> addresses;
 
     @JsonManagedReference
-    @OneToMany
+    @OneToMany(mappedBy = "employee")
+    private List<Document> documents;
+
+    @JsonManagedReference
+    @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Wallet> wallets;
 
     @JsonManagedReference
-    @OneToMany
+    @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Salary> salaries;
 
+    @JsonBackReference
     @ManyToOne
-    @JoinColumn(name="organization_id_fk", referencedColumnName = "organization_id")
+    @JoinColumn(name = "organization_id_fk")
     private Organization organization;
 
+    @JsonManagedReference
+    @OneToMany(mappedBy = "employee")
+    private List<Schedule> schedule;
+
+    @JsonManagedReference
+    @OneToMany(mappedBy = "employee")
+    private List<MessageAction> messageActions;
 
     public Employee(String role, boolean actif, Account account, List<Address> addresses,
-            List<Wallet> wallets, List<Salary> salaries, Organization organization) {
+                    List<Wallet> wallets, List<Salary> salaries, Organization organization) {
         this.role = role;
         this.actif = actif;
         this.account = account;

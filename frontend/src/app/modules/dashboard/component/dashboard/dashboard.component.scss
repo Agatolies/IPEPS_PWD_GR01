@@ -139,6 +139,11 @@
   margin-left: $nav-min-width
 }
 
+.header-title {
+  text-align: center;
+  font-size: 20px;
+}
+
 #main-content {
   padding: .5rem;
   padding-top: $header-height;

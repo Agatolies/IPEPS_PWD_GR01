@@ -26,6 +26,7 @@ public class Wallet {
     private boolean actif;
     private String type;
 
+    @JsonBackReference
     @ManyToOne
     @JoinColumn(name = "organization_id_fk", referencedColumnName = "organization_id")
     private Organization organization;
@@ -36,7 +37,7 @@ public class Wallet {
     private Employee employee;
 
     @JsonManagedReference
-    @OneToMany
+    @OneToMany(mappedBy = "wallet")
     private List<Transaction> transactions;
 
     public Wallet(String name, String description, boolean actif, String type,

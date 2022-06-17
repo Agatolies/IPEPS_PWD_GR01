@@ -1,5 +1,7 @@
 package ipeps.pwd.wallet.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -24,13 +26,20 @@ public class Message {
     private String message;
     private Date date;
 
+    @JsonBackReference
     @ManyToOne
     @JoinColumn(name = "employee_id_fk", referencedColumnName = "employee_id")
     private Employee employee;
 
+    @JsonBackReference
     @ManyToOne
     @JoinColumn(name = "messenger_id_fk", referencedColumnName = "messenger_id")
     private Messenger messenger;
+
+    @JsonManagedReference
+    @OneToMany(mappedBy = "message")
+    private List<MessageAction> messageActions;
+
 
     public Message(boolean isRead, String message, Date date, Employee employee, Messenger messenger) {
         this.isRead = isRead;

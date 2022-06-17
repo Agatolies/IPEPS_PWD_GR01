@@ -28,7 +28,7 @@ public class Salary {
 
     @JsonBackReference
     @ManyToOne
-    @JoinColumn(name = "employee_id_fk", referencedColumnName = "employee_id")
+    @JoinColumn(name = "employee_id_fk")
     private Employee employee;
 
     public Salary(String type, Date billingDate, float amount, int periodicity, Employee employee) {

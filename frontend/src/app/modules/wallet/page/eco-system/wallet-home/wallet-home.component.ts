@@ -8,6 +8,8 @@ import {AccountService} from "@account/service/account.service";
 import {mergeMap} from "rxjs/operators";
 import {TransactionDto} from "../../../../transaction/model";
 import {AccountDto} from "@account/model";
+import {CreateDialogComponent} from "@shared/module/dialog/component/create-dialog/create-dialog.component";
+import {MatDialog} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-wallet-home',
@@ -16,7 +18,7 @@ import {AccountDto} from "@account/model";
 })
 export class WalletHomeComponent implements OnInit, OnDestroy {
   myWallets: WalletDto[] = [];
-  me: any = '';
+  me?: AccountDto;
   subscription: Subscription | undefined;
   selectedWalletIndex$: BehaviorSubject<number> = new BehaviorSubject<number>(0);
 
@@ -25,13 +27,16 @@ export class WalletHomeComponent implements OnInit, OnDestroy {
 
   displayedColumns: string[] = ['id', 'type', 'amount'];
   myTransactions: TransactionDto[] = [];
-
+  private employeeId?: string;
+  private organizationId?: string;
 
   constructor(
     private auth: AuthService,
     private walletManagement: WalletManagementService,
     private employeeService: EmployeeService,
-    private accountService: AccountService) {
+    private accountService: AccountService,
+    private dialog : MatDialog)
+  {
   }
 
   ngOnInit(): void {
@@ -75,6 +80,8 @@ export class WalletHomeComponent implements OnInit, OnDestroy {
 
           this.myWallets = employee.wallets;
           this.myTransactions = employee.wallets[walletIndex].transactions;
+          this.employeeId = employee.employee_id;
+          this.organizationId = employee.organization.organization_id;
         }
 
         console.log(combined)
@@ -83,5 +90,15 @@ export class WalletHomeComponent implements OnInit, OnDestroy {
 
   selectTransactionForWallet(walletIndex: number) {
     this.selectedWalletIndex$.next(walletIndex);
+  }
+
+  openCreateWalletDialog() {
+    this.dialog.open(CreateDialogComponent, {
+      width: '30%',
+      data: {
+        employeeId: this.employeeId,
+        organizationId: this.organizationId
+      }
+    });
   }
 }
