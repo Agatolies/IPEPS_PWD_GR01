@@ -12,6 +12,7 @@ public class EmployeeBuilder {
     private List<Salary> salaries;
     private Account account;
     private List<Address> addresses;
+    private List<Document> documents;
     private Organization organization;
 
     public EmployeeBuilder setOrganization(Organization organization){
@@ -48,7 +49,12 @@ public class EmployeeBuilder {
         return this;
     }
 
+    public EmployeeBuilder setDocuments(List<Document> documents) {
+        this.documents = documents;
+        return this;
+    }
+
     public Employee build() {
-        return new Employee(role, actif, account, addresses, wallets, salaries, organization);
+        return new Employee(role, actif, account, addresses, wallets, salaries, documents, organization);
     }
 }

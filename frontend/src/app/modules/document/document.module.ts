@@ -15,6 +15,7 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {DashboardModule} from "@dashboard/dashboard.module";
 import {TypographyModule} from "@typography";
 import {MatCardModule} from "@angular/material/card";
+import { DocumentListComponent } from './page/ecosystem/document-list/document-list.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import {MatCardModule} from "@angular/material/card";
     DocumentDetailComponent,
     DocumentHomeComponent,
     DocumentRouterComponent,
-    DocumentUpdateComponent
+    DocumentUpdateComponent,
+    DocumentListComponent
   ],
     imports: [
         CommonModule,

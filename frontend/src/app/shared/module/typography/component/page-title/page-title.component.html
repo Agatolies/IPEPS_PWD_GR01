@@ -1,6 +1,6 @@
 <mat-card style="display: flex; justify-content: space-between;">
   <div>
-    <mat-card-title style="margin-bottom: 20px">{{title}}</mat-card-title>
+    <mat-card-title style="margin-bottom: 20px" [matBadge]="badgeContent"  matBadgeOverlap="false">{{title}}</mat-card-title>
     <mat-card-subtitle> {{subtitle}}</mat-card-subtitle>
   </div>
   <mat-card-content style="text-align: end">

@@ -27,7 +27,6 @@ public class Organization {
 
     @JsonIgnore
     @OneToMany
-    @JoinColumn(name = "organization_id_fk", referencedColumnName = "organization_id")
     private List<Address> addresses;
 
     @JsonIgnore

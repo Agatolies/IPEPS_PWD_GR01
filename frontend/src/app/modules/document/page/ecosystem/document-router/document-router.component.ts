@@ -25,6 +25,13 @@ export class DocumentRouterComponent extends DestroyableComponent implements OnI
   setAction(currentAction: MenuActionType): void {
     let actions:MenuAction[] = [];
     switch (currentAction) {
+      case MenuActionType.LIST:
+        actions = [{
+          icon: MenuHelperUtils.TEMPLATE_ICON,
+          title: 'screen.document.list.btn',
+          link: AppRouteEnum.DOCUMENT_LIST
+        }]
+        break;
       case MenuActionType.ADD:
         actions = [{
           icon: MenuHelperUtils.ADD_ICON,

@@ -28,12 +28,11 @@ public class Transaction {
 
    @JsonIgnore
     @OneToOne
-    @JoinColumn(name = "document_id_fk")
     private Document document;
 
    @JsonIgnore
     @ManyToOne
-    @JoinColumn(name = "wallet_id_fk")
+    @JoinColumn(name = "wallet_id_fk",referencedColumnName = "wallet_id")
     private Wallet wallet;
 
     public Transaction(String type, float amount, Document document, Wallet wallet) {

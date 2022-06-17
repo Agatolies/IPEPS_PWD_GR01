@@ -2,7 +2,7 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {WalletManagementService} from "../../service/wallet-management.service";
 import {Subscription} from "rxjs";
 import {WalletDto} from "../../model";
-import {TransactionDto} from "../../../transaction/model";
+import {TransactionDto} from "../../model/dto/transaction.dto";
 
 @Component({
   selector: 'app-wallet-menu',

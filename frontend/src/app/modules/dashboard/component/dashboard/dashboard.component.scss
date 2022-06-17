@@ -37,7 +37,7 @@
 }
 
 .menu-language-hide {
-  width: 0px
+  width: 0;
 }
 
 .menu-language-show {
@@ -99,6 +99,7 @@
   display: flex;
   flex-direction: row;
   color: $primary-contrast-color;
+  z-index: 100;
 
   #bread-crumb {
     flex: 3;

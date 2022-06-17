@@ -5,7 +5,7 @@ import {filter, map, tap} from "rxjs/operators";
 import {WalletCreatePayload, WalletDto} from "../model";
 import {Observable, of} from "rxjs";
 import {SalaryDto} from "../../salary/model";
-import {TransactionDto} from "../../transaction/model";
+import {TransactionDto} from "../model/dto/transaction.dto";
 
 @Injectable({
   providedIn: 'root'
@@ -62,6 +62,10 @@ export class WalletManagementService {
           return response.data!;
         })
       );
+  }
+
+  public deleteWallet(walletId: string): Observable<any> {
+    return this.http.delete(`${this.baseUrl}${ApiUriEnum.WALLET_DELETE}/${walletId}`);
   }
 
 }

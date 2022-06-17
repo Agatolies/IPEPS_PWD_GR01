@@ -1,0 +1,52 @@
+<h1 mat-dialog-title>Ajouter un portefeuille</h1>
+<form [formGroup]="walletForm" (ngSubmit)="onAddWallet()">
+  <div mat-dialog-content>
+      <mat-form-field appearance="outline">
+        <mat-label>Nom du portefeuille</mat-label>
+        <input formControlName="walletName" matInput placeholder="nom">
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Catégorie</mat-label>
+        <mat-select formControlName="type" placeholder="type">
+          <mat-option value="Type 1">Type 1</mat-option>
+          <mat-option value="Type 2">Type 2</mat-option>
+          <mat-option value="Type 3">Type 3</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Description</mat-label>
+        <input formControlName="description" matInput #input maxlength="50" placeholder="Description du portefeuille">
+        <mat-hint align="end">{{input.value?.length || 0}}/50</mat-hint>
+      </mat-form-field>
+      <div>
+        <label><h1>Actif ?</h1></label>
+        <mat-radio-group formControlName="activity">
+          <mat-radio-button value="{{true}}">Oui</mat-radio-button>
+          <br>
+          <br>
+          <mat-radio-button value="{{false}}">Non</mat-radio-button>
+        </mat-radio-group>
+      </div>
+  </div>
+  <div mat-dialog-actions [align]="'end'">
+    <button
+      mat-raised-button
+      color="warn"
+      [mat-dialog-close]="false"
+    >
+      Fermer
+    </button>
+    <button
+      style="margin-left: 8px"
+      mat-raised-button
+      color="primary"
+      type="submit"
+      [disabled]="!walletForm.valid"
+      [mat-dialog-close]="true"
+    >
+      Enregistrer
+    </button>
+  </div>
+</form>
+
+

@@ -6,7 +6,7 @@ import {
   PageNotFoundComponent,
   UnderConstructionComponent
 } from '@shared/component';
-import { FormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { BreadCrumbComponent } from '@shared/component/bread-crumb/bread-crumb.component';
 
 
@@ -31,6 +31,7 @@ import { MenuModule } from '@menu';
     CommonModule,
     TranslateModule,
     FormsModule,
+    ReactiveFormsModule,
     CardModule,
     SerenityFormsModule,
     ToastModule,
@@ -41,6 +42,8 @@ import { MenuModule } from '@menu';
   ],
   providers: [],
   exports: [
+    FormsModule,
+    ReactiveFormsModule,
     PageNotFoundComponent,
     UnderConstructionComponent,
     BreadCrumbComponent,
