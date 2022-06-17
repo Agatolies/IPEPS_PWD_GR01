@@ -14,7 +14,7 @@ import {AppRouteEnum, MenuActionType} from "@shared/model";
 })
 export class DocumentRouterComponent extends DestroyableComponent implements OnInit {
   actions$: BehaviorSubject<MenuAction[]> = new BehaviorSubject<any>([]);
-cheminLogo:any ='../assets/images/logo200x125.png';
+  cheminLogo:any ='../assets/images/logo200x125.png';
   constructor(public documentService: DocumentService, public navigationService: NavigationService) {
     super();
   }

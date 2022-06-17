@@ -8,6 +8,7 @@ import {Component, Input, OnInit} from '@angular/core';
 export class PageTitleComponent implements OnInit {
   @Input() title: string = 'Papa\'s Travel';
   @Input() subtitle: string = '';
+  @Input() cheminLogo:any ='../assets/images/logo200x125.png';
 
   constructor() { }
 

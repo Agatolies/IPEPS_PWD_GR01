@@ -9,9 +9,9 @@ export enum AppUriEnum {
   EMPLOYEE_EDIT_FORM = 'employee/create/',
   EMPLOYEE_DELETE = 'employee/delete/',
 
-  //Document
+  //Document adress backend
   DOCUMENT_SHOW_HOME_PAGE = 'document/home',
-  DOCUMENT_CREATE = 'document/page/ecosystem/document-create',
+  DOCUMENT_CREATE = 'document/create',
   DOCUMENT_UPDATE = 'document/page/ecosystem/document-update',
   DOCUMENT_DETAIL = 'document/page/ecosystem/document-detail',
   DOCUMENT_DELETE = 'document/page/ecosystem/document-delete',
