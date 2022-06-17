@@ -64,4 +64,8 @@ export class WalletManagementService {
       );
   }
 
+  public deleteWallet(walletId: string): Observable<any> {
+    return this.http.delete(`${this.baseUrl}${ApiUriEnum.WALLET_DELETE}/${walletId}`);
+  }
+
 }

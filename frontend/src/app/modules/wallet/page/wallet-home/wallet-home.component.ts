@@ -96,6 +96,7 @@ export class WalletHomeComponent implements OnInit, OnDestroy {
   }
 
   openCreateWalletDialog() {
+    // dialogRef = pointeur/ficelle qui permet de manipuler le composant
     this.dialogRef = this.dialog.open(
       CreateWalletDialogComponent,
       {
@@ -106,12 +107,25 @@ export class WalletHomeComponent implements OnInit, OnDestroy {
       }
     });
 
-    this.dialogRef.afterClosed().subscribe(isSuccess => {
-      if (isSuccess) {
-        this.snackBar.open('Le portefeuille a été créé')
-      } else {
-        this.snackBar.open('Une erreur a été rencontrée')
-      }
-    })
+    this.dialogRef
+      .afterClosed()
+      .subscribe(isSuccess => {
+        if (isSuccess) {
+          this.loadWallets();
+          this.snackBar.open('Le portefeuille a été créé')
+        } else {
+          this.snackBar.open('Une erreur a été rencontrée')
+        }
+      })
+  }
+
+  deleteWallet($walletId: string) {
+    this.walletManagement
+      .deleteWallet($walletId)
+      .subscribe(() => {
+        this.loadWallets();
+        this.snackBar.open('Le portefeuille a été supprimé');
+      });
+
   }
 }

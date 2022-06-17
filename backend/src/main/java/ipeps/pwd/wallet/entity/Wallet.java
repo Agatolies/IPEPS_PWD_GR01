@@ -1,5 +1,6 @@
 package ipeps.pwd.wallet.entity;
 
+import com.fasterxml.jackson.annotation.JacksonInject;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
@@ -37,8 +38,8 @@ public class Wallet {
     @JoinColumn(name = "employee_id_fk", referencedColumnName = "employee_id")
     private Employee employee;
 
-    @OneToMany
-    @JoinColumn(name = "wallet_id_fk", referencedColumnName = "wallet_id")
+    @JsonIgnore
+    @OneToMany(mappedBy = "wallet")
     private List<Transaction> transactions;
 
     public Wallet(String name, String description, boolean actif, String type,

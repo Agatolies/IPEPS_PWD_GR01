@@ -20,6 +20,7 @@ import {MatSelectModule} from "@angular/material/select";
 import {MatDialogModule} from "@angular/material/dialog";
 import {MatButtonModule} from "@angular/material/button";
 import {MatInputModule} from "@angular/material/input";
+import {MatIconModule} from "@angular/material/icon";
 
 
 @NgModule({
@@ -32,20 +33,21 @@ import {MatInputModule} from "@angular/material/input";
     WalletCardComponent,
     CreateWalletDialogComponent
   ],
-  imports: [
-    CommonModule,
-    SharedModule,
-    WalletRoutingModule,
-    MatCardModule,
-    MatDialogModule,
-    MatGridListModule,
-    MatTableModule,
-    MatPaginatorModule,
-    MatFormFieldModule,
-    MatRadioModule,
-    MatSelectModule,
-    MatButtonModule,
-    MatInputModule
-  ]
+    imports: [
+        CommonModule,
+        SharedModule,
+        WalletRoutingModule,
+        MatCardModule,
+        MatDialogModule,
+        MatGridListModule,
+        MatTableModule,
+        MatPaginatorModule,
+        MatFormFieldModule,
+        MatRadioModule,
+        MatSelectModule,
+        MatButtonModule,
+        MatInputModule,
+        MatIconModule
+    ]
 })
 export class WalletModule { }

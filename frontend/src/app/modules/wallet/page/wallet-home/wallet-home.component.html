@@ -17,6 +17,7 @@
 <mat-grid-list cols="3" gutterSize="10px">
   <mat-grid-tile *ngFor="let wallet of myWallets; let i = index" [attr.data-index]="i">
     <app-wallet-card
+      (deleteWalletEvent)="deleteWallet($event)"
       [wallet]="wallet"
       (click)="selectTransactionForWallet(i)"
       style="width: 100%;"></app-wallet-card>
