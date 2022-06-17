@@ -41,4 +41,13 @@ export class SigninComponent implements OnInit {
 
     this.auth.signin(payload).subscribe();
   }
+
+  signInAndrea() {
+    const payload: SigninPayload = {
+      username: 'andrea',
+      password: 'P@ssword'
+    };
+
+    this.auth.signin(payload).subscribe();
+  }
 }

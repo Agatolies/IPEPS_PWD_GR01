@@ -46,9 +46,18 @@ export enum ApiUriEnum {
   WALLET_CREATE = 'wallet/create',
   WALLET_UPDATE = 'wallet/update',
   WALLET_DELETE = 'wallet/delete',
-  WALLET_DELETE_LIST = 'wallet/deleted',
-  WALLET_SOFTDELETE = 'wallet/softdelete/',
-  WALLET_ROLLBACK = 'wallet/rollbackdelete/',
-  WALLET_ERASE = 'wallet/erase/',
 
+  // Salary
+  SALARY_LIST = 'salary/list',
+  SALARY_DETAIL = 'salary/detail',
+  SALARY_CREATE = 'salary/create',
+  SALARY_UPDATE = 'salary/update',
+  SALARY_DELETE = 'salary/delete',
+
+  // Transaction
+  TRANSACTION_LIST = 'transaction/',
+  TRANSACTION_DETAIL = 'transaction/',
+  TRANSACTION_CREATE = 'transaction/',
+  TRANSACTION_UPDATE = 'transaction/',
+  TRANSACTION_DELETE = 'transaction/',
 }

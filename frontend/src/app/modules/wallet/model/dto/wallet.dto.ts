@@ -1,5 +1,6 @@
 import {OrganizationDto} from "@organization/model";
 import {EmployeeDto} from "@employee/model";
+import {TransactionDto} from "../../../transaction/model";
 
 export interface WalletDto {
 
@@ -10,4 +11,5 @@ export interface WalletDto {
   type: string;
   organization: OrganizationDto;
   employee: EmployeeDto;
+  transactions: TransactionDto[];
 }

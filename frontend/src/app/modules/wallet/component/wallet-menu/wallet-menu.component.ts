@@ -2,6 +2,7 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {WalletManagementService} from "../../service/wallet-management.service";
 import {Subscription} from "rxjs";
 import {WalletDto} from "../../model";
+import {TransactionDto} from "../../../transaction/model";
 
 @Component({
   selector: 'app-wallet-menu',
@@ -10,14 +11,15 @@ import {WalletDto} from "../../model";
 })
 export class WalletMenuComponent implements OnInit, OnDestroy {
   myWallets: WalletDto[] = [];
+  myTransactions: TransactionDto[] = [];
   subscription: Subscription | undefined;
 
   constructor(private walletManagement: WalletManagementService) {
-
   }
 
   ngOnInit(): void {
     this.loadWallets();
+    this.loadTransactions();
   }
 
   ngOnDestroy(): void {
@@ -34,4 +36,11 @@ export class WalletMenuComponent implements OnInit, OnDestroy {
       });
   }
 
+  private loadTransactions(){
+    this.subscription = this.walletManagement
+      .getTransactionsByUserId('')
+      .subscribe(data => {
+          this.myTransactions = data;
+      })
+  }
 }

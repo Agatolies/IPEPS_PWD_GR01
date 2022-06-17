@@ -10,6 +10,7 @@ import { TransactionDetailComponent } from './page/eco-system/transaction-detail
 import { TransactionHomeComponent } from './page/eco-system/transaction-home/transaction-home.component';
 import { TransactionRouterComponent } from './page/eco-system/transaction-router/transaction-router.component';
 import { TransactionUpdateComponent } from './page/eco-system/transaction-update/transaction-update.component';
+import {MatTableModule} from "@angular/material/table";
 
 
 @NgModule({
@@ -23,9 +24,10 @@ import { TransactionUpdateComponent } from './page/eco-system/transaction-update
     TransactionRouterComponent,
     TransactionUpdateComponent
   ],
-  imports: [
-    CommonModule,
-    TransactionRoutingModule
-  ]
+    imports: [
+        CommonModule,
+        TransactionRoutingModule,
+        MatTableModule
+    ]
 })
 export class TransactionModule { }
