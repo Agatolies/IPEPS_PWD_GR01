@@ -6,11 +6,12 @@ import {WalletCreatePayload, WalletDto} from "../model";
 import {Observable, of} from "rxjs";
 import {SalaryDto} from "../../salary/model";
 import {TransactionDto} from "../model/dto/transaction.dto";
+import {ApiService} from "@shared/service";
 
 @Injectable({
   providedIn: 'root'
 })
-export class WalletManagementService {
+export class WalletManagementService extends ApiService {
   baseUrl = 'http://localhost:2021/api/';
   tempToken = '7ad098dc-abb6-4f7e-bea3-b6a010bc7b9f';
 
@@ -21,16 +22,11 @@ export class WalletManagementService {
     }),
   };
 
-  constructor(private http: HttpClient) {
-  }
-
   public getWalletsByUserId(userId: string): Observable<WalletDto[]> {
-    return this.http
-      .get<ApiResponse>(`${this.baseUrl}${ApiUriEnum.WALLET_LIST}`)
+    return super
+      .get(ApiUriEnum.WALLET_LIST)
       .pipe(
         map(response => {
-          console.log(response);
-
           return response.result
             ? response.data as WalletDto[]
             : [];
@@ -39,12 +35,10 @@ export class WalletManagementService {
   }
 
   public getTransactionsByUserId(userId: String): Observable<TransactionDto[]> {
-    return this.http
-      .get<ApiResponse>(`${this.baseUrl}${ApiUriEnum.TRANSACTION_LIST}`)
+    return super
+      .get(ApiUriEnum.TRANSACTION_LIST)
       .pipe(
         map(response => {
-          console.log(response);
-
           return response.result
             ? response.data as TransactionDto[]
             : [];
@@ -53,19 +47,18 @@ export class WalletManagementService {
   }
 
   public createWallet(walletCreatePayload: WalletCreatePayload): Observable<WalletDto> {
-    return this.http
-      .post<ApiResponseGeneric<WalletDto>>(`${this.baseUrl}${ApiUriEnum.WALLET_CREATE}`, walletCreatePayload)
+    return super
+      .post(ApiUriEnum.WALLET_CREATE, walletCreatePayload)
       .pipe(
         filter((response): response is ApiResponseGeneric<WalletDto> => !!response),
         map(response => {
-          console.log(response);
           return response.data!;
         })
       );
   }
 
   public deleteWallet(walletId: string): Observable<any> {
-    return this.http.delete(`${this.baseUrl}${ApiUriEnum.WALLET_DELETE}/${walletId}`);
+    return super.delete(`${ApiUriEnum.WALLET_DELETE}/${walletId}`);
   }
 
 }
