@@ -1,9 +1,15 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {ApiService, HttpService} from "@shared/service";
 import {Observable} from "rxjs";
 import {map} from "rxjs/operators";
 import {ApiResponse, ApiUriEnum} from "@shared/model";
-import {EmployeeCreatePayload, EmployeeDto, EmployeeUpdatePayload, Employee} from "@employee/model";
+import {EmployeeCreatePayload, EmployeeDto, EmployeeUpdatePayload} from "@employee/model";
+
+// Déplacer cette interface dans les modèles du module Employee
+export interface EmployeeForDropdown {
+  employeeId: string;
+  employeeFullName: string;
+}
 
 @Injectable({
   providedIn: 'root'
@@ -14,41 +20,30 @@ export class EmployeeService extends ApiService{
     super(http);
   }
 
+  public getListForDropdown(): Observable<EmployeeForDropdown[]> {
+    return super
+      .get(ApiUriEnum.EMPLOYEE_LIST)
+      .pipe(
+        map(response => {
 
-  // public getList(): Observable<Employee[]> {
+          const employeesDto = response.data as EmployeeDto[];
 
-  //   return this.get('person/list')
-  //    .pipe(
-  //      map((response: ApiResponse) => {
-  //        return (response.result)
-  //          ? []
-  //          : (response.data as EmployeeDto[])
-  //            .map((transforme: EmployeeDto) => {
-  //              return {
-  //                id: transforme.employee_id,
-  //                role: transforme.role,
-  //                actif: transforme.actif,
-  //                wallets: {
-  //                  id: transforme.wallets.wa,
-  //                  name: transforme.wallets.name,
-  //                }
-  //                organization: {
-  //                  id:transforme.organization.organization_id,
-  //                  name: transforme.organization.name,
-  //                  description: transforme.organization.description,
-  //                  actif: transforme.organization.actif,
-  //                },
-  //                account: {
-  //                  id: transforme.account.account_id,
-  //                  firstname: transforme.account.firstname,
-  //                  lastname: transforme.account.lastname,
-  //                  employees: transforme.account.employees
-  //                },
-  //              };
-  //            })));
-  // }));
-  // }
+          const employeesForDropdown: EmployeeForDropdown[] = employeesDto
+            .map(employeeDto => {
+              // Je prends dans employeeDto.account, firstName et lastName
+              const firstname = employeeDto.account?.firstname;
+              const lastname = employeeDto.account?.lastname;
 
+              return {
+                employeeId: employeeDto.employee_id,
+                employeeFullName: `${firstname} ${lastname}`
+              };
+            });
+
+          return employeesForDropdown;
+        })
+      )
+  }
 
   public getDetail(id : string): Observable<EmployeeDto>{
     return this.get(`${ApiUriEnum.EMPLOYEE_DETAIL}${id}`)

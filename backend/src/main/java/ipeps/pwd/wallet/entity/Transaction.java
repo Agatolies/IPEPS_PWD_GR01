@@ -1,14 +1,12 @@
 package ipeps.pwd.wallet.entity;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.codehaus.jackson.annotate.JsonIgnore;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
-import java.util.List;
 import java.util.UUID;
 
 @Data
@@ -17,22 +15,22 @@ import java.util.UUID;
 @Entity
 public class Transaction {
     @Id
-    @GeneratedValue(generator="UUID")
-    @GenericGenerator(name="UUID",strategy="org.hibernate.id.UUIDGenerator")
-    @Column(name="transaction_id", nullable = false, updatable = false)
+    @GeneratedValue(generator = "UUID")
+    @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
+    @Column(name = "transaction_id", nullable = false, updatable = false)
     private UUID transaction_id;
 
     private String type;
 
     private float amount;
 
-   @JsonIgnore
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "document_id_fk", referencedColumnName = "document_id")
     private Document document;
 
-   @JsonIgnore
+    @JsonIgnore
     @ManyToOne
-    @JoinColumn(name = "wallet_id_fk",referencedColumnName = "wallet_id")
+    @JoinColumn(name = "wallet_id_fk", referencedColumnName = "wallet_id")
     private Wallet wallet;
 
     public Transaction(String type, float amount, Document document, Wallet wallet) {

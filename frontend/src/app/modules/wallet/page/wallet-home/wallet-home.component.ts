@@ -11,6 +11,7 @@ import {MatDialog, MatDialogRef} from "@angular/material/dialog";
 import {CreateWalletDialogComponent} from "../../component/create-wallet-dialog/create-wallet-dialog.component";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {TransactionDto} from "../../model/dto/transaction.dto";
+import {IS_DEBUG} from "@shared/model";
 
 @Component({
   selector: 'app-wallet-home',
@@ -23,11 +24,9 @@ export class WalletHomeComponent implements OnInit, OnDestroy {
   subscription: Subscription | undefined;
   selectedWalletIndex$: BehaviorSubject<number> = new BehaviorSubject<number>(0);
 
-  isDebug: boolean = true;
+  isDebug: boolean = IS_DEBUG;
   accountId: string = '';
 
-  displayedColumns: string[] = ['id', 'type', 'amount'];
-  myTransactions: TransactionDto[] = [];
   private employeeId?: string;
   private organizationId?: string;
   private dialogRef?: MatDialogRef<CreateWalletDialogComponent, any>;
@@ -69,25 +68,19 @@ export class WalletHomeComponent implements OnInit, OnDestroy {
     this.subscription = combineLatest([accountDto$, this.selectedWalletIndex$])
       .subscribe(combined => {
         const accountDto = combined[0];
-        const walletIndex = combined[1];
+        const employeeCount = accountDto.employees?.length ?? 0;
 
         this.me = accountDto;
 
-        const employeeCount = accountDto.employees.length;
-
         if (employeeCount === 0) {
           this.myWallets = [];
-          this.myTransactions = [];
         } else {
           const employee = accountDto.employees[0];
 
           this.myWallets = employee.wallets.filter(wallet => wallet.actif);
-          this.myTransactions = employee.wallets[walletIndex].transactions;
           this.employeeId = employee.employee_id;
           this.organizationId = employee.organization.organization_id;
         }
-
-        console.log(combined)
       });
   }
 
@@ -114,7 +107,7 @@ export class WalletHomeComponent implements OnInit, OnDestroy {
           this.loadWallets();
           this.snackBar.open('Le portefeuille a été créé')
         } else {
-          this.snackBar.open('Une erreur a été rencontrée')
+          this.snackBar.open('Opération annulée')
         }
       })
   }

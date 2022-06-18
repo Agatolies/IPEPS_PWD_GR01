@@ -1,8 +1,6 @@
 package ipeps.pwd.wallet.entity;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -16,6 +14,11 @@ import java.util.UUID;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@JsonIdentityInfo(
+        scope = Employee.class,
+        generator = ObjectIdGenerators.PropertyGenerator.class,
+        property = "employee_id"
+)
 public class Employee {
     @Id
     @GeneratedValue(generator = "UUID")
@@ -25,7 +28,7 @@ public class Employee {
     private String role;
     private boolean actif;
 
-   @JsonIgnore
+//    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "account_id_fk")
     private Account account;

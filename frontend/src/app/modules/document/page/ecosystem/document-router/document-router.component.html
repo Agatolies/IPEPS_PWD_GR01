@@ -1,7 +1,8 @@
 <!-- Titre de la page -->
 <app-page-title
   [title]="'Papa\'s Travel'"
-  [subtitle]="'Document'"></app-page-title>
+  [subtitle]="'Document'">
+</app-page-title>
 
 
 <div class="pt-large">
@@ -9,7 +10,7 @@
   <div class="actions" *ngIf="actions$ | async as actions">
       <span *ngFor="let action of actions" class="icon {{action.icon!}}"
         (click)="onActionClick(action)"></span>
-    </div>
+  </div>
   <router-outlet></router-outlet>
 </div>
 

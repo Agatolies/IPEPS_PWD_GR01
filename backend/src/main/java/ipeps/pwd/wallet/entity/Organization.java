@@ -26,7 +26,7 @@ public class Organization {
     private boolean actif;
 
     @JsonIgnore
-    @OneToMany
+    @OneToMany(mappedBy = "organization")
     private List<Address> addresses;
 
     @JsonIgnore

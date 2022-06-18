@@ -6,13 +6,21 @@
     <mat-card-title>{{this.wallet.name}}</mat-card-title>
     <mat-card-subtitle>{{this.wallet.type}}</mat-card-subtitle>
   </mat-card-header>
-
   <mat-card-content>
-    <p>{{this.wallet.description}}</p>
+    <ul>
+      <li>Solde : <strong>{{this.getBalance() | currency: 'EUR'}}</strong></li>
+      <li>Nombre de transactions : <strong>{{this.wallet.transactions.length}}</strong></li>
+    </ul>
   </mat-card-content>
 
   <mat-card-actions>
-    <button mat-raised-button routerLink="{{getDetailRoutes()}}" routerLinkActive="active" >DETAILS</button>
+    <button
+      mat-raised-button
+      routerLink="{{getDetailRoutes()}}"
+      [queryParams]="{ walletId: wallet?.wallet_id}"
+      routerLinkActive="active">
+      DETAILS
+    </button>
     <button mat-icon-button color="warn" (click)="deleteWallet()">
       <mat-icon>delete</mat-icon>
     </button>
