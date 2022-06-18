@@ -38,7 +38,7 @@ export class DocumentService extends ApiService {
   }
 
   public getList(): Observable<ApiResponse> {
-    return super.get('document/list');
+    return super.get(`${ApiUriEnum.DOCUMENT_LIST}`);
   }
 
 }

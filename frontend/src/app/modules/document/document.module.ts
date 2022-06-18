@@ -21,6 +21,9 @@ import {MatButtonModule} from "@angular/material/button";
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatDialogModule} from "@angular/material/dialog";
 import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatRadioModule} from "@angular/material/radio";
+import {MatInputModule} from "@angular/material/input";
+import {MatSelectModule} from "@angular/material/select";
 
 
 @NgModule({
@@ -47,7 +50,10 @@ import {MatFormFieldModule} from "@angular/material/form-field";
     MatButtonModule,
     MatToolbarModule,
     MatDialogModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatRadioModule,
+    MatInputModule,
+    MatSelectModule
   ]
 })
 export class DocumentModule { }
