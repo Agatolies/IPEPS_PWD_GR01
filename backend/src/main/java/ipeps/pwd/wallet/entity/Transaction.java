@@ -17,22 +17,23 @@ import java.util.UUID;
 @Entity
 public class Transaction {
     @Id
-    @GeneratedValue(generator="UUID")
-    @GenericGenerator(name="UUID",strategy="org.hibernate.id.UUIDGenerator")
-    @Column(name="transaction_id", nullable = false, updatable = false)
+    @GeneratedValue(generator = "UUID")
+    @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
+    @Column(name = "transaction_id", nullable = false, updatable = false)
     private UUID transaction_id;
 
     private String type;
 
     private float amount;
 
-   @JsonIgnore
+    @JsonIgnore
     @OneToOne
     private Document document;
 
-   @JsonIgnore
+    @JsonIgnore
+    @JsonBackReference
     @ManyToOne
-    @JoinColumn(name = "wallet_id_fk",referencedColumnName = "wallet_id")
+    @JoinColumn(name = "wallet_id_fk", referencedColumnName = "wallet_id")
     private Wallet wallet;
 
     public Transaction(String type, float amount, Document document, Wallet wallet) {

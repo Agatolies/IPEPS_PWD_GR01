@@ -34,6 +34,10 @@ export class WalletManagementService extends ApiService {
       )
   }
 
+  public getDetail(id: string): Observable<ApiResponse> {
+    return super.get(`${ApiUriEnum.WALLET_DETAIL}/${id}`);
+  }
+
   public getTransactionsByUserId(userId: String): Observable<TransactionDto[]> {
     return super
       .get(ApiUriEnum.TRANSACTION_LIST)

@@ -1,0 +1,23 @@
+<h1 mat-dialog-title>Ajouter une transaction</h1>
+<!--<form [formGroup]="transactionForm" (ngSubmit)="onAddTransaction()">-->
+<div mat-dialog-content>
+  <mat-form-field appearance="outline">
+    <mat-select formControlName="type" placeholder="type">
+      <mat-label>Type</mat-label>
+      <mat-option value="Debit">Débit</mat-option>
+      <mat-option value="Credit">Crédit</mat-option>
+      <mat-option value="Transfert">Transfert</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="fill" floatLabel="always">
+    <mat-label>Montant</mat-label>
+    <input matInput type="number" class="example-right-align" placeholder="0">
+    <span matPrefix> €&nbsp;</span>
+  </mat-form-field>
+
+
+<!--  <mat-form-field>-->
+<!--    -->
+<!--  </mat-form-field>-->
+</div>
+<!--</form>-->

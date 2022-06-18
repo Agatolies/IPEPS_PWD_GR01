@@ -11,6 +11,7 @@ import {MatDialog, MatDialogRef} from "@angular/material/dialog";
 import {CreateWalletDialogComponent} from "../../component/create-wallet-dialog/create-wallet-dialog.component";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {TransactionDto} from "../../model/dto/transaction.dto";
+import {IS_DEBUG} from "@shared/model";
 
 @Component({
   selector: 'app-wallet-home',
@@ -23,7 +24,7 @@ export class WalletHomeComponent implements OnInit, OnDestroy {
   subscription: Subscription | undefined;
   selectedWalletIndex$: BehaviorSubject<number> = new BehaviorSubject<number>(0);
 
-  isDebug: boolean = true;
+  isDebug: boolean = IS_DEBUG;
   accountId: string = '';
 
   displayedColumns: string[] = ['id', 'type', 'amount'];

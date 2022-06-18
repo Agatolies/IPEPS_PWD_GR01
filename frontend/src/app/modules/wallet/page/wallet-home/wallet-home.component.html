@@ -24,32 +24,7 @@
   </mat-grid-tile>
 </mat-grid-list>
 
-<!-- Tableau de transactions -->
-<table mat-table [dataSource]="myTransactions" class="mat-elevation-z8 mt-2">
-
-  <!-- Position Column -->
-  <ng-container matColumnDef="id">
-    <th mat-header-cell *matHeaderCellDef> Id </th>
-    <td mat-cell *matCellDef="let transaction"> {{transaction.transaction_id}} </td>
-  </ng-container>
-
-  <!-- Name Column -->
-  <ng-container matColumnDef="type">
-    <th mat-header-cell *matHeaderCellDef> Catégorie </th>
-    <td mat-cell *matCellDef="let transaction"> {{transaction.type}} </td>
-  </ng-container>
-
-  <!-- Weight Column -->
-  <ng-container matColumnDef="amount">
-    <th mat-header-cell *matHeaderCellDef> Montant </th>
-    <td mat-cell *matCellDef="let transaction"> {{transaction.amount}} </td>
-  </ng-container>
-
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-</table>
-
-<mat-card class="mt-2" *ngIf="isDebug === true">
+<mat-card class="mt-2" *ngIf="isDebug">
   <h2>AccountId</h2>
   <pre>{{ accountId | json }}</pre>
 

@@ -12,7 +12,13 @@
   </mat-card-content>
 
   <mat-card-actions>
-    <button mat-raised-button routerLink="{{getDetailRoutes()}}" routerLinkActive="active" >DETAILS</button>
+    <button
+      mat-raised-button
+      routerLink="{{getDetailRoutes()}}"
+      [queryParams]="{ walletId: wallet?.wallet_id}"
+      routerLinkActive="active">
+      DETAILS
+    </button>
     <button mat-icon-button color="warn" (click)="deleteWallet()">
       <mat-icon>delete</mat-icon>
     </button>
