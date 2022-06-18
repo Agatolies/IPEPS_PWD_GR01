@@ -16,6 +16,11 @@ import {DashboardModule} from "@dashboard/dashboard.module";
 import {TypographyModule} from "@typography";
 import {MatCardModule} from "@angular/material/card";
 import { DocumentListComponent } from './page/ecosystem/document-list/document-list.component';
+import {MatIconModule} from "@angular/material/icon";
+import {MatButtonModule} from "@angular/material/button";
+import {MatToolbarModule} from "@angular/material/toolbar";
+import {MatDialogModule} from "@angular/material/dialog";
+import {MatFormFieldModule} from "@angular/material/form-field";
 
 
 @NgModule({
@@ -30,14 +35,19 @@ import { DocumentListComponent } from './page/ecosystem/document-list/document-l
     DocumentUpdateComponent,
     DocumentListComponent
   ],
-    imports: [
-        CommonModule,
-        DocumentRoutingModule,
-        SerenityFormsModule,
-        ReactiveFormsModule,
-        DashboardModule,
-        TypographyModule,
-        MatCardModule
-    ]
+  imports: [
+    CommonModule,
+    DocumentRoutingModule,
+    SerenityFormsModule,
+    ReactiveFormsModule,
+    DashboardModule,
+    TypographyModule,
+    MatCardModule,
+    MatIconModule,
+    MatButtonModule,
+    MatToolbarModule,
+    MatDialogModule,
+    MatFormFieldModule
+  ]
 })
 export class DocumentModule { }
