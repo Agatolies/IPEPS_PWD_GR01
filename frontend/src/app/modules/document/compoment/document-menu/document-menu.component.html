@@ -1,24 +1,37 @@
 <br>
 <br>
-<div class="container">
-<ul>
-<li router routerLinkActive="active">
+<mat-toolbar>
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+    <mat-icon (click)="openCreate()">build</mat-icon>
+  </button>
+  <span>Créer un document</span>
+</mat-toolbar>
+<br>
+<mat-toolbar>
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+    <mat-icon (click)="openDetail()">description</mat-icon>
+  </button>
+  <span>Afficher un document</span>
+</mat-toolbar>
+<br>
+<mat-toolbar>
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+    <mat-icon (click)="openUpdate()">create</mat-icon>
+  </button>
+  <span>Modifier un document existant</span>
+</mat-toolbar>
+<br>
+<mat-toolbar>
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+    <mat-icon (click)="openList()">file_copy</mat-icon>
+  </button>
+  <span>Afficher la liste des documents</span>
+</mat-toolbar>
+<br>
+<mat-toolbar>
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+    <mat-icon (click)="openDelete()">delete</mat-icon>
+  </button>
+  <span>Supprimer un document</span>
+</mat-toolbar>
 
-  <h2><span _ngcontent-vgu-c90="" class="fa-pencil-alt fas icon"></span>
-    <a routerLink='../create' class="big-title">  Créer un document</a>
-  </h2>
-</li>
-<li router routerLinkActive="active">
-  <h2><a routerLink='../detail/:id'>Afficher un document existant</a></h2>
-</li>
-<li router routerLinkActive="active">
-  <h2><a routerLink='../update/:action/:id'>Modifier un document existant</a></h2>
-</li>
-<li router routerLinkActive="active">
-  <h2><a routerLink='../list'>Afficher la liste des documents</a></h2>
-</li>
-<li router routerLinkActive="active">
-  <h2><a routerLink='../delete'>Supprimer un document</a></h2>
-</li>
-</ul>
-</div>
