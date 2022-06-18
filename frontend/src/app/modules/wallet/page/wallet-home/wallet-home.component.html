@@ -14,7 +14,7 @@
 </mat-card>
 
 <!-- Liste de WalletCards -->
-<mat-grid-list cols="3" gutterSize="10px" [rowHeight]="180" class="mt-2">
+<mat-grid-list cols="3" gutterSize="10px" [rowHeight]="200" class="mt-2">
   <mat-grid-tile *ngFor="let wallet of myWallets; let i = index" [attr.data-index]="i">
     <app-wallet-card
       (deleteWalletEvent)="deleteWallet($event)"
