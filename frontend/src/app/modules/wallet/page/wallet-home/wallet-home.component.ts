@@ -62,6 +62,7 @@ export class WalletHomeComponent implements OnInit, OnDestroy {
       .pipe(
         mergeMap(meResponse => {
           const accountId = meResponse.data.credential_id;
+          //permet d'afficher uniquement les wallets des personnes connectées
           return this.accountService.getDetail(accountId);
         })
       );

@@ -28,6 +28,7 @@ public class Transaction {
 
    @JsonIgnore
     @OneToOne
+   @JoinColumn(name = "document_id_fk", referencedColumnName = "document_id")
     private Document document;
 
    @JsonIgnore

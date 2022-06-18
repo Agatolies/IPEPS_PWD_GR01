@@ -6,5 +6,7 @@ export interface DocumentCreatePayload extends PayloadInterface {
   path: string;
   type: string;
   freeAccess: boolean;
-  employee: string;
+  employee_id: string;
+  organization_id: string;
+  transaction_id: string;
 }

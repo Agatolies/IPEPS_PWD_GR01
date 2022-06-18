@@ -1,8 +1,11 @@
-<p>document-list works!</p>
+<div *ngIf="list$ | async as list">
+  <ng-container *ngIf="list.length > 0 ; else noData">
+    <div *ngFor="let item of list; let last=last">
 
-<div class="mat-dialog-container">
-  <div>
-
-  </div>
-
+    </div>
+  </ng-container>
 </div>
+
+<ng-template #noData>
+  <div> Aucun document </div>
+</ng-template>

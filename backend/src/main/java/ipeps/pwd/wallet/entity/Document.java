@@ -1,6 +1,7 @@
 package ipeps.pwd.wallet.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import ipeps.pwd.wallet.payload.updatePayload.DocumentUpdatePayload;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -41,6 +42,7 @@ public class Document {
 
    @JsonIgnore
     @ManyToOne
+   @JoinColumn (name = "organization_id_fk", referencedColumnName = "organization_id")
     private Organization organization;
 
     public Document(String name, String description, String path, String type,
@@ -54,4 +56,20 @@ public class Document {
         this.employee = employee;
         this.organization = organization;
     }
+
+//    public Document(DocumentUpdatePayload selection,
+//                    Organization organization,
+//                    Employee employee,
+//                    Transaction transaction){
+//        this.document_id = selection.getDocument_id();
+//        this.name = selection.getName();
+//        this.description = selection.getDescription();
+//        this.path = selection.getPath();
+//        this.type = selection.getType();
+//        this.freeAccess = selection.isFreeAccess();
+//        this.transaction = transaction;
+//        this.employee = employee;
+//        this.organization = organization;
+
+    //}
 }

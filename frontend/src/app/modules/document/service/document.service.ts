@@ -11,6 +11,7 @@ import {EmployeeService} from "@employee/service/employee.service";
 import {AccountService} from "@account/service/account.service";
 import {MatDialog} from "@angular/material/dialog";
 import {MatSnackBar} from "@angular/material/snack-bar";
+import {HttpClient} from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root'
@@ -19,6 +20,10 @@ export class DocumentService extends ApiService {
   list$: BehaviorSubject<Document[]> = new BehaviorSubject<Document[]>([]);
   pagination$: BehaviorSubject<Page> = new BehaviorSubject<Page>(CommonHelperUtils.defaultPagination())
   currentAction$: BehaviorSubject<MenuActionType> = new BehaviorSubject<MenuActionType>(MenuActionType.ADD);
+
+  constructor (public  http:HttpService) {
+    super(http);
+  }
 
   public create(payload: DocumentCreatePayload): Observable<ApiResponse> {
     console.log('mon payload', payload);
@@ -38,7 +43,7 @@ export class DocumentService extends ApiService {
   }
 
   public getList(): Observable<ApiResponse> {
-    return super.get(`${ApiUriEnum.DOCUMENT_LIST}`);
+    return this.get(`${ApiUriEnum.DOCUMENT_LIST}`);
   }
 
 }

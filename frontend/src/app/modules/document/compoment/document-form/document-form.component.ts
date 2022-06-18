@@ -34,15 +34,17 @@ export class DocumentFormComponent implements OnInit {
       description: new FormControl(this.payload.description),
       path: new FormControl(this.payload.path),
       type: new FormControl(this.payload.type),
-      employee: new FormControl(this.payload.employee)
+      employee: new FormControl(this.payload.employee_id),
+      transaction: new FormControl((this.payload.transaction_id)),
+      organization: new FormControl((this.payload.organization_id))
     });
   }
   initFormDoc(){
     this.formGroup = this.formBuilder.group({
-      documentName: ['',Validators.required],
-      documentType: ['',Validators.required],
-      documentDescription: ['',Validators.required],
-      documentPath: ['',Validators.required],
+      name: ['',Validators.required],
+      type: ['',Validators.required],
+      description: ['',Validators.required],
+      path: ['',Validators.required],
     })
   }
 

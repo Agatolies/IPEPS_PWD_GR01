@@ -10,7 +10,9 @@ export class DocumentHelper {
       path: dto.path,
       type: dto.type,
       freeAccess: dto.freeAccess,
-      employee:dto.employee,
+      employee_id: dto.employee_id,
+      organization_id: dto.organization_id,
+      transaction_id: dto.transaction_id,
       isEmpty: false
     }
   }
@@ -25,7 +27,9 @@ export class DocumentHelper {
       path: '',
       type: '',
       freeAccess : false,
-      employee: '',
+      employee_id: '',
+      organization_id: '',
+      transaction_id: '',
       isEmpty: true
     }
   }
@@ -37,7 +41,9 @@ export class DocumentHelper {
       path: '',
       type: '',
       freeAccess : false,
-      employee:''
+      employee_id:'',
+      organization_id:'',
+      transaction_id:''
     }
   }
 
