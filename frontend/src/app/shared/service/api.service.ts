@@ -13,7 +13,7 @@ export class ApiService {
   status$: BehaviorSubject<ApiStatus> = new BehaviorSubject<ApiStatus>({
     accessible: false,
     title: 'waiting',
-    message: 'api.waiting.first-attemp'
+    message: 'api.waiting.first-attempt'
   })
 
   constructor(public http: HttpService) {

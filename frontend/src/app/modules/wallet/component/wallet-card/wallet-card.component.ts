@@ -1,5 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {WalletDto} from "../../model";
+import {AppRouteEnum} from "@shared/module/menu/model";
 
 @Component({
   selector: 'app-wallet-card',
@@ -28,11 +29,15 @@ export class WalletCardComponent implements OnInit {
     }
   }
 
-  deleteWallet() {
+  deleteWallet(): void {
     // = si la variable est définie = différente de null
     if(!!this.wallet) {
       const walletId = this.wallet.wallet_id;
       this.deleteWalletEvent.emit(walletId);
     }
+  }
+
+  getDetailRoutes(): string {
+    return `${AppRouteEnum.WALLET_DETAIL}/${this.wallet?.wallet_id}`;
   }
 }

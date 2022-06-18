@@ -10,7 +10,6 @@ export enum AppRouteEnum {
 
 
   CONTACT_SHOW_HOME_PAGE = 'contact/home',
-  WALLET_SHOW_HOME_PAGE = 'wallet/home',
 
   //Organization
   ORGANIZATION_SHOW_HOME_PAGE = 'organization/home',
@@ -108,12 +107,8 @@ export enum AppRouteEnum {
   ECO_SYSTEM_ADDRESS_DELETED= 'dashboard/ecosystem/address/deleted',
 
   //Wallet
-  WALLET_HOME = 'dashboard/ecosystem/wallet/home',
-  WALLET_CREATE = 'dashboard/ecosystem/wallet/create',
-  WALLET_UPDATE = 'dashboard/ecosystem/wallet/update',
-  WALLET_DETAIL= 'dashboard/ecosystem/wallet/detail',
-  WALLET_DELETE = 'dashboard/ecosystem/wallet/delete',
-  WALLET_ROUTER = 'dashboard/wallet',
+  WALLET_HOME = '/wallet/home',
+  WALLET_DETAIL= '/wallet/detail',
 
   //Remember
   ECO_SYSTEM_REMEMBER_HOME = 'dashboard/ecosystem/remember/home',
