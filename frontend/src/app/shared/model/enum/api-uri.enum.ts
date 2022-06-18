@@ -38,6 +38,7 @@ export enum ApiUriEnum {
   DOCUMENT_UPDATE = 'document/update',
   DOCUMENT_DETAIL = 'document/detail',
   DOCUMENT_DELETE = 'document/delete',
+  DOCUMENT_LIST = 'document/list',
 
   //Contact
   CONTACT_LIST = 'contact/list',

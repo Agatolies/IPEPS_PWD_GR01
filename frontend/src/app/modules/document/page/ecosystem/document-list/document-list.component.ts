@@ -1,9 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import {BehaviorSubject} from "rxjs";
 import {DocumentService} from "../../../service/document.service";
 import {ApiResponse} from "@shared/model";
 import {Document, Documentdto} from "../../../Model";
 import {DocumentHelper} from "../../../helper/document.helper";
+
+
 
 @Component({
   selector: 'app-document-list',
@@ -17,8 +19,12 @@ export class DocumentListComponent implements OnInit {
   constructor(public documentService : DocumentService) { }
 
   ngOnInit(): void {
+    this.getAllDocument();
+  }
+  getAllDocument(){
     this.documentService.getList()
       .subscribe((response: ApiResponse) => {
+        console.log('affichage liste');
         if (response.result) {
           const documentDto = response.data! as Documentdto[];
           this.list$.next(documentDto.map((v: Documentdto) => DocumentHelper.fromDTO(v)));

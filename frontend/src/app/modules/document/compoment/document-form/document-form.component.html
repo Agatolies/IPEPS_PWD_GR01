@@ -1,56 +1,47 @@
-<form [formGroup]="formGroupDoc"  novalidate>
-  <div>
+<br>
+<div mat-dialog-content>
+  <form [formGroup]="formGroup">
+    <mat-form-field appearance="legacy">
+      <mat-label>Type de document</mat-label>
+      <mat-select formControlName="documentType" placeholder="Type de document">
+        <mat-option value="FACTURE">FACTURE</mat-option>
+        <mat-option value="NOTE_DE_CREDIT">NOTE DE CREDIT</mat-option>
+        <mat-option value="NOTE_DE_DEBIT">NOTE DE DEBIT</mat-option>
+      </mat-select>
 
-    <div class="row">
-      <div class="cell">
-        <app-form-input [type]="'text'"
-                        formControlName="name"
-                        [name]="'name'"
-                        [label]="'app.document.form.label.name'"
-                        [placeholder]="'app.document.form.placeholder.name'"
-                        [readonly]="false"></app-form-input>
-      </div>
-
-      <div class="cell">
-        <app-form-input [type]="'text'"
-                        formControlName="type"
-                        [name]="'type'"
-                        [label]="'app.document.form.label.type'"
-                        [placeholder]="'app.document.form.placeholder.type'"
-                        [readonly]="false"></app-form-input>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="cell">
-        <app-form-input [type]="'text'"
-                        formControlName="description"
-                        [name]="'description'"
-                        [label]="'app.document.form.label.description'"
-                        [placeholder]="'app.document.form.placeholder.description'"
-                        [readonly]="false"></app-form-input>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="cell">
-        <app-form-input [type]="'text'"
-                        formControlName="path"
-                        [name]="'path'"
-                        [label]="'app.document.form.label.path'"
-                        [placeholder]="'app.document.form.placeholder.path'"
-                        [readonly]="false"></app-form-input>
-      </div>
-    </div>
-  </div>
+    </mat-form-field>
+    <mat-form-field appearance="legacy">
+      <mat-label>Nom du document</mat-label>
+      <input formControlName="documentName" matInput placeholder="Name">
+    </mat-form-field>
+    <mat-form-field appearance="legacy">
+      <mat-label>Description du document</mat-label>
+      <input formControlName="documentDescription" matInput placeholder="Description">
+    </mat-form-field>
+    <mat-form-field appearance="legacy">
+      <mat-label>Contenu du document</mat-label>
+      <input formControlName="documentPath" matInput placeholder="Path">
+    </mat-form-field>
+  </form>
+</div>
 
 
+
+<div mat-dialog-actions [align]="'end'">
+  <button  mat-raised-button color="primary" mat-dialog-close> Créer</button>
+  <button  mat-raised-button color="accent" mat-dialog-close> Mettre à jour</button>
+  <button mat-raised-button color="warn" mat-dialog-close>Annuler</button>
+
+
+
+
+</div>
   <mat-card class="mt-2">
     <app-form-btn (onClick)="save()" [css]="'save-btn'"  [label]="label" >
       Créer un document
     </app-form-btn>
   </mat-card>
-</form>
+
 
 
 
