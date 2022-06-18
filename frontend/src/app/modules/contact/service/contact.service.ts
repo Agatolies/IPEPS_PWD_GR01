@@ -19,7 +19,7 @@ export class ContactService extends ApiService{
   currentAction$: BehaviorSubject<MenuActionType> = new BehaviorSubject<MenuActionType>(MenuActionType.LIST);
 
   public getList(deleted: boolean = true, search: ContactSearchPayload= {}): void {
-    this.post(deleted ? ApiUriEnum.EMPLOYEE_DELETED_LIST : ApiUriEnum.EMPLOYEE_LIST, search, false).pipe
+    this.post(deleted ? ApiUriEnum.CONTACT_DELETED_LIST : ApiUriEnum.EMPLOYEE_LIST, search, false).pipe
     (tap((response: ApiResponse) => {
       console.log(response)
       if (response.result) {

@@ -2,10 +2,13 @@ import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
 import {
   ContactCreateComponent,
-  ContactDetailComponent,
   ContactHomeComponent,
   ContactRouteurComponent,
-  ContactUpdateComponent} from '@contact/page';
+  ContactDetailComponent,
+  ContactUpdateComponent,
+  ContactDeleteComponent} from "./page/ecosystem";
+
+
 const routes: Routes = [
   {
     path:'',
@@ -28,7 +31,14 @@ const routes: Routes = [
         path: 'create',
         component: ContactCreateComponent
       },
-
+      {
+        path: 'update/:action/:id',
+        component: ContactUpdateComponent
+      },
+      {
+        path: 'delete',
+        component: ContactDeleteComponent
+      },
       ]
   }
 ];

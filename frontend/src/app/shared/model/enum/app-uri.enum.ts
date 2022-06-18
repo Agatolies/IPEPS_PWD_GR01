@@ -30,6 +30,7 @@ export enum AppUriEnum {
 
   //Contact
   CONTACT_SHOW_HOME_PAGE = 'contact/home',
+  CONTACT_EDIT_FORM = 'contact/page/ecosystem/contact-edit',
   CONTACT_CREATE = 'contact/page/ecosystem/contact-create',
   CONTACT_UPDATE = 'contact/page/ecosystem/contact-update',
   CONTACT_DETAIL = 'contact/page/ecosystem/contact-detail',

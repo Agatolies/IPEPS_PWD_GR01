@@ -15,6 +15,7 @@ import {NavigationService} from "@shared/service";
 })
 export class ContactRouteurComponent extends DestroyableComponent implements OnInit {
   actions$: BehaviorSubject<MenuAction[]> = new BehaviorSubject<any>([]);
+  cheminLogo: any ='../assets/images/logo200x125.png';
 
   constructor(public contactService: ContactService,
               public navigationService: NavigationService) {
@@ -35,24 +36,40 @@ export class ContactRouteurComponent extends DestroyableComponent implements OnI
         actions = [{
           icon: MenuHelperUtils.HELP_ICON,
           title: 'screen.generator-template.help.btn',
-          link: AppRouteEnum.HELP_CONTACT
-        },
-          {
+          link: AppRouteEnum.HELP_CONTACT,
+        }]
+        break;
+      case MenuActionType.ADD:
+        actions = [{
             icon: MenuHelperUtils.ADD_ICON,
             title: 'screen.contact.create.btn',
-            link: AppRouteEnum.ECO_SYSTEM_CONTACT_CREATE
+            link: AppRouteEnum.ECO_SYSTEM_CONTACT_CREATE,
           }]
+        break;
+      case MenuActionType.UPDATE:
+        actions = [{
+          icon: MenuHelperUtils.EDIT_ICON,
+          title: 'screen.document.update.btn',
+          link: AppRouteEnum.ECO_SYSTEM_CONTACT_UPDATE,
+        }]
+        break;
+      case MenuActionType.DETAIL:
+        actions = [{
+          icon: MenuHelperUtils.HISTORY_ICON,
+          title: 'screen.document.detail.btn',
+          link: AppRouteEnum.ECO_SYSTEM_CONTACT_DETAIL,
+        }]
         break;
       case MenuActionType.DELETE:
         actions = [{
           icon: MenuHelperUtils.HELP_ICON,
           title: 'screen.contact.help.btn',
-          link: AppRouteEnum.HELP_CONTACT
+          link: AppRouteEnum.HELP_CONTACT,
         },
           {
             icon: MenuHelperUtils.BACK_ICON,
             title: 'screen.contact.home.btn',
-            link: AppRouteEnum.ECO_SYSTEM_CONTACT_HOME
+            link: AppRouteEnum.ECO_SYSTEM_CONTACT_HOME,
           }]
         break;
     }

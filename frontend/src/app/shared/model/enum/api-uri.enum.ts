@@ -28,6 +28,9 @@ export enum ApiUriEnum {
   ADDRESS_ERASE = 'address/erase/',
 
   //Contact
+  CONTACT_SHOW_HOME_PAGE='contact/home',
+  CONTACT_EDIT_FORM='contact/edit',
+  CONTACT_HOME='contact/home',
   CONTACT_LIST = 'contact/list',
   CONTACT_DETAIL = 'contact/detail/',
   CONTACT_CREATE = 'contact/create',

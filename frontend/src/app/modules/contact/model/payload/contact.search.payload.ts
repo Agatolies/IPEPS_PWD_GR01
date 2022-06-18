@@ -6,6 +6,7 @@ export interface ContactSearchPayload extends PayloadInterface{
   firstname?: string;
   email?: string;
   phone?: string;
+  term?: number;
 
   allFields?: string;
   page?: PageFilter;
