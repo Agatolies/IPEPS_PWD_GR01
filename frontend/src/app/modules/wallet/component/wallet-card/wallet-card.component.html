@@ -6,7 +6,6 @@
     <mat-card-title>{{this.wallet.name}}</mat-card-title>
     <mat-card-subtitle>{{this.wallet.type}}</mat-card-subtitle>
   </mat-card-header>
-
   <mat-card-content>
     <ul>
       <li>Solde : <strong>{{this.getBalance() | currency: 'EUR'}}</strong></li>

@@ -27,7 +27,6 @@ export class WalletHomeComponent implements OnInit, OnDestroy {
   isDebug: boolean = IS_DEBUG;
   accountId: string = '';
 
-  displayedColumns: string[] = ['id', 'type', 'amount'];
   myTransactions: TransactionDto[] = [];
   private employeeId?: string;
   private organizationId?: string;
@@ -74,7 +73,7 @@ export class WalletHomeComponent implements OnInit, OnDestroy {
 
         this.me = accountDto;
 
-        const employeeCount = accountDto.employees.length;
+        const employeeCount = accountDto.employees?.length ?? 0;
 
         if (employeeCount === 0) {
           this.myWallets = [];
@@ -115,7 +114,7 @@ export class WalletHomeComponent implements OnInit, OnDestroy {
           this.loadWallets();
           this.snackBar.open('Le portefeuille a été créé')
         } else {
-          this.snackBar.open('Une erreur a été rencontrée')
+          this.snackBar.open('Opération annulée')
         }
       })
   }

@@ -1,6 +1,6 @@
 <!-- Titre de la page -->
 <app-page-title
-  [title]="'Les transactions du portefeuille ' + selectedWallet?.name"
+  [title]="'Les transactions de : ' + selectedWallet?.name"
   [subtitle]="'Papa\'s Travel'"
   [badgeContent]="selectedWallet?.transactions?.length"
 >
@@ -9,7 +9,7 @@
 <!-- Barre d'outils -->
 <mat-card class="mt-2">
   <button mat-raised-button class="mr-1" (click)="openCreateTransactionDialog()">
-    Créer une transaction
+    Effectuer une transaction
   </button>
 </mat-card>
 

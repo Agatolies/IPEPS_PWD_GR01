@@ -1,23 +1,65 @@
-<h1 mat-dialog-title>Ajouter une transaction</h1>
-<!--<form [formGroup]="transactionForm" (ngSubmit)="onAddTransaction()">-->
-<div mat-dialog-content>
-  <mat-form-field appearance="outline">
-    <mat-select formControlName="type" placeholder="type">
-      <mat-label>Type</mat-label>
-      <mat-option value="Debit">Débit</mat-option>
-      <mat-option value="Credit">Crédit</mat-option>
-      <mat-option value="Transfert">Transfert</mat-option>
-    </mat-select>
-  </mat-form-field>
-  <mat-form-field appearance="fill" floatLabel="always">
-    <mat-label>Montant</mat-label>
-    <input matInput type="number" class="example-right-align" placeholder="0">
-    <span matPrefix> €&nbsp;</span>
-  </mat-form-field>
+<h1 mat-dialog-title>Nouvelle transaction</h1>
+<form [formGroup]="transactionForm" (ngSubmit)="onAddTransaction()">
+  <div mat-dialog-content>
+    <p>
+      <mat-form-field appearance="outline">
+        <mat-label>Employé</mat-label>
 
+        <!-- https://dev.to/prayatna/til-how-to-use-async-pipe-and-populate-mat-select-m35 -->
+        <mat-select placeholder="Selectionner un employé" formControlName="employeeId">
+          <ng-container *ngFor="let employee of (listForEmployeesDropdown$ | async)">
+            <mat-option [value]="employee.employeeId">
+              {{employee.employeeFullName}}
+            </mat-option>
+          </ng-container>
+        </mat-select>
 
-<!--  <mat-form-field>-->
-<!--    -->
-<!--  </mat-form-field>-->
-</div>
-<!--</form>-->
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field appearance="outline">
+        <mat-label>Portefeuille</mat-label>
+        <mat-select>
+          <mat-option value="one">First option</mat-option>
+          <mat-option value="two">Second option</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field appearance="outline">
+        <mat-label>Document</mat-label>
+        <mat-select>
+          <mat-option value="one">First option</mat-option>
+          <mat-option value="two">Second option</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field appearance="outline" floatLabel="always">
+        <mat-label>Montant</mat-label>
+        <input matInput type="number" class="example-right-align" placeholder="0">
+        <span matPrefix> €&nbsp;</span>
+      </mat-form-field>
+    </p>
+
+    <div mat-dialog-actions [align]="'end'">
+      <button
+        mat-raised-button
+        color="warn"
+        [mat-dialog-close]="false"
+      >
+        Fermer
+      </button>
+      <button
+        style="margin-left: 8px"
+        mat-raised-button
+        color="primary"
+        type="submit"
+        [disabled]="!transactionForm.valid"
+        [mat-dialog-close]="true"
+      >
+        Enregistrer
+      </button>
+    </div>
+  </div>
+</form>

@@ -1,14 +1,12 @@
 package ipeps.pwd.wallet.entity;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.codehaus.jackson.annotate.JsonIgnore;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
-import java.util.List;
 import java.util.UUID;
 
 @Data
@@ -26,12 +24,11 @@ public class Transaction {
 
     private float amount;
 
-    @JsonIgnore
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "document_id_fk", referencedColumnName = "document_id")
     private Document document;
 
     @JsonIgnore
-    @JsonBackReference
     @ManyToOne
     @JoinColumn(name = "wallet_id_fk", referencedColumnName = "wallet_id")
     private Wallet wallet;

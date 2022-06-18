@@ -63,7 +63,7 @@ export class WalletDetailComponent implements OnInit {
           this.loadTransactions();
           this.snackBar.open('La transaction a été créé')
         } else {
-          this.snackBar.open('Une erreur a été rencontrée')
+          this.snackBar.open('Opération annulée')
         }
       })
   }

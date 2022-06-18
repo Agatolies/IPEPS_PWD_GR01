@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {ApiResponse, ApiResponseGeneric, ApiUriEnum} from "@shared/model";
 import {filter, map, tap} from "rxjs/operators";
-import {WalletCreatePayload, WalletDto} from "../model";
+import {TransactionCreatePayload, WalletCreatePayload, WalletDto} from "../model";
 import {Observable, of} from "rxjs";
 import {SalaryDto} from "../../salary/model";
 import {TransactionDto} from "../model/dto/transaction.dto";
@@ -59,6 +59,17 @@ export class WalletManagementService extends ApiService {
           return response.data!;
         })
       );
+  }
+
+  public createTransaction(transactionCreatePayload: TransactionCreatePayload) : Observable<TransactionDto> {
+    return super
+      .post(ApiUriEnum.TRANSACTION_CREATE, transactionCreatePayload)
+      .pipe(
+        filter((response): response is ApiResponseGeneric<TransactionDto> => !!response),
+        map(response => {
+          return response.data!;
+        })
+      )
   }
 
   public deleteWallet(walletId: string): Observable<any> {

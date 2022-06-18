@@ -1,13 +1,11 @@
 package ipeps.pwd.wallet.entity;
 
-import com.fasterxml.jackson.annotation.JacksonInject;
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.codehaus.jackson.annotate.JsonManagedReference;
 import org.hibernate.annotations.GenericGenerator;
+// JsonIgnore fonctionne lorsqu'il est importe de ce namespace
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import java.util.List;
@@ -38,7 +36,6 @@ public class Wallet {
     @JoinColumn(name = "employee_id_fk", referencedColumnName = "employee_id")
     private Employee employee;
 
-    @JsonManagedReference
     @OneToMany(mappedBy = "wallet")
     private List<Transaction> transactions;
 
