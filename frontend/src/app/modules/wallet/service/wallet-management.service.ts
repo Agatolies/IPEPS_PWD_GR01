@@ -7,6 +7,16 @@ import {Observable, of} from "rxjs";
 import {SalaryDto} from "../../salary/model";
 import {TransactionDto} from "../model/dto/transaction.dto";
 import {ApiService} from "@shared/service";
+import {EmployeeDto} from "@employee/model";
+import {EmployeeForDropdown} from "@employee/service/employee.service";
+import _ from "lodash";
+
+
+// Déplacer cette interface dans les modèles du module Wallet
+export interface WalletForDropdown {
+  walletId: string;
+  walletName: string;
+}
 
 @Injectable({
   providedIn: 'root'
@@ -76,4 +86,24 @@ export class WalletManagementService extends ApiService {
     return super.delete(`${ApiUriEnum.WALLET_DELETE}/${walletId}`);
   }
 
+  getListForDropdown(employeeId: string): Observable<WalletForDropdown[]> {
+    return super
+      .get(`${ApiUriEnum.EMPLOYEE_DETAIL}/${employeeId}`)
+      .pipe(
+        map(response => {
+
+          const employeeDto = response.data as EmployeeDto;
+
+          const walletsForDropdown: WalletForDropdown[] = employeeDto.wallets
+            .map(walletDto => {
+              return {
+                walletId: walletDto.wallet_id,
+                walletName: walletDto.name
+              };
+            });
+
+          return walletsForDropdown;
+        })
+      )
+  }
 }

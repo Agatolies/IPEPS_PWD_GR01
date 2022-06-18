@@ -5,6 +5,7 @@ import {map} from "rxjs/operators";
 import {ApiResponse, ApiUriEnum} from "@shared/model";
 import {EmployeeCreatePayload, EmployeeDto, EmployeeUpdatePayload} from "@employee/model";
 
+// Déplacer cette interface dans les modèles du module Employee
 export interface EmployeeForDropdown {
   employeeId: string;
   employeeFullName: string;
@@ -23,7 +24,6 @@ export class EmployeeService extends ApiService{
     return super
       .get(ApiUriEnum.EMPLOYEE_LIST)
       .pipe(
-        // switchMap(response => response.data as EmployeeDto[]),
         map(response => {
 
           const employeesDto = response.data as EmployeeDto[];

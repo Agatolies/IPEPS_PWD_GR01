@@ -6,7 +6,10 @@
         <mat-label>Employé</mat-label>
 
         <!-- https://dev.to/prayatna/til-how-to-use-async-pipe-and-populate-mat-select-m35 -->
-        <mat-select placeholder="Selectionner un employé" formControlName="employeeId">
+        <mat-select
+          placeholder="Selectionner un employé"
+          formControlName="employeeId"
+          (selectionChange)="refreshEmployeeWallets($event)">
           <ng-container *ngFor="let employee of (listForEmployeesDropdown$ | async)">
             <mat-option [value]="employee.employeeId">
               {{employee.employeeFullName}}
@@ -19,9 +22,14 @@
     <p>
       <mat-form-field appearance="outline">
         <mat-label>Portefeuille</mat-label>
-        <mat-select>
-          <mat-option value="one">First option</mat-option>
-          <mat-option value="two">Second option</mat-option>
+        <mat-select
+          placeholder="Selectionner un portefeuille"
+          formControlName="walletId">
+          <ng-container *ngFor="let wallet of (listForWalletsDropdown$ | async)">
+            <mat-option [value]="wallet.walletId">
+              {{wallet.walletName}}
+            </mat-option>
+          </ng-container>
         </mat-select>
       </mat-form-field>
     </p>
