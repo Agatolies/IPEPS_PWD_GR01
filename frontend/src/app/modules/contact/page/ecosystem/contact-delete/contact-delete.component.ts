@@ -142,7 +142,8 @@ export class ContactDeleteComponent implements OnInit {
       {label: 'lastname'},
       {label: 'firstname'},
       {label: 'phone'},
-      {label: 'email'}
+      {label: 'email'},
+      {label: 'address'}
     ]
   }
 
@@ -151,10 +152,11 @@ export class ContactDeleteComponent implements OnInit {
       {param: 'lastname', type: DataType.STRING},
       {param: 'firstname', type: DataType.STRING},
       {param: 'phone', type: DataType.STRING},
-      {param: 'email', type: DataType.STRING}
-
+      {param: 'email', type: DataType.STRING},
+      {param: 'address', type: DataType.STRING}
     ]
   }
+
   private getList(): void {
     this.contactService.getList(true);
   }

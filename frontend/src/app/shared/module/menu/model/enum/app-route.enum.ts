@@ -113,7 +113,8 @@ export enum AppRouteEnum {
   ECO_SYSTEM_ADDRESS_CREATE = 'dashboard/ecosystem/address/create',
   ECO_SYSTEM_ADDRESS_UPDATE = 'dashboard/ecosystem/address/update',
   ECO_SYSTEM_ADDRESS_DETAIL = 'dashboard/ecosystem/address/detail',
-  ECO_SYSTEM_ADDRESS_DELETED= 'dashboard/ecosystem/address/deleted',
+  ECO_SYSTEM_ADDRESS_DELETED = 'dashboard/ecosystem/address/',
+  ADDRESS_LIST='',
 
   //Wallet
   WALLET_HOME = '/wallet/home',

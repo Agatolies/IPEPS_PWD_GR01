@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { DataListConfig, DataType, FieldConfig } from '@shared/module/data-list/component/data-list/data-list.config';
+import {Component, OnInit} from '@angular/core';
+import {DataListConfig, DataType, FieldConfig} from '@shared/module/data-list/component/data-list/data-list.config';
 import {
   ApiResponse,
   AppRouteEnum,
@@ -10,9 +10,9 @@ import {
   PageFilter,
   SortFilter
 } from '@shared/model';
-import { CommonHelperUtils, MenuHelperUtils } from '@shared/helper';
-import { NavigationService } from '@shared/service';
-import { isNil } from 'lodash';
+import {CommonHelperUtils, MenuHelperUtils} from '@shared/helper';
+import {NavigationService} from '@shared/service';
+import {isNil} from 'lodash';
 import {switchMap, tap} from 'rxjs/operators';
 import {ActivatedRoute, Params} from '@angular/router';
 import {of} from 'rxjs';
@@ -153,7 +153,7 @@ export class ContactHomeComponent implements OnInit {
       {label: 'firstname'},
       {label: 'email'},
       {label: 'phone'},
-
+      {label: 'address'}
     ]
   }
 
@@ -163,6 +163,7 @@ export class ContactHomeComponent implements OnInit {
       {param: 'firstname', type: DataType.STRING},
       {param: 'email', type: DataType.STRING},
       {param: 'phone', type: DataType.STRING},
+      {param: 'address', type: DataType.STRING}
     ]
   }
   private getList(): void {
