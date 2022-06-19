@@ -8,6 +8,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class TransactionCreatePayload {
-    private String type;
     private float amount;
+    private String walletFromId;
+    private String walletToId;
+    private String document_id;
 }

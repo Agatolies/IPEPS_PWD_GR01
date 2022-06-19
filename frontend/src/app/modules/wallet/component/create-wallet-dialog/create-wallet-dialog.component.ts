@@ -21,7 +21,6 @@ export class CreateWalletDialogComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private walletManagementService: WalletManagementService,
-    // public dialogRef: MatDialogRef<CreateWalletDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: IData
   ) { }
 
@@ -41,8 +40,6 @@ export class CreateWalletDialogComponent implements OnInit {
       type: this.walletForm.value.type,
       actif: this.walletForm.value.activity,
       description: this.walletForm.value.description,
-      // employeeId: this.data.employeeId,
-      // organizationId: this.data.organizationId
       ...this.data
     }
     console.log(payload)
@@ -50,11 +47,5 @@ export class CreateWalletDialogComponent implements OnInit {
     this.walletManagementService
       .createWallet(payload)
       .subscribe();
-  //
-  //     (() => this.closeDialog());
-  // }
-  //
-  // closeDialog() {
-  //   this.dialogRef.close();
   }
 }

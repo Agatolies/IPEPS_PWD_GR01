@@ -40,4 +40,17 @@ export class WalletCardComponent implements OnInit {
   getDetailRoutes(): string {
     return `${AppRouteEnum.WALLET_DETAIL}/${this.wallet?.wallet_id}`;
   }
+
+  getBalance(): number {
+    let balance = 0;
+
+    if(!!this.wallet) {
+      this.wallet.transactions
+        .forEach(transaction => {
+          balance += transaction.amount;
+        })
+    }
+
+    return balance;
+  }
 }

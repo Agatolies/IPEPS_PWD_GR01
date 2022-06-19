@@ -1,10 +1,13 @@
 <h1 mat-dialog-title>Ajouter un portefeuille</h1>
 <form [formGroup]="walletForm" (ngSubmit)="onAddWallet()">
   <div mat-dialog-content>
+    <p>
       <mat-form-field appearance="outline">
         <mat-label>Nom du portefeuille</mat-label>
         <input formControlName="walletName" matInput placeholder="nom">
       </mat-form-field>
+    </p>
+    <p>
       <mat-form-field appearance="outline">
         <mat-label>Catégorie</mat-label>
         <mat-select formControlName="type" placeholder="type">
@@ -13,11 +16,14 @@
           <mat-option value="Type 3">Type 3</mat-option>
         </mat-select>
       </mat-form-field>
+    </p>
+    <p>
       <mat-form-field appearance="outline">
         <mat-label>Description</mat-label>
         <input formControlName="description" matInput #input maxlength="50" placeholder="Description du portefeuille">
         <mat-hint align="end">{{input.value?.length || 0}}/50</mat-hint>
       </mat-form-field>
+    </p>
       <div>
         <label><h1>Actif ?</h1></label>
         <mat-radio-group formControlName="activity">

@@ -1,15 +1,12 @@
 package ipeps.pwd.wallet.entity;
-
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import ipeps.pwd.wallet.payload.updatePayload.DocumentUpdatePayload;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.codehaus.jackson.annotate.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
-import java.util.List;
 import java.util.UUID;
 
 // Document  0,1 || 0,1  Transaction
@@ -30,19 +27,18 @@ public class Document {
     private String type;
     private boolean freeAccess;
 
-    @JsonIgnore // empèche l'affichage de la propriété
-    @OneToOne
-    @JoinColumn(name = "transaction_id_fk", referencedColumnName = "transaction_id")
+    @JsonIgnore
+    @OneToOne(mappedBy = "document")
     private Transaction transaction;
 
-   @JsonIgnore
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "employee_id_fk", referencedColumnName = "employee_id")
     private Employee employee;
 
-   @JsonIgnore
+    @JsonIgnore
     @ManyToOne
-   @JoinColumn (name = "organization_id_fk", referencedColumnName = "organization_id")
+    @JoinColumn(name = "organization_id_fk", referencedColumnName = "organization_id")
     private Organization organization;
 
     public Document(String name, String description, String path, String type,

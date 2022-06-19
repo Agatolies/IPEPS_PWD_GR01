@@ -1,11 +1,17 @@
 package ipeps.pwd.wallet.service.impl;
 
+import ipeps.pwd.wallet.builder.DocumentBuilder;
 import ipeps.pwd.wallet.builder.TransactionBuilder;
 import ipeps.pwd.wallet.common.entity.response.ApiResponse;
+import ipeps.pwd.wallet.entity.Document;
 import ipeps.pwd.wallet.entity.Transaction;
+import ipeps.pwd.wallet.entity.Wallet;
 import ipeps.pwd.wallet.payload.createPayload.TransactionCreatePayload;
 import ipeps.pwd.wallet.payload.updatePayload.TransactionUpdatePayload;
+import ipeps.pwd.wallet.repository.DocumentRepository;
+import ipeps.pwd.wallet.repository.EmployeeRepository;
 import ipeps.pwd.wallet.repository.TransactionRepository;
+import ipeps.pwd.wallet.repository.WalletRepository;
 import ipeps.pwd.wallet.service.TransactionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,6 +23,15 @@ public class TransactionServiceImpl implements TransactionService {
 
     @Autowired
     TransactionRepository transactionRepository;
+
+    @Autowired
+    WalletRepository walletRepository;
+
+    @Autowired
+    DocumentRepository documentRepository;
+
+    @Autowired
+    EmployeeRepository employeeRepository;
 
     @Override
     public ApiResponse list(){
@@ -63,12 +78,40 @@ public class TransactionServiceImpl implements TransactionService {
     @Override
     public ApiResponse create(TransactionCreatePayload payload){
         try {
-            Transaction transaction = new TransactionBuilder()
-                    .setType(payload.getType())
-                    .setAmount(payload.getAmount())
+            // Conversion des string en UUID
+            UUID walletFromId = UUID.fromString(payload.getWalletFromId());
+            UUID walletToId = UUID.fromString(payload.getWalletToId());
+
+            // Récupération des entités nécessaires
+            Wallet walletFrom = this.walletRepository.findById(walletFromId).orElse(null);
+            Wallet walletTo = this.walletRepository.findById(walletToId).orElse(null);
+
+            //DEBIT transaction portefeuille émetteur
+            Transaction debit = new TransactionBuilder()
+                    .setType("DEBIT")
+                    .setAmount(-payload.getAmount())
+                    .setWallet(walletFrom)
                     .build();
 
-            return new ApiResponse(true, transactionRepository.save(transaction), "api.transaction.create.success");
+            transactionRepository.save(debit);
+
+            //CREDIT transaction portefeuille destinataire
+            Transaction credit = new TransactionBuilder()
+                    .setType("CREDIT")
+                    .setAmount(payload.getAmount())
+                    .setWallet(walletTo)
+                    .build();
+
+            transactionRepository.save(credit);
+//              Comment récupérer l'EmployeeId!!!!
+//            Document documentDebit = new DocumentBuilder()
+//                    .setName("NOTE DE DEBIT")
+//                    .setType("NOTE DE DEBIT")
+//                    .setFreeAccess(true)
+//                    .setEmployee()
+//                    .build();
+
+            return new ApiResponse(true, debit, "api.transaction.create.success");
         }catch(Exception e){
             return new ApiResponse(false, null, "api.transaction.create.error");
         }

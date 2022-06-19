@@ -21,6 +21,7 @@ import {MatDialogModule} from "@angular/material/dialog";
 import {MatButtonModule} from "@angular/material/button";
 import {MatInputModule} from "@angular/material/input";
 import {MatIconModule} from "@angular/material/icon";
+import { CreateTransactionDialogComponent } from './component/create-transaction-dialog/create-transaction-dialog.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import {MatIconModule} from "@angular/material/icon";
     WalletHomeComponent,
     WalletUpdateComponent,
     WalletCardComponent,
-    CreateWalletDialogComponent
+    CreateWalletDialogComponent,
+    CreateTransactionDialogComponent
   ],
     imports: [
         CommonModule,
