@@ -98,7 +98,19 @@
       "canceled-operation" : "Opération annulée",
       "deleted-wallet": "Le portefeuille a été supprimé",
       "transactions-title": "Les transactions de : {{walletName}}",
-      "welcome-home": "Bienvenue sur l'application RH"
+      "welcome-home": "Bienvenue sur l'application RH",
+      "organization-card-title": "Organisations",
+      "organization-card-subtitle": "Les agences Papa's Travel",
+      "account-card-title":"Comptes utilisateurs",
+      "account-card-subtitle": "Travaillez avec Papa's Travel",
+      "employee-card-title": "Employés",
+      "employee-card-subtitle": "Voir vos données",
+      "document-card-title": "Documents",
+      "document-card-subtitle": "Consultez tous vos documents",
+      "contact-card-title": "Contacts",
+      "contact-card-subtitle": "La liste de vos contacts",
+      "wallet-card-title": "Portefeuilles",
+      "wallet-card-subtitle": "Gérez vos comptes"
     },
     "document": {
       "form": {

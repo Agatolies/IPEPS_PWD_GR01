@@ -117,7 +117,19 @@
       "canceled-operation" : "Canceled operation",
       "deleted-wallet": "Wallet deleted",
       "transactions-title": "Transactions of : {{walletName}}",
-      "welcome-home": "Welcome to the HR application"
+      "welcome-home": "Welcome to the HR application",
+      "organization-card-title": "Organizations",
+      "organization-card-subtitle": "Papa's Travel agencies",
+      "account-card-title":"Users accounts",
+      "account-card-subtitle": "Work with Papa's Travel",
+      "employee-card-title": "Employees",
+      "employee-card-subtitle": "View your data",
+      "document-card-title": "Documents",
+      "document-card-subtitle": "View all your documents",
+      "contact-card-title": "Contacts",
+      "contact-card-subtitle": "Your contacts list",
+      "wallet-card-title": "Wallets",
+      "wallet-card-subtitle": "Manage your accounts"
     }
   },
   "boolean": {
