@@ -14,6 +14,7 @@ import {
   ContactUpdateComponent,
 } from "./page/ecosystem";
 import {ContactRoutingModule} from "./contact-routing.modules";
+import {EmployeeModule} from "@employee/employee.module";
 
 
 @NgModule({
@@ -31,13 +32,14 @@ import {ContactRoutingModule} from "./contact-routing.modules";
   exports: [
     ContactMenuComponent
   ],
-  imports: [
-    CommonModule,
-    TranslateModule,
-    ContactRoutingModule,
-    SharedModule,
-    ReactiveFormsModule
-  ]
+    imports: [
+        CommonModule,
+        TranslateModule,
+        ContactRoutingModule,
+        SharedModule,
+        ReactiveFormsModule,
+        EmployeeModule
+    ]
 })
 export class ContactModule {
 }

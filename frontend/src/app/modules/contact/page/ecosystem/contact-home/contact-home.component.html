@@ -1,1 +1,15 @@
-<p>contact-home works!</p>
+<ng-container *ngIf="contactService.list$ | async as list">
+  <app-dialog-filter [showDialog]="showDialog" (filterChange)="onFilter($event)" (onClose)="onCloseModal()">
+    <app-contact-form [type]="formAction.SEARCH" [payload]="payload"
+                       (dataChange)="payload = $event"></app-contact-form>
+  </app-dialog-filter>
+  <app-data-list [translateKey]="'page.employee.'" [list]="list" [config]="listConfig"
+                 (onClickAction)="actionHandle($event)"
+                 (filterChange)="onFilterChange($event)" [showFilter]="true" (onShowFilter)="openDialog()"
+                 (sortChange)="onSortChange($event)"
+                 (onShowDeleted)="navigateToDelete()"
+                 [sort]="sortFilter"
+                 [searchFilter]="search"></app-data-list>
+  <app-pagination *ngIf="contactService.pagination$ | async as pagination" [page]="pagination"
+                  [pageFilter]="pageFilter" (onPageFilterChange)="refreshList($event)"></app-pagination>
+</ng-container>

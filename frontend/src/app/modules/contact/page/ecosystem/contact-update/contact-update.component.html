@@ -1,1 +1,11 @@
-<p>contact-update works!</p>
+<ng-container *ngIf="error">
+
+  <div class="error">
+    <i class="fa-regular fa-bug-slash"></i>
+    <span class="txt">{{'page.employee.form.error.not-found' | translate}}</span>
+  </div>
+</ng-container>
+
+<ng-container *ngIf="payload">
+  <app-contact-form [type]="formAction" [payload]="payload"></app-contact-form>
+</ng-container>

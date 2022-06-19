@@ -85,7 +85,22 @@ export class ContactHomeComponent implements OnInit {
   }
 
   // Filter part -------------------------------------------
-    openDialog(): void {
+  onFilterChange(data: any): void {
+    console.log('here iam ', this.sortFilter);
+    this.search = data;
+    this.getDataFromFilter();
+  }
+
+  onSortChange(data: SortFilter | null) {
+    if (isNil(data)) {
+      this.sortFilter = ContactHelper.defaultSort();
+    } else {
+      this.sortFilter = data;
+    }
+    this.getDataFromFilter();
+  }
+
+  openDialog(): void {
     this.showDialog = true;
   }
 

@@ -16,22 +16,25 @@ import {SerenityFormsModule} from "@form";
 
 
 @NgModule({
-  declarations: [
-    EmployeeFormComponent,
-    EmployeeMenuComponent,
-    EmployeeRouterComponent,
-    EmployeeDeleteComponent,
-    EmployeeUpdateComponent,
-    EmployeeHomeComponent,
-    EmployeeDetailComponent,
-    EmployeeCreateComponent
-  ],
-  imports: [
-    CommonModule,
-    EmployeeRoutingModule,
-    ReactiveFormsModule,
-    TranslateModule,
-    SerenityFormsModule
-  ]
+    declarations: [
+        EmployeeFormComponent,
+        EmployeeMenuComponent,
+        EmployeeRouterComponent,
+        EmployeeDeleteComponent,
+        EmployeeUpdateComponent,
+        EmployeeHomeComponent,
+        EmployeeDetailComponent,
+        EmployeeCreateComponent
+    ],
+    exports: [
+        EmployeeFormComponent
+    ],
+    imports: [
+        CommonModule,
+        EmployeeRoutingModule,
+        ReactiveFormsModule,
+        TranslateModule,
+        SerenityFormsModule
+    ]
 })
 export class EmployeeModule { }
