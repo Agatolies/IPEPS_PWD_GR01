@@ -1,6 +1,8 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {AuthService} from '@security/service/auth.service';
 import {SigninPayload} from '@security/model';
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {IS_DEBUG} from "@shared/model";
 
 @Component({
   selector: 'app-signin',
@@ -9,45 +11,35 @@ import {SigninPayload} from '@security/model';
 })
 export class SigninComponent implements OnInit {
 
-  constructor(public auth: AuthService) {
-  }
+  @Input() error?: string | null;
+
+  @Output() submitEM = new EventEmitter();
+
+  signinForm!: FormGroup;
+
+  constructor(
+    private formBuilder: FormBuilder,
+    public auth: AuthService
+  ) {  }
 
   ngOnInit(): void {
+    let defaultUsername = '';
+    let defaultPassword = '';
+
+    if (IS_DEBUG) {
+      defaultUsername = 'laure';
+      defaultPassword = 'T0psecret!';
+    }
+
+    this.signinForm = this.formBuilder.group({
+      username: [defaultUsername, Validators.required],
+      password: [defaultPassword, Validators.required],
+    })
   }
 
-  signInPascal() {
-    const payload: SigninPayload = {
-      username: 'captain',
-      password: 'P@ssword'
-    };
-
-    this.auth.signin(payload).subscribe();
-  }
-
-  signInLaure() {
-    const payload: SigninPayload = {
-      username: 'laure',
-      password: 'T0psecret!'
-    };
-
-    this.auth.signin(payload).subscribe();
-  }
-
-  signInAnne() {
-    const payload: SigninPayload = {
-      username: 'anne',
-      password: 'P@ssword'
-    };
-
-    this.auth.signin(payload).subscribe();
-  }
-
-  signInAndrea() {
-    const payload: SigninPayload = {
-      username: 'andrea',
-      password: 'P@ssword'
-    };
-
-    this.auth.signin(payload).subscribe();
+  submit() {
+    if (this.signinForm.valid) {
+      this.auth.signin(this.signinForm.value).subscribe();
+    }
   }
 }
