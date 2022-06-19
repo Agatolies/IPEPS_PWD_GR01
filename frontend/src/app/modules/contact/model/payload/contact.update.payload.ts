@@ -8,10 +8,6 @@ export interface ContactUpdatePayload {
   phone: string;
   address: string;
 
-  allFields: string;
-  page: PageFilter;
-  sort: SortFilter;
-
   deleted:boolean;
   deletedAt:Date;
   deletedBy:string;
