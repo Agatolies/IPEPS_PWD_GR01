@@ -8,6 +8,7 @@ export interface Documentdto {
   path: string;
   type: string;
   freeAccess : boolean;
-  employee:string;
-  deleted: boolean;
+  employee_id: string;
+  organization_id: string;
+  transaction_id: string;
 }

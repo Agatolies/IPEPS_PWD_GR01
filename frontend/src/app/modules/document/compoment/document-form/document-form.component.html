@@ -3,7 +3,7 @@
   <form [formGroup]="formGroup">
     <mat-form-field appearance="legacy">
       <mat-label>Type de document</mat-label>
-      <mat-select formControlName="documentType" placeholder="Type de document">
+      <mat-select formControlName="type" placeholder="Type de document">
         <mat-option value="FACTURE">FACTURE</mat-option>
         <mat-option value="NOTE_DE_CREDIT">NOTE DE CREDIT</mat-option>
         <mat-option value="NOTE_DE_DEBIT">NOTE DE DEBIT</mat-option>
@@ -12,16 +12,24 @@
     </mat-form-field>
     <mat-form-field appearance="legacy">
       <mat-label>Nom du document</mat-label>
-      <input formControlName="documentName" matInput placeholder="Name">
+      <input formControlName="name" matInput placeholder="Name">
     </mat-form-field>
+
     <mat-form-field appearance="legacy">
       <mat-label>Description du document</mat-label>
-      <input formControlName="documentDescription" matInput placeholder="Description">
+      <input formControlName="description" matInput placeholder="Description">
     </mat-form-field>
+
     <mat-form-field appearance="legacy">
       <mat-label>Contenu du document</mat-label>
-      <input formControlName="documentPath" matInput placeholder="Path">
+      <input formControlName="path" matInput placeholder="Path">
     </mat-form-field>
+
+    <mat-form-field appearance="legacy">
+      <mat-label>Contenu du document</mat-label>
+      <input formControlName="path" matInput placeholder="Path">
+    </mat-form-field>
+
   </form>
 </div>
 

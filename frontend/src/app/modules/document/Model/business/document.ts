@@ -7,5 +7,7 @@ export interface Document extends IsEmpty {
   path: string;
   type: string;
   freeAccess: boolean;
-  employee:string;
+  employee_id: string;
+  organization_id: string;
+  transaction_id: string;
 }

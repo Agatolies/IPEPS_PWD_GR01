@@ -12,6 +12,7 @@ import java.util.UUID;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+
 public class DocumentUpdatePayload {
     private UUID document_id;
     private String name;
@@ -19,7 +20,7 @@ public class DocumentUpdatePayload {
     private String path;
     private String type;
     private boolean freeAccess;
-    private Transaction transaction;
-    private Employee employee;
-    private Organization organization;
+    private String transaction_id;
+    private String employee_id;
+    private Organization organization_id;
 }

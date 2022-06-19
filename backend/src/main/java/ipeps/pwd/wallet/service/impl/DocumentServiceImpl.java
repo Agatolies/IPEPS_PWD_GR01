@@ -4,9 +4,14 @@ import ipeps.pwd.wallet.builder.DocumentBuilder;
 import ipeps.pwd.wallet.common.entity.response.ApiResponse;
 import ipeps.pwd.wallet.entity.Document;
 import ipeps.pwd.wallet.entity.Employee;
+import ipeps.pwd.wallet.entity.Organization;
+import ipeps.pwd.wallet.entity.Transaction;
 import ipeps.pwd.wallet.payload.createPayload.DocumentCreatePayload;
 import ipeps.pwd.wallet.payload.updatePayload.DocumentUpdatePayload;
 import ipeps.pwd.wallet.repository.DocumentRepository;
+import ipeps.pwd.wallet.repository.EmployeeRepository;
+import ipeps.pwd.wallet.repository.OrganizationRepository;
+import ipeps.pwd.wallet.repository.TransactionRepository;
 import ipeps.pwd.wallet.service.DocumentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,6 +23,15 @@ public class DocumentServiceImpl implements DocumentService {
 
     @Autowired
     DocumentRepository documentRepository;
+
+    @Autowired
+    EmployeeRepository employeeRepository;
+
+    @Autowired
+    TransactionRepository transactionRepository;
+
+    @Autowired
+    OrganizationRepository organizationRepository;
 
     @Override
     public ApiResponse list(){
@@ -65,16 +79,27 @@ public class DocumentServiceImpl implements DocumentService {
     @Override
     public ApiResponse create(DocumentCreatePayload payload) {
         try{
+            UUID employee_id = UUID.fromString(payload.getEmployee_id());
+            UUID transaction_id = UUID.fromString(payload.getTransaction_id());
+            UUID organization_id = UUID.fromString(payload.getOrganization_id());
+
+            Employee employee = employeeRepository.findById(employee_id).orElse(null);
+            Transaction transaction = transactionRepository.findById(transaction_id).orElse(null);
+            Organization organization = organizationRepository.findById(organization_id).orElse(null);
+
             Document document = new DocumentBuilder()
                     .setName(payload.getName())
                     .setDescription(payload.getDescription())
                     .setFreeAccess(payload.isFreeAccess())
                     .setPath(payload.getPath())
                     .setType(payload.getType())
-                    .setEmployee(payload.getEmployee())
-                    .setOrganization(payload.getOrganization())
-                    .setTransaction(payload.getTransaction())
+                    .setEmployee(employee)
+                    .setOrganization(organization)
+                    .setTransaction(transaction)
                     .build();
+
+
+
             return new ApiResponse(true, documentRepository.save(document), "api.document.create.success");
         }catch(Exception e){
             return new ApiResponse(false, null, "api.document.create.error");
