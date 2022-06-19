@@ -87,23 +87,31 @@ export class WalletManagementService extends ApiService {
   }
 
   getListForDropdown(employeeId: string): Observable<WalletForDropdown[]> {
-    return super
-      .get(`${ApiUriEnum.EMPLOYEE_DETAIL}/${employeeId}`)
-      .pipe(
-        map(response => {
+    console.log(employeeId);
 
-          const employeeDto = response.data as EmployeeDto;
+    if (employeeId) {
+      return super
+        .get(`${ApiUriEnum.EMPLOYEE_DETAIL}${employeeId}`)
+        .pipe(
+          filter(() => employeeId !== ''),
+          map(response => {
 
-          const walletsForDropdown: WalletForDropdown[] = employeeDto.wallets
-            .map(walletDto => {
-              return {
-                walletId: walletDto.wallet_id,
-                walletName: walletDto.name
-              };
-            });
+            const employeeDto = response.data as EmployeeDto;
 
-          return walletsForDropdown;
-        })
-      )
+            const walletsForDropdown: WalletForDropdown[] = employeeDto.wallets
+              .map(walletDto => {
+                return {
+                  walletId: walletDto.wallet_id,
+                  walletName: walletDto.name
+                };
+              });
+
+            return walletsForDropdown;
+          })
+        )
+    }
+
+    return of([]);
+
   }
 }

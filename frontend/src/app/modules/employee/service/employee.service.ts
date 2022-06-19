@@ -4,6 +4,7 @@ import {Observable} from "rxjs";
 import {map} from "rxjs/operators";
 import {ApiResponse, ApiUriEnum} from "@shared/model";
 import {EmployeeCreatePayload, EmployeeDto, EmployeeUpdatePayload} from "@employee/model";
+import * as _ from "lodash";
 
 // Déplacer cette interface dans les modèles du module Employee
 export interface EmployeeForDropdown {
@@ -20,17 +21,18 @@ export class EmployeeService extends ApiService{
     super(http);
   }
 
-  public getListForDropdown(): Observable<EmployeeForDropdown[]> {
+  public getListForDropdown(ownerWalletId: string): Observable<EmployeeForDropdown[]> {
     return super
       .get(ApiUriEnum.EMPLOYEE_LIST)
       .pipe(
         map(response => {
 
-          const employeesDto = response.data as EmployeeDto[];
+          const employeesDto = _.filter(
+            response.data as EmployeeDto[],
+            (o) => o.wallets.length > 0 && !_.some(o.wallets, { 'wallet_id': ownerWalletId}));
 
           const employeesForDropdown: EmployeeForDropdown[] = employeesDto
             .map(employeeDto => {
-              // Je prends dans employeeDto.account, firstName et lastName
               const firstname = employeeDto.account?.firstname;
               const lastname = employeeDto.account?.lastname;
 
