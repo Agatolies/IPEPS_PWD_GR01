@@ -1,2 +1,35 @@
+<br>
+<div class="table-form">
+    <form [formGroup]="formGroup">
+      <mat-form-field appearance="legacy">
+        <mat-label> Prénom </mat-label>
+        <input formControlName="firstname" matInput placeholder="firstname">
+      </mat-form-field>
+
+      <mat-form-field appearance="legacy">
+      <mat-label> Nom </mat-label>
+      <input formControlName="lastname" matInput placeholder="lastname">
+      </mat-form-field>
+
+      <mat-form-field appearance="legacy">
+        <mat-label> Téléphone </mat-label>
+        <input formControlName="phone" matInput placeholder="phone">
+      </mat-form-field>
+
+      <mat-form-field appearance="legacy">
+        <mat-label> Email </mat-label>
+        <input formControlName="email" matInput placeholder="email">
+      </mat-form-field>
+
+
+    </form>
+</div>
+
+<!-- line2 -->
+<div class="btn-area" *ngIf="type !== formAction.SEARCH">
+  <app-form-btn [css]="'save-btn'" [icon]="'fa-regular fa-save'" [label]="label" (onClick)="save()"></app-form-btn>
+  <app-form-btn [css]="'cancel-btn'" [icon]="'fa-regular fa-times'" [label]="'common.form.btn.cancel'"
+                      (onClick)="cancel()" ></app-form-btn>
+</div>
 
 

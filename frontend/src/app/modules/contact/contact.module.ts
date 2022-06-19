@@ -15,6 +15,11 @@ import {
 } from "./page/ecosystem";
 import {ContactRoutingModule} from "./contact-routing.modules";
 import {EmployeeModule} from "@employee/employee.module";
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatInputModule} from "@angular/material/input";
+import {MatSelectModule} from "@angular/material/select";
+import {MatListModule} from "@angular/material/list";
+import {MatCardModule} from "@angular/material/card";
 
 
 @NgModule({
@@ -32,14 +37,19 @@ import {EmployeeModule} from "@employee/employee.module";
   exports: [
     ContactMenuComponent
   ],
-    imports: [
-        CommonModule,
-        TranslateModule,
-        ContactRoutingModule,
-        SharedModule,
-        ReactiveFormsModule,
-        EmployeeModule
-    ]
+  imports: [
+    CommonModule,
+    TranslateModule,
+    ContactRoutingModule,
+    SharedModule,
+    ReactiveFormsModule,
+    EmployeeModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule,
+    MatListModule,
+    MatCardModule
+  ]
 })
 export class ContactModule {
 }

@@ -33,7 +33,8 @@ export class ContactFormComponent implements OnInit {
         lastname: new FormControl(this.payload.lastname),
         firstname: new FormControl(this.payload.firstname),
         email: new FormControl(this.payload.email),
-        phone: new FormControl(this.payload.phone)
+        phone: new FormControl(this.payload.phone),
+        address: new FormControl(this.payload.address)
       });
       this.formGroup.valueChanges.subscribe(() => this.dataChange.emit(this.formGroup.value));
     } else {
@@ -42,6 +43,7 @@ export class ContactFormComponent implements OnInit {
         firstname: new FormControl(this.payload.firstname, [Validators.required]),
         email: new FormControl(this.payload.email, [Validators.required]),
         phone: new FormControl(this.payload.phone, [Validators.required]),
+        address: new FormControl(this.payload.address,[Validators.required])
       });
     }
   }
@@ -58,18 +60,34 @@ export class ContactFormComponent implements OnInit {
     });
   }
 
-  save(id: string): void {
+  save(): void {
     if (!this.formGroup.invalid) {
-      of(this.type).pipe(
-        switchMap((type: FormAction) => {
-          if (type === FormAction.ADD) {
-            return this.contactService.create(this.formGroup.value);
-          }
-          const payload: ContactUpdatePayload = this.formGroup.value;
-          payload.contact_id = (this.payload as ContactUpdatePayload).contact_id;
-          return this.contactService.update(payload);
-        })
-      )
+        of(this.type).pipe(
+          switchMap((type: FormAction) => {
+            if (type === FormAction.ADD) {
+              return this.contactService.create(this.formGroup.value);
+            }
+            const payload: ContactUpdatePayload = this.formGroup.value;
+            payload.contact_id = (this.payload as ContactUpdatePayload).contact_id;
+            return this.contactService.update(payload);
+          }),
+          tap((response: ApiResponse) => {
+            if (response.result) {
+              this.contactService.getList(this.payload.deleted,{});
+
+              this.navigationService.setMenuAction({
+                icon: MenuHelperUtils.BACK_ICON,
+                title: 'screen.contact.home.btn',
+                link:AppRouteEnum.CONTACT_HOME
+              });
+            }
+          })
+        ).subscribe();
+    } else {
+      Object.keys(this.formGroup.controls).forEach(field => {
+        const control = this.formGroup.get(field);
+        control?.markAsTouched({onlySelf: true});
+      });
     }
   }
 }
