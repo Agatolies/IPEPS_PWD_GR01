@@ -19,9 +19,9 @@ export class ContactService extends ApiService{
   currentAction$: BehaviorSubject<MenuActionType> = new BehaviorSubject<MenuActionType>(MenuActionType.LIST);
 
 
-  /*public getList(id:string): Observable<ApiResponse>{
-    return this.get(`${AppRouteEnum.CONTACT_LIST}${id}`);
-  }*/
+  public getListAddress(id:string): Observable<ApiResponse>{
+    return this.get(`${AppRouteEnum.ADDRESS_LIST}${id}`);
+  }
 
   public getList(deleted: boolean = true, search: ContactSearchPayload= {}): void {
     this.post(deleted ? ApiUriEnum.CONTACT_LIST : ApiUriEnum.CONTACT_LIST, search, false).pipe(tap((response: ApiResponse) => {

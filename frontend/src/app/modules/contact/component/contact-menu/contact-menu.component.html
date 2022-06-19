@@ -1,1 +1,23 @@
-<p>contact-menu works!</p>
+<br>
+<div class="container">
+  <ul>
+    <li router routerLinkActive="active">
+
+      <h2><span _ngcontent-vgu-c90="" class="fa-pencil-alt fas icon"></span>
+        <a routerLink='../create' class="big-title">Créer un contact</a>
+      </h2>
+    </li>
+    <li router routerLinkActive="active">
+      <h2><a routerLink='../detail/:id'>Afficher un contact</a></h2>
+    </li>
+    <li router routerLinkActive="active">
+      <h2><a routerLink='../update/:action/:id'>Modifier un contact</a></h2>
+    </li>
+    <li router routerLinkActive="active">
+      <h2><a routerLink=''>Afficher liste des contacts</a></h2>
+    </li>
+    <li router routerLinkActive="active">
+      <h2><a routerLink='../delete'>Supprimer contact</a></h2>
+    </li>
+  </ul>
+</div>

@@ -1,3 +1,9 @@
+<!-- Titre de la page -->
+<app-page-title
+  [title]="'Papa\'s Travel'"
+  [subtitle]="'Document'">
+</app-page-title>
+
 <ng-container *ngIf="contactService.list$ | async as list">
   <app-data-list [list]="list" [config]="listConfig" (onClickAction)="actionHandle($event)"></app-data-list>
 </ng-container>

@@ -1,3 +1,9 @@
+<!-- Titre de la page -->
+<app-page-title
+  [title]="'Papa\'s Travel'"
+  [subtitle]="'Document'">
+</app-page-title>
+
 <ng-container *ngIf="contactService.list$ | async as list">
   <app-dialog-filter [showDialog]="showDialog" (filterChange)="onFilter($event)" (onClose)="onCloseModal()">
     <app-contact-form [type]="formAction.SEARCH" [payload]="payload"
