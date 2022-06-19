@@ -1,6 +1,7 @@
 <br>
 <div mat-dialog-content>
   <form [formGroup]="formGroup">
+    <!--validation  requise</!-->
     <mat-form-field appearance="legacy">
       <mat-label>Type de document</mat-label>
       <mat-select formControlName="type" placeholder="Type de document">
@@ -24,10 +25,20 @@
       <mat-label>Contenu du document</mat-label>
       <input formControlName="path" matInput placeholder="Path">
     </mat-form-field>
+<!--validation non requise</!-->
+    <mat-form-field appearance="legacy">
+      <mat-label>Employé</mat-label>
+      <input formControlName="employee" matInput placeholder="Employee">
+    </mat-form-field>
 
     <mat-form-field appearance="legacy">
-      <mat-label>Contenu du document</mat-label>
-      <input formControlName="path" matInput placeholder="Path">
+      <mat-label>Transaction</mat-label>
+      <input formControlName="transaction" matInput placeholder="Transaction">
+    </mat-form-field>
+
+    <mat-form-field appearance="legacy">
+      <mat-label>Organisation</mat-label>
+      <input formControlName="organization" matInput placeholder="Organisation">
     </mat-form-field>
 
   </form>

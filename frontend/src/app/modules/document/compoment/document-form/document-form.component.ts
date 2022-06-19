@@ -45,6 +45,9 @@ export class DocumentFormComponent implements OnInit {
       type: ['',Validators.required],
       description: ['',Validators.required],
       path: ['',Validators.required],
+      employee: [],
+      transaction: [],
+      organization: []
     })
   }
 

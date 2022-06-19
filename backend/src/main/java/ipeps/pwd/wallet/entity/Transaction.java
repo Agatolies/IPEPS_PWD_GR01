@@ -24,8 +24,7 @@ public class Transaction {
 
     private float amount;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "document_id_fk", referencedColumnName = "document_id")
+    @OneToOne(mappedBy = "transaction")
     private Document document;
 
     @JsonIgnore

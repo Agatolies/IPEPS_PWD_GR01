@@ -27,7 +27,8 @@ public class Document {
     private boolean freeAccess;
 
     @JsonIgnore
-    @OneToOne(mappedBy = "document")
+    @OneToOne
+    @JoinColumn(name = "transaction_id_fk", referencedColumnName = "transaction_id")
     private Transaction transaction;
 
     @JsonIgnore

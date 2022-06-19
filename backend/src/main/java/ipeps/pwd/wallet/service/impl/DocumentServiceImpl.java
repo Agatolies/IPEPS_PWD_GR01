@@ -79,13 +79,6 @@ public class DocumentServiceImpl implements DocumentService {
     @Override
     public ApiResponse create(DocumentCreatePayload payload) {
         try{
-            UUID employee_id = UUID.fromString(payload.getEmployee_id());
-            UUID transaction_id = UUID.fromString(payload.getTransaction_id());
-            UUID organization_id = UUID.fromString(payload.getOrganization_id());
-
-            Employee employee = employeeRepository.findById(employee_id).orElse(null);
-            Transaction transaction = transactionRepository.findById(transaction_id).orElse(null);
-            Organization organization = organizationRepository.findById(organization_id).orElse(null);
 
             Document document = new DocumentBuilder()
                     .setName(payload.getName())
@@ -93,9 +86,9 @@ public class DocumentServiceImpl implements DocumentService {
                     .setFreeAccess(payload.isFreeAccess())
                     .setPath(payload.getPath())
                     .setType(payload.getType())
-                    .setEmployee(employee)
-                    .setOrganization(organization)
-                    .setTransaction(transaction)
+                    .setEmployee(payload.getEmployee())
+                    .setOrganization(payload.getOrganization())
+                    .setTransaction(payload.getTransaction())
                     .build();
 
 
