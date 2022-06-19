@@ -17,8 +17,8 @@ export class CreateTransactionDialogComponent implements OnInit {
 
   private employeeId: string = '';
 
-  listForEmployeesDropdown$: Observable<EmployeeForDropdown[]> = this.employeeService.getListForDropdown();
-  listForWalletsDropdown$: Observable<WalletForDropdown[]> = this.walletManagementService.getListForDropdown(this.employeeId);
+  listForEmployeesDropdown$!: Observable<EmployeeForDropdown[]>;
+  listForWalletsDropdown$!: Observable<WalletForDropdown[]>;
 
   transactionForm!: FormGroup;
 
@@ -33,7 +33,8 @@ export class CreateTransactionDialogComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.listForEmployeesDropdown$ = this.employeeService.getListForDropdown();
+    this.listForEmployeesDropdown$ = this.employeeService.getListForDropdown(this.data.walletFromId);
+    this.listForWalletsDropdown$ = this.walletManagementService.getListForDropdown(this.employeeId);
 
     this.transactionForm = this.formBuilder.group({
       employeeId: ['', Validators.required],
