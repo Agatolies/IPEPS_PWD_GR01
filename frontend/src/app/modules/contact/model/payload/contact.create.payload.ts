@@ -7,10 +7,6 @@ export interface ContactCreatePayload extends PayloadInterface{
   phone: string;
   address: string;
 
-  allFields: string;
-  page: PageFilter;
-  sort: SortFilter;
-
   deleted:boolean;
   deletedAt:Date;
   deletedBy:string;

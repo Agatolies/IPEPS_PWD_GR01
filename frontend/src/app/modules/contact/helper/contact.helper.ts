@@ -1,16 +1,21 @@
-import {Contact, ContactDto, ContactSearchPayload} from "../model";
+import {Contact, ContactCreatePayload, ContactDto, ContactSearchPayload, ContactUpdatePayload} from "../model";
 import {buildComponent} from "@angular/cdk/schematics";
 import {SortEnum, SortFilter} from "@shared/module/data-list/model";
 
 export class ContactHelper {
   public static fromDto(dto: ContactDto): Contact {
     return {
-      isEmpty: false,
       id: dto.contact_id,
       lastname: dto.lastname,
       firstname: dto.firstname,
       email: dto.email,
-      phone: dto.phone
+      phone: dto.phone,
+      address: dto.address,
+      isEmpty: false,
+
+      deleted: dto.deleted,
+      deletedAt: dto.deletedAt,
+      deletedBy: dto.deletedBy
     }
   }
 
@@ -20,7 +25,28 @@ export class ContactHelper {
       lastname: business.lastname,
       firstname: business.firstname,
       email: business.email,
-      phone: business.phone
+      phone: business.phone,
+      address:business.address,
+
+      deleted: business.deleted,
+      deletedAt: business.deletedAt,
+      deletedBy: business.deletedBy
+    }
+  }
+
+  static getEmpty(): Contact {
+    return {
+      lastname: '',
+      firstname: '',
+      email:'',
+      id: "",
+      isEmpty: false,
+      phone:'',
+      address:'',
+
+      deleted:false,
+      deletedAt: new Date(),
+      deletedBy:''
     }
   }
 
@@ -30,6 +56,7 @@ export class ContactHelper {
       firstname: '',
       email:'',
       phone:'',
+      address:'',
 
       deleted:false,
       deletedAt: new Date(),
@@ -39,5 +66,22 @@ export class ContactHelper {
 
   static defaultSort(): SortFilter {
     return {sort: SortEnum.ASC, field: 'lastname'};
+  }
+
+  static getCreatePayload(): ContactCreatePayload {
+    return {
+      lastname: '',
+      firstname: '',
+      address: "",
+      email:'',
+      phone:'',
+
+      deleted:false,
+      deletedAt: new Date(),
+      deletedBy:''
+    }
+  }
+  static fromDtoToUpdatePayload(dto: ContactDto): ContactUpdatePayload {
+    return { ...dto}
   }
 }

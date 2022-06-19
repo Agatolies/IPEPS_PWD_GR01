@@ -7,12 +7,14 @@ import {ReactiveFormsModule} from '@angular/forms';
 import {ContactFormComponent, ContactMenuComponent} from "./component";
 import {
   ContactCreateComponent,
+  ContactDeleteComponent,
   ContactDetailComponent,
-  ContactHomeComponent, ContactRouteurComponent,
+  ContactHomeComponent,
+  ContactRouteurComponent,
   ContactUpdateComponent,
-
 } from "./page/ecosystem";
 import {ContactRoutingModule} from "./contact-routing.modules";
+import {EmployeeModule} from "@employee/employee.module";
 
 
 @NgModule({
@@ -24,18 +26,20 @@ import {ContactRoutingModule} from "./contact-routing.modules";
     ContactCreateComponent,
     ContactRouteurComponent,
     ContactUpdateComponent,
+    ContactDeleteComponent
 
   ],
   exports: [
     ContactMenuComponent
   ],
-  imports: [
-    CommonModule,
-    TranslateModule,
-    ContactRoutingModule,
-    SharedModule,
-    ReactiveFormsModule
-  ]
+    imports: [
+        CommonModule,
+        TranslateModule,
+        ContactRoutingModule,
+        SharedModule,
+        ReactiveFormsModule,
+        EmployeeModule
+    ]
 })
 export class ContactModule {
 }
