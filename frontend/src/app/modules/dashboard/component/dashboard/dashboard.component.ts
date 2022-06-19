@@ -16,7 +16,7 @@ import {TranslateService} from '@ngx-translate/core';
 export class DashboardComponent implements OnInit {
   credential?: Credential;
   menu: MenuAction[] = [];
-  showLongMenu = true;
+  showLongMenu = false;
   showLanguageMenu = false;
 
   constructor(public auth: AuthService, public translateService: TranslateService, public router: Router) {

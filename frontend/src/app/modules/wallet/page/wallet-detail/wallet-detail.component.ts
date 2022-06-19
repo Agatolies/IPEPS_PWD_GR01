@@ -1,5 +1,4 @@
-import { Component, OnInit, AfterViewInit, ViewChild} from '@angular/core';
-import {TransactionDto} from "../../model/dto/transaction.dto";
+import { Component, OnInit} from '@angular/core';
 import {MatDialog, MatDialogRef} from "@angular/material/dialog";
 import {
   CreateTransactionDialogComponent
@@ -9,9 +8,6 @@ import {ActivatedRoute} from "@angular/router";
 import {WalletManagementService} from "../../service/wallet-management.service";
 import {WalletDto} from "../../model";
 import {IS_DEBUG} from "@shared/model"
-import {MatPaginator} from '@angular/material/paginator';
-import {MatSort} from '@angular/material/sort';
-import {MatTableDataSource} from '@angular/material/table';;
 
 @Component({
   selector: 'app-wallet-detail',

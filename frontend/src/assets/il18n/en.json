@@ -115,7 +115,9 @@
       "select-wallet": "Select a wallet",
       "created-wallet" : "Wallet created",
       "canceled-operation" : "Canceled operation",
-      "deleted-wallet": "Wallet deleted"
+      "deleted-wallet": "Wallet deleted",
+      "transactions-title": "Transactions of : {{walletName}}",
+      "welcome-home": "Welcome to the HR application"
     }
   },
   "boolean": {

@@ -96,7 +96,9 @@
       "select-wallet": "Selectionner un portefeuille",
       "created-wallet" : "Le portefeuille a été créé",
       "canceled-operation" : "Opération annulée",
-      "deleted-wallet": "Le portefeuille a été supprimé"
+      "deleted-wallet": "Le portefeuille a été supprimé",
+      "transactions-title": "Les transactions de : {{walletName}}",
+      "welcome-home": "Bienvenue sur l'application RH"
     },
     "document": {
       "form": {

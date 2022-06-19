@@ -1,5 +1,127 @@
-<p>dashboard-home works!</p>
+<app-page-title
+  [title]="'app.wallet.welcome-home' | translate"
+  [subtitle]="'Papa\'s Travel'">
+</app-page-title>
 
-<div style="...">
-  <h1>Papa's Travels : Page d'accueil!</h1>
-</div>
+<mat-grid-list cols="3" gutterSize="10px" [rowHeight]="450" class="mt-2">
+  <mat-grid-tile>
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Organisations</mat-card-title>
+        <mat-card-subtitle>Les agences Papa's Travel</mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image src="/assets/images/home/organization.jpeg" alt="Organizations">
+      <mat-card-content>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+          ut labore et dolore magna aliqua. Dui sapien eget mi proin sed libero enim.
+        </p>
+      </mat-card-content>
+      <mat-card-actions>
+        <a routerLink='/organization/home'>
+          <button mat-button>GO</button>
+        </a>
+      </mat-card-actions>
+    </mat-card>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Comptes utilisateurs</mat-card-title>
+        <mat-card-subtitle>Travaillez avec Papa's Travel</mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image src="/assets/images/home/users.jpg" alt="Users">
+      <mat-card-content>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+          labore et dolore magna aliqua. Consectetur libero id faucibus nisl tincidunt eget nullam.
+        </p>
+      </mat-card-content>
+      <mat-card-actions>
+        <a routerLink='/account/home'>
+          <button mat-button>GO</button>
+        </a>
+      </mat-card-actions>
+    </mat-card>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Employés</mat-card-title>
+        <mat-card-subtitle>Voir vos données</mat-card-subtitle>
+      </mat-card-header>
+        <img mat-card-image src="/assets/images/home/employees.jpg" alt="Employees">
+        <mat-card-content>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+            ut labore et dolore magna aliqua. Sed nisi lacus sed viverra tellus.
+          </p>
+        </mat-card-content>
+        <mat-card-actions>
+          <a routerLink='/employee/home'>
+            <button mat-button>GO</button>
+          </a>
+        </mat-card-actions>
+    </mat-card>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Documents</mat-card-title>
+        <mat-card-subtitle>Accédez à tous vos documents</mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image src="/assets/images/home/documents.jpg" alt="Documents">
+      <mat-card-content>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+          ut labore et dolore magna aliqua. Integer vitae justo eget magna fermentum.
+        </p>
+      </mat-card-content>
+      <mat-card-actions>
+        <a routerLink='/document/home'>
+          <button mat-button>GO</button>
+        </a>
+      </mat-card-actions>
+    </mat-card>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Contacts</mat-card-title>
+        <mat-card-subtitle>La liste de vos contacts</mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image src="/assets/images/home/contact.jpg" alt="Contacts">
+      <mat-card-content>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+          ut labore et dolore magna aliqua. Purus in mollis nunc sed id semper risus.
+        </p>
+      </mat-card-content>
+      <mat-card-actions>
+        <a routerLink='/employee/home'>
+          <button mat-button>GO</button>
+        </a>
+      </mat-card-actions>
+    </mat-card>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Portefeuilles</mat-card-title>
+        <mat-card-subtitle>Gérer vos comptes</mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image src="/assets/images/home/wallets.jpg" alt="Wallets">
+      <mat-card-content>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+          ut labore et dolore magna aliqua. Dui sapien eget mi proin sed libero enim.
+        </p>
+      </mat-card-content>
+      <mat-card-actions>
+        <a routerLink='/wallet/home'>
+          <button mat-button>GO</button>
+        </a>
+      </mat-card-actions>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>

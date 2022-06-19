@@ -1,6 +1,6 @@
 <!-- Titre de la page -->
 <app-page-title
-  [title]="'Les transactions de : ' + selectedWallet?.name"
+  [title]="'app.wallet.transactions-title' | translate: { walletName: selectedWallet?.name}"
   [subtitle]="'Papa\'s Travel'"
   [badgeContent]="selectedWallet?.transactions?.length"
 >
