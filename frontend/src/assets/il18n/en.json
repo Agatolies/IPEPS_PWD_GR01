@@ -4,6 +4,10 @@
       "btn": {
         "update": "Update",
         "create": "Create"
+      },
+      "signin": {
+        "username": "Username",
+        "login": "Login"
       }
     }
   },

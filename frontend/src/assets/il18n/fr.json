@@ -4,6 +4,10 @@
       "btn": {
         "update": "Mise à jour",
         "create": "Création"
+      },
+      "signin": {
+        "username": "Nom d'utilisateur",
+        "login": "Se connecter"
       }
     }
   },
