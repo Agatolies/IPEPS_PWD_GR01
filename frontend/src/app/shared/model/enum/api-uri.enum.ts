@@ -53,6 +53,7 @@ export enum ApiUriEnum {
   WALLET_CREATE = 'wallet/create',
   WALLET_UPDATE = 'wallet/update',
   WALLET_DELETE = 'wallet/delete',
+  WALLET_DISABLE = 'wallet/disable',
 
   // Salary
   SALARY_LIST = 'salary/list',

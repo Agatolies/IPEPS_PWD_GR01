@@ -12,6 +12,7 @@ import {CreateWalletDialogComponent} from "../../component/create-wallet-dialog/
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {TransactionDto} from "../../model/dto/transaction.dto";
 import {IS_DEBUG} from "@shared/model";
+import _ from "lodash";
 
 @Component({
   selector: 'app-wallet-home',
@@ -113,13 +114,18 @@ export class WalletHomeComponent implements OnInit, OnDestroy {
       })
   }
 
-  deleteWallet($walletId: string) {
-    this.walletManagement
-      .deleteWallet($walletId)
-      .subscribe(() => {
-        this.loadWallets();
-        this.snackBar.open('Le portefeuille a été supprimé');
-      });
+  disableWallet($walletId: string) {
 
+    const wallet = _.find(this.myWallets,(w) => w.wallet_id === $walletId);
+
+    if (wallet){
+      console.log({wallet});
+      this.walletManagement
+        .disableWallet(wallet)
+        .subscribe(() => {
+          this.loadWallets();
+          this.snackBar.open('Le portefeuille a été supprimé');
+        });
+    }
   }
 }

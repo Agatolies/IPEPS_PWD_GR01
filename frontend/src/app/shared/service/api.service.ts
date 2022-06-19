@@ -37,6 +37,12 @@ export class ApiService {
       .pipe(map((response: any) => response as ApiResponse))
   }
 
+  putGeneric<TPayload>(partUrl: string, payload: TPayload, showToaster = true): Observable<ApiResponse> {
+    return this.http
+      .put(`${this.baseUrl}${partUrl}`, payload, showToaster)
+      .pipe(map((response: any) => response as ApiResponse))
+  }
+
   delete(partUrl: string, showToaster = true): Observable<ApiResponse> {
     return this.http
       .delete(`${this.baseUrl}${partUrl}`, showToaster)

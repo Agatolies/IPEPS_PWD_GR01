@@ -62,7 +62,7 @@ export class CreateTransactionDialogComponent implements OnInit {
       });
   }
 
-  refreshEmployeeWallets($event: MatSelectChange) {
+  reloadEmployeeWallets($event: MatSelectChange) {
 
     this.employeeId = $event.value;
     console.log($event.value);

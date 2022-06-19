@@ -1,7 +1,5 @@
-import {PayloadInterface} from "@shared/model";
-
-export interface WalletUpdatePayload extends PayloadInterface {
-  id: string;
+export interface WalletUpdatePayload {
+  wallet_id: string;
   name: string;
   description: string;
   actif: boolean;

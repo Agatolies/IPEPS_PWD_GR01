@@ -9,7 +9,7 @@ import {AppRouteEnum} from "@shared/module/menu/model";
 })
 export class WalletCardComponent implements OnInit {
   @Input() wallet: WalletDto | undefined;
-  @Output() deleteWalletEvent = new EventEmitter<string>();
+  @Output() inactiveWalletEvent = new EventEmitter<string>();
 
   constructor() { }
 
@@ -29,11 +29,11 @@ export class WalletCardComponent implements OnInit {
     }
   }
 
-  deleteWallet(): void {
+  turnOffWalletActivity(): void {
     // = si la variable est définie = différente de null
     if(!!this.wallet) {
       const walletId = this.wallet.wallet_id;
-      this.deleteWalletEvent.emit(walletId);
+      this.inactiveWalletEvent.emit(walletId);
     }
   }
 

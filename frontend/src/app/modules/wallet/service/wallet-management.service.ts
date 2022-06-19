@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {ApiResponse, ApiResponseGeneric, ApiUriEnum} from "@shared/model";
 import {filter, map, tap} from "rxjs/operators";
-import {TransactionCreatePayload, WalletCreatePayload, WalletDto} from "../model";
+import {TransactionCreatePayload, WalletCreatePayload, WalletDto, WalletUpdatePayload} from "../model";
 import {Observable, of} from "rxjs";
 import {SalaryDto} from "../../salary/model";
 import {TransactionDto} from "../model/dto/transaction.dto";
@@ -82,8 +82,18 @@ export class WalletManagementService extends ApiService {
       )
   }
 
-  public deleteWallet(walletId: string): Observable<any> {
-    return super.delete(`${ApiUriEnum.WALLET_DELETE}/${walletId}`);
+  public disableWallet(wallet: WalletDto): Observable<any> {
+    const payload: WalletUpdatePayload = {
+      wallet_id: wallet.wallet_id,
+      actif: false,
+      name: wallet.name,
+      type: wallet.type,
+      description: wallet.description
+    }
+
+    return super
+      .putGeneric(ApiUriEnum.WALLET_DISABLE, payload)
+      .pipe(map((response: any) => response as ApiResponse))
   }
 
   getListForDropdown(employeeId: string): Observable<WalletForDropdown[]> {

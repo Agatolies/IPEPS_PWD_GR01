@@ -9,7 +9,7 @@
           <mat-select
           placeholder="Selectionner un employé"
           formControlName="employeeId"
-          (selectionChange)="refreshEmployeeWallets($event)">
+          (selectionChange)="reloadEmployeeWallets($event)">
           <ng-container *ngFor="let employee of (listForEmployeesDropdown$ | async)">
             <mat-option [value]="employee.employeeId">
               {{employee.employeeFullName}}
