@@ -4,7 +4,6 @@ import {AccountCreatePayload, AccountDto, AccountUpdatePayload, Account} from "@
 export class AccountHelper {
   public static fromDto(dto: AccountDto): Account {
     return {
-
       id: dto.account_id,
       firstname: dto.firstname,
       lastname: dto.lastname

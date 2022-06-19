@@ -90,9 +90,6 @@ public class DocumentServiceImpl implements DocumentService {
                     .setOrganization(payload.getOrganization())
                     .setTransaction(payload.getTransaction())
                     .build();
-
-
-
             return new ApiResponse(true, documentRepository.save(document), "api.document.create.success");
         }catch(Exception e){
             return new ApiResponse(false, null, "api.document.create.error");

@@ -1,11 +1,11 @@
-import {Component, OnInit} from '@angular/core';
-import {Documentdto, DocumentUpdatePayload} from "../../../Model";
-import {ApiResponse, FormAction} from "@shared/model";
-import {DocumentService} from "../../../service/document.service";
-import {ActivatedRoute, Params} from "@angular/router";
-import {switchMap} from "rxjs/operators";
-import {of} from "rxjs";
-import {DocumentHelper} from "../../../helper/document.helper";
+import { Component, OnInit } from '@angular/core';
+import { Document, Documentdto, DocumentUpdatePayload } from "../../../Model";
+import { ApiResponse, FormAction } from "@shared/model";
+import { DocumentService } from "../../../service/document.service";
+import { ActivatedRoute, Params } from "@angular/router";
+import { switchMap } from "rxjs/operators";
+import { of } from "rxjs";
+import { DocumentHelper } from "../../../helper/document.helper";
 
 @Component({
   selector: 'app-document-update',
@@ -15,7 +15,7 @@ import {DocumentHelper} from "../../../helper/document.helper";
 export class DocumentUpdateComponent implements OnInit {
   payload?: DocumentUpdatePayload;
   error?: ApiResponse;
-  formAction:FormAction = FormAction.UPDATE;
+  formAction: FormAction = FormAction.UPDATE;
   lastUpdate = new Date();
 
   constructor(public documentService: DocumentService, public activatedRouter: ActivatedRoute) {
@@ -24,22 +24,15 @@ export class DocumentUpdateComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRouter.params.pipe(
       switchMap((param: Params) => {
-        if (param['id']){
+        if (param['id']) {
           return this.documentService.getDetail(param['id'])
         }
-        return of({
-          result: false,
-          data: null,
-          code:'page.document.form.error.not-found',
-          success: false
-        });
+        return of(DocumentHelper.getEmpty());
       })
-    ).subscribe((response: ApiResponse) => {
-      if (response.result){
-        this.payload = DocumentHelper.fromDtoUpdatePayload(response.data as Documentdto)
+    ).subscribe((document: Document) => {
+      if (!document.isEmpty) {
+        this.payload = DocumentHelper.fromDtoUpdatePayload(DocumentHelper.toDto(document));
       }
-      else {
-        this.error = response;      }
     });
   }
 

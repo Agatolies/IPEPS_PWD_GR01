@@ -1,11 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {DocumentFormComponent} from "../../../compoment/document-form/document-form.component";
-import {DocumentCreatePayload} from "../../../Model";
-import {DocumentHelper} from "../../../helper/document.helper";
-import {DocumentService} from "../../../service/document.service";
-import {FormAction} from "@shared/module/forms/model";
-import {MenuActionType} from "@shared/model";
-import {BehaviorSubject} from "rxjs";
+import { DocumentCreatePayload } from "../../../Model";
+import { DocumentHelper } from "../../../helper/document.helper";
+import { DocumentService } from "../../../service/document.service";
+import { FormAction } from "@shared/module/forms/model";
 
 @Component({
   selector: 'app-document-create',
@@ -21,9 +18,7 @@ export class DocumentCreateComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log('mon premier payload' ,this.payload);
-    this.documentService.currentAction$.next(MenuActionType.ADD);
-
+    console.log('mon premier payload', this.payload);
   }
 }
 

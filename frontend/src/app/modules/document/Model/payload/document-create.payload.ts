@@ -1,4 +1,7 @@
 import { PayloadInterface } from '@shared/model';
+import { EmployeeDto } from '@employee/model';
+import { OrganizationDto } from '@organization/model';
+import { TransactionDto } from '../../../wallet/model/dto/transaction.dto';
 
 export interface DocumentCreatePayload extends PayloadInterface {
   name: string;
@@ -6,7 +9,7 @@ export interface DocumentCreatePayload extends PayloadInterface {
   path: string;
   type: string;
   freeAccess: boolean;
-  employee_id: string;
-  organization_id: string;
-  transaction_id: string;
+  employee: EmployeeDto;
+  organization: OrganizationDto;
+  transaction: TransactionDto;
 }

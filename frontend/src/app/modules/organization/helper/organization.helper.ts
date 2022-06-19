@@ -1,4 +1,10 @@
-import {Organization, OrganizationCreatePayload, OrganizationDto, OrganizationUpdatePayload} from "@organization/model";
+import {
+  Organization,
+  OrganizationCreatePayload,
+  OrganizationDto,
+  OrganizationUpdatePayload
+} from "@organization/model";
+import { isNil } from 'lodash';
 
 export class OrganizationHelper {
   public static fromDto(dto: OrganizationDto): Organization {
@@ -11,7 +17,7 @@ export class OrganizationHelper {
   }
 
   public static toDto(business: Organization): OrganizationDto {
-    return {
+    return (isNil(business)) ? OrganizationHelper.toDto(OrganizationHelper.getEmpty()) : {
       organization_id: business.id,
       name: business.name,
       description: business.description,

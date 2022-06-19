@@ -1,5 +1,6 @@
-<div *ngIf="list$ | async as list">
+<div *ngIf="documentService.list$ | async as list">
   <ng-container *ngIf="list.length > 0 ; else noData">
+    {{list | json}}
     <div *ngFor="let item of list; let last=last">
 
     </div>

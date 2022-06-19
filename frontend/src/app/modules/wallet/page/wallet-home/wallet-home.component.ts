@@ -1,17 +1,16 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
-import {WalletDto} from "../../model";
-import {BehaviorSubject, combineLatest, Observable, Subscription} from "rxjs";
-import {WalletManagementService} from "../../service/wallet-management.service";
-import {EmployeeService} from "@employee/service/employee.service";
-import {AuthService} from "@security/service/auth.service";
-import {AccountService} from "@account/service/account.service";
-import {mergeMap} from "rxjs/operators";
-import {AccountDto} from "@account/model";
-import {MatDialog, MatDialogRef} from "@angular/material/dialog";
-import {CreateWalletDialogComponent} from "../../component/create-wallet-dialog/create-wallet-dialog.component";
-import {MatSnackBar} from "@angular/material/snack-bar";
-import {TransactionDto} from "../../model/dto/transaction.dto";
-import {IS_DEBUG} from "@shared/model";
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { WalletDto } from "../../model";
+import { BehaviorSubject, combineLatest, Observable, Subscription } from "rxjs";
+import { WalletManagementService } from "../../service/wallet-management.service";
+import { EmployeeService } from "@employee/service/employee.service";
+import { AuthService } from "@security/service/auth.service";
+import { AccountService } from "@account/service/account.service";
+import { mergeMap } from "rxjs/operators";
+import { AccountDto } from "@account/model";
+import { MatDialog, MatDialogRef } from "@angular/material/dialog";
+import { CreateWalletDialogComponent } from "../../component/create-wallet-dialog/create-wallet-dialog.component";
+import { MatSnackBar } from "@angular/material/snack-bar";
+import { IS_DEBUG } from "@shared/model";
 
 @Component({
   selector: 'app-wallet-home',
@@ -36,9 +35,8 @@ export class WalletHomeComponent implements OnInit, OnDestroy {
     private walletManagement: WalletManagementService,
     private employeeService: EmployeeService,
     private accountService: AccountService,
-    private dialog : MatDialog,
-    private snackBar: MatSnackBar)
-  {
+    private dialog: MatDialog,
+    private snackBar: MatSnackBar) {
   }
 
   ngOnInit(): void {
@@ -55,36 +53,6 @@ export class WalletHomeComponent implements OnInit, OnDestroy {
     }
   }
 
-  private loadWallets(){
-    const accountDto$: Observable<AccountDto> = this.auth
-      .me()
-      .pipe(
-        mergeMap(meResponse => {
-          const accountId = meResponse.data.credential_id;
-          //permet d'afficher uniquement les wallets des personnes connectées
-          return this.accountService.getDetail(accountId);
-        })
-      );
-
-    this.subscription = combineLatest([accountDto$, this.selectedWalletIndex$])
-      .subscribe(combined => {
-        const accountDto = combined[0];
-        const employeeCount = accountDto.employees?.length ?? 0;
-
-        this.me = accountDto;
-
-        if (employeeCount === 0) {
-          this.myWallets = [];
-        } else {
-          const employee = accountDto.employees[0];
-
-          this.myWallets = employee.wallets.filter(wallet => wallet.actif);
-          this.employeeId = employee.employee_id;
-          this.organizationId = employee.organization.organization_id;
-        }
-      });
-  }
-
   selectTransactionForWallet(walletIndex: number) {
     this.selectedWalletIndex$.next(walletIndex);
   }
@@ -94,12 +62,12 @@ export class WalletHomeComponent implements OnInit, OnDestroy {
     this.dialogRef = this.dialog.open(
       CreateWalletDialogComponent,
       {
-      width: '30%',
-      data: {
-        employeeId: this.employeeId,
-        organizationId: this.organizationId
-      }
-    });
+        width: '30%',
+        data: {
+          employeeId: this.employeeId,
+          organizationId: this.organizationId
+        }
+      });
 
     this.dialogRef
       .afterClosed()
@@ -121,5 +89,34 @@ export class WalletHomeComponent implements OnInit, OnDestroy {
         this.snackBar.open('Le portefeuille a été supprimé');
       });
 
+  }
+
+  private loadWallets() {
+    const accountDto$: Observable<AccountDto> = this.auth
+      .me()
+      .pipe(
+        mergeMap(meResponse => {
+          const accountId = meResponse.data.credential_id;
+          //permet d'afficher uniquement les wallets des personnes connectées
+          return this.accountService.getDetail(accountId);
+        })
+      );
+
+    this.subscription = combineLatest([accountDto$, this.selectedWalletIndex$])
+      .subscribe(combined => {
+        const accountDto = combined[0];
+        const employeeCount = accountDto.employees?.length ?? 0;
+        this.me = accountDto;
+
+        if (employeeCount === 0) {
+          this.myWallets = [];
+        } else {
+          const employee = accountDto.employees![0];
+
+          this.myWallets = employee.wallets.filter(wallet => wallet.actif);
+          this.employeeId = employee.employee_id;
+          this.organizationId = employee.organization.organization_id;
+        }
+      });
   }
 }

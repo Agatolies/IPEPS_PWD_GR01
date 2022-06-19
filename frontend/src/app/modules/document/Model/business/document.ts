@@ -1,4 +1,7 @@
-import {IsEmpty} from "@shared/model/is-empty";
+import { IsEmpty } from "@shared/model/is-empty";
+import { Employee } from '@employee/model';
+import { Organization } from '@organization/model';
+import { TransactionDto } from '../../../wallet/model/dto/transaction.dto';
 
 export interface Document extends IsEmpty {
   id: string;
@@ -7,7 +10,7 @@ export interface Document extends IsEmpty {
   path: string;
   type: string;
   freeAccess: boolean;
-  employee_id: string;
-  organization_id: string;
-  transaction_id: string;
+  /*employee?: Employee;
+  organization?: Organization;
+  transaction?: TransactionDto; // bullshit mais pas de temps pour régler ceci.*/
 }

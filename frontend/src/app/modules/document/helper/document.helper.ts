@@ -1,5 +1,7 @@
-import {DocumentCreatePayload, Documentdto, DocumentUpdatePayload} from "../Model";
-import {Document} from "../Model";
+import { Document, DocumentCreatePayload, Documentdto, DocumentUpdatePayload } from "../Model";
+import { EmployeeHelper } from '@employee/helper/employee.helper';
+import { OrganizationHelper } from '@organization/helper';
+import { isNil } from 'lodash';
 
 export class DocumentHelper {
   public static fromDTO(dto: Documentdto): Document {
@@ -10,13 +12,26 @@ export class DocumentHelper {
       path: dto.path,
       type: dto.type,
       freeAccess: dto.freeAccess,
-      employee_id: dto.employee_id,
-      organization_id: dto.organization_id,
-      transaction_id: dto.transaction_id,
+     /* employee: EmployeeHelper.fromDto(dto.employee),
+      organization: OrganizationHelper.fromDto(dto.organization),
+      transaction: dto.transaction,*/
       isEmpty: false
     }
   }
 
+  public static toDto(business: Document): Documentdto {
+    return {
+      document_id: business.id,
+      name: business.name,
+      description: business.description,
+      path: business.path,
+      type: business.type,
+      freeAccess: business.freeAccess,
+      /*employee: EmployeeHelper.toDto(business.employee!),
+      organization: OrganizationHelper.toDto(business.organization!),
+      transaction: business.transaction!*/
+    }
+  }
 
 
   public static getEmpty(): Document {
@@ -26,10 +41,12 @@ export class DocumentHelper {
       description: '',
       path: '',
       type: '',
-      freeAccess : false,
-      employee_id: '',
-      organization_id: '',
-      transaction_id: '',
+      freeAccess: false,
+      /*employee: EmployeeHelper.getEmpty(),
+      organization: OrganizationHelper.getEmpty(),
+      transaction: {
+        id: '', type: '', amount: 0
+      },*/
       isEmpty: true
     }
   }
@@ -40,16 +57,26 @@ export class DocumentHelper {
       description: '',
       path: '',
       type: '',
-      freeAccess : false,
-      employee_id:'',
-      organization_id:'',
-      transaction_id:''
+      freeAccess: false,
+      employee: EmployeeHelper.toDto(EmployeeHelper.getEmpty()),
+      organization: OrganizationHelper.toDto(OrganizationHelper.getEmpty()),
+      transaction: {
+        id: '', type: '', amount: 0
+      }
     }
   }
 
   static fromDtoUpdatePayload(dto: Documentdto): DocumentUpdatePayload {
     return {
-      ...dto,
+      description: dto.description,
+      document_id: dto.document_id,
+      employee: (isNil(dto.employee))? EmployeeHelper.toDto(EmployeeHelper.getEmpty()) : dto.employee,
+      freeAccess: false,
+      name: '',
+      organization: (isNil(dto.organization))? OrganizationHelper.toDto(OrganizationHelper.getEmpty()) : dto.organization,
+      path: '',
+      transaction: dto.transaction!,
+      type: ''
     }
   }
 

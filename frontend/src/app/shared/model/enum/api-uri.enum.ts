@@ -65,7 +65,7 @@ export enum ApiUriEnum {
   SALARY_DELETE = 'salary/delete',
 
   // Transaction
-  TRANSACTION_LIST = 'transaction/',
+  TRANSACTION_LIST = 'transaction/list',
   TRANSACTION_DETAIL = 'transaction/',
   TRANSACTION_CREATE = 'transaction/',
   TRANSACTION_UPDATE = 'transaction/',

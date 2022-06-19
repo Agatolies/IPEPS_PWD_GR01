@@ -28,17 +28,26 @@
 <!--validation non requise</!-->
     <mat-form-field appearance="legacy">
       <mat-label>Employé</mat-label>
-      <input formControlName="employee" matInput placeholder="Employee">
+      <mat-select formControlName="employee" placeholder="Choisir un employé" *ngIf="employeeList$ | async as employeeList">
+        <mat-option [value]="null">Aucun employé</mat-option>
+        <mat-option *ngFor="let item of employeeList" [value]="item"> [{{item.role}}]  {{item.account.lastname}} {{item.account.firstname}} </mat-option>
+      </mat-select>
     </mat-form-field>
 
-    <mat-form-field appearance="legacy">
+    <mat-form-field appearance="legacy"  *ngIf="transactionList$ | async as transactionList">
       <mat-label>Transaction</mat-label>
-      <input formControlName="transaction" matInput placeholder="Transaction">
+      <mat-select formControlName="transaction" placeholder="Choisir une transaction">
+        <mat-option [value]="null">Aucune transaction</mat-option>
+        <mat-option *ngFor="let item of transactionList" [value]="item">{{item.id}} - {{item.amount}}</mat-option>
+      </mat-select>
     </mat-form-field>
 
     <mat-form-field appearance="legacy">
       <mat-label>Organisation</mat-label>
-      <input formControlName="organization" matInput placeholder="Organisation">
+      <mat-select formControlName="organization" placeholder="Choisir une organisation" *ngIf="organizationList$ | async as organizationList">
+        <mat-option [value]="null">Aucune organisation</mat-option>
+        <mat-option *ngFor="let item of organizationList" [value]="item">{{item.name}}</mat-option>
+      </mat-select>
     </mat-form-field>
 
   </form>
