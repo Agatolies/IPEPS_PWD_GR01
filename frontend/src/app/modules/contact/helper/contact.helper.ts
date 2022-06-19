@@ -5,12 +5,16 @@ import {SortEnum, SortFilter} from "@shared/module/data-list/model";
 export class ContactHelper {
   public static fromDto(dto: ContactDto): Contact {
     return {
-      isEmpty: false,
       id: dto.contact_id,
       lastname: dto.lastname,
       firstname: dto.firstname,
       email: dto.email,
-      phone: dto.phone
+      phone: dto.phone,
+      isEmpty: false,
+
+      deleted: dto.deleted,
+      deletedAt: dto.deletedAt,
+      deletedBy: dto.deletedBy
     }
   }
 
@@ -20,7 +24,10 @@ export class ContactHelper {
       lastname: business.lastname,
       firstname: business.firstname,
       email: business.email,
-      phone: business.phone
+      phone: business.phone,
+      deleted: business.deleted,
+      deletedAt: business.deletedAt,
+      deletedBy: business.deletedBy
     }
   }
 

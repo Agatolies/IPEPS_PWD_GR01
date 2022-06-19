@@ -37,7 +37,9 @@ export class ContactHomeComponent implements OnInit {
   error?: ApiResponse;
   searchFormGroup!: FormGroup;
 
-  constructor(public contactService: ContactService, public navigationService: NavigationService, public activatedRouter: ActivatedRoute) {
+  constructor(public contactService: ContactService,
+              public navigationService: NavigationService,
+              public activatedRouter: ActivatedRoute) {
   }
 
   ngOnInit(): void {
@@ -59,7 +61,24 @@ export class ContactHomeComponent implements OnInit {
       case MenuActionType.UPDATE:
         this.navigationService.navigate(`${AppRouteEnum.CONTACT_UPDATE}/${FormAction.UPDATE}/${data.data.id}`);
         break;
-      case MenuActionType.DETAIL:
+      case MenuActionType.SOFTDELETE:
+        this.contactService.currentAction$.next(MenuActionType.LIST);
+        this.activatedRouter.params.pipe(
+          switchMap((param: Params) => {
+            if (data.data.id) {
+              return this.contactService.softdelete(data.data.id)
+            }
+            return of({result: false, data: null, code: 'page.contact.home.softdelete.error.not-found', success: false});
+          }), tap((response: ApiResponse) => {
+            if (response.result) {
+              this.getList()
+            } else {
+              this.error = response;
+            }
+          })
+        ).subscribe();
+        break;
+        case MenuActionType.DETAIL:
         this.navigationService.navigate(`${AppRouteEnum.CONTACT_DETAIL}/${data.data.id}`);
         break;
     }

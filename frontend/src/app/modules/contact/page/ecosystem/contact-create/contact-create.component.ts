@@ -13,7 +13,7 @@ export class ContactCreateComponent implements OnInit {
   payload: ContactCreatePayload = ContactHelper.getCreatePayload();
   formAction=FormAction
 
-    constructor(public contactService: ContactService) { }
+  constructor(public contactService: ContactService) { }
 
   ngOnInit(): void {
     this.contactService.currentAction$.next(MenuActionType.ADD)

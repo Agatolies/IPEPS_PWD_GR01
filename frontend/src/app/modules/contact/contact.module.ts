@@ -7,10 +7,11 @@ import {ReactiveFormsModule} from '@angular/forms';
 import {ContactFormComponent, ContactMenuComponent} from "./component";
 import {
   ContactCreateComponent,
+  ContactDeleteComponent,
   ContactDetailComponent,
-  ContactHomeComponent, ContactRouteurComponent,
+  ContactHomeComponent,
+  ContactRouteurComponent,
   ContactUpdateComponent,
-
 } from "./page/ecosystem";
 import {ContactRoutingModule} from "./contact-routing.modules";
 
@@ -24,6 +25,7 @@ import {ContactRoutingModule} from "./contact-routing.modules";
     ContactCreateComponent,
     ContactRouteurComponent,
     ContactUpdateComponent,
+    ContactDeleteComponent
 
   ],
   exports: [
