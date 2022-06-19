@@ -67,6 +67,7 @@ export class ContactDeleteComponent implements OnInit {
         break;
 
       case MenuActionType.ROLLBACK:
+        //next = envoyer des messages à un observable qui sont ensuite envoyés à tous les abonnés
         this.contactService.currentAction$.next(MenuActionType.DELETE);
         this.activatedRouter.params.pipe(
           switchMap((param: Params) => {

@@ -2,7 +2,10 @@ import {Contact, ContactCreatePayload, ContactDto, ContactSearchPayload, Contact
 import {buildComponent} from "@angular/cdk/schematics";
 import {SortEnum, SortFilter} from "@shared/module/data-list/model";
 
+
 export class ContactHelper {
+
+// Class avec des méthodes statiques pour return les infos du module
   public static fromDto(dto: ContactDto): Contact {
     return {
       id: dto.contact_id,
@@ -64,6 +67,7 @@ export class ContactHelper {
     }
   }
 
+//méthode pour trier
   static defaultSort(): SortFilter {
     return {sort: SortEnum.ASC, field: 'lastname'};
   }

@@ -15,6 +15,7 @@ export class ContactCreateComponent implements OnInit {
 
   constructor(public contactService: ContactService) { }
 
+  //Appel contactService pour CurrentAction$ qui est un observable
   ngOnInit(): void {
     this.contactService.currentAction$.next(MenuActionType.ADD)
   }

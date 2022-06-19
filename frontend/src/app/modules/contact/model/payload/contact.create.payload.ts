@@ -1,5 +1,6 @@
-import {PageFilter, PayloadInterface, SortFilter} from "@shared/model";
+import {PayloadInterface} from "@shared/model";
 
+//payload = donnée transmise pour créer contact
 export interface ContactCreatePayload extends PayloadInterface{
   lastname: string;
   firstname: string;

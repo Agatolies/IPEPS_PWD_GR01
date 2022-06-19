@@ -27,12 +27,14 @@ import {MatSelectModule} from "@angular/material/select";
 import {MatRadioModule} from "@angular/material/radio";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
+import {LogoutComponent} from "@shared/component/logout/logout.component";
 
 
 @NgModule({
   declarations: [
     AppComponent,
     NavComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,

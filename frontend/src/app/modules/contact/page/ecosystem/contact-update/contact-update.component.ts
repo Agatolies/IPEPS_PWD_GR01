@@ -25,6 +25,7 @@ export class ContactUpdateComponent implements OnInit {
       switchMap((param: Params) => {
         if (param['action']) {
           this.formAction = param['action'];
+          //next = envoyer des messages à un observable qui sont ensuite envoyés à tous les abonnés
           this.contactService.currentAction$.next(MenuActionType.ADD);
         } else {
           this.formAction = FormAction.UPDATE;
@@ -33,6 +34,7 @@ export class ContactUpdateComponent implements OnInit {
         if (param['id']) {
           return this.contactService.getDetail(param['id'])
         }
+        //of = converti en le type de retour en un observable
         return of({result: false, data: null, code: 'page.employee.form.error.not-found', success: false});
       })
     ).subscribe((response: ApiResponse) => {

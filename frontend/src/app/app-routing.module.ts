@@ -13,7 +13,6 @@ const routes: Routes = [
     canActivate: [SecurityGuard],
     loadChildren: () => import('./modules/dashboard/dashboard.module').then(m => m.DashboardModule)
   },
-
   {
     path:'employee',
     canActivate: [SecurityGuard],

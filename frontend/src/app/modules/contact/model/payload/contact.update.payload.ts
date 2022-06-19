@@ -1,6 +1,7 @@
-import {PageFilter, SortFilter} from "@shared/module/data-list/model";
+import {PayloadInterface} from "@shared/model";
 
-export interface ContactUpdatePayload {
+//payload = donnée transmise pour créer contact
+export interface ContactUpdatePayload extends PayloadInterface{
   contact_id: string;
   lastname: string;
   firstname: string;

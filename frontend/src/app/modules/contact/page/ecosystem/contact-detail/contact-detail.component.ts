@@ -19,6 +19,9 @@ export class ContactDetailComponent implements OnInit {
   constructor(public contactService: ContactService,
               public activatedRouter: ActivatedRoute) { }
 
+  //pipe = prend les données et transforme en un type voulu
+  //switchMap = retourner un observable
+
   ngOnInit(): void {
       this.contactService.currentAction$.next(MenuActionType.DETAIL);
       this.activatedRouter.params.pipe(
@@ -26,8 +29,9 @@ export class ContactDetailComponent implements OnInit {
           if (param['id']) {
             return this.contactService.getDetail(param['id'])
           }
-          return of({result: false, data: null, code: 'page.employee.form.error.not-found', success: false});
+          return of({result: false, data: null, code: 'page.contact.form.error.not-found', success: false});
         })
+        //Subcribe : méthode pour connecter à l'observable
       ).subscribe((response: ApiResponse) => {
         if (response.result) {
           this.detail = ContactHelper.fromDto(response.data as ContactDto);

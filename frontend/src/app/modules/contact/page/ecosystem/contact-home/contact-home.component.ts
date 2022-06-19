@@ -35,7 +35,8 @@ export class ContactHomeComponent implements OnInit {
   sortFilter: SortFilter = ContactHelper.defaultSort();
   pageFilter: PageFilter = {pageSize: 10, pageNumber: 0};
   error?: ApiResponse;
-  searchFormGroup!: FormGroup;
+  // ? = variable facultative - valeur non définie lorsqu’ils ne seront pas utilisés
+  // ! = ne peut pas être null ou indéfini
 
   constructor(public contactService: ContactService,
               public navigationService: NavigationService,
