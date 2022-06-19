@@ -10,7 +10,6 @@ import {AccountDto} from "@account/model";
 import {MatDialog, MatDialogRef} from "@angular/material/dialog";
 import {CreateWalletDialogComponent} from "../../component/create-wallet-dialog/create-wallet-dialog.component";
 import {MatSnackBar} from "@angular/material/snack-bar";
-import {TransactionDto} from "../../model/dto/transaction.dto";
 import {IS_DEBUG} from "@shared/model";
 import _ from "lodash";
 import {TranslateService} from "@ngx-translate/core";
@@ -78,7 +77,8 @@ export class WalletHomeComponent implements OnInit, OnDestroy {
 
         if (employeeCount === 0) {
           this.myWallets = [];
-        } else {
+        }
+        else if (accountDto.employees !== undefined) {
           const employee = accountDto.employees[0];
 
           this.myWallets = employee.wallets.filter(wallet => wallet.actif);
@@ -130,16 +130,19 @@ export class WalletHomeComponent implements OnInit, OnDestroy {
 
     if (wallet){
       console.log({wallet});
-      this.walletManagement
-        .disableWallet(wallet)
-        .subscribe(() => {
-          this.loadWallets();
-          this.translate
-            .get("app.wallet.deleted-wallet")
-            .subscribe((res) => {
-              this.snackBar.open(res)
-            })
-        });
+
+      if(confirm("Are you sure to delete " + wallet.name)) {
+        this.walletManagement
+          .disableWallet(wallet)
+          .subscribe(() => {
+            this.loadWallets();
+            this.translate
+              .get("app.wallet.deleted-wallet")
+              .subscribe((res) => {
+                this.snackBar.open(res)
+              })
+          });
+      }
     }
   }
 }

@@ -19,7 +19,7 @@ export class ContactService extends ApiService{
   currentAction$: BehaviorSubject<MenuActionType> = new BehaviorSubject<MenuActionType>(MenuActionType.LIST);
 
   public getList(deleted: boolean = true, search: ContactSearchPayload= {}): void {
-    this.post(deleted ? ApiUriEnum.EMPLOYEE_DELETED_LIST : ApiUriEnum.EMPLOYEE_LIST, search, false).pipe
+    this.post(deleted ? ApiUriEnum.EMPLOYEE_DELETE : ApiUriEnum.EMPLOYEE_LIST, search, false).pipe
     (tap((response: ApiResponse) => {
       console.log(response)
       if (response.result) {
@@ -43,15 +43,15 @@ export class ContactService extends ApiService{
     return this.put(ApiUriEnum.CONTACT_UPDATE, payload);
   }
 
-  public softdelete(id: string): Observable<ApiResponse> {
-    return this.put(`${ApiUriEnum.CONTACT_SOFTDELETE}${id}`, {});
-  }
-
-  public rollbackdelete(id: string): Observable<ApiResponse> {
-    return this.put(`${ApiUriEnum.CONTACT_ROLLBACK}${id}`, {});
-  }
-
-  public erase(id: string): Observable<ApiResponse> {
-    return this.delete(`${ApiUriEnum.CONTACT_ERASE}${id}`);
-  }
+  // public softdelete(id: string): Observable<ApiResponse> {
+  //   return this.put(`${ApiUriEnum.CONTACT_SOFTDELETE}${id}`, {});
+  // }
+  //
+  // public rollbackdelete(id: string): Observable<ApiResponse> {
+  //   return this.put(`${ApiUriEnum.CONTACT_ROLLBACK}${id}`, {});
+  // }
+  //
+  // public erase(id: string): Observable<ApiResponse> {
+  //   return this.delete(`${ApiUriEnum.CONTACT_ERASE}${id}`);
+  // }
 }

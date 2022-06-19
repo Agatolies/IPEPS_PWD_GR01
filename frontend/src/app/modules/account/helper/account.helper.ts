@@ -6,7 +6,7 @@ export class AccountHelper {
     return {
       id: dto.account_id,
       firstname: dto.firstname,
-      lastname: dto.lastname
+      lastname: dto.lastname,
     }
   }
 
