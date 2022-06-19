@@ -29,6 +29,11 @@ export enum AppRouteEnum {
   EMPLOYEE_ROUTER = 'dashboard/employee',
   EMPLOYEE_HOME = 'employee/page/ecosystem/employee-home',
 
+  //Wallet
+  WALLET_HOME = '/wallet/home',
+  WALLET_DETAIL= '/wallet/detail',
+
+
   //Account
   ACCOUNT_SHOW_HOME_PAGE = 'my-account/home',
   ACCOUNT_CREATE = 'account/page/ecosystem/account-create',
@@ -85,6 +90,8 @@ export enum AppRouteEnum {
   ECO_SYSTEM_EMPLOYEE_DETAIL = 'dashboard/ecosystem/employee/detail',
   ECO_SYSTEM_EMPLOYEE_DELETED = 'dashboard/ecosystem/employee/deleted',
 
+
+
   //Team
   ECO_SYSTEM_TEAM_HOME = 'dashboard/ecosystem/team/home',
   ECO_SYSTEM_TEAM_CREATE = 'dashboard/ecosystem/team/create',
@@ -105,10 +112,6 @@ export enum AppRouteEnum {
   ECO_SYSTEM_ADDRESS_UPDATE = 'dashboard/ecosystem/address/update',
   ECO_SYSTEM_ADDRESS_DETAIL = 'dashboard/ecosystem/address/detail',
   ECO_SYSTEM_ADDRESS_DELETED= 'dashboard/ecosystem/address/deleted',
-
-  //Wallet
-  WALLET_HOME = '/wallet/home',
-  WALLET_DETAIL= '/wallet/detail',
 
   //Remember
   ECO_SYSTEM_REMEMBER_HOME = 'dashboard/ecosystem/remember/home',

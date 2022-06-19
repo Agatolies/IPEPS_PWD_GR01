@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ViewChild} from '@angular/core';
 import {TransactionDto} from "../../model/dto/transaction.dto";
 import {MatDialog, MatDialogRef} from "@angular/material/dialog";
 import {
@@ -8,7 +8,10 @@ import {MatSnackBar} from "@angular/material/snack-bar";
 import {ActivatedRoute} from "@angular/router";
 import {WalletManagementService} from "../../service/wallet-management.service";
 import {WalletDto} from "../../model";
-import {IS_DEBUG} from "@shared/model";
+import {IS_DEBUG} from "@shared/model"
+import {MatPaginator} from '@angular/material/paginator';
+import {MatSort} from '@angular/material/sort';
+import {MatTableDataSource} from '@angular/material/table';;
 
 @Component({
   selector: 'app-wallet-detail',
@@ -20,7 +23,10 @@ export class WalletDetailComponent implements OnInit {
 
   isDebug: boolean = IS_DEBUG;
   displayedColumns: string[] = ['id', 'type', 'amount'];
-
+  // dataSource!: MatTableDataSource<any>;
+  //
+  // @ViewChild(MatPaginator) paginator!: MatPaginator;
+  // @ViewChild(MatSort) sort!: MatSort;
   walletId?: string;
   private dialogRef?: MatDialogRef<CreateTransactionDialogComponent, any>;
 
@@ -35,14 +41,12 @@ export class WalletDetailComponent implements OnInit {
   ngOnInit(): void {
     this.route.queryParams.subscribe(params => {
       this.walletId = params['walletId'];
-
       this.loadWalletDetails(this.walletId);
     })
   }
 
   // TODO
   private loadTransactions() {
-
   }
 
   openCreateTransactionDialog() {
@@ -51,7 +55,7 @@ export class WalletDetailComponent implements OnInit {
       {
         width: '30%',
         data: {
-          walletId: this.walletId,
+          walletFromId: this.walletId,
         }
       }
     )
@@ -61,9 +65,9 @@ export class WalletDetailComponent implements OnInit {
       .subscribe(isSuccess => {
         if (isSuccess) {
           this.loadTransactions();
-          this.snackBar.open('La transaction a été créé')
+          this.snackBar.open('La transaction a été créé');
         } else {
-          this.snackBar.open('Opération annulée')
+          this.snackBar.open('Opération annulée');
         }
       })
   }

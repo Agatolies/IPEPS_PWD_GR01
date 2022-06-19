@@ -27,7 +27,7 @@ export class CreateTransactionDialogComponent implements OnInit {
     private walletManagementService: WalletManagementService,
     private employeeService: EmployeeService,
     private documentService: DocumentService,
-    @Inject(MAT_DIALOG_DATA) public data: ImageData,
+    @Inject(MAT_DIALOG_DATA) public data: { walletFromId: string },
   ) { }
 
 
@@ -38,9 +38,8 @@ export class CreateTransactionDialogComponent implements OnInit {
     this.transactionForm = this.formBuilder.group({
       employeeId: ['', Validators.required],
       walletId: ['', Validators.required],
-      amount: [0, Validators.required],
-      document: ['', Validators.required],
-
+      amount: [0, [Validators.required, Validators.min(0.01)]],
+      // document: ['', Validators.required],
     })
   }
 
@@ -49,14 +48,17 @@ export class CreateTransactionDialogComponent implements OnInit {
     const payload: TransactionCreatePayload = {
       amount: this.transactionForm.value.amount,
       documentId: this.transactionForm.value.document,
-      walletFromId: '',
-      walletToId:''
+      walletFromId: this.data.walletFromId,
+      walletToId: this.transactionForm.value.walletId
     }
     console.log(payload)
 
     this.walletManagementService
       .createTransaction(payload)
-      .subscribe();
+      .subscribe(() => {
+        // recharge la page pour actualiser la liste des transactions
+        window.location.reload()
+      });
   }
 
   refreshEmployeeWallets($event: MatSelectChange) {
