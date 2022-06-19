@@ -1,5 +1,4 @@
 package ipeps.pwd.wallet.entity;
-import ipeps.pwd.wallet.payload.updatePayload.DocumentUpdatePayload;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
