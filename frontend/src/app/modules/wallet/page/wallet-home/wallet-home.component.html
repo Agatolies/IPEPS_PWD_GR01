@@ -1,6 +1,6 @@
 <!-- Titre de la page -->
 <app-page-title
-  [title]="'Mes portefeuilles'"
+  [title]="'app.wallet.my-wallets'| translate"
   [subtitle]="'Papa\'s Travel'"
   [badgeContent]="myWallets?.length"
 >
@@ -9,7 +9,7 @@
 <!-- Barre d'outils -->
 <mat-card class="mt-2">
   <button mat-raised-button class="mr-1" (click)="openCreateWalletDialog()">
-    Créer un portefeuille
+    {{'app.wallet.add-wallet' | translate}}
   </button>
 </mat-card>
 

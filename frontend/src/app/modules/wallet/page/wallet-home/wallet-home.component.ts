@@ -13,6 +13,7 @@ import {MatSnackBar} from "@angular/material/snack-bar";
 import {TransactionDto} from "../../model/dto/transaction.dto";
 import {IS_DEBUG} from "@shared/model";
 import _ from "lodash";
+import {TranslateService} from "@ngx-translate/core";
 
 @Component({
   selector: 'app-wallet-home',
@@ -38,7 +39,8 @@ export class WalletHomeComponent implements OnInit, OnDestroy {
     private employeeService: EmployeeService,
     private accountService: AccountService,
     private dialog : MatDialog,
-    private snackBar: MatSnackBar)
+    private snackBar: MatSnackBar,
+    private translate: TranslateService)
   {
   }
 
@@ -107,9 +109,17 @@ export class WalletHomeComponent implements OnInit, OnDestroy {
       .subscribe(isSuccess => {
         if (isSuccess) {
           this.loadWallets();
-          this.snackBar.open('Le portefeuille a été créé')
+          this.translate
+            .get("app.wallet.created-wallet")
+            .subscribe((res) => {
+              this.snackBar.open(res)
+            })
         } else {
-          this.snackBar.open('Opération annulée')
+          this.translate
+            .get("app.wallet.canceled-operation")
+            .subscribe((res) => {
+              this.snackBar.open(res)
+            })
         }
       })
   }
@@ -124,7 +134,11 @@ export class WalletHomeComponent implements OnInit, OnDestroy {
         .disableWallet(wallet)
         .subscribe(() => {
           this.loadWallets();
-          this.snackBar.open('Le portefeuille a été supprimé');
+          this.translate
+            .get("app.wallet.deleted-wallet")
+            .subscribe((res) => {
+              this.snackBar.open(res)
+            })
         });
     }
   }

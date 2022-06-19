@@ -1,13 +1,13 @@
-<h1 mat-dialog-title>Nouvelle transaction</h1>
+<h1 mat-dialog-title>{{'Nouvelle transaction' | translate}}</h1>
 <form [formGroup]="transactionForm" (ngSubmit)="onAddTransaction()">
   <div mat-dialog-content>
-    <label><h2>Destinataire</h2></label>
+    <label><h2>{{'Destinataire' | translate}}</h2></label>
     <p>
 
       <mat-form-field appearance="outline">
           <!-- https://dev.to/prayatna/til-how-to-use-async-pipe-and-populate-mat-select-m35 -->
           <mat-select
-          placeholder="Selectionner un employé"
+          placeholder="{{'app.wallet.select-employee' | translate}}"
           formControlName="employeeId"
           (selectionChange)="reloadEmployeeWallets($event)">
           <ng-container *ngFor="let employee of (listForEmployeesDropdown$ | async)">
@@ -20,9 +20,9 @@
     </p>
     <p>
       <mat-form-field appearance="outline">
-        <mat-label>Portefeuille</mat-label>
+        <mat-label>{{'app.wallet.wallet' | translate}}</mat-label>
         <mat-select
-          placeholder="Selectionner un portefeuille"
+          placeholder="{{'app.wallet.select-wallet' | translate}}"
           formControlName="walletId">
           <ng-container *ngFor="let wallet of (listForWalletsDropdown$ | async)">
             <mat-option [value]="wallet.walletId">
@@ -32,18 +32,9 @@
         </mat-select>
       </mat-form-field>
     </p>
-<!--    <p>-->
-<!--      <mat-form-field appearance="outline">-->
-<!--        <mat-label>Document</mat-label>-->
-<!--        <mat-select>-->
-<!--          <mat-option value="one">First option</mat-option>-->
-<!--          <mat-option value="two">Second option</mat-option>-->
-<!--        </mat-select>-->
-<!--      </mat-form-field>-->
-<!--    </p>-->
     <p>
       <mat-form-field appearance="outline" floatLabel="always">
-        <mat-label>Montant</mat-label>
+        <mat-label>{{'app.wallet.amount' | translate}}</mat-label>
         <input
           matInput type="number"
           formControlName="amount"
@@ -59,7 +50,7 @@
         color="warn"
         [mat-dialog-close]="false"
       >
-        Fermer
+        {{'app.wallet.close-button' | translate}}
       </button>
       <button
         style="margin-left: 8px"
@@ -69,7 +60,7 @@
         [disabled]="!transactionForm.valid"
         [mat-dialog-close]="true"
       >
-        Enregistrer
+        {{'app.wallet.save-button' | translate}}
       </button>
     </div>
   </div>

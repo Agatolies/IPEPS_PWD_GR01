@@ -70,8 +70,33 @@
       "default": "Votre recherche ..."
     },
     "wallet": {
+      "my-wallets": "Mes portefeuilles",
+      "add-wallet": "Créer un portefeuille",
+      "transaction-reference": "Réference de la transaction",
+      "wallet-name": "Nom du portefeuille",
+      "wallet-name2": "nom",
+      "type-field": "Catégorie",
+      "wallet-description": "Description du portefeuille",
+      "yes-button": "Oui",
+      "no-button": "Non",
       "no-employee": "/",
-      "no-organization": "/"
+      "no-organization": "/",
+      "close-button": "Fermer",
+      "save-button": "Enregistrer",
+      "acitve-button": "Actif",
+      "wallet-balance": "Solde",
+      "transaction-number": "Nombre de transactions",
+      "add-wallet-title": "Ajouter un portefeuille",
+      "add-transaction": "Effectuer une transaction",
+      "amount": "Montant",
+      "recipient": "Destinataire",
+      "new-transaction": "Nouvelle transaction",
+      "wallet": "Portefeuille",
+      "select-employee": "Selectionner un employé",
+      "select-wallet": "Selectionner un portefeuille",
+      "created-wallet" : "Le portefeuille a été créé",
+      "canceled-operation" : "Opération annulée",
+      "deleted-wallet": "Le portefeuille a été supprimé"
     },
     "document": {
       "form": {

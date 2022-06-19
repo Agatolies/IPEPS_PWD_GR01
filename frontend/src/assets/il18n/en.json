@@ -89,8 +89,33 @@
       "default": "Your search ..."
     },
     "wallet": {
+      "my-wallets": "My wallets",
+      "add-wallet": "Add a wallet",
+      "transaction-reference": "Transaction reference",
+      "wallet-name": "Wallet name",
+      "wallet-name2": "name",
+      "type-field": "Type",
+      "wallet-description": "Wallet description",
+      "yes-button": "Yes",
+      "no-button": "No",
       "no-employee": "/",
-      "no-organization": "/"
+      "no-organization": "/",
+      "close-button": "Close",
+      "save-button": "Save",
+      "acitve-button": "Active",
+      "wallet-balance": "Balance",
+      "transaction-number": "Transactions number",
+      "add-wallet-title": "Add a wallet",
+      "add-transaction": "New transaction",
+      "amount": "Amount",
+      "recipient": "Recipient",
+      "new-transaction": "New transaction",
+      "wallet": "Wallet",
+      "select-employee": "Select an employee",
+      "select-wallet": "Select a wallet",
+      "created-wallet" : "Wallet created",
+      "canceled-operation" : "Canceled operation",
+      "deleted-wallet": "Wallet deleted"
     }
   },
   "boolean": {

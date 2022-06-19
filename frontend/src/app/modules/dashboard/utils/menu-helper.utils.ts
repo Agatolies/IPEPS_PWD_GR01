@@ -7,7 +7,7 @@ export class MenuHelperUtils {
     let menu: MenuAction[] = [];
 
     if (employeeRole === null || employeeRole === undefined || employeeRole === '') {
-      menu.push({icon: 'fas fa-sign-in-alt', title: 'Connectez-vous',link: AppRouteEnum.SIGNIN})
+      menu.push({icon: 'fas fa-sign-in-alt', title: 'Home',link: AppRouteEnum.SIGNIN})
     }
 
     switch (employeeRole) {

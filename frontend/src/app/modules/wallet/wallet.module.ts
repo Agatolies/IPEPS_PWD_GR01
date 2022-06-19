@@ -22,6 +22,7 @@ import {MatButtonModule} from "@angular/material/button";
 import {MatInputModule} from "@angular/material/input";
 import {MatIconModule} from "@angular/material/icon";
 import { CreateTransactionDialogComponent } from './component/create-transaction-dialog/create-transaction-dialog.component';
+import {TranslateModule} from "@ngx-translate/core";
 
 
 @NgModule({
@@ -49,7 +50,8 @@ import { CreateTransactionDialogComponent } from './component/create-transaction
         MatSelectModule,
         MatButtonModule,
         MatInputModule,
-        MatIconModule
+        MatIconModule,
+        TranslateModule
     ]
 })
 export class WalletModule { }

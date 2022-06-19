@@ -40,7 +40,6 @@ export class CreateTransactionDialogComponent implements OnInit {
       employeeId: ['', Validators.required],
       walletId: ['', Validators.required],
       amount: [0, [Validators.required, Validators.min(0.01)]],
-      // document: ['', Validators.required],
     })
   }
 

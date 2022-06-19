@@ -9,86 +9,27 @@
 <!-- Barre d'outils -->
 <mat-card class="mt-2">
   <button mat-raised-button class="mr-1" (click)="openCreateTransactionDialog()">
-    Effectuer une transaction
+    {{'app.wallet.add-transaction' | translate}}
   </button>
 </mat-card>
-
-<ul>
-  <li><b>OK - </b>Récupération param route walletId</li>
-  <li><b>OK - </b>appeler service getWalletById dans WalletManagementService pour stocker le wallet dans variable locale</li>
-  <li><b>OK - </b>Bloc de code JSon avec le contenu d'un seul wallet</li>
-  <li><b>OK - </b>Deplacer tableau des transactions</li>
-  <li><b>OK - </b>Gestion debit / credit</li>
-  <li>ajouter bouton dropdown document avec employeeID et pas encore de transactionId</li>
-</ul>
-
-<!-- Tableau de transactions -->
-<!--<div class="container">-->
-<!--  <div style="margin-top: 10px;">-->
-<!--    <mat-form-field appearance="standard">-->
-<!--    <mat-label>Filter</mat-label>-->
-<!--    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>-->
-<!--    </mat-form-field>-->
-
-<!--    <div class="mat-elevation-z8">-->
-<!--      <table mat-table [dataSource]="dataSource" matSort>-->
-
-<!--        &lt;!&ndash; ID Column &ndash;&gt;-->
-<!--        <ng-container matColumnDef="id">-->
-<!--          <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>-->
-<!--          <td mat-cell *matCellDef="let row"> {{row.id}} </td>-->
-<!--        </ng-container>-->
-
-<!--        &lt;!&ndash; Progress Column &ndash;&gt;-->
-<!--        <ng-container matColumnDef="progress">-->
-<!--          <th mat-header-cell *matHeaderCellDef mat-sort-header> Progress </th>-->
-<!--          <td mat-cell *matCellDef="let row"> {{row.progress}}% </td>-->
-<!--        </ng-container>-->
-
-<!--        &lt;!&ndash; Name Column &ndash;&gt;-->
-<!--        <ng-container matColumnDef="name">-->
-<!--          <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>-->
-<!--          <td mat-cell *matCellDef="let row"> {{row.name}} </td>-->
-<!--        </ng-container>-->
-
-<!--        &lt;!&ndash; Fruit Column &ndash;&gt;-->
-<!--        <ng-container matColumnDef="fruit">-->
-<!--          <th mat-header-cell *matHeaderCellDef mat-sort-header> Fruit </th>-->
-<!--          <td mat-cell *matCellDef="let row"> {{row.fruit}} </td>-->
-<!--        </ng-container>-->
-
-<!--        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>-->
-<!--        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>-->
-
-<!--        &lt;!&ndash; Row shown when there is no matching data. &ndash;&gt;-->
-<!--        <tr class="mat-row" *matNoDataRow>-->
-<!--          <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>-->
-<!--        </tr>-->
-<!--      </table>-->
-
-<!--      <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--  </div>-->
-
 
 <table mat-table [dataSource]="(selectedWallet?.transactions ?? [])" class="mat-elevation-z8 mt-2">
 
   <!-- Colonne Id  -->
   <ng-container matColumnDef="id">
-    <th mat-header-cell *matHeaderCellDef> Réference de la transaction</th>
+    <th mat-header-cell *matHeaderCellDef>{{ 'app.wallet.transaction-reference' | translate}}</th>
     <td mat-cell *matCellDef="let transaction"> {{transaction.transaction_id}} </td>
   </ng-container>
 
   <!-- Colonne Types -->
   <ng-container matColumnDef="type">
-    <th mat-header-cell *matHeaderCellDef> Catégorie </th>
+    <th mat-header-cell *matHeaderCellDef> {{'app.wallet.type-field' | translate}} </th>
     <td mat-cell *matCellDef="let transaction"> {{transaction.type}} </td>
   </ng-container>
 
   <!-- Colonne Montants -->
   <ng-container matColumnDef="amount">
-    <th mat-header-cell *matHeaderCellDef> Montant </th>
+    <th mat-header-cell *matHeaderCellDef> {{'app.wallet.amount' | translate}} </th>
     <td mat-cell *matCellDef="let transaction"> {{transaction.amount}} </td>
   </ng-container>
 

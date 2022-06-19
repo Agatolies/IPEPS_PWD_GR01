@@ -23,10 +23,6 @@ export class WalletDetailComponent implements OnInit {
 
   isDebug: boolean = IS_DEBUG;
   displayedColumns: string[] = ['id', 'type', 'amount'];
-  // dataSource!: MatTableDataSource<any>;
-  //
-  // @ViewChild(MatPaginator) paginator!: MatPaginator;
-  // @ViewChild(MatSort) sort!: MatSort;
   walletId?: string;
   private dialogRef?: MatDialogRef<CreateTransactionDialogComponent, any>;
 

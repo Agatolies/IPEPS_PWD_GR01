@@ -1,15 +1,15 @@
-<h1 mat-dialog-title>Ajouter un portefeuille</h1>
+<h1 mat-dialog-title>{{'app.wallet.add-wallet-title' | translate}}</h1>
 <form [formGroup]="walletForm" (ngSubmit)="onAddWallet()">
   <div mat-dialog-content>
     <p>
       <mat-form-field appearance="outline">
-        <mat-label>Nom du portefeuille</mat-label>
-        <input formControlName="walletName" matInput placeholder="nom">
+        <mat-label>{{'app.wallet.wallet-name' | translate}}</mat-label>
+        <input formControlName="walletName" matInput placeholder="{{'app.wallet.wallet-name2' | translate}}">
       </mat-form-field>
     </p>
     <p>
       <mat-form-field appearance="outline">
-        <mat-label>Catégorie</mat-label>
+        <mat-label>{{'app.wallet.type-field' | translate}}</mat-label>
         <mat-select formControlName="type" placeholder="type">
           <mat-option value="Type 1">Type 1</mat-option>
           <mat-option value="Type 2">Type 2</mat-option>
@@ -20,17 +20,17 @@
     <p>
       <mat-form-field appearance="outline">
         <mat-label>Description</mat-label>
-        <input formControlName="description" matInput #input maxlength="50" placeholder="Description du portefeuille">
+        <input formControlName="description" matInput #input maxlength="50" placeholder="{{'app.wallet.wallet-description' | translate}}">
         <mat-hint align="end">{{input.value?.length || 0}}/50</mat-hint>
       </mat-form-field>
     </p>
       <div>
-        <label><h1>Actif ?</h1></label>
+        <label><h1>{{'Actif'}} ?</h1></label>
         <mat-radio-group formControlName="activity">
-          <mat-radio-button value="{{true}}">Oui</mat-radio-button>
+          <mat-radio-button value="{{true}}">{{'app.wallet.yes-button' | translate}}</mat-radio-button>
           <br>
           <br>
-          <mat-radio-button value="{{false}}">Non</mat-radio-button>
+          <mat-radio-button value="{{false}}">{{'app.wallet.no-button' | translate}}</mat-radio-button>
         </mat-radio-group>
       </div>
   </div>
@@ -40,7 +40,7 @@
       color="warn"
       [mat-dialog-close]="false"
     >
-      Fermer
+      {{'app.wallet.close-button' | translate}}
     </button>
     <button
       style="margin-left: 8px"
@@ -50,7 +50,7 @@
       [disabled]="!walletForm.valid"
       [mat-dialog-close]="true"
     >
-      Enregistrer
+      {{'app.wallet.save-button' | translate}}
     </button>
   </div>
 </form>
