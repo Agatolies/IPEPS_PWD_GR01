@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { ScheduleRoutingModule } from './schedule-routing.module';
-import { ComponentComponent } from './component/component.component';
 import { ScheduleFormComponent } from './component/schedule-form/schedule-form.component';
 import { ScheduleMenuComponent } from './component/schedule-menu/schedule-menu.component';
 import { ScheduleRouteurComponent } from './component/schedule-routeur/schedule-routeur.component';
@@ -15,7 +14,6 @@ import { ScheduleHomeComponent } from './page/ecosystem/schedule-home/schedule-h
 
 @NgModule({
   declarations: [
-    ComponentComponent,
     ScheduleFormComponent,
     ScheduleMenuComponent,
     ScheduleRouteurComponent,

@@ -7,9 +7,18 @@ export enum AppRouteEnum {
   SECURE_ROOT = '/dashboard',
   ECOSYSTEM_HOME = '/dashboard/ecosystem',
 
-
-
+  //contact
   CONTACT_SHOW_HOME_PAGE = 'contact/home',
+  CONTACT_CREATE = 'contact/page/ecosystem/contact-create',
+  CONTACT_UPDATE = 'contact/page/ecosystem/contact-update',
+  CONTACT_DETAIL = 'contact/page/ecosystem/contact-detail',
+  CONTACT_DELETE = 'contact/page/ecosystem/contact-delete',
+  CONTACT_ROUTEUR = 'contact/page/ecosystem/contact-routeur',
+  CONTACT_HOME = 'contact/page/ecosystem/contact-home',
+  CONTACT_SOFTDELETE = 'contact/softdelete',
+  CONTACT_ROLLBACK = 'contact/rollback',
+  CONTACT_ERASE= 'contact/erase,',
+  CONTACT_LIST='contact/list',
 
   //Organization
   ORGANIZATION_SHOW_HOME_PAGE = 'organization/home',

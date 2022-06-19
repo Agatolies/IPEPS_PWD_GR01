@@ -1,5 +1,6 @@
-import {Contact, ContactDto} from "../model";
+import {Contact, ContactDto, ContactSearchPayload} from "../model";
 import {buildComponent} from "@angular/cdk/schematics";
+import {SortEnum, SortFilter} from "@shared/module/data-list/model";
 
 export class ContactHelper {
   public static fromDto(dto: ContactDto): Contact {
@@ -21,5 +22,22 @@ export class ContactHelper {
       email: business.email,
       phone: business.phone
     }
+  }
+
+  static emptySearch(): ContactSearchPayload {
+    return {
+      lastname: '',
+      firstname: '',
+      email:'',
+      phone:'',
+
+      deleted:false,
+      deletedAt: new Date(),
+      deletedBy:'',
+    }
+  }
+
+  static defaultSort(): SortFilter {
+    return {sort: SortEnum.ASC, field: 'lastname'};
   }
 }

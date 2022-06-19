@@ -32,8 +32,8 @@ export class ContactHomeComponent implements OnInit {
   search: ContactSearchPayload = {};
   showDialog = false;
   formAction = FormAction
+  sortFilter: SortFilter = ContactHelper.defaultSort();
   pageFilter: PageFilter = {pageSize: 10, pageNumber: 0};
-  sortFilter: SortFilter = ContactHelper.defaultSort(); // here you need to set default filter as same as in backend (see EmployeeFilter line 88
   error?: ApiResponse;
   searchFormGroup!: FormGroup;
 
@@ -54,51 +54,19 @@ export class ContactHomeComponent implements OnInit {
   actionHandle(data: { action: MenuActionType, data: Contact }) {
     switch (data.action) {
       case MenuActionType.DUPLICATE:
-        this.navigationService.navigate(`${AppRouteEnum.ECO_SYSTEM_CONTACT_UPDATE}/${FormAction.ADD}/${data.data.id}`);
+        this.navigationService.navigate(`${AppRouteEnum.CONTACT_UPDATE}/${FormAction.ADD}/${data.data.id}`);
         break;
       case MenuActionType.UPDATE:
-        this.navigationService.navigate(`${AppRouteEnum.ECO_SYSTEM_CONTACT_UPDATE}/${FormAction.UPDATE}/${data.data.id}`);
-        break;
-      case MenuActionType.SOFTDELETE:
-        this.contactService.currentAction$.next(MenuActionType.LIST);
-        this.activatedRouter.params.pipe(
-          switchMap((param: Params) => {
-            if (data.data.id) {
-              return this.contactService.softdelete(data.data.id)
-            }
-            return of({result: false, data: null, code: 'page.contact.home.softdelete.error.not-found'});
-          }),tap((response: ApiResponse) => {
-            if (response.result) {
-              this.getList()
-            } else {
-              this.error = response;
-            }
-          })
-        ).subscribe();
+        this.navigationService.navigate(`${AppRouteEnum.CONTACT_UPDATE}/${FormAction.UPDATE}/${data.data.id}`);
         break;
       case MenuActionType.DETAIL:
-        this.navigationService.navigate(`${AppRouteEnum.ECO_SYSTEM_CONTACT_DETAIL}/${data.data.id}`);
+        this.navigationService.navigate(`${AppRouteEnum.CONTACT_DETAIL}/${data.data.id}`);
         break;
     }
   }
 
   // Filter part -------------------------------------------
-  onFilterChange(data: any): void {
-    console.log('here iam ', this.sortFilter);
-    this.search = data;
-    this.getDataFromFilter();
-  }
-
-  onSortChange(data: SortFilter | null) {
-    if (isNil(data)) {
-      this.sortFilter = ContactHelper.defaultSort();
-    } else {
-      this.sortFilter = data;
-    }
-    this.getDataFromFilter();
-  }
-
-  openDialog(): void {
+    openDialog(): void {
     this.showDialog = true;
   }
 
@@ -115,7 +83,7 @@ export class ContactHomeComponent implements OnInit {
   }
 
   navigateToDelete() {
-    this.navigationService.navigate(AppRouteEnum.ECO_SYSTEM_CONTACT_DELETED);
+    this.navigationService.navigate(AppRouteEnum.CONTACT_DELETE);
   }
 
   refreshList(page: PageFilter): void {
