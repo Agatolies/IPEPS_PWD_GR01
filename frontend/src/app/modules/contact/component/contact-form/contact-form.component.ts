@@ -25,6 +25,8 @@ export class ContactFormComponent implements OnInit {
   constructor(public contactService: ContactService, public navigationService: NavigationService) {
   }
 
+  // FormControl = Classe qui peut contenir valeurs / informations éléments du formulaire
+  // FormGroup = Collection de contrôle de formulaire - accepte les valeurs des FormControl en un objet
   ngOnInit(): void {
     this.label = (this.type === FormAction.ADD) ?
       'common.form.btn.create' : 'common.form.btn.update';
@@ -36,9 +38,11 @@ export class ContactFormComponent implements OnInit {
         phone: new FormControl(this.payload.phone),
         address: new FormControl(this.payload.address)
       });
+      //Subcribe : méthode pour connecter à l'observable
       this.formGroup.valueChanges.subscribe(() => this.dataChange.emit(this.formGroup.value));
     } else {
       this.formGroup = new FormGroup({
+        // Validators = Valider que le champ n'est pas vide
         lastname: new FormControl(this.payload.lastname, [Validators.required]),
         firstname: new FormControl(this.payload.firstname, [Validators.required]),
         email: new FormControl(this.payload.email, [Validators.required]),
@@ -59,7 +63,8 @@ export class ContactFormComponent implements OnInit {
       link: AppRouteEnum.CONTACT_HOME
     });
   }
-
+  //pipe = prend les données et transforme en un type voulu
+  //switchMap = retourner un observable
   save(): void {
     if (!this.formGroup.invalid) {
         of(this.type).pipe(
@@ -82,6 +87,7 @@ export class ContactFormComponent implements OnInit {
               });
             }
           })
+          //Subcribe : méthode pour connecter à l'observable
         ).subscribe();
     } else {
       Object.keys(this.formGroup.controls).forEach(field => {

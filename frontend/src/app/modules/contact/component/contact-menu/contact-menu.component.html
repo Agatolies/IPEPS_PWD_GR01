@@ -1,22 +1,28 @@
 <br>
-<div class="container">
-  <ul>
-    <li router routerLinkActive="active">
-      <h2><span _ngcontent-vgu-c90="" class="fa-pencil-alt fas icon"></span>
-        <a routerLink='../create' class="big-title">Créer un contact</a>
-      </h2>
-    </li>
-    <li router routerLinkActive="active">
-      <h2><a routerLink='../detail/:id'>Afficher un contact</a></h2>
-    </li>
-    <li router routerLinkActive="active">
-      <h2><a routerLink='../update/:action/:id'>Modifier un contact</a></h2>
-    </li>
-    <li router routerLinkActive="active">
-      <h2><a routerLink=''>Afficher liste des contacts</a></h2>
-    </li>
-    <li router routerLinkActive="active">
-      <h2><a routerLink='../delete'>Supprimer contact</a></h2>
-    </li>
-  </ul>
-</div>
+<mat-toolbar>
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+    <mat-icon (click)="openCreate()">build</mat-icon>
+  </button>
+  <span>Ajouter un contact</span>
+</mat-toolbar>
+<br>
+<mat-toolbar>
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+    <mat-icon (click)="openDetail()">description</mat-icon>
+  </button>
+  <span>Détail d'un contact</span>
+</mat-toolbar>
+<br>
+<mat-toolbar>
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+    <mat-icon (click)="openUpdate()">create</mat-icon>
+  </button>
+  <span>Modifier contact</span>
+</mat-toolbar>
+<br>
+<mat-toolbar>
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+    <mat-icon (click)="openDelete()">delete</mat-icon>
+  </button>
+  <span>Supprimer contact</span>
+</mat-toolbar>
