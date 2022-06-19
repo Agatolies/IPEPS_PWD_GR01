@@ -1,6 +1,6 @@
 package ipeps.pwd.wallet.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,6 +13,11 @@ import java.util.UUID;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@JsonIdentityInfo(
+        scope = Transaction.class,
+        generator = ObjectIdGenerators.PropertyGenerator.class,
+        property = "transaction_id"
+)
 public class Transaction {
     @Id
     @GeneratedValue(generator = "UUID")
@@ -29,7 +34,7 @@ public class Transaction {
     private Document document;
 
     @JsonIgnore
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "wallet_id_fk", referencedColumnName = "wallet_id")
     private Wallet wallet;
 

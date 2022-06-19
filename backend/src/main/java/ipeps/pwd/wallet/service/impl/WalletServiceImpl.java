@@ -14,7 +14,7 @@ import ipeps.pwd.wallet.service.WalletService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
+import java.util.Optional;
 import java.util.UUID;
 
 @Service
@@ -62,21 +62,38 @@ public class WalletServiceImpl implements WalletService {
     }
 
     @Override
-    public ApiResponse update(WalletUpdatePayload payload){
+    public ApiResponse update(WalletUpdatePayload payload) {
         try {
             ApiResponse response = this.detail(payload.getWallet_id());
-            if (response.result){
+            if (response.result) {
                 Wallet wallet = (Wallet) response.data;
                 wallet.setName((payload.getName()));
                 wallet.setDescription(payload.getDescription());
                 wallet.setType(payload.getType());
                 walletRepository.save(wallet);
-                return new ApiResponse(true,null, "api.wallet.update.success");
-            }else{
+                return new ApiResponse(true, null, "api.wallet.update.success");
+            } else {
                 return response;
             }
-        }catch(Exception e){
+        } catch (Exception e) {
             return new ApiResponse(false, e.getMessage(), "api.wallet.update.error");
+        }
+    }
+
+    @Override
+    public ApiResponse disable(WalletUpdatePayload payload) {
+        try {
+            Optional<Wallet> byId = walletRepository.findById(payload.getWallet_id());
+            if (byId.isPresent()) {
+                Wallet wallet = byId.get();
+                wallet.setActif(false);
+                wallet = walletRepository.save(wallet);
+                return new ApiResponse(true, wallet, "api.wallet.disable.success");
+            } else {
+                return new ApiResponse(false, null, "api.wallet.disable.notfound");
+            }
+        } catch (Exception e) {
+            return new ApiResponse(false, e.getMessage(), "api.wallet.disable.error");
         }
     }
 

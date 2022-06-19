@@ -11,6 +11,7 @@ public interface WalletService {
     ApiResponse listByEmployeeId(UUID employeeId);
     ApiResponse detail(UUID id);
     ApiResponse update(WalletUpdatePayload payload);
+    ApiResponse disable(WalletUpdatePayload payload);
     ApiResponse create(WalletCreatePayload payload);
     ApiResponse delete(UUID id);
 }
