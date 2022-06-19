@@ -4,6 +4,7 @@ export interface ContactDto{
   firstname: string;
   email: string;
   phone: string;
+  address: string;
 
   deleted:boolean,
   deletedAt:Date,

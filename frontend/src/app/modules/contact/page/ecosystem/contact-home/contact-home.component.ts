@@ -113,7 +113,6 @@ export class ContactHomeComponent implements OnInit {
   private getDataFromFilter(): void {
     this.payload = {...ContactHelper.emptySearch(), ...this.search}
     CommonHelperUtils.cleanEmptyPropertyOfObject(this.search);
-    delete this.search['term'];
     this.search = {...this.search, page: this.pageFilter, sort: this.sortFilter}
     this.getList();
   }

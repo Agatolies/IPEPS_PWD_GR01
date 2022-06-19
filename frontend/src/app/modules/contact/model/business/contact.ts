@@ -7,6 +7,7 @@ export interface Contact extends IsEmpty {
   firstname: string;
   email: string;
   phone: string;
+  address:string;
 
   deleted:boolean,
   deletedAt:Date,
