@@ -11,6 +11,14 @@
       }
     }
   },
+
+  "document": {
+    "name": "Document title",
+    "addDocument": "Add a document",
+    "buttonSave": "Save",
+    "buttonCancel" : "Cancel",
+    "selectMenu": "Select in left menu"
+  },
   "address": {
     "module": "Addresses",
     "type": "Type",
@@ -23,6 +31,9 @@
     "supress": "Delete"
   },
   "document": {
+    "name": "Document title",
+    "addDocument": "Add a document",
+
     "form": {
       "label": {
         "employee": "Employee",

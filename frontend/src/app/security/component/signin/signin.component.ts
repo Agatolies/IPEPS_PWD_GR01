@@ -27,8 +27,8 @@ export class SigninComponent implements OnInit {
     let defaultPassword = '';
 
     if (IS_DEBUG) {
-      defaultUsername = 'laure';
-      defaultPassword = 'T0psecret!';
+      defaultUsername = 'anne';
+      defaultPassword = 'P@ssword!';
     }
 
     this.signinForm = this.formBuilder.group({

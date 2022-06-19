@@ -5,6 +5,7 @@ import { DocumentService } from "../../../service/document.service";
 import { ActivatedRoute } from "@angular/router";
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 
+
 interface IData {
   payload: DocumentUpdatePayload
 }

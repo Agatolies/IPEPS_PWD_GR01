@@ -6,6 +6,7 @@ import { DocumentCreateComponent } from '../document-create/document-create.comp
 import { MatDialog } from '@angular/material/dialog';
 import { DocumentUpdateComponent } from '../document-update/document-update.component';
 import { DocumentHelper } from '../../../helper/document.helper';
+import {DocumentDetailComponent} from "../document-detail/document-detail.component";
 
 @Component({
   selector: 'app-document-home',
@@ -37,7 +38,12 @@ export class DocumentHomeComponent implements OnInit {
         payload: DocumentHelper.fromDtoUpdatePayload(DocumentHelper.toDto(document))
       }
     });
-
+  }
+  detail(document: Document): void {
+    console.log('detail of a document', document)
+    this.dialogRef.open(DocumentDetailComponent, {
+      width: '75%', data: {document}
+    })
   }
 
   delete(document: Document): void {

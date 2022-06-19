@@ -1,21 +1,35 @@
 <!--<app-document-menu></app-document-menu>-->
-<button (click)="create()">créer</button>
+<mat-toolbar>
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+    <mat-icon (click)="create()">build</mat-icon>
+  </button>
+  <span>{{'document.addDocument' | translate}}</span>
+</mat-toolbar>
+
+
 <ng-container *ngIf="documentService.list$ | async as list">
   <ng-container *ngIf="list.length > 0 ; else noData">
     <table>
       <tr>
-        <td>id</td>
-        <td>nom</td>
-        <td>path</td>
-        <td></td>
+        <td>{{'document.name' | translate}}</td>
+        <td>Type</td>
+        <td>Description</td>
+        <td>Actions</td>
       </tr>
       <tr *ngFor="let item of list; let last=last">
-        <td>{{item.id}}</td>
         <td>{{item.name}}</td>
-        <td>{{item.path}}</td>
+        <td>{{item.type}}</td>
+        <td>{{item.description}}</td>
         <td>
-          <button (click)="update(item)">update</button>
-          <button (click)="delete(item)">Delete</button>
+          <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+            <mat-icon (click)="detail(item)" title="Détails">description</mat-icon>
+          </button>
+          <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+            <mat-icon (click)="update(item)" title="Update">create</mat-icon>
+          </button>
+          <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+            <mat-icon (click)="delete(item)" title="Delete">delete</mat-icon>
+          </button>
         </td>
       </tr>
     </table>

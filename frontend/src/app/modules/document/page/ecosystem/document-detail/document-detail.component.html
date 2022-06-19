@@ -1,16 +1,24 @@
-<!--
-<div *ngIf = "details$ | async as item">
-  <ng-container *ngIf="item  ; else noData">
+<div *ngIf="document!==undefined">
 
-    <form  (ngSubmit)=""></form>
-  </ng-container>
+  <table>
+
+          <tr>
+        <td>Nom du document : {{document?.name}}</td>
+        <td>Type de document: {{document?.type}}</td>
+        <td>Organisation: {{document?.organization}}</td>
+      </tr>
+      <tr>
+        <td>Lié à l'employé : {{document?.employee}}</td>
+        <td>Description : {{document?.description}} </td>
+      </tr>
+      <tr>
+        <td>Contenu :</td>
+        <td>{{document?.path}}</td>
+      </tr>
+
+  </table>
+
+
+
 
 </div>
-
-<p>document-detail works!</p>
-
-<div #noData>
-
-</div>
-!-->
-

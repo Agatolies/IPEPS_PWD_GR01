@@ -11,6 +11,13 @@
       }
     }
   },
+  "document": {
+    "name": "Titre document",
+    "addDocument": "Creer un document",
+    "buttonSave": "Enregistrer",
+    "buttonCancel" : "Annuler",
+    "selectMenu": "Choisissez dans le menu de  gauche"
+  },
   "address": {
     "module": "Adresses",
     "type": "Type",
@@ -74,6 +81,10 @@
       "no-organization": "/"
     },
     "document": {
+      "name": "Titre document",
+      "addDocument": "Creer un document",
+
+
       "form": {
         "label": {
           "employee": "Employé",

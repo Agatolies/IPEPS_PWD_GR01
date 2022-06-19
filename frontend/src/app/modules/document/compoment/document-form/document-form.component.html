@@ -5,9 +5,9 @@
     <mat-form-field appearance="legacy">
       <mat-label>Type de document</mat-label>
       <mat-select formControlName="type" placeholder="Type de document">
-        <mat-option value="FACTURE">FACTURE</mat-option>
-        <mat-option value="NOTE_DE_CREDIT">NOTE DE CREDIT</mat-option>
-        <mat-option value="NOTE_DE_DEBIT">NOTE DE DEBIT</mat-option>
+        <mat-option value="FACTURE">Facture</mat-option>
+        <mat-option value="NOTE_DE_CREDIT">Note de crédit</mat-option>
+        <mat-option value="NOTE_DE_DEBIT">Note de débit</mat-option>
       </mat-select>
 
     </mat-form-field>
@@ -34,11 +34,11 @@
         <mat-option *ngFor="let item of employeeList" [value]="item"> [{{item.role}}
           ]  {{item.lastname}} {{item.firstname}} </mat-option>
 
-      </mat-select>
-      <select formControlName="employee" *ngIf="employeeList$ | async as employeeList">
-        <option *ngFor="let item of employeeList" [value]="item"> [{{item.role}}
-          ]  {{item.lastname}} {{item.firstname}} </option>
-      </select>
+        </mat-select>
+        <select formControlName="employee" *ngIf="employeeList$ | async as employeeList">
+          <option *ngFor="let item of employeeList" [value]="item"> [{{item.role}}
+            ]  {{item.lastname}} {{item.firstname}} </option>
+        </select>
     </mat-form-field>
 
     <mat-form-field appearance="legacy">
@@ -52,20 +52,19 @@
 
   </form>
 </div>
-
-
 <div mat-dialog-actions [align]="'end'">
-  <button mat-raised-button color="primary" mat-dialog-close> Créer</button>
-  <button mat-raised-button color="accent" mat-dialog-close> Mettre à jour</button>
-  <button mat-raised-button color="warn" mat-dialog-close>Annuler</button>
+  <button mat-raised-button
+          color="primary"
+          mat-dialog-close
+          (click)="save()">
+    {{'document.buttonSave' | translate}}
+  </button>
+  <button mat-raised-button color="warn" mat-dialog-close>
+    {{'document.buttonCancel' | translate}}
+  </button>
 
 
 </div>
-<mat-card class="mt-2">
-  <app-form-btn (onClick)="save()" [css]="'save-btn'" [label]="label">
-    Créer un document
-  </app-form-btn>
-</mat-card>
 
 
 

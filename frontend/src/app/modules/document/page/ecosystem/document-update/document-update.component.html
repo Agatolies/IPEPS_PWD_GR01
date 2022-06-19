@@ -1,4 +1,4 @@
 
-<app-document-form [payload]="data.payload" [type]="formAction"></app-document-form>
+<app-document-form [payload]="data.payload" (onSubmit)="($event)"></app-document-form>
 
 <p>Mise à jour: {{lastUpdate | date}}</p>

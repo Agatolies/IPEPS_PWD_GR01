@@ -24,6 +24,8 @@ import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatRadioModule} from "@angular/material/radio";
 import {MatInputModule} from "@angular/material/input";
 import {MatSelectModule} from "@angular/material/select";
+import {MatTableModule} from "@angular/material/table";
+import {TranslateModule} from "@ngx-translate/core";
 
 
 @NgModule({
@@ -53,7 +55,9 @@ import {MatSelectModule} from "@angular/material/select";
     MatFormFieldModule,
     MatRadioModule,
     MatInputModule,
-    MatSelectModule
+    MatSelectModule,
+    MatTableModule,
+    TranslateModule
   ]
 })
 export class DocumentModule { }
