@@ -2,7 +2,6 @@
 <button (click)="create()">créer</button>
 <ng-container *ngIf="documentService.list$ | async as list">
   <ng-container *ngIf="list.length > 0 ; else noData">
-    {{list | json}}
     <table>
       <tr>
         <td>id</td>
@@ -14,7 +13,10 @@
         <td>{{item.id}}</td>
         <td>{{item.name}}</td>
         <td>{{item.path}}</td>
-        <td><button (click)="update(item)">update</button><button (click)="delete(item)">Delete</button></td>
+        <td>
+          <button (click)="update(item)">update</button>
+          <button (click)="delete(item)">Delete</button>
+        </td>
       </tr>
     </table>
   </ng-container>

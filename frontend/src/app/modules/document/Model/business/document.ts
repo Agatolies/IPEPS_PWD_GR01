@@ -10,7 +10,6 @@ export interface Document extends IsEmpty {
   path: string;
   type: string;
   freeAccess: boolean;
-  /*employee?: Employee;
+  employee?: Employee;
   organization?: Organization;
-  transaction?: TransactionDto; // bullshit mais pas de temps pour régler ceci.*/
 }

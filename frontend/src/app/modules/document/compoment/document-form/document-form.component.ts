@@ -78,9 +78,8 @@ export class DocumentFormComponent implements OnInit {
       description: new FormControl(this.payload.description),
       path: new FormControl(this.payload.path),
       type: new FormControl(this.payload.type),
-      employee: new FormControl(this.payload),
-      transaction: new FormControl((this.payload)),
-      organization: new FormControl((this.payload))
+      employee: new FormControl(this.payload.employee),
+      organization: new FormControl((this.payload.organization))
     });
   }
 

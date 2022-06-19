@@ -31,12 +31,10 @@ public class Document {
     @JoinColumn(name = "transaction_id_fk", referencedColumnName = "transaction_id")
     private Transaction transaction;
 
-    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "employee_id_fk", referencedColumnName = "employee_id")
     private Employee employee;
 
-    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "organization_id_fk", referencedColumnName = "organization_id")
     private Organization organization;

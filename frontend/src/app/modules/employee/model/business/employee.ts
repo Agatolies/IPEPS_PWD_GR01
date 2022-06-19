@@ -1,10 +1,10 @@
-import {Organization} from "@organization/model";
-import {Account} from "@account/model";
+import { Organization } from "@organization/model";
 
 export interface Employee {
   id: string;
   role: string;
   actif: boolean;
   organization: Organization;
-  account: Account;
+  firstname: string;
+  lastname: string;
 }

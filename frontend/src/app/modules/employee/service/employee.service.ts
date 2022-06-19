@@ -4,8 +4,7 @@ import { Observable } from "rxjs";
 import { map } from "rxjs/operators";
 import { ApiResponse, ApiUriEnum } from "@shared/model";
 import { Employee, EmployeeCreatePayload, EmployeeDto, EmployeeUpdatePayload } from "@employee/model";
-import { AccountHelper } from '@account/helper';
-import { TransactionDto } from '../../wallet/model/dto/transaction.dto';
+import { EmployeeHelper } from '@employee/helper/employee.helper';
 
 // Déplacer cette interface dans les modèles du module Employee
 export interface EmployeeForDropdown {
@@ -21,28 +20,17 @@ export class EmployeeService extends ApiService {
   constructor(public http: HttpService) {
     super(http);
   }
+
   public getListOfEmployeeForDropdown(): Observable<EmployeeDto[]> {
     return this.get(ApiUriEnum.EMPLOYEE_LIST)
       .pipe(map(response => response.data as EmployeeDto[])
       )
   }
+
   public getList(): Observable<Employee[]> {
     return this.get(ApiUriEnum.EMPLOYEE_LIST).pipe(map((response: ApiResponse) => {
       return (response.result) ? [] :
-        (response.data as EmployeeDto[]).map((transforme: EmployeeDto) => {
-          return {
-            id: transforme.employee_id,
-            role: transforme.role,
-            actif: transforme.actif,
-            organization: {
-              id: transforme.organization.organization_id,
-              name: transforme.organization.name,
-              description: transforme.organization.description,
-              actif: transforme.organization.actif
-            },
-            account: AccountHelper.fromDto(transforme.account)
-          };
-        })
+        (response.data as EmployeeDto[]).map((transforme: EmployeeDto) => EmployeeHelper.fromDto(transforme))
     }));
   }
 
@@ -57,8 +45,8 @@ export class EmployeeService extends ApiService {
           const employeesForDropdown: EmployeeForDropdown[] = employeesDto
             .map(employeeDto => {
               // Je prends dans employeeDto.account, firstName et lastName
-              const firstname = employeeDto.account?.firstname;
-              const lastname = employeeDto.account?.lastname;
+              const firstname = employeeDto.firstname;
+              const lastname = employeeDto.lastname;
 
               return {
                 employeeId: employeeDto.employee_id,

@@ -8,7 +8,7 @@ import { isNil } from 'lodash';
 
 export class OrganizationHelper {
   public static fromDto(dto: OrganizationDto): Organization {
-    return {
+    return (isNil(dto)) ? OrganizationHelper.getEmpty() : {
       id: dto.organization_id,
       name: dto.name,
       description: dto.description,

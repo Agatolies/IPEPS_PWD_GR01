@@ -5,6 +5,7 @@ import { Document } from '../../../Model';
 import { DocumentCreateComponent } from '../document-create/document-create.component';
 import { MatDialog } from '@angular/material/dialog';
 import { DocumentUpdateComponent } from '../document-update/document-update.component';
+import { DocumentHelper } from '../../../helper/document.helper';
 
 @Component({
   selector: 'app-document-home',
@@ -12,26 +13,29 @@ import { DocumentUpdateComponent } from '../document-update/document-update.comp
   styleUrls: ['./document-home.component.scss']
 })
 export class DocumentHomeComponent implements OnInit {
-  constructor(private openDocumentCreate: MatDialog,
-              private openDocumentDetail: MatDialog,
-              private openDocumentUpdate: MatDialog,
+  constructor(private dialogRef: MatDialog,
               public documentService: DocumentService,
               public router: Router) {
   }
 
   ngOnInit(): void {
-    this.documentService.getList().subscribe((data:Document[])=>console.log('data',data));
+    this.documentService.getList().subscribe();
   }
 
   create(): void {
-    this.openDocumentCreate.open(DocumentCreateComponent, {
-      width: '75%'
+    this.dialogRef.open(DocumentCreateComponent, {
+      width: '75%', data: {
+        payload: DocumentHelper.getCreatePayload()
+      }
     });
   }
 
   update(document: Document): void {
-    this.openDocumentUpdate.open(DocumentUpdateComponent, {
-      width: '75%'
+    console.log('document to update', document);
+    this.dialogRef.open(DocumentUpdateComponent, {
+      width: '75%', data: {
+        payload: DocumentHelper.fromDtoUpdatePayload(DocumentHelper.toDto(document))
+      }
     });
 
   }

@@ -6,7 +6,8 @@ import { isNil } from 'lodash';
 export class EmployeeHelper {
   public static fromDto(dto: EmployeeDto): Employee {
     return {
-      account: AccountHelper.fromDto(dto.account),
+      firstname:dto.firstname,
+      lastname:dto.lastname,
       actif: dto.actif,
       id: dto.employee_id,
       organization: OrganizationHelper.fromDto(dto.organization),
@@ -18,7 +19,8 @@ export class EmployeeHelper {
   public static toDto(business: Employee): EmployeeDto {
 
     return (isNil(business))?  EmployeeHelper.toDto(EmployeeHelper.getEmpty()) : {
-      account: AccountHelper.toDto(business.account),
+      firstname:business.firstname,
+      lastname:business.lastname,
       actif: business.actif,
       employee_id: business.id, salaries: [], wallets: [],
       organization: OrganizationHelper.toDto(business.organization),
@@ -29,7 +31,8 @@ export class EmployeeHelper {
 
   static getEmpty(): Employee {
     return {
-      account: AccountHelper.getEmpty(),
+      firstname:'',
+      lastname:'',
       actif: false,
       id: '',
       organization: OrganizationHelper.getEmpty(),

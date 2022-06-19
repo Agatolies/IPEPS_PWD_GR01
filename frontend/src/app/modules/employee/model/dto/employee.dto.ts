@@ -10,5 +10,6 @@ export interface EmployeeDto {
   wallets: WalletDto[];
   salaries: SalaryDto[];
   organization: OrganizationDto;
-  account: AccountDto;
+  firstname:string;
+  lastname:string;
 }

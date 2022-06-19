@@ -5,6 +5,7 @@ import { isNil } from 'lodash';
 
 export class DocumentHelper {
   public static fromDTO(dto: Documentdto): Document {
+    console.log('dto a transformé', dto);
     return {
       id: dto.document_id,
       name: dto.name,
@@ -12,9 +13,9 @@ export class DocumentHelper {
       path: dto.path,
       type: dto.type,
       freeAccess: dto.freeAccess,
-     /* employee: EmployeeHelper.fromDto(dto.employee),
-      organization: OrganizationHelper.fromDto(dto.organization),
-      transaction: dto.transaction,*/
+      employee: (isNil(dto.employee)) ? undefined : EmployeeHelper.fromDto(dto.employee),
+      organization: (isNil(dto.organization)) ? undefined : OrganizationHelper.fromDto(dto.organization),
+
       isEmpty: false
     }
   }
@@ -27,9 +28,8 @@ export class DocumentHelper {
       path: business.path,
       type: business.type,
       freeAccess: business.freeAccess,
-      /*employee: EmployeeHelper.toDto(business.employee!),
+      employee: EmployeeHelper.toDto(business.employee!),
       organization: OrganizationHelper.toDto(business.organization!),
-      transaction: business.transaction!*/
     }
   }
 
@@ -70,13 +70,12 @@ export class DocumentHelper {
     return {
       description: dto.description,
       document_id: dto.document_id,
-      employee: (isNil(dto.employee))? EmployeeHelper.toDto(EmployeeHelper.getEmpty()) : dto.employee,
+      employee: (isNil(dto.employee)) ? EmployeeHelper.toDto(EmployeeHelper.getEmpty()) : dto.employee,
       freeAccess: false,
-      name: '',
-      organization: (isNil(dto.organization))? OrganizationHelper.toDto(OrganizationHelper.getEmpty()) : dto.organization,
-      path: '',
-      transaction: dto.transaction!,
-      type: ''
+      name: dto.name,
+      organization: (isNil(dto.organization)) ? OrganizationHelper.toDto(OrganizationHelper.getEmpty()) : dto.organization,
+      path: dto.path,
+      type: dto.type
     }
   }
 

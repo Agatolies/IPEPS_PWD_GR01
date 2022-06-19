@@ -1,6 +1,8 @@
 package ipeps.pwd.wallet.entity;
 
-import com.fasterxml.jackson.annotation.*;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -28,7 +30,15 @@ public class Employee {
     private String role;
     private boolean actif;
 
-//    @JsonIgnore
+    public String getFirstname() {
+        return account.getFirstname();
+    }
+
+    public String getLastname() {
+        return account.getLastname();
+    }
+
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "account_id_fk")
     private Account account;
@@ -44,6 +54,7 @@ public class Employee {
     // orphanRemoval = true : l'item orphelin d'une entité sera supprimée lorsque l'item de l'entité sera retiré de la commande.
     private List<Document> documents;
 
+    @JsonIgnore
 //    @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL, orphanRemoval = true)
     @OneToMany(mappedBy = "employee")
 //    @JoinColumn(name="employee_id_fk", referencedColumnName = "employee_id")
@@ -53,6 +64,7 @@ public class Employee {
     @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Salary> salaries;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "organization_id_fk")
     private Organization organization;
